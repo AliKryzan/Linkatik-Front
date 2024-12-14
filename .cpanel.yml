@@ -1,5 +1,4 @@
-
+---
 deployment:
   tasks:
-    - export DEPLOY_PATH=/home/applinkatik/public_html
-    - /bin/cp -r ./* $DEPLOY_PATH/
+    - /bin/cp -r * /home/applinkatik/public_html/
