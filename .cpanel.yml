@@ -2,12 +2,10 @@
 deployment:
   tasks:
     - echo "Starting Vite React app deployment..."
-    - echo "Step 1: Cleaning up old files in public_html."
-    - rm -rf /home/applinkatik/public_html/*
-    - echo "Step 2: Installing dependencies."
+    - echo "Step 1: Installing dependencies."
     - npm install
-    - echo "Step 3: Building the Vite app."
+    - echo "Step 2: Building the Vite app."
     - npm run build
-    - echo "Step 4: Deploying build output to public_html."
-    - cp -r dist/* /home/applinkatik/public_html/
+    - echo "Step 3: Replacing old files with new ones in public_html."
+    - cp -ru dist/* /home/applinkatik/public_html/
     - echo "Deployment completed successfully!"
