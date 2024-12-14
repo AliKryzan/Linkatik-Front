@@ -1,0 +1,8 @@
+{
+  "general": {
+    "dashboard": "dashboard"
+  },
+  "login": {
+    "welcomeBack": "Welcome Back"
+  }
+}

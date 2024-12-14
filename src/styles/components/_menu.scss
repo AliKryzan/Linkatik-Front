@@ -1,0 +1,10 @@
+.menu-dropdown {
+    border: none;
+    .menu-label {
+        font-size: px-to-rem(13px);
+    }
+    .menu-item {
+        font-size: px-to-rem(14px);
+        padding: px-to-rem(6px) px-to-rem(18px);
+    }
+}

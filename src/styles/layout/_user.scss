@@ -1,0 +1,26 @@
+.user-layout {
+    .navbar {
+        // background-color: ;
+        .nav-item {
+            text-decoration: none;
+            color: $gray-text;
+            padding: px-to-rem(8px);
+            border-radius: var(--mantine-radius-md);
+            transition: all 250ms ease;
+            &:hover {
+                background-color: $primary;
+                color: white;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mantine-breakpoint-md) {
+    .user-layout {
+        .navbar {
+            .navbar-logo {
+                display: none;
+            }
+        }
+    }
+}

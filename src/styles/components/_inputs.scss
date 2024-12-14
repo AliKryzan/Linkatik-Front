@@ -1,0 +1,5 @@
+.input {
+    &::placeholder {
+        font-size: px-to-rem(12px) !important;
+    }
+}

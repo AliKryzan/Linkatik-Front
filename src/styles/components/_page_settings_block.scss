@@ -1,0 +1,11 @@
+.page-settings-block {
+    border-radius: var(--mantine-radius-md);
+    padding: var(--mantine-spacing-md);
+    @include light {
+        background-color: var(--mantine-color-gray-0);
+    }
+
+    @include dark {
+        background-color: var(--mantine-color-dark-6);
+    }
+}

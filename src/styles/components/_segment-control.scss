@@ -1,0 +1,13 @@
+.segment-control-root {
+    // background-color: $light-gray;
+
+    [data-active] {
+        label {
+            color: $primary !important;
+        }
+    }
+
+    label {
+        padding: px-to-rem(8px) var(--mantine-spacing-lg);
+    }
+}

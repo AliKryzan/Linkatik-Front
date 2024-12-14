@@ -1,0 +1,33 @@
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react"
+
+// Import Swiper styles
+import "swiper/css"
+
+import { Box, Text } from "@mantine/core"
+
+const ImageSliderPreview = ({ block }) => {
+  return (
+    <Swiper
+      className="image-slider link-preview"
+      spaceBetween={15}
+      slidesPerView={2}
+      onSlideChange={() => console.log("slide change")}
+      onSwiper={(swiper) => console.log(swiper)}>
+      {block.settings.images.map((image, index) => (
+        <SwiperSlide key={index}>
+          <Box className="slide">
+            <div className="image-wrapper">
+              <img className="slide-image" src={image.image_url} alt={image.image_name} />
+            </div>
+            <Text ta={"center"} py={"sm"} size="sm" fw={700}>
+              {image.image_name}
+            </Text>
+          </Box>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  )
+}
+
+export default ImageSliderPreview

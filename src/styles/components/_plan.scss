@@ -1,0 +1,21 @@
+.plan {
+    border: 1px solid $border-color;
+    border-radius: var(--mantine-radius-lg);
+    width: 100%;
+    max-width: 275px;
+    padding: var(--mantine-spacing-xl) var(--mantine-spacing-lg);
+    position: relative;
+    .lucide {
+        color: $primary;
+        width: 18px;
+        stroke-width: 2px;
+        flex-shrink: 0;
+    }
+    .featured-badge {
+        position: absolute;
+        top: 0;
+        right: 50%;
+        transform: translate(50%, -50%);
+        font-weight: normal;
+    }
+}

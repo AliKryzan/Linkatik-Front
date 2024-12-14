@@ -1,0 +1,21 @@
+.interests-label {
+    margin-bottom: px-to-rem(12px);
+    font-weight: 400;
+}
+.interests-radio-root {
+    position: relative;
+    transition: all 150ms ease;
+    &[data-checked] {
+        color: white;
+        background-color: $primary;
+    }
+}
+
+.animation-type-radio-root {
+    position: relative;
+    transition: all 150ms ease;
+    &[data-checked] {
+        border-color: $primary;
+        background-color: var(--mantine-color-primary-0);
+    }
+}

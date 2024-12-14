@@ -1,0 +1,32 @@
+.products-checkbox-root {
+  position: relative;
+  border: none;
+  width: fit-content;
+  .image-wrapper {
+    border: 1px solid gray;
+    transition: border-color 150ms ease;
+    border-radius: var(--mantine-border-radius);
+    overflow: hidden;
+    border-radius: var(--mantine-radius-md);
+    aspect-ratio: 1/1;
+  }
+  &[data-checked] {
+    .image-wrapper {
+      border-color: var(--mantine-primary-color-filled);
+    }
+  }
+
+  .indicator {
+    position: absolute;
+    right: 0.3rem;
+    top: 0.3rem;
+    z-index: 1;
+  }
+  .label {
+    font-size: var(--mantine-font-size-sm);
+    line-height: 1.3;
+    font-weight: 500;
+    color: var(--mantine-color-bright);
+    text-align: center;
+  }
+}

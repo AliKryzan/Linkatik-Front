@@ -1,0 +1,30 @@
+body {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+html body[data-scroll-locked] {
+    margin-right: 0 !important;
+}
+
+:root[data-mantine-color-scheme="dark"] {
+    --mantine-color-gray-8: var(--mantine-color-gray-3);
+}
+
+p {
+    margin: 0;
+}
+
+.spinner {
+    animation: spin 1s linear infinite; /* Spin animation */
+}
+
+/* Keyframes for the spinning animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

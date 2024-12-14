@@ -1,0 +1,941 @@
+{
+  "general": {
+    "profile": "الملف الشخصي",
+    "payouts": "المبيعات",
+    "settings": "الاعدادات",
+    "domain": "الدومين",
+    "integrations": "الربط مع المنصات",
+    "dashboard": "لوحة التحكم",
+    "bioPages": "صفحات البيو",
+    "qrCodes": "Qr Codes",
+    "products": "المنتحات",
+    "paymentGateways": "بوابات الدفع",
+    "subscriptions": "الاشتراكات",
+    "orders": "الطلبات",
+    "darkMode": "الوضع الداكن",
+    "lightMode": "الوضع الفاتح",
+    "logout": "خروج",
+    "updateUserError": "حدث خطاء في تحديث البيانات"
+  },
+  "login": {
+    "title": "أهلا بعودتك",
+    "description": "سجل دخول للنكاتك",
+    "emailInput": "إيميلك",
+    "passwordInput": "كلمة المرور",
+    "loginButton": "دخول",
+    "registerButton": "التسجيل",
+    "doseNotHaveAccount": "ليس لديك حساب؟",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "appleButton": "سجل دخول باستخدام Apple",
+    "googleButton": "سجل دخول باستخدام google",
+    "warning": "هذا الموقع محمي باستخدام reCAPTCHA. و<Link rel='noopener' target=\"_blank\" href=\"https://google.com\">سياسة الخصوصية</Link> و<TermsLink rel='noopener' target=\"_blank\" href=\"https://google.com\">شروط الاستخدام</TermsLink> لقوقل ",
+    "or": "أو",
+    "errors": {
+      "socialLogin": "حدث خطأ ما",
+      "invalidEmail": "البريد الإلكتروني غير صالح",
+      "short": "كلمة المرور قصيرة جدا",
+      "long": "كلمة المرور طويلة جدا",
+      "required": "هذا الحقل مطلوب",
+      "invalidLogin": "البريد الإلكتروني او كلمة المرور غير صحيحة",
+      "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
+    }
+  },
+  "signUp": {
+    "title": "أنظم للنكاتك",
+    "description": "أختر اسم المستخدم الخاص بك, يمكنك تغيره متى كنت تريد",
+    "usernameInput": "اسم المستخدم",
+    "emailInput": "إيميلك",
+    "passwordInput": "كلمة المرور",
+    "signUpButton": "انشأ حساب",
+    "loginButton": "سجل دخول",
+    "haveAccount": "لديك حساب؟",
+    "warning": "باضغط على انشاء حساب انت توافق على <Link to=\"to\">الشروط والاحكام</Link> وتأكد انك قراءت <PrivacyPolicyLink to=\"to\">سياسة الخصوصية</PrivacyPolicyLink> الخاصة بمنصة لنكاتك. ربما تتلقى عروض والاخبار والتحديثات مننا.",
+    "or": "أو",
+    "errors": {
+      "invalidEmail": "البريد الإلكتروني غير صالح",
+      "short": "كلمة المرور قصيرة جدا",
+      "long": "كلمة المرور طويلة جدا",
+      "required": "هذا الحقل مطلوب",
+      "invalidUsername": "اسم المستخدم قد يحتوى على حروف او ارقام او - او _",
+      "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
+    }
+  },
+  "userInfo": {
+    "title": "أخبرنا عن نفسك",
+    "description": "لتجربة شخصية افضل",
+    "nameInput": "أخبرنا ب اسمك",
+    "continueButton": "متابعة",
+    "interestsLabel": "حدد فئة واحدة تصف اهتمامك بشكل أفضل: ",
+    "subInterestsLabel": "حدد تصنيف اكتر دقة: (أختياري)",
+    "errors": {
+      "short": "كلمة المرور قصيرة جدا",
+      "long": "كلمة المرور طويلة جدا",
+      "required": "هذا الحقل مطلوب",
+      "invalidResponse": "حدث خطاء في الاتصال بالسيرفر",
+      "invalidName": "الاسم غير صالح"
+    }
+  },
+  "forgotPassword": {
+    "title": "نسيان كلمة المرور",
+    "description": "سيم ارسال ايميل لتغيير كلمة المرور",
+    "emailInput": "أيميلك",
+    "submitButton": "أرسل ايميل",
+    "successMessage": "تم ارسال الايميل بنجاح, الرجاء الحقق من البريد الالكتروني لتغيير كلمة المرور",
+
+    "errors": {
+      "invalidEmail": "البريد الإلكتروني غير صالح",
+
+      "required": "هذا الحقل مطلوب",
+      "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
+    }
+  },
+
+  "plans": {
+    "title": "جد الخطة المناسبة لك",
+    "description": "يمكنك تغير الخطة فيما بعد",
+    "monthly_price": "شهري",
+    "annual_price": "سنوي",
+    "getStarted": "ابدأ",
+    "featured": "مميزة",
+    "names": {
+      "free": "مجانية",
+      "pro": "الاحترافية",
+      "premium": "المميزة"
+    },
+    "plansDescription": {
+      "free": "مجانية, مجانية مدى الحياة",
+      "pro": "وصف للخطة الاحترافية",
+      "premium": "وصف للخطة المميزة"
+    },
+    "planContains": {
+      "free": " ما تحتويه الخطة المجانية",
+      "pro": "ما تحتويه الخطة الاحترافية",
+      "premium": "ما تحتويه الخطة المميزة"
+    },
+    "settings": {
+      "seo": "تحسين محركات البحث",
+      "fonts": "ميزة تغير الخط",
+      "pdf_size": " عدد {{value}} ملفات PDF  ",
+      "file_size": " عدد {{value}} ملفات PDF  ",
+      "subscribe": "الاشتراك",
+      "image_size": "حجم الصورة الاقصى {{value}} MB",
+      "video_size": "حجم الفديو الاقصى {{value}} MB",
+      "ai_bio_link": "مساعد الذكاء الناعي",
+      "links_limit": "عدد الرابطات الاقصى {{value}}",
+      "products_limit": "عدد المنتجات الاقصى {{value}}",
+      "qr_codes_limit": "عدد {{value}} QRs",
+      "bio_links_limit": "عدد الصفحات {{value}}",
+      "sensitive_content": "المحتوى الحساس",
+      "custom_backgrounds": "الخلفية الخاصة",
+      "removable_branding": "تغيير العلامة التجارية",
+      "advanced_statistics": "احصائيات متقدمة",
+      "password_protection": "حماية الروابط بكلمات مرور",
+      "prioritize_schedule": "جدولة النكات",
+      "analytics_integrations": "تضمين الاحصائيات",
+      "custom_footer_branding": "تغيير العلامة التجارية في الفوتر",
+      "customer_domains_limit": "عدد الدومينات الخاصة بك",
+      "links_statistics_limit": "احصائيات الروابط {{value}}",
+      "payment_processors_limit": "عدد {{value}} Payment Processors",
+      "bio_link_blocks_per_bio_link_page_limit": "عدد {{value}} Bio Link Blocks per Bio Link Page",
+      "bio_pages_limit": "عدد الصفحات {{value}}",
+      "bio_blocks_limit": "عدد {{value}} Bio Blocks"
+    },
+    "billed": {
+      "free": "مجانية, مجانية مدى الحياة",
+      "monthly_price": "شهرية, تدفع كل شهر",
+      "annual_price": "سنوية, تدفع كل سنة"
+    },
+    "errors": {
+      "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
+    }
+  },
+  "thankYou": {
+    "title": "شكرا لانظمامك للنكاتك",
+    "description": "لتاكيد حسابك الرجاء الضغط على الاميل المرسل لك",
+    "continueButton": "اذهب الى حسابك"
+  },
+
+  "header": {
+    "upgrade": "ترقية",
+    "account": "الحساب",
+    "myAccount": "حسابي",
+    "billing": "الفواتير",
+    "support": "الدعم",
+    "askAQuestion": "اسألك سؤال",
+    "helpTopics": "مواضيع مساعدة",
+    "signOut": "سجل خروج"
+  },
+
+  "dashboard": {
+    "title": "لوحة التحكم"
+  },
+
+  "profile": {
+    "title": "الملف الشخصي",
+    "usernameInput": "اسم المستخدم",
+    "emailInput": "إيميلك",
+    "updateButton": "حفظ التعديلات",
+    "nameInput": "الاسم",
+    "interestsLabel": "حدد فئة واحدة تصف اهتمامك بشكل أفضل: ",
+    "subInterestsLabel": "حدد تصنيف اكتر دقة: (أختياري)",
+    "oldPasswordInput": "كلمة المرور الحالية",
+    "newPasswordInput": "كلمة المرور الجديدة",
+    "updatePassword": "تعديل كلمة المرور",
+    "updateSuccess": "تم تحديث الملف الشخصي بنجاح",
+    "updatePasswordSuccess": "تم تعديل كلمة المرور بنجاح",
+    "deleteProfileTitle": "حذف الحساب",
+    "deleteProfileDescription": "حذف الحساب مع جميع الصفحات الخاصة بك بشكل كامل ونهائي",
+    "deleteProfileButton": "حذف الملف الشخصي",
+    "errors": {
+      "invalidEmail": "البريد الإلكتروني غير صالح",
+      "short": "كلمة المرور قصيرة جدا",
+      "long": "كلمة المرور طويلة جدا",
+      "required": "هذا الحقل مطلوب",
+      "invalidUsername": "اسم المستخدم قد يحتوى على حروف او ارقام او - او _",
+      "invalidResponse": "حدث خطاء في الاتصال بالسيرفر",
+      "invalidName": "الاسم غير صالح"
+    }
+  },
+  "bioPages": {
+    "title": "صفحات اللنكات",
+    "addButton": "اضافة صفحة",
+    "updateButton": "تعديل ",
+    "cancelButton": "الغاء",
+    "deleteButton": "حذف ",
+    "page_deleted_successfully": "تم حذف الصفحة بنجاح.",
+    "page_not_deleted": "لم يتم حذف الصفحة.",
+    "choose": "اضف",
+    "deleteModal": {
+      "title": "حذف صفحة اللنكات",
+      "description": "سيتم حذف صفحة اللنكات بشكل نهائي",
+      "successMessage": "تم حذف صفحة اللنكات بنجاح.",
+      "errorMessage": "تعذر حذف صفحة اللنكات",
+      "cancelButton": "الغاء",
+      "deleteButton": "حذف"
+    },
+    "table": {
+      "general": {
+        "buttons": "ازرار",
+        "blocks": "بلوكات"
+      },
+      "head": {
+        "id": "ID",
+        "title": "العنوان",
+        "path": "المسار",
+        "style": "التنسيق",
+        "createdAt": "تاريخ الاضافة",
+        "status": "الحالة"
+      }
+    },
+    "createPage": {
+      "preview": "عرض معاينة",
+      "createButton": "انشأ الصفحة",
+      "pathInput": {
+        "label": "مسار الصفحة",
+        "description": "يمكنك ترك الحقل فارغ ليتم انشاء مسار عشوائي",
+        "leftSection": "linkatik.com/"
+      },
+      "segments": {
+        "links": "روابط",
+        "appearance": "المظهر",
+        "analysis": "احصائيات",
+        "settings": "الاعدادات"
+      },
+      "title": " صفحة لنكات",
+      "errors": {
+        "required": "هذا الحقل مطلوب",
+        "invalidPath": "المسار غير صالح, يجب ان يحتوي على حروف او ارقام او - او _",
+        "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
+      }
+    },
+    "settings": {
+      "social": {
+        "title": "تحليلات مدى الحياة",
+        "subTitle": "أيقونات وسائل التواصل الاجتماعي",
+        "description": "أضف أيقونات مرتبطة بحسابات السوشل ميدا الخاصة بك والبريد الإلكتروني والمزيد",
+        "form": {
+          "button": "اضافة ايقونة",
+          "label": "الموقع",
+          "description": "موقع عرض الايقونات",
+          "top": "في الاعلى",
+          "bottom": "في الاسفل"
+        }
+      },
+      "mailing": {
+        "title": " القائمة البريدية",
+        "subTitle": "الاشتراك في البريد الإلكتروني",
+        "description": "أضف حقل تسجيل بريد إلكتروني إلى linkatik الخاص بك حتى يتمكن الزوار من الانضمام إلى قائمتك البريدية."
+      },
+      "commerce": {
+        "title": "التكامل التجاري",
+        "subTitle": "ربط مزود",
+        "description": "تمكين موفر معتمد أو الاشتراك فيه. ابدأ في جمع النصائح والمدفوعات ، أو بيع المنتجات والخدمات وأكثر من ذلك.",
+        "form": {
+          "tiktok": "تيك توك",
+          "zid": "زد",
+          "salla": "سلة",
+          "google_meet": "قوقل ميت",
+          "connect": "أربط",
+          "button": "إضافة تكامل جديد"
+        }
+      },
+      "sensitiveContent": {
+        "title": "المواد الحساسة",
+        "subTitle": "اعرض تحذيرا بشأن المحتوى الحساس قبل أن يتمكن الزوار من عرض ملفك الشخصي."
+      },
+      "seo": {
+        "title": "محسن محركات البحث",
+        "subTitle": "البيانات الوصفية المخصصة ",
+        "description": "قد تستغرق التغييرات في البيانات الوصفية بعض الوقت لتظهر على الأنظمة الأساسية الأخرى.",
+        "form": {
+          "titleInput": {
+            "placeholder": "عنوان الصفحة",
+            "description": "مثال: أحمد | محتوى الصفحة"
+          },
+          "descriptionInput": {
+            "placeholder": "وصف الصفحة",
+            "description": "مثال: لنكاتك, اجعل روابطك تعبر عنك"
+          }
+        }
+      },
+      "analyticsIntegration": {
+        "title": "ربط الاحصائيات",
+        "form": {
+          "facebook": {
+            "title": "فيسبوك",
+            "pixelId": {
+              "placeholder": "Pixel ID",
+              "description": "Example: 1234567890"
+            },
+            "accessToken": {
+              "placeholder": "رمز الوصول إلى واجهة برمجة تطبيقات تحويلات Facebook",
+              "description": "رمز مميز من مدير أحداث فيسبوك"
+            }
+          },
+          "google": {
+            "title": "قوقل",
+            "googleMeasurementId": {
+              "placeholder": "Google Measurement ID",
+              "description": "Example: UA-000000-2"
+            }
+          }
+        }
+      },
+      "subscribe": {
+        "title": "الاشتراك",
+        "subTitle": "السماح للزوار بالاشتراك",
+        "description": "أضف زرا حتى يتمكن الزوار من الاشتراك في Linkatik الخاص بك.",
+        "form": {
+          "label": "رابط الاشتراك",
+          "description": "شارك هذا الرابط لإعلام جمهورك بأنه يمكنهم الاشتراك.",
+          "placeholder": "linkatik.com/alikryzan"
+        }
+      },
+      "logo": {
+        "title": "اخفاء الشعار",
+        "subTitle": "اخفاء شعار لنكاتك من صفحة البايو "
+      },
+      "button": "حفظ"
+    },
+    "analysis": {
+      "clicks_os": "أنظمة التشغيل",
+      "clicks_browsers": "المتصفحات",
+      "cities": "المدن"
+    },
+    "appearance": {
+      "title": "المظهر",
+      "pickImageButton": "اختر صورة",
+      "removeImageButton": "حذف الصورة",
+      "profile": {
+        "title": "الملف الشخصي",
+        "titleInput": "عنوان الصفحة",
+        "bioInput": "وصف الصفحة",
+        "button": "حفظ"
+      },
+      "themes": {
+        "title": "المظهر",
+        "createYourTheme": "انشأ المظهر الخاص بك",
+        "background": "الخلفية",
+        "color": "اللون",
+        "size": "الحجم",
+        "radius": "الزوايا",
+        "preview": "عرض معاينة",
+        "transparent": "شفاف",
+        "dark": "داكن",
+        "outline": "بحواف",
+        "filled": "مسمط",
+        "light": "فاتح",
+        "shadow": "ظل",
+        "style": "التنسيق",
+        "font": "الخط",
+        "form": {
+          "title": "مظهر خاص",
+          "description": "تخصيص ملف صفحة البايو الخاص بك بالكامل. تغيير الخلفية الخاصة بك مع الألوان . اختر نمط زر ، وقم بتغيير الخط والمزيد.",
+          "preset": "لون واحد",
+          "gradient": "لون مدرج",
+          "background": "الخلفية",
+          "buttons": "الازراز",
+          "image": "صورة",
+          "button": "حفظ المظهر"
+        }
+      },
+      "errors": {
+        "serverError": "حدث خطاء في الاتصال بالسيرفر",
+        "invalidDate": "التاريخ غير صالح",
+        "required": "هذا الحقل مطلوب",
+        "invalidValue": "قيمة غير صالحة",
+        "fileRequired": "الرجاء اضافة عنصر"
+      }
+    },
+    "bioPage": {
+      "addLinkButton": "اضافة رابط"
+    }
+  },
+  "subscribe": {
+    "form": {
+      "button": "اشترك",
+      "errors": {
+        "invalidEmail": "البريد الإلكتروني غير صالح",
+        "short": "كلمة المرور قصيرة جدا",
+        "long": "كلمة المرور طويلة جدا",
+        "required": "هذا الحقل مطلوب",
+        "invalidName": "الاسم غير صالح",
+        "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
+      }
+    }
+  },
+  "bioPage": {
+    "subscribe": "الاشتراك"
+  },
+  "cropImageModal": {
+    "title": "تعديل الصورة",
+    "cancel": "الغاء",
+    "crop": "حفظ"
+  },
+  "bioBlocks": {
+    "general": {
+      "choose": "اختر",
+      "generalTitle": "شارك محتواك",
+      "generalDescription": "قم بمشاركة المحتوى الخاص بك مباشرة الى لينكاتك",
+      "commercialTitle": "التجارة",
+      "commercialDescription": "قم بعرض منتجاتك الرقمية والمنصات التجارية",
+      "advancedTitle": "التجارة",
+      "advancedDescription": "قم بعرض منتجاتك الرقمية والمنصات التجارية",
+      "searchPlaceholder": "بحث ...",
+      "upgradeMessage": "الرجاء ترقية حسابك لتتمكن من فتح هذا العنصر",
+      "bio_block_deleted_successfully": "تم حذف البلوك بنجاح",
+      "bio_block_deleted_error": "تعذر حذف البلوك"
+    },
+    "deleteModal": {
+      "title": "حذف اللينك",
+      "description": "سيتم حذف اللينك بشكل نهائي",
+      "successMessage": "تم حذف اللينك بنجاح.",
+      "errorMessage": "تعذر حذف اللينك",
+      "cancelButton": "الغاء",
+      "deleteButton": "حذف"
+    },
+    "createBlock": {
+      "custom": {
+        "header": {
+          "title": "العنوان",
+          "type": "نوع العنوان",
+          "large": "كبير",
+          "medium": "متوسط",
+          "small": "صغير"
+        },
+        "countdown": {
+          "title": "ثم بتحديد معود انتهاء العد التنازلي ",
+          "form": {
+            "end_date": "تاريخ الانتهاء",
+            "theme": "الثيم",
+            "button": "حفظ"
+          }
+        },
+        "contactForm": {
+          "title": "الحقول",
+          "description": "استخدم الحقول لجمع نوع معين من المعلومات. ضع علامة على حقل مطلوب لجعله إلزاميا على الزوار إكماله.",
+          "form": {
+            "title": "عنوان النموذج",
+            "name": "الاسم",
+            "email_from": "ايميل المرسل",
+            "phone": "رقم المرسل",
+            "message": "الرسالة",
+            "country": "دولة المرسل",
+            "required": "حقل مطلوب",
+            "enabled": "مطلوب",
+            "email_to": "ايميل التواصل",
+            "email_to_description": "ارسل البريد مباشرة اليك",
+            "thank_you_message": "رسالة الشكر",
+            "button": "اضافة"
+          }
+        },
+        "divider": {
+          "margin_top": "مساحة للاعلى",
+          "margin_bottom": "مساحة للاسفل"
+        },
+        "text_block": {
+          "content": "محتوى النص"
+        },
+        "socials": {
+          "email": "الايميل",
+          "phone": "رقم التواصل",
+          "whatsapp": "واتساب",
+          "telegram": "تلجرام",
+          "linkedin": "لينكدان",
+          "facebook": "فيسبوك",
+          "twitter": "منصة اكس",
+          "instagram": "انستجرام",
+          "youtube": "يوتيوب"
+        },
+        "discord": {
+          "channel_id": "ID القناة"
+        },
+        "faq": {
+          "question": "سؤال",
+          "answer": "جواب",
+          "add": "اضافة"
+        },
+        "email_collector": {
+          "email": "الايميل",
+          "name": "الاسم"
+        },
+        "vcard": {
+          "title": "معلومات التواصل",
+          "description": "سيتم تحويل معلومات التواصل لملف قابل للتحميل",
+          "title_input": "عنوان البلوك",
+          "first_name": "الاسم الاول",
+          "last_name": "اسم العائلة",
+          "email": "الايميل",
+          "phone": "رقم التواصل",
+          "address_street": "العنوان"
+        }
+      },
+      "urlInputLabel": "الرابط",
+      "titleInputLabel": "عنوان البلوك",
+      "createButton": "اضافة البلوك",
+      "serverError": "حدث خطاء في الاتصال بالسيرفر",
+      "invalidDate": "التاريخ غير صالح",
+      "required": "هذا الحقل مطلوب",
+      "invalidValue": "قيمة غير صالحة",
+      "invalidEmail": "البريد الإلكتروني غير صالح",
+      "invalidSelection": "يرجى اختيار حقل واحد على الاقل",
+      "fileRequired": "الرجاء اضافة عنصر"
+    },
+    "tabs": {
+      "settings": {
+        "label": "الاعدادات",
+        "title": "اعدادت البلوك",
+        "description": "اعدادت متخصص للبلوك حسب النوع",
+        "linkBehavior": {
+          "title": "قم بتحديد الية عرض اللينك في صفحتك"
+        },
+        "form": {
+          "button": "حفظ"
+        }
+      },
+      "lock": {
+        "label": "قفل اللينك",
+        "title": "قفل اللينك",
+        "description": "يمكن للزوار الوصول إلى هذا الرابط فقط من خلال استيفاء معايير معينة.",
+        "alerts": {
+          "show_with_code": "القفل غير فعال بعد",
+          "show_with_code_d": "يجب ادخال رمز مكون من 4 ارقام لتفعيل القفل",
+          "show_with_birthday": "القفل غير فعال بعد",
+          "show_with_birthday_d": "قم بتحديد العمر الادنا لتفعيل القفل"
+        },
+        "form": {
+          "show_with_code": "عرض برمز التحقق",
+          "show_with_code_d": "يحتاج الزوار إلى إدخال رمز مكون من 4 أرقام لفتح الرابط",
+          "show_with_birthday": "عرض بتاريخ الميلاد",
+          "show_with_birthday_d": "يجب أن يكون الزوار فوق سن معينة لفتح الرابط مع تاريخ ميلادهم",
+          "show_with_subscribe": "عرض بعد الاشتراك",
+          "show_with_subscribe_d": "يجب على الزوار الاشتراك في Linkatik الخاص بك لفتح الرابط.",
+          "show_with_sensitive_content": "عرض بمحتوى حساس",
+          "show_with_sensitive_content_d": "يجب على الزوار الإقرار بأن هذا الرابط قد يحتوي على محتوى غير مناسب لجميع الجماهير.",
+          "birthday_year_label": "حدد العمر الادنى",
+          "button": "حفظ"
+        }
+      },
+      "schedule": {
+        "label": "جدولة اللينك",
+        "title": "الجدولة",
+        "description": "اختر متى يتم عرض اللينك في صفحتك",
+        "form": {
+          "start_date": "تاريخ الاضافة",
+          "end_date": "تاريخ الحذف",
+          "timezone": "المنطقة الزمنية",
+          "button": "جدولة",
+          "errors": {
+            "invalidDate": "التاريخ غير صالح",
+            "invalidTime": "الوقت غير صالح",
+            "invalidTimezone": "المنطقة غير صالحة",
+            "invalidResponse": "حدث خطاء في الاتصال بالسيرفر",
+            "required": "هذا الحقل مطلوب"
+          }
+        }
+      },
+      "prioritize": {
+        "label": "الاولوية",
+        "title": "الاولوية",
+        "description": "قم بتحديد الاولوية للبلوك",
+        "button": "حفظ",
+        "errors": {
+          "required": "هذا الحقل مطلوب"
+        },
+        "radio": {
+          "label": "التميز عبر:",
+          "values": {
+            "animation": "أنميشن",
+            "animation_d": "اعرض الرابط بانميشن رائع وملفت",
+            "spotlight": "تسليط الضوء",
+            "spotlight_d": "يتم توسيع الرابط تلقائيا عند وصول الزائر إلى Linkatik الخاص بك.",
+            "none": "عدم تميز الرابط"
+          }
+        }
+      },
+      "redirect": {
+        "label": "اعادة التوجيه",
+        "description": "أرسل مؤقتا جميع الزوار مباشرة إلى هذا الرابط.<br/>     يمكنك فقط إعادة التوجيه إلى رابط نشط واحد في أي وقت.",
+        "button": "قم باعادة التوجيه",
+        "form": {
+          "description": "حدد وقت انتهاء لإعادة التوجيه. سيتم استعادة لنكاتك الخاص بك تلقائيا عند انتهاء صلاحية إعادة التوجيه.",
+          "button": "حفظ",
+          "countdown": "قم بتحديد مدة انتهاء التوجيه",
+          "expired_at": "تاريخ الانتهاء",
+          "timezone": "المنطقة الزمنية"
+        }
+      },
+      "thumbnail": {
+        "label": "الصورة المصغرة",
+        "description": "أضف صورة مصغرة أو أيقونة إلى هذا الرابط.",
+        "button": "قم باضافة صورة مصغرة",
+        "form": {
+          "button": "حفظ",
+          "updateButton": "تعديل ",
+          "removeButton": "حذف"
+        }
+      }
+    },
+    "errors": {
+      "required": "هذا الحقل مطلوب",
+      "invalidUrl": "الرباط غير صالح",
+      "serverError": "حدث خطاء في الاتصال بالسيرفر",
+      "invalidEmail": "البريد الإلكتروني غير صالح"
+    },
+
+    "blocks": {
+      "faq": "الاسئلة الشائعة",
+      "faq_d": "وصف الاسئلة الشائعة",
+      "zid": "زيد",
+      "zid_d": "وصف زيد",
+      "link": "رابط",
+      "link_d": "وصف رابط",
+      "text_block": "نص",
+      "text_block_d": "وصف نص",
+      "header": "عنوان",
+      "header_d": "وصف عنوان",
+      "video": "فيديو",
+      "video_d": "وصف فيديو",
+      "audio": "صوت",
+      "audio_d": "وصف صوت",
+      "image": "صورة",
+      "image_d": "وصف صورة",
+      "salla": "سلة",
+      "salla_d": "وصف سلة",
+      "vimeo": "فيميو",
+      "vimeo_d": "وصف فيميو",
+      "paypal": "باي بال",
+      "paypal_d": " وصف باي بال",
+      "twitch": "تويتش",
+      "twitch_d": "وصف تويتش",
+      "discord": "ديسكورد",
+      "discord_d": "وصف ديسكورد",
+      "divider": "فاصل",
+      "divider_d": "وصف فاصل",
+      "product": "منتج",
+      "product_d": "وصف منتج",
+      "socials": "وسائل التواصل الاجتماعي",
+      "socials_d": "وصف وسائل التواصل الاجتماعي",
+      "spotify": "سبوتيفاي",
+      "spotify_d": "وصف سبوتيفاي",
+      "threads": "ثريدز",
+      "threads_d": "وصف ثريدز",
+      "x_tweet": "تغريدة على إكس",
+      "x_tweet_d": "وصف تغريدة على إكس",
+      "youtube": "يوتيوب",
+      "youtube_d": "وصف يوتيوب",
+      "donation": "تبرع",
+      "donation_d": "وصف تبرع",
+      "facebook": "فيسبوك",
+      "facebook_d": "وصف فيسبوك",
+      "snapchat": "سناب شات",
+      "snapchat_d": "وصف سناب شات",
+      "countdown": "عداد تنازلي",
+      "countdown_d": "وصف عداد تنازلي",
+      "instagram": "انستجرام",
+      "instagram_d": "وصف انستجرام",
+      "x_profile": "ملف إكس الشخصي",
+      "x_profile_d": " وصف ملف إكس الشخصي",
+      "google_map": "خريطة جوجل",
+      "google_map_d": "وصف خريطة جوجل ",
+      "apple_music": "آبل ميوزيك",
+      "apple_music_d": " وصف آبل ميوزيك",
+      "link_folder": "مجلد الروابط",
+      "link_folder_d": " وصف مجلد الروابط",
+      "sound_cloud": "ساوند كلاود",
+      "sound_cloud_d": " وصف ساوند كلاود",
+      "contact_form": "نموذج الاتصال",
+      "contact_form_d": " وصف نموذج الاتصال",
+      "image_slider": "شريط تمرير الصور",
+      "image_slider_d": " وصف شريط تمرير الصور",
+      "pdf": "مستند PDF",
+      "pdf_d": " وصف مستند PDF",
+      "tiktok_video": "فيديو تيك توك",
+      "tiktok_video_d": " وصف فيديو تيك توك",
+      "tiktok_profile": "حساب تيك توك",
+      "tiktok_profile_d": "وصف حساب تيك توك",
+      "buy_me_coffee": "اشتر لي قهوة",
+      "buy_me_coffee_d": " وصف اشتر لي قهوة",
+      "telegram_post": "منشور تلغرام",
+      "telegram_post_d": " وصف منشور تلغرام",
+      "email_collector": "جامع البريد الإلكتروني",
+      "email_collector_d": " وصف جامع البريد الإلكتروني",
+      "pinterest_profile": "ملف بينتيريست الشخصي",
+      "pinterest_profile_d": " وصف ملف بينتيريست الشخصي",
+      "share_stock_price": "سعر السهم",
+      "share_stock_price_d": " وصف سعر السهم",
+      "vcard": "معلومات تواصل",
+      "vcard_d": " وصف معلومات تواصل",
+      "image_gallery": "معرض الصور",
+      "image_gallery_d": " وصف معرض الصور",
+      "booking": "حجز",
+      "booking_d": " وصف حجز"
+    }
+  },
+  "domains": {
+    "title": "الدومينز",
+    "addButton": "اضافة دومين",
+    "deleteDomain": "حذف ",
+    "updateDomain": "تعديل ",
+    "status": {
+      "active": "فعال",
+      "inactive": "غير فعال"
+    },
+    "table": {
+      "head": {
+        "id": "ID",
+        "domain": "الدومين",
+        "createdAt": "تاريخ الاضافة",
+        "status": "الحالة"
+      }
+    },
+    "deleteDomainModal": {
+      "cancelDeleteButton": "الغاء",
+      "deleteButton": "حذف",
+      "title": "هل انت متاكد من حذف الدومين؟",
+      "description": "سيتم حذف الدومين {{domain}} بشكل نهائي",
+      "successMessage": "تم حذف الدومين بنجاح.",
+      "errorMessage": "تعذر حذف الدومين"
+    },
+    "updateDomainPage": {
+      "title": "تعديل دومين",
+      "successMessage": "تم تعديل الدومين بنجاح.",
+      "button": "تعديل"
+    },
+    "addDomain": {
+      "title": "اضافة دومين",
+      "warning": "Your domain or subdomain must have an A record pointing to 164.92.201.149 or CNAME record pointing to linkatik.com.",
+      "domainInput": "الدومين",
+      "button": "اضافة دومين",
+      "successMessage": "تم اضافة الدومين بنجاح.",
+      "errors": {
+        "required": "هذا الحقل مطلوب",
+        "invalidUrl": "الدومين غير صالح",
+        "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
+      }
+    }
+  },
+  "subscribers": {
+    "title": "المشتركين",
+    "table": {
+      "head": {
+        "id": "ID",
+        "email": "الايميل",
+        "name": "الاسم",
+        "bio_page": "الصفحة",
+        "createdAt": "تاريخ الاشتراك",
+        "filter": "الفلتر"
+      }
+    }
+  },
+  "fileUpload": {
+    "label": "قم برفع ملفات منتجك وسيتم ارسال ايميل للعملاء برابط التحميل",
+    "title": "قم بالسحب والافلات هنا , او النقر هنا لرفع الملفات",
+    "description": "يمكنك رفع ملفات بحجم لا يتجاوزال {{size}}MB",
+    "button": "تحميل",
+    "errors": {
+      "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
+    }
+  },
+  "products": {
+    "title": "المنتجات",
+    "addButton": "اضافة منتج",
+    "searchPlaceholder": "بحث",
+    "deleteButton": "حذف ",
+    "updateButton": "تعديل ",
+    "cancelButton": "الغاء",
+    "status": {
+      "active": "فعال",
+      "inactive": "غير فعال"
+    },
+    "fileUpload": {
+      "label": "قم برفع ملفات منتجك وسيتم ارسال ايميل للعملاء برابط التحميل",
+      "title": "قم بالسحب والافلات هنا , او النقر هنا لرفع الملفات",
+      "description": "يمكنك رفع ملفات بحجم لا يتجاوزال 5MB",
+      "button": "تحميل",
+      "errors": {
+        "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
+      }
+    },
+
+    "general": {
+      "membership": "عضوية",
+      "membershipDescription": "قريبا",
+      "single_payment": "دفع مرة واحدة",
+      "single_paymentDescription": "ادفع قمن المنتج واحصل عليه",
+      "pay_what_you_want": "دفع كما تريد",
+      "pay_what_you_wantDescription": "دع العميل يحدد السعر",
+      "free": "مجاني",
+      "freeDescription": "اسمح بالدخول المجاني",
+      "booking": "حجز",
+      "sales": "المبيعات",
+      "bookingDescription": "دع عملائك يحددون وقت الحجز بنائا على جدولك , من اجل التدريب, الاجتماع او الفعاليات.",
+      "digital": "رقمي",
+      "visit_url": "رابط وصول",
+      "buyProduct": "شراء المنتج"
+    },
+    "table": {
+      "head": {
+        "product": "المنتج",
+        "price": "السعر",
+        "max_price": "السعر الاقصى",
+        "sales_price": "السعر الادنى",
+
+        "type": "نوع المنتج",
+        "sales": "المبيعات",
+        "revenue": "العائد",
+        "filter": "نوع السعر"
+      },
+      "general": {
+        "membership": "عضوية",
+        "single_payment": "دفع مرة واحدة",
+        "pay_what_you_want": "دفع كما تريد",
+        "free": "مجاني",
+        "booking": "حجز",
+        "digital": "رقمي"
+      }
+    },
+    "deleteProductModal": {
+      "cancelDeleteButton": "الغاء",
+      "deleteButton": "حذف",
+      "title": "هل انت متاكد من حذف المنتج؟",
+      "description": "سيتم حذف المنتج {{domain}} بشكل نهائي",
+      "successMessage": "تم حذف المنتج بنجاح.",
+      "errorMessage": "تعذر حذف المنتج"
+    },
+    "updateProductPage": {
+      "title": "تعديل المنتج",
+      "successMessage": "تم تعديل المنتج بنجاح.",
+      "button": "تعديل"
+    },
+    "addProduct": {
+      "title": "اضافة منتج",
+      "titleInput": "اسم المنتج",
+      "type": "نوع المنتج",
+      "description": "وصف قصير للمنتج",
+      "long_description": "وصف المنتج",
+      "image": "صورة المنتج",
+      "pricing_type": "نوع السعر",
+      "price": "السعر",
+      "max_price": "السعر الاقصى",
+      "sales_price": "السعر الادنى",
+
+      "currency": "العملة",
+      "duration": "المدة",
+      "durationUnit": "دقيقة",
+      "next_days": "خلال",
+      "next_daysUnit": "يوم",
+      "slug": "مسار المنتح",
+      "slug_left": "linkatik.com/",
+      "timezone": "المنطقة الزمنية",
+      "meetingDetailsLabel": "تفاصيل الاجتماع",
+      "visit_url": "رابط وصول",
+      "time_slots": "الاوقات المتاحة",
+      "chooseTimeSlot": "أختر فترة",
+      "choose": "اختر",
+      "addTimeSlot": "اضافة فترة",
+      "meetingLocationLabels": {
+        "google": "قوقل ميت",
+        "custom": "مخصص"
+      },
+      "meetingLocationDescriptions": {
+        "google": "سيتم انشاء رابط الاجتماع تلقائيا باستخدام معلوماتك في حساب قوقل",
+        "custom": "قم بوضع رابط الاجتماع"
+      },
+      "meeting_location": "موقع الاجتماع",
+      "meeting_link": "رابط الاجتماع",
+      "bg_color": "لون الخلفية",
+      "button": "اضافة منتج",
+      "successMessage": "تم اضافة المنتج بنجاح.",
+      "errors": {
+        "required": "هذا الحقل مطلوب",
+        "invalidPrice": "قيمة السعر غير مقبولة",
+        "invalidResponse": "حدث خطاء في الاتصال بالسيرفر",
+        "invalidUrl": "الرباط غير صالح"
+      }
+    }
+  },
+  "paymentGateways": {
+    "title": "بوابات الدفع",
+    "addButton": "اضافة بوابة",
+    "form": {
+      "name": "الاسم",
+      "processor": "البوابة",
+      "is_active": "نشط",
+      "settings": "الاعدادات",
+      "client_id": "Client Key",
+      "secret": "Secret key",
+      "live_mode": "Live Mode",
+      "test_mode": "Test Mode",
+      "addButton": "اضافة بوابة",
+      "deleteButton": "حذف البوابة",
+      "updateButton": "تعديل ",
+      "mode": "Live mode"
+    },
+    "errors": {
+      "required": "هذا الحقل مطلوب",
+      "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
+    }
+  },
+  "integrations": {
+    "title": "التكامل مع المنصات",
+    "connect": "أربط",
+    "disconnect": "الغاء الربط",
+    "google_meet": {
+      "label": "قوقل مييت",
+      "description": "قم بربط حسابك في google لانشاء وجدولة اجتماعاتك"
+    },
+    "zid": {
+      "label": "زد",
+      "description": "قم بربط متجرك في سلة لتتمكن من مشاركة منتجاتك في صفحة البايو الخاصة بك"
+    },
+    "salla": {
+      "label": "سلة",
+      "description": "قم بربط متجرك في زد لتتمكن من مشاركة منتجاتك في صفحة البايو الخاصة بك"
+    },
+    "tiktok": {
+      "label": "تكتوك",
+      "description": "قم بربط حسابك في تيكتوك لتتمكن من مشاركة ملفك الشخصي في صفحة البايو الخاصة بك"
+    }
+  }
+}
