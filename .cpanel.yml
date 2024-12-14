@@ -7,5 +7,5 @@ deployment:
     - echo "Step 2: Building the Vite app."
     - npm run build
     - echo "Step 3: Replacing old files with new ones in public_html."
-    - cp -ru dist/* /home/applinkatik/public_html/
+    - rsync -av --exclude='.*' dist/ /home/applinkatik/public_html/
     - echo "Deployment completed successfully!"
