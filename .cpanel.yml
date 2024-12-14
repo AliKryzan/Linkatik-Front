@@ -1,5 +1,11 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/applinkatik/public_html/
-    - /bin/cp -R images $DEPLOYPATH
+    - echo "Starting deployment..."
+    - echo "Build: Installing dependencies."
+    - npm install --production
+    - echo "Build: Building the project."
+    - npm run build
+    - echo "Deploying files to /home/applinkatik/public_html."
+    - /bin/cp -r dist/* /home/applinkatik/public_html/
+    - echo "Build and deployment complete!"
