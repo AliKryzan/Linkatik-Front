@@ -167,7 +167,14 @@
   },
 
   "dashboard": {
-    "title": "لوحة التحكم"
+    "title": "لوحة التحكم",
+    "analysis": {
+      "title": "النشاط",
+      "views": "المشاهدات",
+      "blocks": "البلوكات",
+      "subscriber": "المشتركين",
+      "clicks": "النقرات"
+    }
   },
 
   "profile": {

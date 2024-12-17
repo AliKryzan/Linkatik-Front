@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { keepPreviousData, useQuery } from "@tanstack/react-query"
+import { Stack, Text } from "@mantine/core"
+import { keepPreviousData, useSuspenseQuery } from "@tanstack/react-query"
+import { useTranslation } from "react-i18next"
 
-import Error from "../../components/common/error"
-import Loader from "../../components/common/loader"
 import { GetBioPagesList } from "../../services/utils"
 import { getLocalstorageUser } from "../../utils/get-localstorage-user"
 import BioPagesTableBody from "../table/bio-pages/bio-pages-table-body"
@@ -12,24 +12,28 @@ import TableContainer from "../table/table-container"
 const ListBioPages = () => {
   const [page, setPage] = useState(1)
 
-  const { data, status } = useQuery({
+  const { data } = useSuspenseQuery({
     queryKey: ["list-bio-pages", page, getLocalstorageUser()?.token],
     queryFn: () => GetBioPagesList({ page }),
     placeholderData: keepPreviousData,
   })
 
-  if (status === "pending") return <Loader />
-  if (status === "error") return <Error />
-
+  const { t } = useTranslation()
   return (
-    <TableContainer
-      page={page}
-      totalPages={data.pagination.last_page}
-      setPage={setPage}
-      minWidth={500}
-      head={<BioPagesTableHead />}
-      rows={<BioPagesTableBody data={data.data} activePage={data.pagination.current_page} />}
-    />
+    <Stack gap={"xs"}>
+      <Text className="chart-title">
+        <span></span>
+        {t(`bioPages.title`)}
+      </Text>
+      <TableContainer
+        page={page}
+        totalPages={data.pagination.last_page}
+        setPage={setPage}
+        minWidth={500}
+        head={<BioPagesTableHead />}
+        rows={<BioPagesTableBody data={data.data} activePage={data.pagination.current_page} />}
+      />
+    </Stack>
   )
 }
 

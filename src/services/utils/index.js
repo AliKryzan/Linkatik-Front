@@ -274,52 +274,10 @@ export const PutUpdateBioPage = async ({ id, data, abortSignal }) => {
 export const GetBioPageStatistics = async (pageId) => {
   const response = await AuthLinkatikApi.get(`/user/statistics/${pageId}`)
   return response.data
-  // return {
-  //   success: true,
-  //   status: 200,
-  //   message: "Success",
-  //   data: {
-  //     views: 180,
-  //     pages: 1,
-  //     blocks: 1,
-  //     clicks: 5,
-  //     clicks_countries: [
-  //       {
-  //         country_ar: "لوكسمبورغ",
-  //         country_en: "Luxembourg",
-  //         code: "eg",
-  //         flag: "svg",
-  //         views: 100,
-  //         subscribe: 3456,
-  //         clicks: 1,
-  //       },
-  //       {
-  //         country_ar: "مصر",
-  //         country_en: "Egypt",
-  //         clicks: 3,
-  //       },
-  //       {
-  //         country_ar: "أنغولا",
-  //         country_en: "Angola",
-  //         clicks: 1,
-  //       },
-  //     ],
-  //     clicks_os: [
-  //       {
-  //         os_ar: "لينكس",
-  //         os_en: "Linux",
-  //         clicks: 5,
-  //       },
-  //     ],
-  //     clicks_browsers: [
-  //       {
-  //         browser_ar: "كروم",
-  //         browser_en: "Chrome",
-  //         clicks: 5,
-  //       },
-  //     ],
-  //   },
-  // }
+}
+export const GetGeneralStatistics = async () => {
+  const response = await AuthLinkatikApi.get(`/user/statistics`)
+  return response.data
 }
 
 export const PostSubscribe = async (data) => {

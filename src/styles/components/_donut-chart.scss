@@ -10,25 +10,25 @@
             background-color: var(--mantine-color-dark-6);
         }
     }
-    .chart-title {
-        font-size: px-to-rem(17px);
-        margin-bottom: var(--mantine-spacing-sm);
-        position: relative;
-        display: flex;
-        align-items: center;
-        gap: var(--mantine-spacing-sm);
-        span {
-            width: px-to-rem(14px);
-            height: px-to-rem(28px);
-            border-radius: var(--mantine-radius-sm);
-            background-color: #ffbc99;
-        }
-    }
 
     .color-indicator {
         width: px-to-rem(6px);
         height: px-to-rem(24px);
         border-radius: var(--mantine-radius-xs);
         display: block;
+    }
+}
+.chart-title {
+    font-size: px-to-rem(17px);
+    margin-bottom: var(--mantine-spacing-sm);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--mantine-spacing-sm);
+    span {
+        width: px-to-rem(14px);
+        height: px-to-rem(28px);
+        border-radius: var(--mantine-radius-sm);
+        background-color: #ffbc99;
     }
 }
