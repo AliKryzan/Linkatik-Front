@@ -42,7 +42,7 @@ const ProductPreview = () => {
             <Button component="p" variant="light">
               {product.pricing_type === "free"
                 ? t("products.general.free")
-                : `${product.price || "00"} ${product.currency}`}
+                : `${product.price || product.max_price || "00"} ${product.currency}`}
             </Button>
           </Group>
 
