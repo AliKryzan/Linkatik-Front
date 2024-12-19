@@ -1,5 +1,3 @@
-import axios from "axios"
-
 import { AuthLinkatikApi, LinkatikApi } from ".."
 import { INTEGRATIONS, PER_PAGE_DEFAULT } from "../../config"
 import { queryClient } from "../../lib/react-query/react-query-provider"
@@ -297,5 +295,10 @@ export const GetIntegrate = async ({ type, ...params }) => {
 }
 export const PostRemoveIntegrations = async (body) => {
   const response = await AuthLinkatikApi.post("/user/integration/remove", body)
+  return response.data
+}
+
+export const PostIntegrationCallback = async (integration, body) => {
+  const response = await AuthLinkatikApi.post(`/user/${integration}/callback`, body)
   return response.data
 }

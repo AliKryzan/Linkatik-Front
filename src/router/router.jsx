@@ -12,6 +12,7 @@ import Login from "../pages/(auth)/login"
 import Plans from "../pages/(auth)/plans"
 import SignUp from "../pages/(auth)/sign-up/sign-up"
 import ThankYou from "../pages/(auth)/thank-you"
+import CallBack from "../pages/[integration]/callback"
 import Subscribers from "../pages/subscribers/subscribers"
 import CreateBioPage from "../pages/user/bio-pages/create-bio-page"
 import Dashboard from "../pages/user/dashboard"
@@ -150,6 +151,10 @@ export const MyRouter = createBrowserRouter([
             <Preview />
           </ProtectedRoute>
         ),
+      },
+      {
+        path: ":integration/callback",
+        element: <CallBack />,
       },
     ],
   },

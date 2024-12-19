@@ -42,6 +42,9 @@ import zed from "./general/zed.png"
 import googleMeetIcon from "./google-meet.svg"
 import googleIcon from "./googleIcon.svg"
 import imagePlaceholder from "./image_placeholder.png"
+import sallaFullLogo from "./integrations/salla-full-logo.svg"
+import tiktokFullLogo from "./integrations/tiktok-full-logo.svg"
+import zidFullLogo from "./integrations/zid-full-logo.png"
 import linkIcon from "./link.png"
 import logo from "./logo.svg"
 import moyasar from "./moyasar.png"
@@ -50,6 +53,9 @@ import secondaryImagePlaceholder from "./secondary-image-placeholder.png"
 import stripe from "./stripe.png"
 
 export {
+  sallaFullLogo,
+  zidFullLogo,
+  tiktokFullLogo,
   logo,
   googleIcon,
   appleIcon,
