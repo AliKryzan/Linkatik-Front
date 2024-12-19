@@ -96,3 +96,10 @@ export const productPricingSchema = z.object({
 
 export const productSchema = defaultProductSchema.merge(productPricingSchema)
 export const updateProductSchema = updateProduct.merge(productPricingSchema)
+
+export const buyProductSchema = z.object({
+  name: z.string({ required_error: "required" }).min(1, { message: "required" }),
+  email: z.string({ required_error: "required" }).email("invalidEmail"),
+  price: z.coerce.string().optional(),
+  payment_processors_id: z.coerce.number({ required_error: "required" }),
+})

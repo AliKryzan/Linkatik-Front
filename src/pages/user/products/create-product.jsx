@@ -83,7 +83,7 @@ const CreateProduct = () => {
           p="sm"
           display={{ base: "none", lg: "flex" }}
           ms={-110}>
-          <CopyPath pathname={`products/${form.watch("slug")}`} />
+          <CopyPath pathname={`product/${form.watch("slug")}`} />
           <Group
             justify="end"
             style={{

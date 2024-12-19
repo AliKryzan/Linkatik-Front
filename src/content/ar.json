@@ -948,5 +948,24 @@
 
   "callback": {
     "title": "جاري الربط الرجاء الإنتظار"
+  },
+  "product-preview": {
+    "title": "اتمام الطلب",
+    "form": {
+      "name-input-label": "الاسم",
+      "name-input-placeholder": "ادخل اسمك",
+      "email-input-label": "البريد الالكتروني",
+      "price-input-label": "قم بتحديد المبلغ المراد دفعه {{min}} - {{max}}",
+      "price-input-placeholder": "يمكنك تحديد السعر المراد دفعه",
+      "payment_processors_id-input-label": "أختر طريقة الدفع",
+      "email-input-placeholder": "ادخل بريدك الالكتروني",
+      "buy-button": "شراء الآن",
+      "errors": {
+        "invalidEmail": "البريد الإلكتروني غير صالح",
+        "required": "هذا الحقل مطلوب",
+        "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
+      }
+    },
+    "payment-url": "في حال لم يتم تحويلك لبوابة الدفع <Link rel='noopener' target=\"_blank\" href=\"https://google.com\">اضغط هنا</Link>"
   }
 }

@@ -22,6 +22,7 @@ import UpdateDomain from "../pages/user/domains/update-domain"
 import Integrations from "../pages/user/integrations/integrations"
 import PaymentGateways from "../pages/user/payments-gateways/payment-gateways"
 import Preview from "../pages/user/preview/bio-page-preview"
+import WebProductPreview from "../pages/user/preview/web-product-preview"
 import CreateProduct from "../pages/user/products/create-product"
 import Products from "../pages/user/products/products"
 import UpdateProduct from "../pages/user/products/update-product"
@@ -150,6 +151,19 @@ export const MyRouter = createBrowserRouter([
           <ProtectedRoute>
             <Preview />
           </ProtectedRoute>
+        ),
+      },
+      {
+        path: "product/:slug",
+        element: (
+          <Suspense
+            fallback={
+              <Group p="xl">
+                <Loader />
+              </Group>
+            }>
+            <WebProductPreview />,
+          </Suspense>
         ),
       },
       {

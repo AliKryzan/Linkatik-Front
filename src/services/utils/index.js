@@ -302,3 +302,13 @@ export const PostIntegrationCallback = async (integration, body) => {
   const response = await AuthLinkatikApi.post(`/user/${integration}/callback`, body)
   return response.data
 }
+
+export const GetProductPreview = async (slug) => {
+  const response = await LinkatikApi.get(`/product/show/${slug}`)
+  return response.data.data
+}
+
+export const PostPlaceOrder = async (data) => {
+  const response = await LinkatikApi.post("/user/order", data)
+  return response.data.data
+}
