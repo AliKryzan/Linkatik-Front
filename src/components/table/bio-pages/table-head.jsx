@@ -7,7 +7,6 @@ const BioPagesTableHead = () => {
   return (
     <>
       <Table.Th>{t("bioPages.table.head.title")}</Table.Th>
-      <Table.Th>{t("bioPages.table.head.title")}</Table.Th>
       <Table.Th>{t("bioPages.table.head.path")}</Table.Th>
       <Table.Th>{t("bioPages.table.head.style")}</Table.Th>
       <Table.Th></Table.Th>

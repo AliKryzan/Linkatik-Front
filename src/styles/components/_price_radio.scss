@@ -22,4 +22,12 @@
         margin-top: 8px;
         font-size: var(--mantine-font-size-sm);
     }
+
+    &.payment_method {
+        max-width: 220px;
+        padding: var(--mantine-spacing-xs);
+        .label {
+            font-size: var(--mantine-font-size-sm);
+        }
+    }
 }

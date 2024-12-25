@@ -92,7 +92,7 @@ const WebProductPreview = () => {
           </Modal.Content>
         </Modal.Root>
       ) : (
-        <Drawer opened={opened} onClose={close} title={t("product-preview.title")}>
+        <Drawer size={"md"} opened={opened} onClose={close} title={t("product-preview.title")}>
           <BuyForm product={product} />
         </Drawer>
       )}

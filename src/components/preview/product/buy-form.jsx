@@ -7,6 +7,7 @@ import { Controller, useForm } from "react-hook-form"
 import { Trans, useTranslation } from "react-i18next"
 
 import { imagePlaceholder } from "../../../assets"
+import { PAYMENTGATEWAYS_LOGOS } from "../../../config"
 import { PostPlaceOrder } from "../../../services/utils"
 import { buyProductSchema } from "../../../validation/product"
 
@@ -119,47 +120,36 @@ const BuyForm = ({ product }) => {
               t(`product-preview.form.errors.${form.formState.errors.payment_processors_id?.message}`)
             }
             {...field}>
-            <Group gap={"md"} pt={"sm"}>
-              <Radio.Card className="price_radio_root" radius="md" value={"11"}>
-                <Group wrap="nowrap" align="flex-start">
-                  <Radio.Indicator variant="outline" icon={Check} />
-                  <Group wrap="nowrap">
-                    <Box w={60} h={60}>
-                      <Image
-                        w={"100%"}
-                        h={"100%"}
-                        radius={"50%"}
-                        fit="cover"
-                        src={imagePlaceholder}
-                        alt="paypal"
-                      />
-                    </Box>
-                    <Text c={"gray"} className="label">
-                      payment processor
-                    </Text>
-                  </Group>
-                </Group>
-              </Radio.Card>
-              <Radio.Card className="price_radio_root" radius="md" value={"12"}>
-                <Group wrap="nowrap" align="flex-start">
-                  <Radio.Indicator variant="outline" icon={Check} />
-                  <Group wrap="nowrap">
-                    <Box w={60} h={60}>
-                      <Image
-                        w={"100%"}
-                        h={"100%"}
-                        radius={"50%"}
-                        fit="cover"
-                        src={imagePlaceholder}
-                        alt="paypal"
-                      />
-                    </Box>
-                    <Text c={"gray"} className="label">
-                      payment processor 2
-                    </Text>
-                  </Group>
-                </Group>
-              </Radio.Card>
+            <Group gap={"sm"} pt={"sm"}>
+              {product.payment_processors.map((element) => {
+                return (
+                  <Radio.Card
+                    key={element.id}
+                    className="price_radio_root payment_method"
+                    radius="md"
+                    value={element.id + ""}>
+                    <Group wrap="nowrap" align="flex-start">
+                      <Radio.Indicator variant="outline" icon={Check} />
+                      <Group wrap="nowrap">
+                        <Box w={56} h={56}>
+                          <Image
+                            w={"100%"}
+                            h={"100%"}
+                            radius={"50%"}
+                            fit="cover"
+                            fallbackSrc={imagePlaceholder}
+                            src={PAYMENTGATEWAYS_LOGOS[element.processor]}
+                            alt={element.processor}
+                          />
+                        </Box>
+                        <Text c={"gray"} className="label">
+                          {element.name}
+                        </Text>
+                      </Group>
+                    </Group>
+                  </Radio.Card>
+                )
+              })}
             </Group>
           </Radio.Group>
         )}
