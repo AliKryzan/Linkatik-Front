@@ -966,6 +966,19 @@
         "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
       }
     },
-    "payment-url": "في حال لم يتم تحويلك لبوابة الدفع <Link rel='noopener' target=\"_blank\" href=\"https://google.com\">اضغط هنا</Link>"
+    "payment-url": "في حال لم يتم تحويلك لبوابة الدفع <Link rel='noopener' target=\"_blank\" href=\"https://google.com\">اضغط هنا</Link>",
+    "success": {
+      "title": "رائع!!",
+      "sub-title": "شكراً على إتمام طلبك",
+      "description": "ستتلقى بريدًا إلكترونيًا يحتوي على معلومات منتجك، الإيصال، ومحتويات المنتج.",
+      "needs-help": {
+        "title": "هل لديك أي مشاكل؟ تواصل مع الدعم:",
+        "button": "التواصل مع الدعم"
+      },
+      "start-selling": {
+        "title": "ابدأ البيع  على لينكاتك.",
+        "button": "ابدأ الآن!"
+      }
+    }
   }
 }

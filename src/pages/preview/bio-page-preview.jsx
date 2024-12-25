@@ -5,12 +5,12 @@ import { Bell, Loader2, Share } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
-import { imagePlaceholder, logo } from "../../../assets"
-import Error from "../../../components/common/error"
-import Loader from "../../../components/common/loader"
-import SubscribeForm from "../../../components/common/subscribe-form"
-import BlockPreviewWrapper from "../../../components/preview/link/block-preview-wrapper"
-import { GetPageAppearance, GetPagePreview } from "../../../services/utils"
+import { imagePlaceholder, logo } from "../../assets"
+import Error from "../../components/common/error"
+import Loader from "../../components/common/loader"
+import SubscribeForm from "../../components/common/subscribe-form"
+import BlockPreviewWrapper from "../../components/preview/link/block-preview-wrapper"
+import { GetPageAppearance, GetPagePreview } from "../../services/utils"
 
 const Preview = () => {
   const { path } = useParams()

@@ -12,12 +12,14 @@ import {
 } from "@mantine/core"
 import { useDisclosure, useMediaQuery } from "@mantine/hooks"
 import { useSuspenseQuery } from "@tanstack/react-query"
+import { X } from "lucide-react"
 import { useTranslation } from "react-i18next"
-import { useParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 
-import { imagePlaceholder, logo, secondaryImagePlaceholder } from "../../../assets"
-import BuyForm from "../../../components/preview/product/buy-form"
-import { GetProductPreview } from "../../../services/utils"
+import { imagePlaceholder, logo, secondaryImagePlaceholder } from "../../assets"
+import BuyForm from "../../components/preview/product/buy-form"
+import Success from "../../components/preview/product/success"
+import { GetProductPreview } from "../../services/utils"
 
 const WebProductPreview = () => {
   const { t } = useTranslation()
@@ -30,6 +32,11 @@ const WebProductPreview = () => {
   })
 
   const [opened, { open, close }] = useDisclosure(false)
+  const [searchParams, setSearchParams] = useSearchParams()
+  const successOpen = searchParams.get("success")
+  const closeSuccess = () => {
+    setSearchParams("success", null)
+  }
   const sm = useMediaQuery("(max-width: 786px)")
   return (
     <>
@@ -95,6 +102,45 @@ const WebProductPreview = () => {
         <Drawer size={"md"} opened={opened} onClose={close} title={t("product-preview.title")}>
           <BuyForm product={product} />
         </Drawer>
+      )}
+      {sm ? (
+        <Modal.Root xOffset={"2vh"} yOffset={"2vh"} opened={successOpen} onClose={closeSuccess} size="100vw">
+          <Modal.Overlay />
+          <Modal.Content radius={"lg"} h={"100%"}>
+            <Modal.Body p="0">
+              <Modal.CloseButton
+                variant="transparent"
+                icon={<X color="white" />}
+                style={{
+                  position: "absolute",
+                  left: "10px",
+                  top: "10px",
+                  zIndex: 10,
+                }}
+              />
+              <Success product={product} />
+            </Modal.Body>
+          </Modal.Content>
+        </Modal.Root>
+      ) : (
+        <Drawer.Root size={"md"} opened={successOpen} onClose={closeSuccess}>
+          <Drawer.Overlay />
+          <Drawer.Content>
+            <Drawer.Body p="0">
+              <Drawer.CloseButton
+                variant="transparent"
+                icon={<X color="white" />}
+                style={{
+                  position: "absolute",
+                  left: "10px",
+                  top: "10px",
+                  zIndex: 10,
+                }}
+              />
+              <Success product={product} />
+            </Drawer.Body>
+          </Drawer.Content>
+        </Drawer.Root>
       )}
     </>
   )

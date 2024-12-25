@@ -25,8 +25,11 @@ const BuyForm = ({ product }) => {
   const [paymentURL, setPaymentURl] = useState(null)
   const onSubmit = form.handleSubmit(async (data) => {
     try {
+      const redirect_url = new URL(window.location.href)
+      redirect_url.searchParams.set("success", "true")
+
       const response = await PostPlaceOrder({
-        redirect_url: window.location.href,
+        redirect_url,
         product_id: product.id,
         ...data,
       })

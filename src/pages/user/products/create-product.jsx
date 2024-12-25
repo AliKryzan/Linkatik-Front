@@ -20,7 +20,7 @@ import { useSearchParams } from "react-router-dom"
 import CopyPath from "../../../components/common/copy-path"
 import ProductForm from "../../../components/products/product-form"
 import { bookingProductSchema, digitalProductSchema, productSchema } from "../../../validation/product"
-import ProductPreview from "../preview/product-preview"
+import ProductPreview from "../../preview/product-preview"
 
 const productTypeDefaults = {
   digital: {

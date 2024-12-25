@@ -20,7 +20,7 @@ import { useSearchParams } from "react-router-dom"
 
 import CopyPath from "../../../components/common/copy-path"
 import { useParams } from "../../../lib/i18n/navigation"
-import Preview from "../preview/bio-page-preview"
+import Preview from "../../preview/bio-page-preview"
 import { PagesWrapper } from "./pages-wrapper"
 
 const CreateBioPage = () => {

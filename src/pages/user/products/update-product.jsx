@@ -22,7 +22,7 @@ import CopyPath from "../../../components/common/copy-path"
 import UpdateProductForm from "../../../components/products/update-product-form"
 import { GetProduct } from "../../../services/utils"
 import { updateProductSchema } from "../../../validation/product"
-import ProductPreview from "../preview/product-preview"
+import ProductPreview from "../../preview/product-preview"
 
 const UpdateProduct = () => {
   const { productId } = useParams()

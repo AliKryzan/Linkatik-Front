@@ -50,6 +50,7 @@ import logo from "./logo.svg"
 import moyasar from "./moyasar.png"
 import scheduleIcon from "./schedule.svg"
 import secondaryImagePlaceholder from "./secondary-image-placeholder.png"
+import startSelling from "./start-selling.png"
 import stripe from "./stripe.png"
 
 export {
@@ -106,4 +107,5 @@ export {
   socials,
   stoks,
   zed,
+  startSelling,
 }
