@@ -15,7 +15,9 @@
     "darkMode": "الوضع الداكن",
     "lightMode": "الوضع الفاتح",
     "logout": "خروج",
-    "updateUserError": "حدث خطاء في تحديث البيانات"
+    "updateUserError": "حدث خطاء في تحديث البيانات",
+    "export": "تصدير",
+    "search-placeholder": "بحث..."
   },
   "login": {
     "title": "أهلا بعودتك",

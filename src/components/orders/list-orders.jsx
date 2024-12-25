@@ -9,12 +9,12 @@ import OrdersBody from "../table/orders/orders-table-body"
 import OrdersTableHead from "../table/orders/orders-table-head"
 import TableContainer from "../table/table-container"
 
-const ListOrders = () => {
+const ListOrders = ({ searchValue }) => {
   const [page, setPage] = useState(1)
 
   const { data, status } = useQuery({
-    queryKey: ["orders", page, getLocalstorageUser()?.token],
-    queryFn: async () => await GetOrders({ page }),
+    queryKey: ["orders", searchValue, page, getLocalstorageUser()?.token],
+    queryFn: async () => await GetOrders({ page, "filter[q]": searchValue }),
     placeholderData: keepPreviousData,
   })
 

@@ -9,12 +9,12 @@ import SubscribersBody from "../table/subscribers/subscribers-table-body"
 import SubscribersTableHead from "../table/subscribers/subscribers-table-head"
 import TableContainer from "../table/table-container"
 
-const ListSubscribers = () => {
+const ListSubscribers = ({ searchValue }) => {
   const [page, setPage] = useState(1)
 
   const { data, status } = useQuery({
-    queryKey: ["subscribers", page, getLocalstorageUser()?.token],
-    queryFn: async () => await GetSubscribers({ page }),
+    queryKey: ["subscribers", searchValue, page, getLocalstorageUser()?.token],
+    queryFn: async () => await GetSubscribers({ page, "filer[q]": searchValue }),
     placeholderData: keepPreviousData,
   })
 
