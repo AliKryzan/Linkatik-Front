@@ -980,5 +980,23 @@
         "button": "ابدأ الآن!"
       }
     }
+  },
+  "orders": {
+    "title": "الطلبات",
+    "status": {
+      "pending": "قيد الانتظار",
+      "success": "مكتملة",
+      "failed": "مرفوضة"
+    },
+    "table": {
+      "head": {
+        "id": "ID",
+        "email": "العميل",
+        "product": "المنتج",
+        "status": "الحالة",
+        "createdAt": "تاريخ العملية",
+        "revenue": "الارباح"
+      }
+    }
   }
 }

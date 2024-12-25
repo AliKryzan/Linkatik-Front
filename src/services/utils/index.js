@@ -312,3 +312,11 @@ export const PostPlaceOrder = async (data) => {
   const response = await LinkatikApi.post("/user/order", data)
   return response.data.data
 }
+
+export const GetOrders = async (params) => {
+  const response = AuthLinkatikApi.get("/user/orders", {
+    params,
+  })
+
+  return (await response).data
+}
