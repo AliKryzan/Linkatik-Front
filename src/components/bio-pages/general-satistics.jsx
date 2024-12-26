@@ -38,7 +38,7 @@ const GeneralStatistics = ({ id }) => {
         {t(`dashboard.analysis.title`)}
       </Text>
       <SimpleGrid
-        cols={4}
+        cols={{ base: 2, md: 4 }}
         component={Paper}
         bg={colorScheme == "dark" ? "dark.8" : "gray.1"}
         p="xs"
