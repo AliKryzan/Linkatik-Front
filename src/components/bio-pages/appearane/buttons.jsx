@@ -33,7 +33,7 @@ const Buttons = ({ form }) => {
         <Text size="xl">{t("bioPages.appearance.themes.form.buttons")}</Text>
         <Stack className="box">
           <Controller
-            name="bio_page.bio_link.type"
+            name="bio_link.type"
             control={control}
             render={({ field }) => {
               return (
@@ -132,7 +132,7 @@ const Buttons = ({ form }) => {
           <Group>
             <Controller
               key={"bio_link.text_color"}
-              name="bio_page.bio_link.text_color"
+              name="bio_link.text_color"
               control={control}
               render={({ field }) => {
                 return (
@@ -141,7 +141,7 @@ const Buttons = ({ form }) => {
                       style={{
                         width: "50px",
                         height: "50px",
-                        background: form.watch("bio_page.bio_link.text_color"),
+                        background: form.watch("bio_link.text_color"),
                         borderRadius: "var(--mantine-radius-md)",
                       }}></Box>
                     <Box
@@ -165,7 +165,7 @@ const Buttons = ({ form }) => {
             />
             <Controller
               key={"bio_link.button_color"}
-              name="bio_page.bio_link.button_color"
+              name="bio_link.button_color"
               control={control}
               render={({ field }) => {
                 return (
@@ -174,7 +174,7 @@ const Buttons = ({ form }) => {
                       style={{
                         width: "50px",
                         height: "50px",
-                        background: form.watch("bio_page.bio_link.button_color"),
+                        background: form.watch("bio_link.button_color"),
                         borderRadius: "var(--mantine-radius-md)",
                       }}></Box>
                     <Box

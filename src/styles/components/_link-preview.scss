@@ -3,17 +3,126 @@
     max-width: px-to-rem(360px);
     margin: 0 auto;
     text-decoration: none;
-    &.default {
-        // background-color: $lightYellow;
-        // border-radius: var(--mantine-radius-xl);
-        // text-align: center;
-        // color: var(--mantine-color-gray-8);
-        text-decoration: none;
+    position: relative;
+    .button-inner {
+        padding: 12px;
+        height: 56px;
+        display: grid;
+        grid-template-columns: 20% 1fr 20%;
+        gap: 4px;
+        position: relative;
+        z-index: 1;
+        color: var(--text-color);
     }
-    &:not(.default) {
-        box-shadow: 0 3px 6px #ccccccaf;
-        padding: var(--mantine-spacing-sm);
+
+    // filled
+    &.filled-button {
+        background-color: var(--button-color);
     }
+    // outline
+    &.outline-button {
+        border: 1px solid var(--button-color);
+    }
+    // shadow
+    &.shadow-button {
+        box-shadow: 0px 3px 6px var(--button-color);
+    }
+    // shadow
+    &.hard-shadow-button {
+        border: 1px solid var(--button-color);
+        box-shadow: 4px 4px 0 var(--button-color);
+    }
+    // radius
+    &.rounded-sm {
+        border-radius: 12px;
+    }
+    &.rounded-lg {
+        border-radius: 24px;
+    }
+    // custom
+    &.custom-button-one {
+        border: 1px solid black;
+        box-shadow: 10px 6px 0px #000; /* Black shadow */
+        .button-inner {
+            background-color: var(--button-color);
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            right: -11px; /* Adjust for shadow width */
+            top: -1px;
+            bottom: 0;
+            width: 11px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--button-color),
+                var(--button-color) 5px,
+                #000 5px,
+                #000 6px
+            );
+            border: 1px solid black;
+            transform-origin: top left;
+            transform: skew(0deg, 29deg);
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 10px;
+            background: black;
+            transform-origin: top left;
+
+            transform: skew(0deg, 29deg);
+        }
+    }
+
+    &.custom-button-two {
+        border: 2px solid var(--button-color);
+        background-color: transparent;
+
+        &::before {
+            content: "";
+            position: absolute;
+            border: 2px solid var(--button-color);
+            top: 5px;
+            bottom: 5px;
+            left: -6px;
+            right: -6px;
+        }
+    }
+
+    &.custom-button-three {
+        border: 2px solid var(--button-color);
+        .corner {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+
+            border: 2px solid var(--button-color);
+        }
+        .top-left {
+            top: -6px;
+            left: -6px;
+        }
+
+        .top-right {
+            top: -6px;
+            right: -6px;
+        }
+
+        .bottom-left {
+            bottom: -6px;
+            left: -6px;
+        }
+
+        .bottom-right {
+            bottom: -6px;
+            right: -6px;
+        }
+    }
+
     &.image {
         border-radius: var(--mantine-radius-lg);
         padding: var(--mantine-spacing-md);
