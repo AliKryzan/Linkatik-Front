@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 
 import { DynamicDonutChart } from "../../../../components/bio-pages/analysis/donut-chart"
-import GeneralStatistics from "../../../../components/bio-pages/general-satistics"
+import GeneralStatistics from "../../../../components/bio-pages/general-statistics"
 import Error from "../../../../components/common/error"
 import Loader from "../../../../components/common/loader"
 import { GetBioPageStatistics } from "../../../../services/utils"

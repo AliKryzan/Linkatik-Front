@@ -41,7 +41,7 @@ const BioPagesTableBody = ({ data, activePage }) => {
     return (
       <Table.Tr key={element.id}>
         <Table.Td>
-          <Group>
+          <Group component={Link} to={"/user/bio-pages/" + element.id + "/" + element.path}>
             <div>
               <Image
                 w={60}

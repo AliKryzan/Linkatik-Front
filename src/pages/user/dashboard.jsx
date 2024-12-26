@@ -4,7 +4,7 @@ import { Stack } from "@mantine/core"
 import { useTranslation } from "react-i18next"
 
 import CreateBioPageButton from "../../components/bio-pages/create-bio-page-button"
-import GeneralStatistics from "../../components/bio-pages/general-satistics"
+import GeneralStatistics from "../../components/bio-pages/general-statistics"
 import ListBioPages from "../../components/bio-pages/list-bio-pages"
 import Loader from "../../components/common/loader"
 import TableHeader from "../../components/table/table-header"
