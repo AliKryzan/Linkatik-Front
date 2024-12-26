@@ -2,6 +2,7 @@ import { memo } from "react"
 import { DevTool } from "@hookform/devtools"
 import { ActionIcon, Box, Button, Group, Stack, Text, TextInput, useMantineTheme } from "@mantine/core"
 import { IMAGE_MIME_TYPE } from "@mantine/dropzone"
+import axios from "axios"
 import { X } from "lucide-react"
 import { Controller, useFormContext } from "react-hook-form"
 import toast from "react-hot-toast"
@@ -52,6 +53,13 @@ const ProductForm = () => {
       reset()
     } catch (error) {
       console.log("🚀 ~ onSubmit ~ error:", error)
+      if (axios.isAxiosError(error) && error.response.data?.errors?.message) {
+        setError("root", {
+          message: error.response.data.errors.message,
+        })
+        toast.error(error.response.data.errors.message)
+        return
+      }
       toast.error(error.response?.data?.message || error.response?.message || error.message)
       setError("root", {
         message: error.response?.data?.message || error.response?.message || error.message,

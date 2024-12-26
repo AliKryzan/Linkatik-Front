@@ -43,7 +43,16 @@ const CreateProduct = () => {
 
   const form = useForm({
     resolver: zodResolver(
-      productSchema.merge(type === "digital" ? digitalProductSchema : bookingProductSchema),
+      productSchema.merge(type === "digital" ? digitalProductSchema : bookingProductSchema).refine(
+        (obj) => {
+          return Number(obj.max_price) > Number(obj.sales_price)
+        },
+    
+        {
+          path: ["max_price"],
+          message: "invalidPrice",
+        },
+      ),
     ),
     defaultValues: {
       title: "",
@@ -55,7 +64,7 @@ const CreateProduct = () => {
       price: 0,
       sales_price: 0,
       max_price: 0,
-      currency: "USD",
+      currency: "SAR",
       ...productTypeDefaults[type],
     },
   })

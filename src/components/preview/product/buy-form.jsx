@@ -87,7 +87,7 @@ const BuyForm = ({ product }) => {
           />
         )}
       />
-      {product.sales_price ? (
+      {Number(product.sales_price) ? (
         <Controller
           control={form.control}
           name="price"

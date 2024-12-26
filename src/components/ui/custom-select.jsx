@@ -1,8 +1,10 @@
+import React from "react"
 import { Box, Select, Text } from "@mantine/core"
 import { useElementSize } from "@mantine/hooks"
 
-const CustomSelect = ({ label, ...props }) => {
-  const { ref, width } = useElementSize()
+// eslint-disable-next-line no-unused-vars
+const CustomSelect = React.forwardRef(function Com({ label, ...props }, ref) {
+  const { ref: elementRef, width } = useElementSize()
 
   return (
     <Box w={width + 100}>
@@ -10,7 +12,7 @@ const CustomSelect = ({ label, ...props }) => {
         variant="filled"
         leftSectionWidth={width}
         leftSection={
-          <div ref={ref}>
+          <div ref={elementRef}>
             <Text
               style={{
                 whiteSpace: "nowrap",
@@ -27,6 +29,6 @@ const CustomSelect = ({ label, ...props }) => {
       />
     </Box>
   )
-}
+})
 
 export default CustomSelect

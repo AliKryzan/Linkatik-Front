@@ -56,6 +56,7 @@ export const productPricingSchema = z.object({
   max_price: z.coerce.number().optional(),
   currency: z.string().optional(),
 })
+
 // .superRefine((data, ctx) => {
 //   if (data.pricing_type === "pay_what_you_want") {
 //     if (!data.sales_price) {

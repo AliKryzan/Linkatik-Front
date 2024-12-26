@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { Group, Select, TextInput } from "@mantine/core"
+import { Group, NumberInput } from "@mantine/core"
 import { DollarSign } from "lucide-react"
 import { Controller, useFormContext } from "react-hook-form"
 import { useTranslation } from "react-i18next"
@@ -11,6 +11,7 @@ const ProductPricing = () => {
   const pricing_type = watch("pricing_type")
   useEffect(() => {
     setValue("max_price", 0)
+    setValue("price", 0)
   }, [pricing_type])
 
   if (pricing_type === "single_payment") {
@@ -20,7 +21,8 @@ const ProductPricing = () => {
           control={control}
           name={"price"}
           render={({ field }) => (
-            <TextInput
+            <NumberInput
+              min="0"
               label={t("products.addProduct.price")}
               leftSection={<DollarSign size={18} strokeWidth={1.5} />}
               error={
@@ -32,7 +34,7 @@ const ProductPricing = () => {
             />
           )}
         />
-        <Controller
+        {/* <Controller
           control={control}
           name={"currency"}
           render={({ field }) => (
@@ -48,7 +50,7 @@ const ProductPricing = () => {
               {...field}
             />
           )}
-        />
+        /> */}
       </>
     )
   }
@@ -61,7 +63,8 @@ const ProductPricing = () => {
             control={control}
             name={"sales_price"}
             render={({ field }) => (
-              <TextInput
+              <NumberInput
+                min="0"
                 label={t("products.addProduct.sales_price")}
                 leftSection={<DollarSign size={18} strokeWidth={1.5} />}
                 error={
@@ -77,7 +80,8 @@ const ProductPricing = () => {
             control={control}
             name={"max_price"}
             render={({ field }) => (
-              <TextInput
+              <NumberInput
+                min="0"
                 label={t("products.addProduct.max_price")}
                 leftSection={<DollarSign size={18} strokeWidth={1.5} />}
                 error={
@@ -90,7 +94,7 @@ const ProductPricing = () => {
             )}
           />
         </Group>
-        <Controller
+        {/* <Controller
           control={control}
           name={"currency"}
           render={({ field }) => (
@@ -105,7 +109,7 @@ const ProductPricing = () => {
               {...field}
             />
           )}
-        />
+        /> */}
       </>
     )
   }
