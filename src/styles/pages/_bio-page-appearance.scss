@@ -5,9 +5,11 @@
     border-radius: var(--mantine-radius-md);
     position: relative;
     padding: var(--mantine-spacing-md);
+    transition-duration: 300ms;
     &[data-checked] {
-        border-color: var(--mantine-primary-color-filled);
-        box-shadow: 0 2px 5px var(--mantine-primary-color-filled);
+        outline: 4px solid var(--mantine-primary-color-filled);
+        outline-offset: 4px;
+        transform: scale(0.95);
     }
     .indicator {
         appearance: none;
