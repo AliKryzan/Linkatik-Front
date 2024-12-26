@@ -385,7 +385,15 @@
           "background": "الخلفية",
           "buttons": "الازراز",
           "image": "صورة",
-          "button": "حفظ المظهر"
+          "button": "حفظ المظهر",
+          "text-color": "لون الخط",
+          "button-color": "لون الزر",
+          "button-types": {
+            "filled": "مسمط",
+            "outline": "بحواف",
+            "shadow": "ظل",
+            "hard-shadow": "ضل مسمط"
+          }
         }
       },
       "errors": {

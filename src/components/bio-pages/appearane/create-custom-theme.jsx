@@ -1,17 +1,17 @@
 import { Button, Space, Stack } from "@mantine/core"
 import { useForm } from "react-hook-form"
 import toast from "react-hot-toast"
+import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
 import { queryClient } from "../../../lib/react-query/react-query-provider"
 import { PutUpdateBioPage } from "../../../services/utils"
-import { getScale } from "../../../utils/get-scale"
-import { getShadow } from "../../../utils/get-shadow"
 import Background from "./background"
 import Buttons from "./buttons"
 import Font from "./font"
 
 const CreateCustomTheme = () => {
+  const { t } = useTranslation()
   const { id, path } = useParams()
   const form = useForm({
     defaultValues: {
@@ -22,11 +22,9 @@ const CreateCustomTheme = () => {
         image: "",
       },
       bio_link: {
-        variant: "filled",
-        color: "#fcf3d8",
-        radius: 100,
-        size: 50,
-        shadow: 50,
+        type: "",
+        text_color: "",
+        button_color: "",
       },
     },
   })
@@ -51,13 +49,7 @@ const CreateCustomTheme = () => {
         backgroundAttachment: "fixed",
         font: data.font,
       },
-      bio_link: {
-        variant: data.bio_link.variant,
-        color: data.bio_link.color,
-        radius: getScale(data.bio_link.radius),
-        size: getScale(data.bio_link.size),
-        shadow: getShadow(data.bio_link.shadow),
-      },
+      bio_link: data.bio_link,
     }
     try {
       const response = await PutUpdateBioPage({
@@ -81,8 +73,8 @@ const CreateCustomTheme = () => {
       <Buttons form={form} />
       <Font form={form} />
       <div>
-        <Button loading={form.formState.isSubmitting} type="submit" variant="outline">
-          حفظ المظهر
+        <Button loading={form.formState.isSubmitting} type="submit">
+          {t("bioPages.appearance.themes.form.button")}
         </Button>
       </div>
       <Space />
