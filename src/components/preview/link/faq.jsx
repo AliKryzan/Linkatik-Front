@@ -1,11 +1,12 @@
 import { useState } from "react"
-import { Button, Stack } from "@mantine/core"
+import { Stack, Text } from "@mantine/core"
 import { useQuery } from "@tanstack/react-query"
 import { ChevronDown } from "lucide-react"
 import { useParams } from "react-router-dom"
 
 import { GetPageAppearance } from "../../../services/utils"
 import AutoHeight from "../../common/auto-height"
+import { Buttons } from "./buttons"
 
 function FaqPreview({ block }) {
   const { path } = useParams()
@@ -18,21 +19,10 @@ function FaqPreview({ block }) {
   })
 
   const theme = data?.appearance?.bio_link
-  // See groceries data above
-  // const items = block.settings.faqs.map((item, index) => (
-  //   <Accordion.Item key={item.question} value={index + ""}>
-  //     <Accordion.Control
-  //       style={{
-  //         borderRadius: `var(--mantine-radius-${theme?.radius || "xl"}})`,
-  //       }}
-  //       bg={theme?.color || "#fcf3d8"}>
-  //       {item.question}
-  //     </Accordion.Control>
-  //     <Accordion.Panel>
-  //       <div style={{ whiteSpace: "wrap", maxWidth: "330px" }}>{item.answer}</div>
-  //     </Accordion.Panel>
-  //   </Accordion.Item>
-  // ))
+
+  const Button = Buttons[theme.type ?? "filled"]
+  const buttonColor = theme.button_color ?? `#fcf3d8`
+  const textColor = theme.text_color ?? `#000000`
   const [opened, setOpened] = useState(null)
 
   return (
@@ -42,20 +32,22 @@ function FaqPreview({ block }) {
           return (
             <div key={index}>
               <Button
+                style={{
+                  "--button-color": buttonColor,
+                  "--text-color": textColor,
+                }}
+                className="link-preview default"
                 onClick={() => {
                   setOpened(opened === index ? null : index)
                 }}
-                leftSection={<span></span>}
-                rightSection={<ChevronDown strokeWidth={1.3} />}
-                justify="space-between"
-                autoContrast
-                size={theme?.size || "md"}
-                radius={theme?.radius || "xl"}
-                variant={theme?.variant || "filled"}
-                color={theme?.color || "#fcf3d8"}
-                style={{ boxShadow: theme?.shadow }}
-                className="link-preview default">
-                {item.question}
+                {...(block.url ? { href: block.url, rel: "noopener noreferrer" } : { component: "button" })}>
+                <div className="button-inner">
+                  <span></span>
+                  <Text lineClamp={1}>{item.question || "Untitled"}</Text>
+                  <span>
+                    <ChevronDown strokeWidth={1.3} />
+                  </span>
+                </div>
               </Button>
               <AutoHeight>
                 {opened === index && (
@@ -75,18 +67,6 @@ function FaqPreview({ block }) {
           )
         })}
       </Stack>
-
-      {/* <Accordion
-        variant="separated"
-        classNames={{
-          root: "faq-root",
-          control: "link-preview faq",
-          item: "faq-item",
-          panel: "faq-panel",
-        }}
-        defaultValue="Apples">
-        {items}
-      </Accordion> */}
     </div>
   )
 }
