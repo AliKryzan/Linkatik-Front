@@ -129,6 +129,10 @@ const Buttons = ({ form }) => {
               )
             }}
           />
+          <Space />
+
+          <Space />
+
           <Group>
             <Controller
               key={"bio_link.text_color"}
