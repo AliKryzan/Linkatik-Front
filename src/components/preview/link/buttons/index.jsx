@@ -114,3 +114,21 @@ export const CustomButtonThree = ({ component: Component = "a", children, classN
     </Component>
   )
 }
+
+export const Buttons = {
+  filled: Filled,
+  "filled-rounded-sm": FilledRoundedSm,
+  "filled-rounded-lg": FilledRoundedLg,
+  outline: Outline,
+  "outline-rounded-sm": OutlineRoundedSm,
+  "outline-rounded-lg": OutlineRoundedLg,
+  shadow: Shadow,
+  "shadow-rounded-sm": ShadowRoundedSm,
+  "shadow-rounded-lg": ShadowRoundedLg,
+  "hard-shadow": HardShadow,
+  "hard-shadow-rounded-sm": HardShadowRoundedSm,
+  "hard-shadow-rounded-lg": HardShadowRoundedLg,
+  "custom-1": CustomButtonOne,
+  "custom-2": CustomButtonTwo,
+  "custom-3": CustomButtonThree,
+}

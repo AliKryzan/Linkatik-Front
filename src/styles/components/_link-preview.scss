@@ -1,5 +1,8 @@
 .link-preview {
+    padding: unset;
+    background-color: unset;
     width: 100%;
+    cursor: pointer;
     max-width: px-to-rem(360px);
     margin: 0 auto;
     text-decoration: none;
@@ -177,11 +180,13 @@
         }
     }
     &.subscribe-form {
+        cursor: default;
         max-width: unset;
         width: 100%;
-        background-color: $lightYellow;
+        background-color: var(--button-color);
         padding: var(--mantine-spacing-md);
-        border-radius: var(--mantine-radius-lg);
+        border-radius: var(--mantine-radius-md);
+        color: var(--text-color);
         input,
         textarea {
             background-color: white !important;
@@ -189,9 +194,6 @@
         }
     }
     &.faq {
-        // background-color: $lightYellow;
-        // border-radius: var(--mantine-radius-xl);
-        // color: var(--mantine-color-gray-8);
         text-align: center;
         text-decoration: none;
         padding: 0;
