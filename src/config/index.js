@@ -145,7 +145,7 @@ export const bio_blocks = {
   sound_cloud: "ساوند كلاود",
   contact_form: "نموذج الاتصال",
   image_slider: "شريط تمرير الصور",
-  pdf_document: "مستند PDF",
+  file: "مستند PDF",
   tiktok_video: "فيديو تيك توك",
   buy_me_coffee: "اشتر لي قهوة",
   telegram_post: "منشور تلغرام",

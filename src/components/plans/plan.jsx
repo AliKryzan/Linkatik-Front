@@ -125,7 +125,7 @@ export default Plan
  *                   "sound_cloud": true,
  *                   "contact_form": true,
  *                   "image_slider": true,
- *                   "pdf_document": true,
+ *                   "file": true,
  *                   "tiktok_video": true,
  *                   "buy_me_coffee": true,
  *                   "telegram_post": true,

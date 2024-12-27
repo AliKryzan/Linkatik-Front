@@ -27,7 +27,6 @@ const FileBlock = () => {
   const types = {
     image: IMAGE_MIME_TYPE,
     file: PDF_MIME_TYPE,
-    pdf_document: PDF_MIME_TYPE,
     audio: ["audio/mpeg", "audio/mp3"],
     video: [MIME_TYPES.mp4],
   }

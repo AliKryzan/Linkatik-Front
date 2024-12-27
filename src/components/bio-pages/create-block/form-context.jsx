@@ -80,7 +80,7 @@ const pickSchema = (name) => {
     case "image":
     case "audio":
     case "video":
-    case "pdf_document":
+    case "file":
       return {
         defaultValues: {
           settings: {
