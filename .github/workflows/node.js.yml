@@ -27,5 +27,11 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    - name: CONNECT TO TEST
-    - run: sshpass -p ${{ secrets.PASS }} ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && exit"
+    - name: scp pipelines
+    - uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        user: ${{ secrets.SSH_USER }}
+        pass: ${{ secrets.PASS }}
+        scp: |
+          './dist/*' => /home/github/dist/
