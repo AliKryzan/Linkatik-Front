@@ -31,6 +31,6 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           user: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PUB_KEY }}
+          pass: ${{ secrets.PASS }}
           scp: |
             './dist/*' => /home/github/dist/
