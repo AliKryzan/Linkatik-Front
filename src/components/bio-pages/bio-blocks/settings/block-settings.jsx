@@ -37,11 +37,7 @@ const BlockSettings = ({ block }) => {
     }
 
     if (
-      (block.type === "image" ||
-        block.type === "video" ||
-        block.type === "audio" ||
-        block.type === "file" ||
-        block.type === "file") &&
+      (block.type === "image" || block.type === "video" || block.type === "audio" || block.type === "file") &&
       !data.settings.file_url
     ) {
       setError("root", { message: t(`bioBlocks.createBlock.fileRequired`) })

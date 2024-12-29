@@ -28,7 +28,6 @@ const RenderBlock = (props) => {
     case "header":
       return <HeaderPreview {...props} />
     case "file":
-    case "file":
       return <FilePreview {...props} />
     case "audio":
       return <AudioPreview {...props} />

@@ -13,7 +13,6 @@ const componentMap = {
   socials: lazy(() => import("./socials")),
   discord: lazy(() => import("./discord")),
   file: lazy(() => import("./file")),
-  file: lazy(() => import("./file")),
   image: lazy(() => import("./file")),
   audio: lazy(() => import("./file")),
   video: lazy(() => import("./file")),

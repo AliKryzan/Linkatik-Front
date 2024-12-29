@@ -13,7 +13,6 @@ const componentMap = {
   image: lazy(() => import("./custom/file")),
   audio: lazy(() => import("./custom/file")),
   video: lazy(() => import("./custom/file")),
-  file: lazy(() => import("./custom/file")),
   faq: lazy(() => import("./custom/faq")),
   image_slider: lazy(() => import("./custom/image_slider")),
   header: lazy(() => import("./custom/header")),
