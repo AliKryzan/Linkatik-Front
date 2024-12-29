@@ -33,4 +33,4 @@ jobs:
           user: ${{ secrets.SSH_USER }}
           pass: ${{ secrets.PASS }}
           scp: |
-            './dist/*' => /home/github/dist/
+            './dist/*' => ${{ secrets.WORK_DIR }}
