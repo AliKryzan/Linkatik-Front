@@ -34,3 +34,4 @@ jobs:
           pass: ${{ secrets.PASS }}
           scp: |
             './dist/*' => ${{ secrets.WORK_DIR }}
+
