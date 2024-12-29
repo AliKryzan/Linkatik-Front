@@ -27,7 +27,7 @@ jobs:
       - run: npm run build --if-present
       - run: npm test
       - name: scp pipelines
-      - uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         with:
           host: ${{ secrets.SSH_HOST }}
           user: ${{ secrets.SSH_USER }}
