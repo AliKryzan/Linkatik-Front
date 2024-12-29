@@ -20,7 +20,15 @@ const Themes = ({ bioPageThemesQuery, data }) => {
         <Text size="xl">{t("bioPages.appearance.themes.title")}</Text>
         <Radio.Group value={value} onChange={setValue}>
           <Group px={{ base: "md", md: "lg" }} gap={"lg"}>
-            <ThemePreview theme={{ id: "custom", name: "Create your theme" }} />
+            <Stack>
+              <Radio.Card className="theme-preview" radius="md" value={"custom"}>
+                <Radio.Indicator className="indicator" />
+                <Text ta={"center"}>Create your Theme</Text>
+              </Radio.Card>
+              <Text ta={"center"} size="sm">
+                Create your theme
+              </Text>
+            </Stack>
             {themes.data.map((theme) => (
               <ThemePreview key={theme.name} theme={theme} />
             ))}

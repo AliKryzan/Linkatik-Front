@@ -1,11 +1,18 @@
 import { Radio, Stack, Text } from "@mantine/core"
 
-export const ThemePreview = ({ theme, style }) => {
+import { generateWebComponent } from "../../../utils/generate-web-component"
+import RenderBackground from "../../common/render-background"
+
+export const ThemePreview = ({ theme }) => {
+  const { html, css } = theme.settings.bio_page
+  const encapsulated = generateWebComponent("custom-background-" + theme.id, html ?? "", css ?? "")
+  console.log("🚀 ~ ThemePreview ~ encapsulated:", encapsulated)
+
   return (
     <Stack>
-      <Radio.Card style={style} className="theme-preview" radius="md" value={theme.id + ""} key={theme.id}>
+      <Radio.Card p="0" className="theme-preview" radius="md" value={theme.id + ""} key={theme.id}>
         <Radio.Indicator className="indicator" />
-        {theme.id === "custom" ? <Text ta={"center"}>Create your Theme</Text> : ""}
+        <RenderBackground encapsulated={encapsulated} />
       </Radio.Card>
       <Text ta={"center"} size="sm">
         {theme.name}

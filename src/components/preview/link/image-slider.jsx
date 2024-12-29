@@ -8,12 +8,7 @@ import { Box, Text } from "@mantine/core"
 
 const ImageSliderPreview = ({ block }) => {
   return (
-    <Swiper
-      className="image-slider link-preview"
-      spaceBetween={15}
-      slidesPerView={2}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}>
+    <Swiper className="image-slider link-preview" spaceBetween={15} slidesPerView={2}>
       {block.settings.images.map((image, index) => (
         <SwiperSlide key={index}>
           <Box className="slide">
