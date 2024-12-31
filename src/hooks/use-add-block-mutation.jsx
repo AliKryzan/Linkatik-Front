@@ -26,8 +26,8 @@ export const useAddBlockMutation = () => {
             pages: [
               {
                 data: [
-                  { ...blockResponse.data, link_behavior: linkBehaviorOptions, is_active: 1 },
                   ...firstPage.data,
+                  { ...blockResponse.data, link_behavior: linkBehaviorOptions, is_active: 1 },
                 ],
                 pagination: firstPage.pagination,
               },
