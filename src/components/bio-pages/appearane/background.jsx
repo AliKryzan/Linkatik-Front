@@ -40,16 +40,24 @@ const Background = ({ form }) => {
                   <Radio.Group {...field}>
                     <Group gap={"lg"}>
                       <ThemePreview
-                        style={{
-                          background: form.watch("bio_page.background_color"),
+                        theme={{
+                          id: "preset",
+                          name: t("bioPages.appearance.themes.form.preset"),
+                          bio_page: {
+                            html: '<div style="height:100lvh;" class="background"></div>',
+                            css: `.background { background-color: ${form.watch("bio_page.background_color")};}`,
+                          },
                         }}
-                        theme={{ id: "preset", name: t("bioPages.appearance.themes.form.preset") }}
                       />
                       <ThemePreview
-                        style={{
-                          background: form.watch("bio_page.background_image"),
+                        theme={{
+                          id: "gradient",
+                          name: t("bioPages.appearance.themes.form.gradient"),
+                          bio_page: {
+                            html: '<div style="height:100lvh;" class="background"></div>',
+                            css: `.background { background-image: ${form.watch("bio_page.background_image")};}`,
+                          },
                         }}
-                        theme={{ id: "gradient", name: t("bioPages.appearance.themes.form.gradient") }}
                       />
                       <ThemePreview
                         key={"image"}
@@ -59,7 +67,14 @@ const Background = ({ form }) => {
                           backgroundPosition: "center",
                           backgroundRepeat: "no-repeat",
                         }}
-                        theme={{ id: "image", name: t("bioPages.appearance.themes.form.image") }}
+                        theme={{
+                          id: "image",
+                          name: t("bioPages.appearance.themes.form.image"),
+                          bio_page: {
+                            html: '<div style="height:100lvh;" class="background"></div>',
+                            css: `.background { background-image: ${form.watch("bio_page.image") || `url(${imagePlaceholder})`}; background-size:cover; background-position:center; background-repeat:no-repeat}  `,
+                          },
+                        }}
                       />
                     </Group>
                   </Radio.Group>

@@ -1,4 +1,5 @@
 .theme-preview {
+    overflow: hidden;
     width: px-to-rem(140px);
     aspect-ratio: 1/ 1.5;
     border: 2px solid $border-color;

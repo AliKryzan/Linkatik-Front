@@ -6,7 +6,6 @@ import RenderBackground from "../../common/render-background"
 export const ThemePreview = ({ theme }) => {
   const { html, css } = theme.settings.bio_page
   const encapsulated = generateWebComponent("custom-background-" + theme.id, html ?? "", css ?? "")
-  console.log("🚀 ~ ThemePreview ~ encapsulated:", encapsulated)
 
   return (
     <Stack>

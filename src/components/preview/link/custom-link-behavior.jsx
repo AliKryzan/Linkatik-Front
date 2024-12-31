@@ -1,5 +1,8 @@
 import { memo, useEffect, useState } from "react"
+import { useQuery } from "@tanstack/react-query"
+import { useParams } from "react-router-dom"
 
+import { GetPageAppearance } from "../../../services/utils"
 import Default from "./default"
 
 const CustomLinkBehavior = ({ block }) => {
@@ -44,10 +47,29 @@ const CustomLinkBehavior = ({ block }) => {
     setHtmlContent(modifiedHtml)
   }, [block])
 
+  const { path } = useParams()
+  const { data } = useQuery({
+    queryKey: ["bio-page-theme-preview", path],
+    queryFn: () => GetPageAppearance(path),
+    staleTime: Infinity,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
+  })
+
+  const theme = data?.appearance?.bio_link
+
+  const buttonColor = theme.button_color ?? `#fcf3d8`
+  const textColor = theme.text_color ?? `#000000`
+
   if (block.settings.link_behavior === "target") return <Default block={block} />
 
   return (
-    <div className="link-preview iframe">
+    <div
+      style={{
+        "--button-color": buttonColor,
+        "--text-color": textColor,
+      }}
+      className="link-preview iframe">
       <p className="block-title">{block.title}</p>
       <div className="iframe-wrapper" dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
     </div>

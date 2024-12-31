@@ -27,7 +27,6 @@ const Integrations = () => {
 
   if (status === "pending") return <Loader />
   if (status === "error") return <Error />
-
   return (
     <Stack gap={"xl"}>
       <Group justify="space-between">
@@ -36,7 +35,7 @@ const Integrations = () => {
       <Stack maw={500}>
         {data.data?.map((item, index) => {
           return (
-            <Box bg={colorScheme === "dark" ? "dark" : "gray.1"} key={item}>
+            <Box bg={colorScheme === "dark" ? "dark" : "gray.1"} key={item.type}>
               <Indicator color={item.is_connected ? "green" : "gray"} position="top-start" size={12}>
                 <Button
                   onClick={() => {
