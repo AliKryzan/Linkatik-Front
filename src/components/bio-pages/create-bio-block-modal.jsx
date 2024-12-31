@@ -20,7 +20,8 @@ const CreateBioBlockModal = () => {
   return (
     <Modal.Root
       scrollAreaComponent={ScrollArea.Autosize}
-      size={["fag", "product"].includes(name) ? "lg" : "md"}
+      // make modal large for some blocks
+      size={["fag", "product", "sall", "zid"].includes(name) ? "lg" : "md"}
       centered
       opened={name}
       onClose={onClose}>

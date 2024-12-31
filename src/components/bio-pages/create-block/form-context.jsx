@@ -185,6 +185,8 @@ const pickSchema = (name) => {
         },
       }
     case "product":
+    case "salla":
+    case "zid":
       return {
         defaultValues: {
           products: [],
@@ -200,7 +202,6 @@ const pickSchema = (name) => {
 const FormContext = ({ children }) => {
   const { t } = useTranslation()
   const { name } = useSelector((state) => state.bioBlock.block)
-  console.log("🚀 ~ FormContext ~ name:", name)
   const dispatch = useDispatch()
   const onClose = () => {
     dispatch(CloseBlockModal())

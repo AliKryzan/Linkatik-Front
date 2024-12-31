@@ -122,6 +122,21 @@ export const GetProducts = async (params) => {
   }
   return data
 }
+export const GetSallaProducts = async (params) => {
+  const response = await AuthLinkatikApi.get("/user/salla/products", {
+    params: { per_page: PER_PAGE_DEFAULT, ...params },
+  })
+  const data = {
+    data:
+      response.data?.data.map((product) => ({
+        id: product.id,
+        title: product.name,
+        image: product.thumbnail,
+      })) || [],
+    pagination: response.data.pagination,
+  }
+  return data
+}
 export const GetProduct = async (id) => {
   const response = await AuthLinkatikApi.get(`/user/products/${id}`)
 

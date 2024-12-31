@@ -3,28 +3,31 @@ import { useInfiniteQuery } from "@tanstack/react-query"
 import { Controller, useFormContext } from "react-hook-form"
 
 import { imagePlaceholder } from "../../../assets"
-import { GetProducts } from "../../../services/utils"
+import { GetProducts, GetSallaProducts } from "../../../services/utils"
 import { getLocalstorageUser } from "../../../utils/get-localstorage-user"
 import Error from "../../common/error"
 import InfiniteScrollContainer from "../../common/infinite-scroll-container"
 
-const Product = () => {
-  // const { t } = useTranslation()
-  // form state
+const Product = ({ name }) => {
   const { control } = useFormContext()
 
+  const queryFunctionMap = {
+    salla: GetSallaProducts,
+    zid: GetProducts,
+    product: GetProducts,
+  }
+  const queryFunction = queryFunctionMap[name]
   //   fetching products
-  // const [searchValue, setSearchValue] = useDebouncedState("", 300)
   const { data, fetchNextPage, hasNextPage, status, isFetching, isFetchingNextPage } = useInfiniteQuery({
-    queryKey: ["products", "infinite", getLocalstorageUser()?.token],
+    queryKey: ["products", "block", name, getLocalstorageUser()?.token],
     queryFn: async ({ pageParam: page }) => {
-      return await GetProducts({ page })
+      return await queryFunction({ page })
     },
     initialPageParam: null,
     getNextPageParam: (lastPage) => {
-      return lastPage.pagination.last_page === lastPage.pagination.current_page
+      return lastPage.pagination?.last_page === lastPage.pagination?.current_page
         ? null
-        : lastPage.pagination.current_page + 1
+        : lastPage.pagination?.current_page + 1
     },
   })
 
@@ -39,14 +42,6 @@ const Product = () => {
   const products = data.pages?.flatMap((page) => page.data) || []
   return (
     <Stack gap={"lg"}>
-      {/* <TextInput
-        placeholder={t("products.searchPlaceholder")}
-        defaultValue={searchValue}
-        onChange={(event) => setSearchValue(event.currentTarget.value)}
-        size="sm"
-        leftSection={<Search size={16} />}
-      /> */}
-
       <ScrollArea h="350">
         <InfiniteScrollContainer
           onBottomReached={() => {

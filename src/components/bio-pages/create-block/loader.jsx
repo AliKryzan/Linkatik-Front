@@ -21,6 +21,8 @@ const componentMap = {
   email_collector: lazy(() => import("./email-collector")),
   vcard: lazy(() => import("./contact-details")),
   product: lazy(() => import("./product")),
+  salla: lazy(() => import("./product")),
+  zid: lazy(() => import("./product")),
 }
 
 export function CreateBlockLoader({ componentKey, ...props }) {
@@ -33,7 +35,7 @@ export function CreateBlockLoader({ componentKey, ...props }) {
           <Loader size="sm" />
         </Group>
       }>
-      <Component {...props} />
+      <Component name={componentKey} {...props} />
     </Suspense>
   )
 }
