@@ -43,9 +43,11 @@ const Background = ({ form }) => {
                         theme={{
                           id: "preset",
                           name: t("bioPages.appearance.themes.form.preset"),
-                          bio_page: {
-                            html: '<div style="height:100lvh;" class="background"></div>',
-                            css: `.background { background-color: ${form.watch("bio_page.background_color")};}`,
+                          settings: {
+                            bio_page: {
+                              html: '<div style="height:100lvh;" class="background"></div>',
+                              css: `.background { background-color: ${form.watch("bio_page.background_color")};}`,
+                            },
                           },
                         }}
                       />
@@ -53,26 +55,24 @@ const Background = ({ form }) => {
                         theme={{
                           id: "gradient",
                           name: t("bioPages.appearance.themes.form.gradient"),
-                          bio_page: {
-                            html: '<div style="height:100lvh;" class="background"></div>',
-                            css: `.background { background-image: ${form.watch("bio_page.background_image")};}`,
+                          settings: {
+                            bio_page: {
+                              html: '<div style="height:100lvh;" class="background"></div>',
+                              css: `.background { background-image: ${form.watch("bio_page.background_image")};}`,
+                            },
                           },
                         }}
                       />
                       <ThemePreview
                         key={"image"}
-                        style={{
-                          backgroundImage: form.watch("bio_page.image") || `url(${imagePlaceholder})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                          backgroundRepeat: "no-repeat",
-                        }}
                         theme={{
                           id: "image",
                           name: t("bioPages.appearance.themes.form.image"),
-                          bio_page: {
-                            html: '<div style="height:100lvh;" class="background"></div>',
-                            css: `.background { background-image: ${form.watch("bio_page.image") || `url(${imagePlaceholder})`}; background-size:cover; background-position:center; background-repeat:no-repeat}  `,
+                          settings: {
+                            bio_page: {
+                              html: '<div style="height:100lvh;" class="background"></div>',
+                              css: `.background { background-image: ${form.watch("bio_page.image") || `url(${imagePlaceholder})`}; background-size:cover; background-position:center; background-repeat:no-repeat}  `,
+                            },
                           },
                         }}
                       />
