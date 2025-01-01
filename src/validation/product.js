@@ -18,7 +18,7 @@ export const defaultProductSchema = z.object({
 export const updateProduct = z.object({
   title: z.string({ required_error: "required" }).min(1, { message: "required" }),
   description: z.string({ required_error: "required" }).min(1, { message: "required" }),
-  long_description: z.string({ required_error: "required" }).min(1, { message: "required" }),
+  long_description: z.string().optional(),
   image: z.string().or(z.instanceof(File).optional()),
 
   pricing_type: z.enum(["free", "single_payment", "pay_what_you_want"], {
@@ -36,8 +36,8 @@ export const digitalProductSchema = z.object({
 })
 
 export const bookingProductSchema = z.object({
-  duration: z.enum(["30", "45", "60"], { required_error: "required" }),
-  next_days: z.enum(["7", "14", "30", "60"], { required_error: "required" }),
+  duration: z.string({ required_error: "required" }),
+  next_days: z.string({ required_error: "required" }),
   time_slots: z.array(
     z.object({
       day: z.string(),

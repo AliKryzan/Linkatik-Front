@@ -81,7 +81,6 @@ const CreateBioPage = () => {
   const fullScreen = searchParams.get("tab") !== "analysis"
 
   const { colorScheme } = useMantineColorScheme()
-  console.log("🚀 ~ CreateBioPage ~ colorScheme:", colorScheme)
   return (
     <>
       <Flex position="relative" direction={{ base: "column", lg: "row" }} align={"start"} gap={"xs"}>
@@ -130,7 +129,7 @@ const CreateBioPage = () => {
             }}
             visibleFrom="lg"
             ms={-50}>
-            <CopyPath pathname={path} />
+            <CopyPath pathname={"/preview/" + path} />
             <Group
               justify="end"
               style={{

@@ -1,8 +1,10 @@
 import { ActionIcon, CopyButton, Group, rem, Text, Tooltip, useMantineColorScheme } from "@mantine/core"
 import { Check, Copy } from "lucide-react"
 
+import { BASE_URL } from "../../config"
+
 const CopyPath = ({ pathname }) => {
-  const linkToCopy = "linkatik.com/" + pathname
+  const linkToCopy = new URL(pathname, BASE_URL)
   const { colorScheme } = useMantineColorScheme()
   return (
     <Group
@@ -24,7 +26,7 @@ const CopyPath = ({ pathname }) => {
           </Tooltip>
         )}
       </CopyButton>
-      <Text>linkatik.com/{pathname}</Text>
+      <Text>{linkToCopy.toString().replace("https://", "")}</Text>
     </Group>
   )
 }

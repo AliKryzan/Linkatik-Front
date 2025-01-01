@@ -159,7 +159,7 @@ export const MyRouter = createBrowserRouter([
         ),
       },
       {
-        path: "product/:slug",
+        path: "preview/product/:slug",
         element: (
           <Suspense
             fallback={

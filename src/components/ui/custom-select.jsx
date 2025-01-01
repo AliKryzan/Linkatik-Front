@@ -10,6 +10,7 @@ const CustomSelect = React.forwardRef(function Com({ label, ...props }, ref) {
     <Box w={width + 100}>
       <Select
         variant="filled"
+        allowDeselect={false}
         leftSectionWidth={width}
         leftSection={
           <div ref={elementRef}>

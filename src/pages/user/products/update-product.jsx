@@ -78,7 +78,7 @@ const UpdateProduct = () => {
           p="sm"
           display={{ base: "none", lg: "flex" }}
           ms={-110}>
-          <CopyPath pathname={`products/${product.slug}`} />
+          <CopyPath pathname={`/preview/product/${product.slug}`} />
           <Group
             justify="end"
             style={{

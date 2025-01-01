@@ -4,6 +4,7 @@ import { googleMeetIcon, moyasar, paypal, salla, stripe, tiktok, zed } from "../
 export const LOCALES = ["ar", "en"]
 // local storage key for storing user data
 export const LOCALSTORAGE_KEY = "linkatik_user"
+export const BASE_URL = "https://app.linkatik.com"
 // number of element per page in table
 export const PER_PAGE_DEFAULT = 10
 // payment gateways

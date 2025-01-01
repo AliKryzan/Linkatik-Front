@@ -47,7 +47,7 @@ const CreateProduct = () => {
         (obj) => {
           return Number(obj.max_price) > Number(obj.sales_price)
         },
-    
+
         {
           path: ["max_price"],
           message: "invalidPrice",
@@ -92,7 +92,7 @@ const CreateProduct = () => {
           p="sm"
           display={{ base: "none", lg: "flex" }}
           ms={-110}>
-          <CopyPath pathname={`product/${form.watch("slug")}`} />
+          <CopyPath pathname={`/product/${form.watch("slug")}`} />
           <Group
             justify="end"
             style={{
