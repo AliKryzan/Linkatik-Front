@@ -45,7 +45,7 @@ const Background = ({ form }) => {
                           name: t("bioPages.appearance.themes.form.preset"),
                           settings: {
                             bio_page: {
-                              html: '<div style="height:100lvh;" class="background"></div>',
+                              html: '<div style="height:100%;" class="background"></div>',
                               css: `.background { background-color: ${form.watch("bio_page.background_color")};}`,
                             },
                           },
@@ -57,7 +57,7 @@ const Background = ({ form }) => {
                           name: t("bioPages.appearance.themes.form.gradient"),
                           settings: {
                             bio_page: {
-                              html: '<div style="height:100lvh;" class="background"></div>',
+                              html: '<div style="height:100%;" class="background"></div>',
                               css: `.background { background-image: ${form.watch("bio_page.background_image")};}`,
                             },
                           },
@@ -70,7 +70,7 @@ const Background = ({ form }) => {
                           name: t("bioPages.appearance.themes.form.image"),
                           settings: {
                             bio_page: {
-                              html: '<div style="height:100lvh;" class="background"></div>',
+                              html: '<div style="height:100%;" class="background"></div>',
                               css: `.background { background-image: ${form.watch("bio_page.image") || `url(${imagePlaceholder})`}; background-size:cover; background-position:center; background-repeat:no-repeat}  `,
                             },
                           },

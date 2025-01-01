@@ -17,7 +17,7 @@ const CreateCustomTheme = () => {
     defaultValues: {
       bio_page: {
         background_type: "preset",
-        background_color: "#fafafa",
+        background_color: "red",
         background_image: "linear-gradient(0deg, rgba(96,93,93,1) 0%, rgba(255,255,255,1) 100%)",
         image: "",
       },
@@ -32,21 +32,28 @@ const CreateCustomTheme = () => {
   const { handleSubmit } = form
 
   const onSubmit = handleSubmit(async (data) => {
+    const css = `
+    .background{
+       background: data.bio_page.background_color;
+         background-image:
+           ${
+             data.bio_page.background_type === "image"
+               ? data.bio_page.image
+               : data.bio_page.background_type === "gradient"
+                 ? data.bio_page.background_image
+                 : ""
+           };
+
+         background-size: "cover";
+         background-position: "center";
+         background-repeat: "no-repeat";
+         background-attachment: "fixed";
+    }
+    `
     const appearance = {
       bio_page: {
-        background_type: data.bio_page.background_type,
-        backgroundColor: data.bio_page.background_color,
-        backgroundImage:
-          data.bio_page.background_type === "image"
-            ? data.bio_page.image
-            : data.bio_page.background_type === "gradient"
-              ? data.bio_page.background_image
-              : "",
-
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
+        html: '<div style="height:100lvh;" class="background"></div>',
+        css,
         font: data.font,
       },
       bio_link: data.bio_link,
