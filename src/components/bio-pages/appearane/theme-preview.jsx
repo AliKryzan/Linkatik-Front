@@ -6,9 +6,9 @@ import { Buttons } from "../../preview/link/buttons"
 
 export const ThemePreview = ({ theme }) => {
   const { html, css } = theme.settings.bio_page
-  const Button = Buttons[theme.type ?? "filled"]
-  const buttonColor = theme.button_color ?? `#fcf3d8`
-  const textColor = theme.text_color ?? `#000000`
+  const Button = Buttons[theme.settings?.bio_link?.type ?? "filled"]
+  const buttonColor = theme.settings?.bio_link?.button_color ?? `#fcf3d8`
+  const textColor = theme.settings?.bio_link?.text_color ?? `#000000`
   const encapsulated = generateWebComponent("custom-background-" + theme.id, html ?? "", css ?? "")
 
   return (
