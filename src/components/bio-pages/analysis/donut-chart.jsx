@@ -6,7 +6,6 @@ import { formatDynamicData } from "../../../utils/formate-statistics-data"
 
 export const DynamicDonutChart = ({ data, title }) => {
   const formattedData = formatDynamicData(data)
-  console.log("🚀 ~ DynamicDonutChart ~ formattedData:", formattedData)
   const { t } = useTranslation()
 
   return (

@@ -19,7 +19,6 @@ const Analysis = () => {
     queryFn: () => GetBioPageStatistics(id),
   })
 
-  console.log("🚀 ~ Analysis ~ data:", data)
   if (status === "pending") return <Loader />
   if (status === "error") return <Error />
 
