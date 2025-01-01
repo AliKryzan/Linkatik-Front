@@ -1,23 +1,29 @@
-import { useMemo } from "react"
 import { Box, Radio, Stack, Text } from "@mantine/core"
 
 import { generateWebComponent } from "../../../utils/generate-web-component"
 import RenderBackground from "../../common/render-background"
 import { Buttons } from "../../preview/link/buttons"
 
-export const ThemePreview = ({ theme }) => {
-  const { html, css } = theme.settings.bio_page
-  if (theme.id === "preset") {
-    console.log("🚀 ~ ThemePreview ~ html:", html)
-    console.log("🚀 ~ ThemePreview ~ css:", css)
+export const ThemePreview = ({ theme, style }) => {
+  if (style) {
+    return (
+      <Stack>
+        <Radio.Card style={style} className="theme-preview" radius="md" value={theme.id + ""} key={theme.id}>
+          <Radio.Indicator className="indicator" />
+          {theme.id === "custom" ? <Text ta={"center"}>Create your Theme</Text> : ""}
+        </Radio.Card>
+        <Text ta={"center"} size="sm">
+          {theme.name}
+        </Text>
+      </Stack>
+    )
   }
+
   const Button = Buttons[theme.settings?.bio_link?.type ?? "filled"]
   const buttonColor = theme.settings?.bio_link?.button_color ?? `#fcf3d8`
   const textColor = theme.settings?.bio_link?.text_color ?? `#000000`
-  const encapsulated = useMemo(
-    () => generateWebComponent("custom-background-" + theme.id, html ?? "", css ?? ""),
-    [html, css, theme.id],
-  )
+  const { html, css } = theme.settings.bio_page
+  const encapsulated = generateWebComponent("custom-background-" + theme.id, html ?? "", css ?? "")
 
   return (
     <Stack>

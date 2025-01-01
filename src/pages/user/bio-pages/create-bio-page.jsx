@@ -150,16 +150,29 @@ const CreateBioPage = () => {
         ) : null}
       </Flex>
       {fullScreen ? (
-        <Modal
+        <Modal.Root
           opened={opened}
           onClose={close}
           fullScreen
           radius={0}
           transitionProps={{ transition: "fade", duration: 200 }}>
-          <Group justify="center">
-            <Preview />
-          </Group>
-        </Modal>
+          <Modal.Content>
+            <Box
+              style={{
+                position: "absolute",
+                left: "1rem",
+                top: "1rem",
+                zIndex: 1,
+              }}>
+              <Modal.CloseButton color="white" />
+            </Box>
+            <Modal.Body>
+              <Group justify="center">
+                <Preview />
+              </Group>
+            </Modal.Body>
+          </Modal.Content>
+        </Modal.Root>
       ) : null}
     </>
   )

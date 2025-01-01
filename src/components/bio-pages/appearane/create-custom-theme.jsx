@@ -17,7 +17,7 @@ const CreateCustomTheme = () => {
     defaultValues: {
       bio_page: {
         background_type: "preset",
-        background_color: "red",
+        background_color: "#ffffff",
         background_image: "linear-gradient(0deg, rgba(96,93,93,1) 0%, rgba(255,255,255,1) 100%)",
         image: "",
       },
@@ -34,7 +34,7 @@ const CreateCustomTheme = () => {
   const onSubmit = handleSubmit(async (data) => {
     const css = `
     .background{
-       background: data.bio_page.background_color;
+       background: ${data.bio_page.background_color};
          background-image:
            ${
              data.bio_page.background_type === "image"
@@ -47,12 +47,11 @@ const CreateCustomTheme = () => {
          background-size: "cover";
          background-position: "center";
          background-repeat: "no-repeat";
-         background-attachment: "fixed";
     }
     `
     const appearance = {
       bio_page: {
-        html: '<div style="height:100lvh;" class="background"></div>',
+        html: '<div style="height:100%;" class="background"></div>',
         css,
         font: data.font,
       },
