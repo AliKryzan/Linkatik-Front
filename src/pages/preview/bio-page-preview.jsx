@@ -3,7 +3,7 @@ import { useDisclosure } from "@mantine/hooks"
 import { useQuery } from "@tanstack/react-query"
 import { Bell, Loader2, Share } from "lucide-react"
 import { useTranslation } from "react-i18next"
-import { useParams } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 
 import { imagePlaceholder, logo } from "../../assets"
 import Error from "../../components/common/error"
@@ -34,6 +34,8 @@ const Preview = () => {
 
   const { t } = useTranslation()
   const [opened, { open, close }] = useDisclosure(false)
+  const location = useLocation()
+  const isPreview = location.pathname.includes("preview")
   // console.log("🚀 ~ Preview ~ appearanceData:", appearanceData)
   if (status === "pending" || statusAppearance === "pending") return <Loader />
   if (status === "error" || statusAppearance === "error") return <Error />
@@ -56,7 +58,7 @@ const Preview = () => {
         style={{
           position: "relative",
           zIndex: 1,
-          height: "unset",
+          height: isPreview ? "unset" : undefined,
         }}
         className="preview-page bio-page-preview"
         gap={"xl"}

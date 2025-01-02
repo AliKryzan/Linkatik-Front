@@ -26,7 +26,7 @@ const useDeleteBioBlockMutation = () => {
           pageParams: oldData.pageParams,
           pages: oldData.pages.map((page) => {
             return {
-              data: page.data.filter((block) => block.id !== blockId),
+              data: page.data.filter((block) => block.id != blockId),
               pagination: page.pagination,
             }
           }),

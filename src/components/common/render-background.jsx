@@ -1,4 +1,5 @@
 const RenderBackground = ({ encapsulated, style }) => {
+  console.log("🚀 ~ RenderBackground ~ encapsulated:", encapsulated)
   return (
     <div
       key={Math.random()}

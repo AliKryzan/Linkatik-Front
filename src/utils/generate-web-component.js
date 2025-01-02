@@ -1,4 +1,5 @@
 export function generateWebComponent(name, html, css) {
+  if (!html && !css) return null
   if (!customElements.get(name)) {
     class CustomElement extends HTMLElement {
       constructor() {
