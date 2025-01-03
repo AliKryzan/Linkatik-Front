@@ -79,7 +79,7 @@ const ProductsTableBody = ({ data }) => {
     return (
       <Table.Tr key={element.id}>
         <Table.Td>
-          <Group>
+          <Group component={Link} to={"/preview/product/" + element.slug} c={"gray"}>
             <div>
               <Image
                 w={60}
