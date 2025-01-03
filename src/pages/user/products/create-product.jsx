@@ -22,16 +22,16 @@ import ProductForm from "../../../components/products/product-form"
 import { bookingProductSchema, digitalProductSchema, productSchema } from "../../../validation/product"
 import ProductPreview from "../../preview/product-preview"
 
-const productTypeDefaults = {
-  digital: {
-    digital_product_file: undefined,
-  },
-  booking: {
-    duration: "30",
-    next_days: "7",
-    time_slots: [],
-  },
-}
+// const productTypeDefaults = {
+//   digital: {
+//     digital_product_file: undefined,
+//   },
+//   booking: {
+//     duration: "30",
+//     next_days: "7",
+//     time_slots: [],
+//   },
+// }
 const CreateProduct = () => {
   const { t } = useTranslation()
   const [opened, { open, close }] = useDisclosure(false)
@@ -45,7 +45,7 @@ const CreateProduct = () => {
     resolver: zodResolver(
       productSchema.merge(type === "digital" ? digitalProductSchema : bookingProductSchema).refine(
         (obj) => {
-          return Number(obj.max_price) > Number(obj.sales_price)
+          return Number(obj.max_price) >= Number(obj.sales_price)
         },
 
         {
@@ -65,7 +65,10 @@ const CreateProduct = () => {
       sales_price: 0,
       max_price: 0,
       currency: "SAR",
-      ...productTypeDefaults[type],
+      duration: "30",
+      next_days: "7",
+      time_slots: [],
+      digital_product_file: undefined,
     },
   })
 

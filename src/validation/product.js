@@ -4,7 +4,7 @@ export const defaultProductSchema = z.object({
   title: z.string({ required_error: "required" }).min(1, { message: "required" }),
   slug: z.string({ required_error: "required" }).min(1, { message: "required" }),
   description: z.string({ required_error: "required" }).min(1, { message: "required" }),
-  long_description: z.string({ required_error: "required" }).min(1, { message: "required" }),
+  long_description: z.string().optional(),
   image: z
     .instanceof(File)
     .optional()
