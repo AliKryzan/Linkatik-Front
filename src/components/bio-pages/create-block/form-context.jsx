@@ -43,6 +43,16 @@ const pickSchema = (name) => {
           },
         },
       }
+    case "twitch":
+      return {
+        schema: CreateInitialBioBlockSchemaWithLinkBehavior,
+        defaultValues: {
+          ...defaultValues,
+          settings: {
+            link_behavior: "target",
+          },
+        },
+      }
     case "header":
       return {
         schema: CreateHeaderBlockSchema,

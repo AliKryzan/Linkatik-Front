@@ -94,7 +94,7 @@ export const BIOBLOCKS = {
     {
       name: "twitch",
       icon: twitch,
-      link_behavior: true,
+      // link_behavior: true,
     },
     {
       name: "x_tweet",
