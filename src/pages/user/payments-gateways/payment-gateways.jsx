@@ -38,7 +38,6 @@ const PaymentGateways = () => {
   })
 
   const { colorScheme } = useMantineColorScheme()
-  console.log("🚀 ~ PaymentGateways ~ colorSchema:", colorScheme)
 
   if (status === "pending") return <Loader />
   if (status === "error") return <Error />

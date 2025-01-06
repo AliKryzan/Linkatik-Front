@@ -31,7 +31,7 @@ const BlockLock = ({ block }) => {
   const { handleSubmit, control, formState, setError } = form
   const onSubmit = handleSubmit(async (data) => {
     try {
-      const response = await PutUpdateBlock({
+      await PutUpdateBlock({
         pageId: id,
         blockId: block.id,
         data: {
@@ -42,7 +42,6 @@ const BlockLock = ({ block }) => {
           },
         },
       })
-      console.log("🚀 ~ onSubmit ~ response:", response)
     } catch (error) {
       console.log("🚀 ~ onSubmit ~ error:", error)
       setError("root", {

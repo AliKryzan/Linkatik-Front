@@ -6,7 +6,6 @@ const useValidURL = ({ type, onError, onSuccess }) => {
   const mutateFunction = async ({ url }) => {
     if (!url) throw new Error("من فضلك قم بادخال رابط")
     const response = await GetLinkDetections({ url: url })
-    console.log("🚀 ~ mutateFunction ~ response:", response)
     if (type === "link" ? response.type : response.type !== type) throw new Error("invalidUrl")
     return response
   }

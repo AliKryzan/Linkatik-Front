@@ -295,7 +295,6 @@ export const GetGeneralStatistics = async () => {
 
 export const PostSubscribe = async (data) => {
   const response = await LinkatikApi.post("/user/subscribe", data)
-  console.log("🚀 ~ PostSubscribe ~ response:", response)
   return response
 }
 

@@ -49,13 +49,12 @@ const UpdateProduct = () => {
     },
   })
 
-  const query = useQuery({
+  useQuery({
     queryKey: ["product", productId],
     queryFn: () => {
       return GetProduct(productId)
     },
   })
-  console.log("🚀 ~ UpdateProduct ~ query:", query.data)
   const { colorScheme } = useMantineColorScheme()
 
   return (

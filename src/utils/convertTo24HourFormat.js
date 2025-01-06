@@ -1,5 +1,4 @@
 export function convertTo24HourFormat(time12h) {
-  console.log("🚀 ~ convertTo24HourFormat ~ time12h:", time12h)
   const [time, modifier] = time12h.split(" ")
 
   let [hours, minutes] = time.split(":")

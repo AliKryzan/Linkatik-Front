@@ -21,8 +21,7 @@ const CallBack = () => {
 
   const { mutate, error, isError, isPending } = useMutation({
     mutationFn: () => PostIntegrationCallback(integration, searchParams),
-    onSuccess(data) {
-      console.log("🚀 ~ onSuccess ~ data:", data)
+    onSuccess() {
       navigate("/user/integrations")
     },
   })

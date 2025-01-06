@@ -25,7 +25,6 @@ import { BioPageProfileSchema } from "../../../validation/bio-page"
 import CropImageModal from "../../common/crop-image-modal"
 
 const ProfileForm = ({ data }) => {
-  console.log("🚀 ~ ProfileForm ~ data:", data)
   const { id } = useParams()
   const { t } = useTranslation()
   const form = useForm({
@@ -62,7 +61,6 @@ const ProfileForm = ({ data }) => {
 
   const { mutate, isPending } = useUploadFile({
     onSuccess: (data) => {
-      console.log("🚀 ~ ProfileForm ~ data:", data)
       setValue("image", data.file_url)
     },
     onError: (error) => {

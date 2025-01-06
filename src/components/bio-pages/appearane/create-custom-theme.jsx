@@ -62,7 +62,6 @@ const CreateCustomTheme = () => {
         id,
         data: { appearance },
       })
-      console.log(response)
       await queryClient.setQueryData(["bio-page-theme-preview", path], response.data.data)
     } catch (error) {
       console.log("🚀 ~ onSubmit ~ error:", error)

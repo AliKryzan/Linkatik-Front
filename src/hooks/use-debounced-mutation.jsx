@@ -12,11 +12,8 @@ const useDebouncedMutation = ({ mutateFn, delay = 500, errorCallback }) => {
     try {
       setError(null)
       setLoading(true)
-      const response = await mutateFn({ ...args[0], abortSignal: AbortControllerRef.current?.signal })
-
-      console.log("🚀 ~ mutate ~ response:", response)
+      await mutateFn({ ...args[0], abortSignal: AbortControllerRef.current?.signal })
     } catch (error) {
-      console.log("🚀 ~ handleSearch ~ error:", error)
       if (axios.isCancel(error)) {
         console.log("Request canceled:", error.message) // Handle cancel error here
       } else {

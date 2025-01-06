@@ -46,8 +46,7 @@ export const useAddBlockMutation = () => {
         queryKey: ["bio-page-preview", path],
       })
     },
-    onError: (error) => {
-      console.log("🚀 ~ useAddBlockMutation ~ error:", error)
+    onError: () => {
       toast.error(t("bioBlocks.general.block_not_added"))
       queryClient.invalidateQueries({
         queryKey: queryKey,
