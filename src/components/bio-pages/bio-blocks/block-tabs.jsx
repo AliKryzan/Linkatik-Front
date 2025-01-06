@@ -48,7 +48,14 @@ const BioBlockTabs = ({ block }) => {
   const [activeTab, setActiveTab] = useState("")
   return (
     <div>
-      <Tabs value={activeTab} onChange={setActiveTab} variant="pills" radius={"sm"} defaultValue="settings">
+      <Tabs
+        value={activeTab}
+        onChange={(value) => {
+          setActiveTab((pre) => (pre === value ? "" : value))
+        }}
+        variant="pills"
+        radius={"sm"}
+        defaultValue="settings">
         <Tabs.List ps={"md"} px={"lg"} pb={"lg"} style={{ gap: "var(--mantine-spacing-sm)" }}>
           <Space />
           <Space />
