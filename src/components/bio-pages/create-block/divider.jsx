@@ -1,11 +1,12 @@
-import { Slider, Space } from "@mantine/core"
+import { Box, ColorInput, Group, Slider, Space, useMantineColorScheme } from "@mantine/core"
 import { Controller, useFormContext } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 
 const DividerBlock = () => {
   const { t } = useTranslation()
 
-  const { control } = useFormContext()
+  const { control, watch } = useFormContext()
+  const { colorScheme } = useMantineColorScheme()
 
   return (
     <>
@@ -47,6 +48,41 @@ const DividerBlock = () => {
             {...field}
           />
         )}
+      />
+      <Space />
+      <Space />
+      <Controller
+        name="settings.color"
+        control={control}
+        render={({ field }) => {
+          return (
+            <Group gap={"sm"}>
+              <Box
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  background: watch("settings.color"),
+                  borderRadius: "var(--mantine-radius-md)",
+                }}></Box>
+              <Box
+                style={{
+                  borderRadius: "var(--mantine-radius-md)",
+                }}
+                bg={colorScheme === "dark" ? "dark.6" : "gray.0"}
+                px="sm">
+                <ColorInput
+                  size="sm"
+                  w={200}
+                  leftSection={"HEXA"}
+                  format="hexa"
+                  variant="unstyled"
+                  label={t("bioBlocks.createBlock.custom.divider.color")}
+                  {...field}
+                />
+              </Box>
+            </Group>
+          )
+        }}
       />
     </>
   )

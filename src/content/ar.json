@@ -488,7 +488,8 @@
         },
         "divider": {
           "margin_top": "مساحة للاعلى",
-          "margin_bottom": "مساحة للاسفل"
+          "margin_bottom": "مساحة للاسفل",
+          "color": "اللون"
         },
         "text_block": {
           "content": "محتوى النص"

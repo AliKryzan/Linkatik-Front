@@ -7,7 +7,7 @@ const DividerPreview = ({ block }) => {
         paddingTop: block.settings.margin_top + "px",
         paddingBottom: block.settings.margin_bottom + "px",
       }}>
-      <Divider />
+      <Divider color={block.settings.color || "gray"} />
     </div>
   )
 }

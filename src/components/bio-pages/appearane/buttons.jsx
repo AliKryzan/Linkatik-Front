@@ -157,7 +157,8 @@ const Buttons = ({ form }) => {
                       <ColorInput
                         size="sm"
                         w={200}
-                        leftSection={"HEX"}
+                        leftSection={"HEXA"}
+                        format="hexa"
                         variant="unstyled"
                         label={t("bioPages.appearance.themes.form.text-color")}
                         {...field}
@@ -190,7 +191,8 @@ const Buttons = ({ form }) => {
                       <ColorInput
                         size="sm"
                         w={200}
-                        leftSection={"HEX"}
+                        leftSection={"HEXA"}
+                        format="hexa"
                         variant="unstyled"
                         label={t("bioPages.appearance.themes.form.button-color")}
                         {...field}
