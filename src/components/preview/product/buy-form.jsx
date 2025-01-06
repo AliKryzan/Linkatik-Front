@@ -10,8 +10,10 @@ import { imagePlaceholder } from "../../../assets"
 import { PAYMENTGATEWAYS_LOGOS } from "../../../config"
 import { PostPlaceOrder } from "../../../services/utils"
 import { buyProductSchema } from "../../../validation/product"
+import BookingCalender from "./booking-calender"
 
 const BuyForm = ({ product }) => {
+  console.log("🚀 ~ BuyForm ~ product:", product)
   const form = useForm({
     resolver: zodResolver(buyProductSchema),
     defaultValues: {
@@ -159,6 +161,8 @@ const BuyForm = ({ product }) => {
             </Radio.Group>
           )}
         />
+
+        {product.type === "booking" ? <BookingCalender product={product} /> : null}
 
         <Button loading={form.formState.isSubmitting} type="submit">
           {t("product-preview.form.buy-button")}

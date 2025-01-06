@@ -30,6 +30,7 @@ const WebProductPreview = () => {
       return GetProductPreview(params.slug)
     },
   })
+  console.log("🚀 ~ WebProductPreview ~ product:", product)
 
   const [opened, { open, close }] = useDisclosure(false)
   const [searchParams, setSearchParams] = useSearchParams()
