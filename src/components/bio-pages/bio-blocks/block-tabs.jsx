@@ -62,6 +62,7 @@ const BioBlockTabs = ({ block }) => {
           <Space />
           {BlockTabsOptions.map(({ value, Icon }) => {
             if (value === "settings" && noSettingsTab.includes(block.type)) return null
+            if (block.type === "divider" && value !== "settings") return null
             return (
               <Tabs.Tab p={0} key={value} value={value}>
                 <Flex p={5} align="center" justify={"center"}>
