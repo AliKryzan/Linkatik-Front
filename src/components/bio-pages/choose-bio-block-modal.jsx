@@ -131,6 +131,7 @@ const SearchInput = ({ state }) => {
   const [searchValue, setSearchValue] = state
   return (
     <TextInput
+      data-autofocus
       value={searchValue}
       onChange={(event) => setSearchValue(event.currentTarget.value)}
       leftSection={<Search strokeWidth={1.3} />}

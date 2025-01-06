@@ -39,6 +39,7 @@ const CreateBioPageForm = () => {
         render={({ field }) => (
           <div>
             <TextInput
+              data-autofocus
               dir="ltr"
               styles={{
                 input: { direction: "ltr", textAlign: "left" },
