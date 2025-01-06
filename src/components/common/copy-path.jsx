@@ -8,6 +8,7 @@ const CopyPath = ({ pathname }) => {
   const { colorScheme } = useMantineColorScheme()
   return (
     <Group
+      wrap="nowrap"
       bg={colorScheme === "dark" ? "dark" : "gray.1"}
       radius="md"
       justify="space-between"
@@ -26,7 +27,7 @@ const CopyPath = ({ pathname }) => {
           </Tooltip>
         )}
       </CopyButton>
-      <Text>{linkToCopy.toString().replace("https://", "")}</Text>
+      <Text lineClamp={1}>{linkToCopy.toString().replace("https://", "")}</Text>
     </Group>
   )
 }
