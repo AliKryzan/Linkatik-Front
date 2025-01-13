@@ -971,6 +971,8 @@
       "price-input-placeholder": "يمكنك تحديد السعر المراد دفعه",
       "payment_processors_id-input-label": "أختر طريقة الدفع",
       "email-input-placeholder": "ادخل بريدك الالكتروني",
+      "calender-title": "تحديد التاريخ",
+      "time_slot_id": "الفترة الزمنية",
       "buy-button": "شراء الآن",
       "errors": {
         "invalidEmail": "البريد الإلكتروني غير صالح",

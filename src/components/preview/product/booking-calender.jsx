@@ -1,64 +1,113 @@
-import { useState } from "react"
-import { Select } from "@mantine/core"
+import { useMemo, useState } from "react"
+import { Group, Indicator, Select, Space, Stack, Text } from "@mantine/core"
 import { Calendar } from "@mantine/dates"
 import dayjs from "dayjs"
+import { Controller, useFormContext } from "react-hook-form"
+import { useTranslation } from "react-i18next"
+
+import { GetAvailableDates } from "../../../utils/get-avalibale-dates"
 
 const BookingCalender = ({ product }) => {
-  const { duration, timeSlots } = product
-  // Calculate dates for the duration
-  const today = dayjs()
-  const [selectedDate, setSelectedDate] = useState(null)
-  const [availableSlots, setAvailableSlots] = useState([])
+  const { time_slots, next_days } = product
+  const { t } = useTranslation()
+  const form = useFormContext()
 
-  // Map weekdays to their corresponding dates
-  const getDatesForWeekday = (weekday) => {
-    const weekdayIndex = dayjs().day(weekday).day()
-    return Array.from({ length: duration })
-      .map((_, i) => today.add(i, "day"))
-      .filter((date) => date.day() === weekdayIndex)
-  }
+  // get available dates
 
-  // Map slots to dates
-  const mappedSlots = timeSlots.flatMap(({ day, slots }) => {
-    const dates = getDatesForWeekday(day)
-    return dates.map((date) => ({
-      date: date.format("YYYY-MM-DD"),
-      slots,
-    }))
+  const dates = GetAvailableDates({
+    next_days,
+    availableDays: Object.keys(time_slots).map((day) => time_slots[day].day),
   })
-
-  // Highlight days with slots
-  const getDayStyles = (date) => {
-    const dateString = dayjs(date).format("YYYY-MM-DD")
-    return mappedSlots.some((slot) => slot.date === dateString)
-      ? { backgroundColor: "#d3f8d3" } // Highlight color
-      : {}
-  }
-
-  const handleDaySelect = (date) => {
-    setSelectedDate(date)
-    if (date) {
-      const dateString = dayjs(date).format("YYYY-MM-DD")
-      const slot = mappedSlots.find((s) => s.date === dateString)
-      setAvailableSlots(slot?.slots || [])
-    } else {
-      setAvailableSlots([])
+  // handle selecting day
+  const [selected, setSelected] = useState(null)
+  const handleSelect = (date) => {
+    const isSelected = dayjs(date).isSame(selected, "date")
+    if (isSelected) {
+      setSelected(null)
+      return
     }
+    setSelected(date)
   }
+
+  const selectedDay = dayjs(selected).format("dddd").toLowerCase()
+  const selectedTimeSlotId = useMemo(
+    () =>
+      Object.keys(time_slots).find((slot) => {
+        return selectedDay ? selectedDay == time_slots[slot].day.toLowerCase() : null
+      }),
+    [selectedDay, time_slots],
+  )
+  const slots = useMemo(
+    () =>
+      selectedTimeSlotId
+        ? Object.values(time_slots[selectedTimeSlotId].slots).map((slot) => ({
+            label: `${slot.start_time} - ${slot.end_time}`,
+            value: slot.id + "",
+          }))
+        : [],
+    [selectedTimeSlotId, time_slots],
+  )
 
   return (
-    <div>
-      <Calendar value={selectedDate} onChange={handleDaySelect} dayStyle={getDayStyles} />
-      {/* <Select
-        label="Select a time slot"
-        placeholder="Choose time"
-        data={availableSlots.map((slot) => ({
-          value: slot.id.toString(),
-          label: `${slot.start_time} - ${slot.end_time}`,
-        }))}
-        disabled={availableSlots.length === 0}
-      /> */}
-    </div>
+    <Stack justify="center">
+      <Text>{t("product-preview.form.calender-title")}</Text>
+      <Group justify="center">
+        <Controller
+          control={form.control}
+          name="date"
+          render={({ field }) => (
+            <div>
+              <Calendar
+                ref={field.ref}
+                getDayProps={(date) => {
+                  return {
+                    disabled: dates[dayjs(date).format("YYYY-MM-DD")] === undefined,
+                    selected: dayjs(date).isSame(selected),
+                    onClick: () => {
+                      field.onChange(dayjs(date).format("YYYY-MM-DD"))
+                      handleSelect(date)
+                    },
+                  }
+                }}
+                renderDay={(date) => {
+                  const day = date.getDate()
+                  return (
+                    <Indicator
+                      size={6}
+                      color="red"
+                      offset={-2}
+                      disabled={dates[dayjs(date).format("YYYY-MM-DD")] === undefined}>
+                      <div>{day}</div>
+                    </Indicator>
+                  )
+                }}
+              />
+              <Text size="sm" c={"red"}>
+                {form.formState.errors.date?.message
+                  ? t(`product-preview.form.errors.${form.formState.errors.date?.message}`)
+                  : null}
+              </Text>
+            </div>
+          )}
+        />
+      </Group>
+      <Controller
+        control={form.control}
+        name="time_slot_id"
+        render={({ field }) => (
+          <Select
+            label={t("product-preview.form.time_slot_id")}
+            data={slots}
+            error={
+              form.formState.errors.time_slot_id?.message &&
+              t(`product-preview.form.errors.${form.formState.errors.time_slot_id?.message}`)
+            }
+            {...field}
+          />
+        )}
+      />
+      <Space />
+    </Stack>
   )
 }
 

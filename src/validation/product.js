@@ -104,3 +104,9 @@ export const buyProductSchema = z.object({
   price: z.coerce.string().optional(),
   payment_processors_id: z.coerce.number({ required_error: "required" }),
 })
+export const buyBookingProductSchema = buyProductSchema.merge(
+  z.object({
+    date: z.string({ required_error: "required" }).min(1, "required"),
+    time_slot_id: z.coerce.string({ required_error: "required" }).min(1, "required"),
+  }),
+)

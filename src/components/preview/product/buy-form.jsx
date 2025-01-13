@@ -9,19 +9,26 @@ import { Trans, useTranslation } from "react-i18next"
 import { imagePlaceholder } from "../../../assets"
 import { PAYMENTGATEWAYS_LOGOS } from "../../../config"
 import { PostPlaceOrder } from "../../../services/utils"
-import { buyProductSchema } from "../../../validation/product"
+import { buyBookingProductSchema, buyProductSchema } from "../../../validation/product"
 import BookingCalender from "./booking-calender"
 
 const BuyForm = ({ product }) => {
   console.log("🚀 ~ BuyForm ~ product:", product)
+  const schema = product.type === "booking" ? buyBookingProductSchema : buyProductSchema
+  console.log("🚀 ~ BuyForm ~ schema:", schema)
   const form = useForm({
-    resolver: zodResolver(buyProductSchema),
+    resolver: zodResolver(
+      product.pricing_type === "free" ? schema.omit({ payment_processors_id: true }) : schema,
+    ),
     defaultValues: {
       name: "",
       email: "",
       ...(product.max_price ? { price: product.max_price } : {}),
+      ...(product.type === "booking" ? { date: "", time_slot_id: "" } : {}),
     },
   })
+
+  console.log(form.formState.errors)
   const { t } = useTranslation()
   // store payment url incase use was not redirected
   const [paymentURL, setPaymentURl] = useState(null)
@@ -45,146 +52,158 @@ const BuyForm = ({ product }) => {
     }
   })
   return (
-    <FormProvider {...form}>
-      <Stack component={"form"} onSubmit={onSubmit} gap={"md"}>
-        <Group align="center" justify="space-between" wrap="nowrap" py="sm">
-          <Group align="center">
-            <Box h={56} w={56}>
-              <Image w={"100%"} h={"100%"} radius="md" fit="cover" src={product.image} alt={product.title} />
-            </Box>
-            <Text>{product.title}</Text>
+    <>
+      <FormProvider {...form}>
+        <Stack component={"form"} onSubmit={onSubmit} gap={"md"}>
+          <Group align="center" justify="space-between" wrap="nowrap" py="sm">
+            <Group align="center">
+              <Box h={56} w={56}>
+                <Image
+                  w={"100%"}
+                  h={"100%"}
+                  radius="md"
+                  fit="cover"
+                  src={product.image}
+                  alt={product.title}
+                />
+              </Box>
+              <Text>{product.title}</Text>
+            </Group>
+            <Button component="p" variant="light">
+              {product.pricing_type === "free"
+                ? t("products.general.free")
+                : `${product.price || product.max_price || "00"} ${product.currency}`}
+            </Button>
           </Group>
-          <Button component="p" variant="light">
-            {product.pricing_type === "free"
-              ? t("products.general.free")
-              : `${product.price || product.max_price || "00"} ${product.currency}`}
-          </Button>
-        </Group>
-        <Controller
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <TextInput
-              label={t("product-preview.form.name-input-label")}
-              placeholder={t("product-preview.form.name-input-placeholder")}
-              error={
-                form.formState.errors.name?.message &&
-                t(`product-preview.form.errors.${form.formState.errors.name?.message}`)
-              }
-              {...field}
-            />
-          )}
-        />
-        <Controller
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <TextInput
-              label={t("product-preview.form.email-input-label")}
-              placeholder={t("product-preview.form.email-input-placeholder")}
-              error={
-                form.formState.errors.email?.message &&
-                t(`product-preview.form.errors.${form.formState.errors.email?.message}`)
-              }
-              {...field}
-            />
-          )}
-        />
-
-        {Number(product.sales_price) ? (
           <Controller
             control={form.control}
-            name="price"
+            name="name"
             render={({ field }) => (
-              <NumberInput
-                min={Number(product.sales_price)}
-                max={Number(product.max_price)}
-                label={t("product-preview.form.price-input-label", {
-                  min: Number(product.sales_price),
-                  max: product.max_price,
-                })}
-                variant="filled"
-                placeholder={t("product-preview.form.price-input-placeholder")}
+              <TextInput
+                label={t("product-preview.form.name-input-label")}
+                placeholder={t("product-preview.form.name-input-placeholder")}
                 error={
-                  form.formState.errors.price?.message &&
-                  t(`product-preview.form.errors.${form.formState.errors.price?.message}`)
+                  form.formState.errors.name?.message &&
+                  t(`product-preview.form.errors.${form.formState.errors.name?.message}`)
                 }
                 {...field}
               />
             )}
           />
-        ) : null}
-        <Controller
-          control={form.control}
-          name="payment_processors_id"
-          render={({ field }) => (
-            <Radio.Group
-              label={t("product-preview.form.payment_processors_id-input-label")}
-              variant="filled"
-              placeholder={t("product-preview.form.payment_processors_id-input-placeholder")}
-              error={
-                form.formState.errors.payment_processors_id?.message &&
-                t(`product-preview.form.errors.${form.formState.errors.payment_processors_id?.message}`)
-              }
-              {...field}>
-              <Group gap={"sm"} pt={"sm"}>
-                {product.payment_processors.map((element) => {
-                  return (
-                    <Radio.Card
-                      key={element.id}
-                      className="price_radio_root payment_method"
-                      radius="md"
-                      value={element.id + ""}>
-                      <Group wrap="nowrap" align="flex-start">
-                        <Radio.Indicator variant="outline" icon={Check} />
-                        <Group wrap="nowrap">
-                          <Box w={56} h={56}>
-                            <Image
-                              w={"100%"}
-                              h={"100%"}
-                              radius={"50%"}
-                              fit="cover"
-                              fallbackSrc={imagePlaceholder}
-                              src={PAYMENTGATEWAYS_LOGOS[element.processor]}
-                              alt={element.processor}
-                            />
-                          </Box>
-                          <Text c={"gray"} className="label">
-                            {element.name}
-                          </Text>
-                        </Group>
-                      </Group>
-                    </Radio.Card>
-                  )
-                })}
-              </Group>
-            </Radio.Group>
-          )}
-        />
+          <Controller
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <TextInput
+                label={t("product-preview.form.email-input-label")}
+                placeholder={t("product-preview.form.email-input-placeholder")}
+                error={
+                  form.formState.errors.email?.message &&
+                  t(`product-preview.form.errors.${form.formState.errors.email?.message}`)
+                }
+                {...field}
+              />
+            )}
+          />
 
-        {product.type === "booking" ? <BookingCalender product={product} /> : null}
-
-        <Button loading={form.formState.isSubmitting} type="submit">
-          {t("product-preview.form.buy-button")}
-        </Button>
-        {form.formState.errors.root?.message && (
-          <Text c={"red"} size="xs" ta={"center"}>
-            {form.formState.errors.root.message}
-          </Text>
-        )}
-        {form.formState.isSubmitSuccessful && paymentURL ? (
-          <Text size="sm" c={"gray"}>
-            <Trans
-              i18nKey="product-preview.payment-url"
-              components={{
-                Link: <a rel="noopener" target="_blank" href={paymentURL} />,
-              }}
+          {Number(product.sales_price) ? (
+            <Controller
+              control={form.control}
+              name="price"
+              render={({ field }) => (
+                <NumberInput
+                  min={Number(product.sales_price)}
+                  max={Number(product.max_price)}
+                  label={t("product-preview.form.price-input-label", {
+                    min: Number(product.sales_price),
+                    max: product.max_price,
+                  })}
+                  variant="filled"
+                  placeholder={t("product-preview.form.price-input-placeholder")}
+                  error={
+                    form.formState.errors.price?.message &&
+                    t(`product-preview.form.errors.${form.formState.errors.price?.message}`)
+                  }
+                  {...field}
+                />
+              )}
             />
-          </Text>
-        ) : null}
-        <DevTool control={form.control} />
-      </Stack>
-    </FormProvider>
+          ) : null}
+
+          {product.type === "booking" ? <BookingCalender product={product} /> : null}
+          {product.pricing_type !== "free" && (
+            <Controller
+              control={form.control}
+              name="payment_processors_id"
+              render={({ field }) => (
+                <Radio.Group
+                  label={t("product-preview.form.payment_processors_id-input-label")}
+                  variant="filled"
+                  placeholder={t("product-preview.form.payment_processors_id-input-placeholder")}
+                  error={
+                    form.formState.errors.payment_processors_id?.message &&
+                    t(`product-preview.form.errors.${form.formState.errors.payment_processors_id?.message}`)
+                  }
+                  {...field}>
+                  <Group gap={"sm"} pt={"sm"}>
+                    {product.payment_processors.map((element) => {
+                      return (
+                        <Radio.Card
+                          key={element.id}
+                          className="price_radio_root payment_method"
+                          radius="md"
+                          value={element.id + ""}>
+                          <Group wrap="nowrap" align="flex-start">
+                            <Radio.Indicator variant="outline" icon={Check} />
+                            <Group wrap="nowrap">
+                              <Box w={56} h={56}>
+                                <Image
+                                  w={"100%"}
+                                  h={"100%"}
+                                  radius={"50%"}
+                                  fit="cover"
+                                  fallbackSrc={imagePlaceholder}
+                                  src={PAYMENTGATEWAYS_LOGOS[element.processor]}
+                                  alt={element.processor}
+                                />
+                              </Box>
+                              <Text c={"gray"} className="label">
+                                {element.name}
+                              </Text>
+                            </Group>
+                          </Group>
+                        </Radio.Card>
+                      )
+                    })}
+                  </Group>
+                </Radio.Group>
+              )}
+            />
+          )}
+
+          <Button loading={form.formState.isSubmitting} type="submit">
+            {t("product-preview.form.buy-button")}
+          </Button>
+          {form.formState.errors.root?.message && (
+            <Text c={"red"} size="xs" ta={"center"}>
+              {form.formState.errors.root.message}
+            </Text>
+          )}
+          {form.formState.isSubmitSuccessful && paymentURL ? (
+            <Text size="sm" c={"gray"}>
+              <Trans
+                i18nKey="product-preview.payment-url"
+                components={{
+                  Link: <a rel="noopener" target="_blank" href={paymentURL} />,
+                }}
+              />
+            </Text>
+          ) : null}
+          <DevTool control={form.control} />
+        </Stack>
+      </FormProvider>
+      <DevTool control={form.control} />
+    </>
   )
 }
 
