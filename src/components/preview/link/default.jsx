@@ -1,4 +1,4 @@
-import { Box, Image, Text } from "@mantine/core"
+import { Box, Image, Text,Button } from "@mantine/core"
 import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 
@@ -22,6 +22,10 @@ const Default = ({ block }) => {
   const buttonColor = theme.button_color ?? `#fcf3d8`
   const textColor = theme.text_color ?? `#000000`
 
+
+
+  console.log("theme.button_color =======>",data)
+
   return (
     <Button
       style={{
@@ -30,16 +34,8 @@ const Default = ({ block }) => {
       }}
       className="link-preview default"
       {...(block.url ? { href: block.url, rel: "noopener noreferrer" } : { component: "button" })}>
-      <div className="button-inner">
-        <Box w={32}>
-          <Image
-            radius={"50%"}
-            src={block.image}
-            fallbackSrc={BlocksInArray.find((b) => b.name === block.type).icon}
-            alt="thumbnail"
-          />
-        </Box>
-        <Text lineClamp={1}>{block.title || "Untitled"}</Text>
+      <div className="main_button">
+        {block.title || "Untitled"}
         <span></span>
       </div>
     </Button>

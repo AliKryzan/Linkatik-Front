@@ -9,7 +9,7 @@ const Domains = () => {
   const { t } = useTranslation()
 
   return (
-    <Stack gap={"xl"}>
+    <Stack gap={"xl"} >
       <TableHeader title={t("domains.title")}>
         <Button component={Link} to="/user/domains/add-domain">
           {t("domains.addButton")}

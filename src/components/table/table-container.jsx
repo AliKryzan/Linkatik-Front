@@ -5,7 +5,7 @@ import { theme } from "../../lib/mantine/theme"
 const TableContainer = ({ head, rows, minWidth, page, setPage, totalPages }) => {
   const { colorScheme } = useMantineColorScheme()
   return (
-    <Table.ScrollContainer minWidth={minWidth || 900}>
+    <Table.ScrollContainer minWidth={minWidth || 900} b>
       <Table borderColor={colorScheme === "light" ? theme.colors.gray[2] : theme.colors.gray[8]}>
         <Table.Thead>
           <Table.Tr>{head}</Table.Tr>

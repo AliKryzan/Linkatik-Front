@@ -206,6 +206,10 @@
     }
   },
   "bioPages": {
+    "title_1":"العنوان",
+    "addPersonalInfo":"اضف معلوماتك الشخصية ",
+    "ChooicePersonalPhoto":" اختر الصورة الشخصيه",
+    "skip":"تخطي",
     "title": "صفحات اللنكات",
     "addButton": "اضافة صفحة",
     "updateButton": "تعديل ",
@@ -237,8 +241,14 @@
       }
     },
     "createPage": {
+      "des":"الوصف",
+      "title_1":"العنوان",
       "preview": "عرض معاينة",
       "createButton": "انشأ الصفحة",
+      "ChooseFromPhotoLibrary":"اختيار من مكتبة الصور",
+      "FromOurLibrary":"من مكتبتنا",
+      "UploadYourPhoto":"رفع الصورة الخاصة بك",
+      "FromYourDevice":"من جهازك",
       "pathInput": {
         "label": "مسار الصفحة",
         "description": "يمكنك ترك الحقل فارغ ليتم انشاء مسار عشوائي",

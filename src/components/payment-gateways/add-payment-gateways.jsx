@@ -47,7 +47,7 @@ const AddPaymentGatewayButton = () => {
     <>
       <Button onClick={open}>{t("paymentGateways.addButton")}</Button>
       <Modal centered opened={opened} onClose={close} title={t("paymentGateways.addButton")}>
-        <Form close={close} />
+        <Form  close={close} />
       </Modal>
     </>
   )

@@ -19,7 +19,11 @@ import TwitchPreview from "./twitch"
 import VideoPreview from "./video"
 
 const RenderBlock = (props) => {
+
+  // console.log("BlocksWithLinkBehavior ========>",props)
   const type = BlocksWithLinkBehavior.find((e) => e === props.block.type) ? "link_behavior" : props.block.type
+
+  // console.log("type ==========>",type)
   switch (type) {
     case "link_behavior":
       return <CustomLinkBehavior {...props} />

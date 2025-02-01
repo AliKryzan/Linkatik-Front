@@ -109,7 +109,7 @@ const Navbar = ({ toggle }) => {
       withBorder={false}
       className="navbar"
       p="lg">
-      <Stack gap={"xl"} justify="space-between" flex={1}>
+      <Stack gap={"xl"} justify="space-between" flex={1} >
         <Stack gap={"xl"}>
           <AppShell.Section>
             <Group className="navbar-logo" justify="center">

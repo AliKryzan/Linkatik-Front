@@ -52,6 +52,81 @@ import scheduleIcon from "./schedule.svg"
 import secondaryImagePlaceholder from "./secondary-image-placeholder.png"
 import startSelling from "./start-selling.png"
 import stripe from "./stripe.png"
+import avatar from "./avatar/avater_1.png"
+import avatar2 from "./avatar/avater_2.png"
+import avatar3 from "./avatar/avater_3.png"
+import avatar4 from "./avatar/avater_4.png"
+import avatar5 from "./avatar/avater_5.png"
+import avatar6 from "./avatar/avater_6.png"
+import avatar7 from "./avatar/avater_7.png"
+import avatar8 from "./avatar/avater_8.png"
+import avatar9 from "./avatar/avater_9.png"
+import avatar10 from "./avatar/avater_10.png"
+import avatar11 from "./avatar/avater_11.png"
+import avatar12 from "./avatar/avater_12.png"
+import avatar13 from "./avatar/avater_13.png"
+import avatar14 from "./avatar/avater_14.png"
+import avatar15 from "./avatar/avater_15.png"
+import avatar16 from "./avatar/avater_16.png"
+import avatar17 from "./avatar/avater_17.png"
+import avatar18 from "./avatar/avater_18.png"
+import avatar19 from "./avatar/avater_19.png"
+
+
+
+// const groupAvatar = [
+//   avatar2,
+//   avatar,
+//   avatar3,
+//   avatar4,
+//   avatar5,
+//   avatar6,
+//   avatar7,
+//   avatar8,
+//   avatar9,
+//   avatar10,
+//   avatar11,
+//   avatar12,
+//   avatar13,
+//   avatar14,
+//   avatar15,
+//   avatar16,
+//   avatar17,
+//   avatar18,
+//   avatar19,
+// ]
+
+
+
+
+const groupAvatar = [
+  avatar2,
+  avatar,
+  avatar3,
+  avatar4,
+  avatar5,
+  avatar6,
+  avatar7,
+  avatar8,
+  avatar9,
+  avatar10,
+  avatar11,
+  avatar12,
+  avatar13,
+  avatar14,
+  avatar15,
+  avatar16,
+  avatar17,
+  avatar18,
+  avatar19,
+].map((avatar, index) => ({
+  id: index + 1, 
+  image: avatar, 
+}));
+
+
+
+
 
 export {
   sallaFullLogo,
@@ -108,4 +183,24 @@ export {
   stoks,
   zed,
   startSelling,
+  avatar,
+  avatar2,
+  avatar3,
+  avatar4,
+  avatar5,
+  avatar6,
+  avatar7,
+  avatar8,
+  avatar9,
+  avatar10,
+  avatar11,
+  avatar12,
+  avatar13,
+  avatar14,
+  avatar15,
+  avatar16,
+  avatar17,
+  avatar18,
+  avatar19,
+  groupAvatar,
 }

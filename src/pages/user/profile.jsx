@@ -9,7 +9,7 @@ const Profile = () => {
   const { t } = useTranslation()
 
   return (
-    <Stack maw={500} gap={"xl"}>
+    <Stack maw={500} gap={"xl"} >
       <Title order={2}>{t("profile.title")}</Title>
       <UpdateProfile />
       <Space />

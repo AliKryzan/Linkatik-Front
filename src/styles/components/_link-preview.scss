@@ -288,3 +288,24 @@
         transform: translateX(-100%);
     }
 }
+
+
+.main_button {
+    height: 55px;
+    border-radius: 8px;
+    // background-color: #4c6ef5;
+    background-color: $primary;
+    padding: 12px;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: wheat;
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    transition: .3s ease-in-out;
+
+    &:hover {
+        opacity: .8;
+    }
+}

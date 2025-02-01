@@ -13,6 +13,7 @@ import SubscribeForm from "../../components/common/subscribe-form"
 import BlockPreviewWrapper from "../../components/preview/link/block-preview-wrapper"
 import { GetPageAppearance, GetPagePreview } from "../../services/utils"
 import { generateWebComponent } from "../../utils/generate-web-component"
+import { groupAvatar } from '../../assets';
 
 const Preview = () => {
   const { path } = useParams()
@@ -45,6 +46,17 @@ const Preview = () => {
   const { html, css } = backgroundSettings
   const encapsulated = generateWebComponent("custom-background-" + Math.random(), html, css)
 
+
+  {console.log(data?.data.image_type)}
+  {console.log(data?.data.image_avatar)}
+  console.log("groupAvatar ====>",groupAvatar)
+
+
+  const avatar = groupAvatar.find((item) => item.id === Number(data?.data.image_avatar));
+
+  console.log("avatar =====>",avatar)
+
+
   return (
     <>
       <RenderBackground
@@ -63,7 +75,9 @@ const Preview = () => {
         className="preview-page bio-page-preview"
         gap={"xl"}
         justify="space-between"
-        p={"md"}>
+        p={"md"}
+        bg=''
+        >
         {(isUpdatingAppearance || isFetching) && (
           <Group className="preview-loader-indicator">
             <Loader2 size={18} className="spinner" color="gray" />
@@ -110,7 +124,8 @@ const Preview = () => {
                 w={120}
                 radius={"50%"}
                 fallbackSrc={imagePlaceholder}
-                src={data?.data.image}
+                // src={data?.data.image}
+                src={data?.data.image_type === 'avatar' ? avatar.image : data?.data.image}
               />
             </div>
             <Box mt="lg">
