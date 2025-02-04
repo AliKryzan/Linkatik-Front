@@ -48,7 +48,6 @@ const RichTextEditorModal = ({ label, field, setValue, error }) => {
       )}
       <Modal size="xl" centered opened={opened} onClose={close} title={label}>
         <RichTextEditorComponent field={field} editor={editor} />
-        {/* <RichTextEditorComponent field={field} editor={editor} /> */}
         {/* <NewEditor setValue={setValue} /> */}
       </Modal>
     </div>
