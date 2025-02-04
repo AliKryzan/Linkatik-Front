@@ -13,8 +13,8 @@ const Dashboard = () => {
   const { t } = useTranslation()
 
   return (
-    <Stack gap={"xl"}>
-      <TableHeader title={t("dashboard.title")}>
+    <Stack gap={"xl"} >
+      <TableHeader  title={t("dashboard.title")}>
         <CreateBioPageButton />
       </TableHeader>
       <Suspense fallback={<Loader size="sm" />}>

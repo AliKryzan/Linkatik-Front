@@ -122,6 +122,18 @@ export const GetProducts = async (params) => {
   }
   return data
 }
+
+export const GetZidProducts = async (params) => {
+  const response = await AuthLinkatikApi.get("user/zid/products", {
+    params: { per_page: PER_PAGE_DEFAULT, ...params },
+  })
+  const data = {
+    data: response.data?.data || [],
+    pagination: response.data.pagination,
+  }
+  return data
+}
+
 export const GetSallaProducts = async (params) => {
   const response = await AuthLinkatikApi.get("/user/salla/products", {
     params: { per_page: PER_PAGE_DEFAULT, ...params },
@@ -182,10 +194,53 @@ export const DeletePaymentGateWay = async (id) => {
   return response
 }
 
-export const PostCreateBioPage = async (data) => {
-  const response = await AuthLinkatikApi.post("/user/bio-pages", data)
-  return response
-}
+
+export const PostCreateBioPage = async (data,bioImage,image_type) => {
+
+  console.log("image_type------>",image_type)
+
+  try {
+    const response = await AuthLinkatikApi.post("/user/bio-pages", {
+      ...data,  
+      [image_type === 'custom' ? "image" : "image_avatar"]: bioImage
+
+    });
+
+    return response;
+  } catch (error) {
+    console.error("Error in PostCreateBioPage:", error);
+    throw error; 
+  }
+};
+
+
+
+// export const PostCreateBioPage = async (data, bioImage) => {
+//   try {
+//     const formData = new FormData();
+
+//     // إضافة البيانات النصية
+//     Object.keys(data).forEach((key) => {
+//       formData.append(key, data[key]);
+//     });
+//     if (bioImage) {
+//       formData.append("image", bioImage); 
+//     }
+
+//     const response = await AuthLinkatikApi.post("/user/bio-pages", formData, {
+//       headers: {
+//         "Content-Type": "multipart/form-data",
+//       },
+//     });
+
+//     return response;
+//   } catch (error) {
+//     console.error("Error in PostCreateBioPage:", error);
+//     throw error;
+//   }
+// };
+
+
 
 export const DeleteBioPage = async ({ id }) => {
   const response = await AuthLinkatikApi.delete(`/user/bio-pages/${id}`)
@@ -248,10 +303,17 @@ export const GetPagePreview = async (path) => {
   const response = await AuthLinkatikApi.get(`/${path}`)
   return response.data
 }
+
+export const GetSuccessfullyPreview = async (id) => {
+  const response = await AuthLinkatikApi.get(`/user/bio-pages/${id}`)
+  return response.data
+}
+
 export const GetPageAppearance = async (path) => {
   const response = await AuthLinkatikApi.get(`/${path}`)
   return response.data.data
 }
+
 export const GetBlockPreview = async (pageId, blockId) => {
   const response = await AuthLinkatikApi.get(`/bio-page/${pageId}/bio-block/${blockId}`)
   return response.data

@@ -14,6 +14,8 @@ const componentMap = {
 export function PagesWrapper({ componentKey, ...props }) {
   const Component = componentMap[componentKey]
 
+
+
   if (!Component) {
     return <div>Component not found</div>
   }

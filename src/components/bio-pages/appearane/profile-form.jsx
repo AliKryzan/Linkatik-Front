@@ -33,6 +33,7 @@ const ProfileForm = ({ data }) => {
       title: data.title,
       bio: data.bio,
       image: data.image_path,
+      image_type:"custom",
     },
   })
   const { handleSubmit, setError, watch, setValue, formState, control } = form
@@ -94,7 +95,7 @@ const ProfileForm = ({ data }) => {
   }
 
   return (
-    <Stack gap={"sm"}>
+    <Stack gap={"sm"} >
       <Text size={"xl"}>{t("bioPages.appearance.profile.title")}</Text>
       <Stack gap={"lg"} component={"form"} onSubmit={onSubmit} className="box">
         <Group style={{ position: "relative" }} p={"lg"}>

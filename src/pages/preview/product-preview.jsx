@@ -8,7 +8,7 @@ const ProductPreview = () => {
   const product = useWatch()
   const { t } = useTranslation()
   return (
-    <Stack className="preview-page product-preview" gap={"xl"} justify="space-between" pb={"md"}>
+    <Stack className="preview-page product-preview"  gap={"xl"} justify="space-between" pb={"md"}>
       <Stack gap={0}>
         <Box pt={"md"} px={"md"}>
           <Image

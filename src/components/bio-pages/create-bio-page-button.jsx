@@ -11,7 +11,7 @@ const CreateBioPageButton = () => {
   return (
     <>
       <Button onClick={open}>{t("bioPages.addButton")}</Button>
-      <Modal centered opened={opened} onClose={close} title={t("bioPages.addButton")}>
+      <Modal size="xl" centered opened={opened} onClose={close} title={t("bioPages.skip")}>
         <CreateBioPageForm />
       </Modal>
     </>

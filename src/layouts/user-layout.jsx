@@ -19,9 +19,11 @@ export function UserLayout() {
       layout={layout}
       header={{ height: 58 }}
       navbar={{ width: 290, breakpoint: "md", collapsed: { mobile: !opened } }}
-      padding="md">
+      padding="md"
+
+      >
       <Header opened={opened} toggle={toggle} />
-      <Navbar toggle={toggle} />
+      <Navbar toggle={toggle}  />
       <AppShell.Main>
         <Box p={{ md: "lg" }} pt={"lg"}>
           <Outlet />

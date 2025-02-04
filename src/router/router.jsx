@@ -29,6 +29,7 @@ import UpdateProduct from "../pages/user/products/update-product"
 import Profile from "../pages/user/profile"
 import Subscribers from "../pages/user/subscribers/subscribers"
 import ProtectedRoute from "./protected-routes"
+import SuccessfullyCreatedBio from "../pages/user/bio-pages/Successfully-created-bio"
 
 export const MyRouter = createBrowserRouter([
   {
@@ -92,6 +93,10 @@ export const MyRouter = createBrowserRouter([
               {
                 path: ":id/:path",
                 element: <CreateBioPage />,
+              },
+              {
+                path: ":id/:path/Successfully",
+                element: <SuccessfullyCreatedBio/>,
               },
             ],
           },

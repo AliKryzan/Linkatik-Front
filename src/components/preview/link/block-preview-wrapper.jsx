@@ -12,7 +12,6 @@ const BlockPreviewWrapper = ({ theme, block, pageId }) => {
   })
   if (status === "pending") return <Skeleton height={50} radius={"xl"} />
   if (status === "error") return <Error />
-  // if (status === "success" && !data) return <Error />
   const blockData = data.data
   return <RenderBlock theme={theme} block={blockData} pageId={pageId} />
 }

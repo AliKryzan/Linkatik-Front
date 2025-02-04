@@ -22,16 +22,7 @@ import ProductForm from "../../../components/products/product-form"
 import { bookingProductSchema, digitalProductSchema, productSchema } from "../../../validation/product"
 import ProductPreview from "../../preview/product-preview"
 
-// const productTypeDefaults = {
-//   digital: {
-//     digital_product_file: undefined,
-//   },
-//   booking: {
-//     duration: "30",
-//     next_days: "7",
-//     time_slots: [],
-//   },
-// }
+
 const CreateProduct = () => {
   const { t } = useTranslation()
   const [opened, { open, close }] = useDisclosure(false)
@@ -76,10 +67,10 @@ const CreateProduct = () => {
   const { colorScheme } = useMantineColorScheme()
 
   return (
-    <FormProvider {...form}>
-      <Flex position="relative" direction={{ base: "column", lg: "row" }} align={"start"} gap={"xs"}>
+    <FormProvider {...form} >
+      <Flex  position="relative" direction={{ base: "column", lg: "row" }} align={"start"} gap={"xs"}>
         <Box w="100%" flex={1} style={{ zIndex: 1, position: "relative" }}>
-          <Stack gap={"xl"}>
+          <Stack gap={"xl"} >
             <Stack>
               <Title order={2}>{t("products.addProduct.title")}</Title>
             </Stack>
@@ -137,7 +128,9 @@ const CreateProduct = () => {
         onClose={close}
         fullScreen
         radius={0}
-        transitionProps={{ transition: "fade", duration: 200 }}>
+        transitionProps={{ transition: "fade", duration: 200 }}
+        bg='red'
+        >
         <Group justify="center">
           <ProductPreview />
         </Group>

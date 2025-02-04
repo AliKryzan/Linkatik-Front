@@ -14,6 +14,7 @@ const Analysis = () => {
     queryFn: () => GetBioPageInfo(id),
   })
 
+  // console.log("data.data ====>",data.data)
   if (status === "pending") return <Loader />
   if (status === "error") return <Error />
   return <SettingsForm data={data.data} />

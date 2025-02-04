@@ -20,10 +20,10 @@ const Product = ({ block }) => {
         <SwiperSlide key={index}>
           <Box className="slide">
             <div className="image-wrapper">
-              <img className="slide-image" src={product.image} alt={product.title} />
+              <img className="slide-image" src={product.image || product.thumbnail} alt={product.title} />
             </div>
             <Text ta={"center"} py={"sm"} size="sm" fw={700}>
-              {product.title}
+              {product.title || product.name}
             </Text>
           </Box>
         </SwiperSlide>

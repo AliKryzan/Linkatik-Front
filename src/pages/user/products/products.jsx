@@ -25,7 +25,7 @@ const Products = () => {
           <Button visibleFrom="md" size="sm" component={Link} to="/user/products/add-product">
             {t("products.addButton")}
           </Button>
-          <ActionIcon hiddenFrom="md" size="lg" component={Link} to="/user/products/add-product">
+          <ActionIcon bg='red' hiddenFrom="md" size="lg" component={Link} to="/user/products/add-product">
             <Plus />
           </ActionIcon>
         </Group>

@@ -3,7 +3,7 @@ import { useInfiniteQuery } from "@tanstack/react-query"
 import { Controller, useFormContext } from "react-hook-form"
 
 import { imagePlaceholder } from "../../../assets"
-import { GetProducts, GetSallaProducts } from "../../../services/utils"
+import { GetProducts, GetSallaProducts,GetZidProducts } from "../../../services/utils"
 import { getLocalstorageUser } from "../../../utils/get-localstorage-user"
 import Error from "../../common/error"
 import InfiniteScrollContainer from "../../common/infinite-scroll-container"
@@ -11,12 +11,21 @@ import InfiniteScrollContainer from "../../common/infinite-scroll-container"
 const Product = ({ name }) => {
   const { control } = useFormContext()
 
+
+
+
   const queryFunctionMap = {
     salla: GetSallaProducts,
-    zid: GetProducts,
+    zid: GetZidProducts,
     product: GetProducts,
   }
+
+  // console.log("name =====>",name)
   const queryFunction = queryFunctionMap[name]
+  // const queryFunction = name == "Zid" ? GetProducts : queryFunctionMap[name];
+
+
+  console.log("queryFunction ====>",queryFunction)
   //   fetching products
   const { data, fetchNextPage, hasNextPage, status, isFetching, isFetchingNextPage } = useInfiniteQuery({
     queryKey: ["products", "block", name, getLocalstorageUser()?.token],
@@ -57,30 +66,35 @@ const Product = ({ name }) => {
                   <SimpleGrid
                     cols={{ base: 2, sm: 3, lg: 4 }}
                     spacing={{ base: 10, sm: "xl" }}
-                    verticalSpacing={{ base: "md", sm: "xl" }}>
+                    verticalSpacing={{ base: "md", sm: "xl" }}  
+                    >
                     {products.map((product) => {
                       return (
-                        <Checkbox.Card
-                          className={"products-checkbox-root"}
-                          value={product.id + ""}
-                          key={product.id}>
-                          <Stack gap={"xs"}>
-                            <Checkbox.Indicator radius={"xl"} className="indicator" />
-                            <div className="image-wrapper">
-                              <Image
-                                w={"100%"}
-                                h={"100%"}
-                                fit="cover"
-                                src={product.image}
-                                alt="linkatik"
-                                fallbackSrc={imagePlaceholder}
-                              />
-                            </div>
-                            <Text className={"label"} lineClamp={1}>
-                              {product.title}
-                            </Text>
-                          </Stack>
-                        </Checkbox.Card>
+                        <>
+                           {console.log("product  ====>",product)}
+                            <Checkbox.Card
+                              className={"products-checkbox-root"}
+                              value={product.id + ""}
+                              key={product.id}>
+                              <Stack gap={"xs"} >
+                                <Checkbox.Indicator radius={"xl"} className="indicator" />
+                                <div className="image-wrapper">
+                                  <Image
+                                    w={"100%"}
+                                    h={"100%"}
+                                    fit="cover"
+                                    src={product.image}
+                                    alt="linkatik"
+                                    fallbackSrc={imagePlaceholder}
+                                  />
+                                </div>
+                                <Text className={"label"} lineClamp={1}>
+                                  {product.title}
+
+                                </Text>
+                              </Stack>
+                            </Checkbox.Card>
+                        </>
                       )
                     })}
                   </SimpleGrid>

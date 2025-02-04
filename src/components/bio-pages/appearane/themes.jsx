@@ -9,11 +9,16 @@ import Error from "../../common/error"
 import Loader from "../../common/loader"
 import CreateCustomTheme from "./create-custom-theme"
 import { ThemePreview } from "./theme-preview"
+import { useDispatch, useSelector } from "react-redux"
 
 const Themes = ({ bioPageThemesQuery, data }) => {
+
+  const { bioImage,image_type} = useSelector((state) => state.GeneralSlice)
+
   const { t } = useTranslation()
   const { status, data: themes } = bioPageThemesQuery
   const [value, setValue] = useState(data.bio_page_theme.id + "")
+  const [img, setImg] = useState(data.image)
 
   // handle change theme
   const { path, id } = useParams()
@@ -22,7 +27,8 @@ const Themes = ({ bioPageThemesQuery, data }) => {
     mutationFn: async ({ value }) => {
       return await PutUpdateBioPage({
         id,
-        data: { bio_page_theme_id: value },
+        // data: { bio_page_theme_id: value ,[data.image_type === 'custom' ? "image" : "image_avatar"]:image_type === 'custom' ? data.image : data.image_avatar,image_type:data.image_type},
+        data: { bio_page_theme_id: value ,image:data.image,image_type},
       })
     },
     onSuccess() {
@@ -33,7 +39,7 @@ const Themes = ({ bioPageThemesQuery, data }) => {
   if (status === "error") return <Error />
   return (
     <>
-      <Stack gap={"xl"}>
+      <Stack gap={"xl"} >
         <Text size="xl">{t("bioPages.appearance.themes.title")}</Text>
         <Radio.Group
           value={value}
