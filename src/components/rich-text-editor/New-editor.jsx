@@ -8,7 +8,7 @@ function NewEditor({ setValue }) {
       <Editor
         apiKey="p5qmq7h4h7yo8q5p4zy4xsbivlj4yqjco2i1z4ecpewdx06a"
         onInit={(_evt, editor) => (editorRef.current = editor)}
-        onEditorChange={(content) => setValue(content)} // تحديث القيمة عند التغيير
+        onEditorChange={(content) => setValue(content)}
         initialValue="<p>This is the initial content of the editor.</p>"
         init={{
           height: 500,
