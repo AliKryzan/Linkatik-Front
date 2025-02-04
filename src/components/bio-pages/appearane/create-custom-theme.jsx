@@ -73,7 +73,7 @@ const CreateCustomTheme = () => {
   })
 
   return (
-    <Stack gap={"xl"} component="form" noValidate onSubmit={onSubmit}>
+    <Stack gap={"xl"} component="form" noValidate onSubmit={onSubmit}  >
       <Background form={form} />
       <Buttons form={form} />
       <Font form={form} />

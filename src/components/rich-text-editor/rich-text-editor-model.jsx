@@ -9,6 +9,8 @@ import { useEditor } from "@tiptap/react"
 import StarterKit from "@tiptap/starter-kit"
 
 import RichTextEditorComponent from "."
+import NewEditor from "./New-editor"
+
 
 const RichTextEditorModal = ({ label, field, setValue, error }) => {
   const [opened, { open, close }] = useDisclosure(false)
@@ -33,6 +35,7 @@ const RichTextEditorModal = ({ label, field, setValue, error }) => {
     }
   }, [editor, setValue])
 
+
   return (
     <div>
       <Button radius={"sm"} onClick={open}>
@@ -45,6 +48,8 @@ const RichTextEditorModal = ({ label, field, setValue, error }) => {
       )}
       <Modal size="xl" centered opened={opened} onClose={close} title={label}>
         <RichTextEditorComponent field={field} editor={editor} />
+        {/* <RichTextEditorComponent field={field} editor={editor} /> */}
+        {/* <NewEditor setValue={setValue} /> */}
       </Modal>
     </div>
   )

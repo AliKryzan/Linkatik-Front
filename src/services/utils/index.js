@@ -122,6 +122,18 @@ export const GetProducts = async (params) => {
   }
   return data
 }
+
+export const GetZidProducts = async (params) => {
+  const response = await AuthLinkatikApi.get("user/zid/products", {
+    params: { per_page: PER_PAGE_DEFAULT, ...params },
+  })
+  const data = {
+    data: response.data?.data || [],
+    pagination: response.data.pagination,
+  }
+  return data
+}
+
 export const GetSallaProducts = async (params) => {
   const response = await AuthLinkatikApi.get("/user/salla/products", {
     params: { per_page: PER_PAGE_DEFAULT, ...params },
@@ -183,12 +195,15 @@ export const DeletePaymentGateWay = async (id) => {
 }
 
 
-export const PostCreateBioPage = async (data,bioImage) => {
+export const PostCreateBioPage = async (data,bioImage,image_type) => {
+
+  console.log("image_type------>",image_type)
 
   try {
     const response = await AuthLinkatikApi.post("/user/bio-pages", {
       ...data,  
-      image_avatar:`${bioImage}`,
+      [image_type === 'custom' ? "image" : "image_avatar"]: bioImage
+
     });
 
     return response;

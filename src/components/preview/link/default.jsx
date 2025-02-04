@@ -34,7 +34,7 @@ const Default = ({ block }) => {
       }}
       className="link-preview default"
       {...(block.url ? { href: block.url, rel: "noopener noreferrer" } : { component: "button" })}>
-      <div className="main_button">
+      <div >
         {block.title || "Untitled"}
         <span></span>
       </div>

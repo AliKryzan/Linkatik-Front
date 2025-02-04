@@ -124,8 +124,7 @@ const Preview = () => {
                 w={120}
                 radius={"50%"}
                 fallbackSrc={imagePlaceholder}
-                // src={data?.data.image}
-                src={data?.data.image_type === 'avatar' ? avatar.image : data?.data.image}
+                src={data?.data.image_type === 'avatar' ? avatar?.image : data?.data.image}
               />
             </div>
             <Box mt="lg">
@@ -141,12 +140,14 @@ const Preview = () => {
           <Stack gap={"xl"} w={"100%"} maw={"360px"} mx={"auto"}>
             {data.data.blocks.map((block) => {
               return (
-                <BlockPreviewWrapper
-                  theme={appearanceData?.appearance?.bio_link}
-                  pageId={data.data.id}
-                  key={block.id}
-                  block={block}
-                />
+                <>
+                  <BlockPreviewWrapper
+                    theme={appearanceData?.appearance?.bio_link}
+                    pageId={data.data.id}
+                    key={block.id}
+                    block={block}
+                  />
+                </>
               )
             })}
           </Stack>

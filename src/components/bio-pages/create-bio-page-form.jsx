@@ -45,7 +45,7 @@ const CreateBioPageForm = () => {
 
   const { t } = useTranslation();
 
-  console.log("ssssssssssss =======>",bioImage)
+  // console.log("ssssssssssss =======>",bioImage)
   // console.log("uploadedImage =======>",uploadedImage)
 
   const form = useForm({
@@ -56,7 +56,6 @@ const CreateBioPageForm = () => {
       bio: "",
       style: "buttons",
       bio_page_theme_id: 1,
-      // image:bioImage,
       image_type:`${image_type}`
     },
   });
@@ -66,10 +65,9 @@ const CreateBioPageForm = () => {
   const { control, handleSubmit, formState, setError } = form;
   const navigate = useNavigate();
 
-  const onSubmit = handleSubmit(async (data) => {
-  
+  const onSubmit = handleSubmit(async (data) => {  
     try {
-      const response = await PostCreateBioPage(data, image_type === 'avatar' ? bioImage.id : uploadedImage);
+      const response = await PostCreateBioPage(data, image_type === 'avatar' ? bioImage.id : uploadedImage,image_type);
       navigate(`/user/bio-pages/${response.data.data.id}/${response.data.data.path}/Successfully`);
     } catch (error) {
       console.log("🚀 ~ onSubmit ~ error:", error);
@@ -88,6 +86,10 @@ const CreateBioPageForm = () => {
   useEffect(() => {
     console.log("isSubmitting:", formState.isSubmitting);
   }, [formState.isSubmitting]);
+
+
+  console.log("uploadedImage ==========>",uploadedImage)
+  console.log("bioImage ==========>",bioImage)
 
   return (
     <Stack 

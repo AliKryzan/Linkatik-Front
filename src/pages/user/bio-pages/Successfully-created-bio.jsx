@@ -21,7 +21,10 @@ function SuccessfullyCreatedBio() {
     queryFn: () => GetSuccessfullyPreview(id),
   })
 
-   const { bioImage } = useSelector((state) => state.GeneralSlice)
+   const { bioImage , image_type} = useSelector((state) => state.GeneralSlice)
+
+   console.log("bioImage from successfully ====>",bioImage)
+   console.log("image_type from successfully ====>",image_type)
 
     if (status === "pending" ) return <Loader />
     if (status === "error" ) return <Error />
@@ -113,7 +116,8 @@ function SuccessfullyCreatedBio() {
                         }}
                         >
                         <Image
-                            src={bioImage.image }
+                            src={image_type === 'custom' ? bioImage : bioImage.image  }
+                            // src={bioImage.image }
                             alt="img"
                         />
                     </Box>
