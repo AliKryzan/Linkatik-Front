@@ -1,7 +1,6 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react"
 
-// Import Swiper styles
 import "swiper/css"
 
 import { Box, Text } from "@mantine/core"
