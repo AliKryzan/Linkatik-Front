@@ -23,7 +23,7 @@ const Appearance = () => {
   if (status === "pending") return <Loader />
   if (status === "error") return <Error />
   return (
-    <Stack gap={"xl"}>
+    <Stack gap={"xl"} >
       <ProfileForm data={data.data} />
       <Space />
       <Themes bioPageThemesQuery={bioPageThemesQuery} data={data.data} />

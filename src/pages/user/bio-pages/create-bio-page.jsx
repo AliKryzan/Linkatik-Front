@@ -42,7 +42,7 @@ const CreateBioPage = () => {
     {
       value: "appearance",
       label: (
-        <Group align="center" justify="center" wrap="nowrap">
+        <Group align="center" justify="center" wrap="nowrap" >
           <Flex align={"center"} display={{ base: "none", sm: "flex" }}>
             <Stars size={20} />
           </Flex>

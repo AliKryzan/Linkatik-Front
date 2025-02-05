@@ -59,6 +59,8 @@ const RenderBlock = (props) => {
       return <EmailCollector {...props} />
     case "product":
       return <Product {...props} />
+    case "salla":
+      return <Product {...props} />
     default:
       return <Default {...props} />
   }

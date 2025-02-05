@@ -15,5 +15,6 @@ export const BlankBioBaPageSchema = z.object({
 export const BioPageProfileSchema = z.object({
   title: z.string({ required_error: "required" }).min(1, "required"),
   bio: z.string({ required_error: "required" }).min(1, "required"),
+  image_type: z.string().nullable(),
   image: z.string().nullable(),
 })

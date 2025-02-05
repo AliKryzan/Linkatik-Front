@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Box, Button, Image, Stack, Text, TextInput, Group,Modal } from "@mantine/core";
+import React, { useEffect, useState , useRef } from 'react'
+import { Box, Button, Image, Stack, Text, TextInput, Group,Modal,FileButton,LoadingOverlay } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import  MyDropzone  from "../../hooks/use-upload-image";
 import { Plus , Image as Image_ ,  } from "lucide-react";
@@ -10,6 +10,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { groupAvatar } from '../../assets';
 import { Suspense } from "react"
 import Loader from "../../components/common/loader"
+import { Controller, useForm } from "react-hook-form"
+import { useQueryClient } from "@tanstack/react-query"
+import { useUploadFile } from "../../hooks/use-upload-file"
+
 
 
 function CreateUploadImg({setActiveAvatar,setModalOneOpen}) {
@@ -27,6 +31,8 @@ function CreateUploadImg({setActiveAvatar,setModalOneOpen}) {
         dispatch(setBioImage(img))
         
     },[img])
+
+
 
   return (
     <>
