@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react"
 
 import "swiper/css"
 
+
+
 import { Box, Text } from "@mantine/core"
 
 const Product = ({ block }) => {
