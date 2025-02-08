@@ -9,6 +9,7 @@ import { Box, Text } from "@mantine/core"
 
 const Product = ({ block }) => {
   console.log("🚀 ~ Product ~ block:", block)
+  console.log("block=====>", block)
 
   return (
     <Swiper
@@ -24,7 +25,7 @@ const Product = ({ block }) => {
               <img className="slide-image" src={product.image || product.thumbnail} alt={product.title} />
             </div>
             <Text ta={"center"} py={"sm"} size="sm" fw={700}>
-              {product.title || product.name}
+              {product?.title || product?.name || ''}
             </Text>
           </Box>
         </SwiperSlide>

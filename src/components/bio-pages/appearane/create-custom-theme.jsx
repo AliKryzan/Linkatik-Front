@@ -9,8 +9,14 @@ import { PutUpdateBioPage } from "../../../services/utils"
 import Background from "./background"
 import Buttons from "./buttons"
 import Font from "./font"
+import { useState } from "react"
 
-const CreateCustomTheme = () => {
+const CreateCustomTheme = ({data}) => {
+
+  console.log("============>",data)
+  console.log("============>",data.image)
+  const [img,setImg] = useState(data.image)
+
   const { t } = useTranslation()
   const { id, path } = useParams()
   const form = useForm({
@@ -58,9 +64,12 @@ const CreateCustomTheme = () => {
       bio_link: data.bio_link,
     }
     try {
+      console.log("image after  PutUpdateBioPage=====>",img)
       const response = await PutUpdateBioPage({
         id,
-        data: { appearance },
+        // data: { appearance },
+        data: { appearance,image:img,image_type:"custom"},
+        // data: { appearance,image:'ssssss',image_type:"custom"},
       })
       await queryClient.setQueryData(["bio-page-theme-preview", path], response.data.data)
     } catch (error) {
@@ -73,7 +82,7 @@ const CreateCustomTheme = () => {
   })
 
   return (
-    <Stack gap={"xl"} component="form" noValidate onSubmit={onSubmit}  >
+    <Stack  gap={"xl"} component="form" noValidate onSubmit={onSubmit}  >
       <Background form={form} />
       <Buttons form={form} />
       <Font form={form} />

@@ -41,11 +41,14 @@ const UpdateProduct = () => {
       title: product.title || "",
       description: product.description || "",
       long_description: product.long_description || "",
-      image: product.image,
+      // image: product.image || product.image_path ,
+      // image:  product.image_path || '',
+      image:  product.image,
       pricing_type: product.pricing_type,
       price: product.price,
       max_price: product.max_price,
       currency: product.currency,
+      image_path:product.image_path || '',
     },
   })
 
@@ -58,7 +61,7 @@ const UpdateProduct = () => {
   const { colorScheme } = useMantineColorScheme()
 
   return (
-    <FormProvider {...form}>
+    <FormProvider {...form} >
       <Flex position="relative" direction={{ base: "column", lg: "row" }} align={"start"} gap={"xs"}>
         <Box w="100%" flex={1} style={{ zIndex: 1, position: "relative" }}>
           <Stack gap={"xl"}>

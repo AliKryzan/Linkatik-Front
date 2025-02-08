@@ -25,10 +25,13 @@ const UpdateProductForm = () => {
   const { control, handleSubmit, formState, watch, setValue, setError, reset } = form
 
   const onSubmit = handleSubmit(async (data) => {
+    console.log("11=========>",data)
+    console.log("22=========>",data.image_path)
     try {
       await PutProduct(
         productId,
-        objectToFormData({ ...data, image: typeof data.image === "string" ? undefined : data.image }),
+        objectToFormData({ ...data, image: typeof data.image === "string" ? data.image_path : data.image,_method:'put' }),
+        // objectToFormData({ ...data, image: typeof data.image === "string" ? undefined : data.image,_method:'put' }),
       )
       toast.success(t("products.addProduct.successMessage"))
       reset()
@@ -47,7 +50,7 @@ const UpdateProductForm = () => {
 
   return (
     <>
-      <Stack maw={550} component={"form"} noValidate onSubmit={onSubmit}>
+      <Stack maw={550} component={"form"} noValidate onSubmit={onSubmit} >
         <Controller
           control={control}
           name="title"

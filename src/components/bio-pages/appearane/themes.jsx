@@ -28,7 +28,8 @@ const Themes = ({ bioPageThemesQuery, data }) => {
       return await PutUpdateBioPage({
         id,
         // data: { bio_page_theme_id: value ,[data.image_type === 'custom' ? "image" : "image_avatar"]:image_type === 'custom' ? data.image : data.image_avatar,image_type:data.image_type},
-        data: { bio_page_theme_id: value ,image:data.image,image_type},
+        // data: { bio_page_theme_id: value ,image:data.image,image_type},
+        data: { bio_page_theme_id: value ,image:data.image,image_type:"custom"},
       })
     },
     onSuccess() {
@@ -63,7 +64,7 @@ const Themes = ({ bioPageThemesQuery, data }) => {
           </Group>
         </Radio.Group>
       </Stack>
-      {value === "custom" ? <CreateCustomTheme /> : null}
+      {value === "custom" ? <CreateCustomTheme data={data} /> : null}
     </>
   )
 }

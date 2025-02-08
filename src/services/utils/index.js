@@ -164,8 +164,9 @@ export const DeleteProduct = async (id) => {
   const response = await AuthLinkatikApi.delete(`/user/products/${id}`)
   return response
 }
+
 export const PutProduct = async (id, data) => {
-  const response = await AuthLinkatikApi.put(`/user/products/${id}`, data)
+  const response = await AuthLinkatikApi.post(`/user/products/${id}?_method=put`, data)
   return response
 }
 

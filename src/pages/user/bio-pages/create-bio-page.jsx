@@ -83,7 +83,7 @@ const CreateBioPage = () => {
   const { colorScheme } = useMantineColorScheme()
   return (
     <>
-      <Flex position="relative" direction={{ base: "column", lg: "row" }} align={"start"} gap={"xs"} >
+      <Flex  position="relative" direction={{ base: "column", lg: "row" }} align={"start"} gap={"xs"} >
         <Box w="100%" flex={1} style={{ zIndex: 1, position: "relative" }}>
           <Stack w="100%" maw={950} mx={"auto"} gap={"xl"}>
             <Title ta={fullScreen ? "unset" : "center"} order={2}>

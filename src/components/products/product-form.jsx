@@ -18,6 +18,7 @@ import Dropzone from "../ui/dropzone"
 import ProductPriceType from "./product-price-type"
 import ProductPricing from "./product-pricing"
 import ProductType from "./product-type"
+import { useNavigate } from "../../lib/i18n/navigation";
 
 const productTypeDefaults = {
   digital: {
@@ -31,6 +32,8 @@ const productTypeDefaults = {
   },
 }
 const ProductForm = () => {
+
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams()
   const type = searchParams.get("type") ?? "digital"
 
@@ -50,6 +53,7 @@ const ProductForm = () => {
     try {
       await PostProduct(objectToFormData({ ...data, type, ...productTypeDefaults[data.type] }))
       toast.success(t("products.addProduct.successMessage"))
+      navigate(`/user/products`);
       reset()
     } catch (error) {
       console.log("🚀 ~ onSubmit ~ error:", error)

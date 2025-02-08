@@ -23,7 +23,7 @@ const RenderBlock = (props) => {
   // console.log("BlocksWithLinkBehavior ========>",props)
   const type = BlocksWithLinkBehavior.find((e) => e === props.block.type) ? "link_behavior" : props.block.type
 
-  // console.log("type ==========>",type)
+  console.log("type ==========>",type)
   switch (type) {
     case "link_behavior":
       return <CustomLinkBehavior {...props} />
@@ -57,6 +57,8 @@ const RenderBlock = (props) => {
       return <AppleMusic {...props} />
     case "email_collector":
       return <EmailCollector {...props} />
+    case "zid":
+      return <Product {...props} />
     case "product":
       return <Product {...props} />
     case "salla":

@@ -55,45 +55,9 @@ export const productPricingSchema = z.object({
   sales_price: z.coerce.number().optional(),
   max_price: z.coerce.number().optional(),
   currency: z.string().optional(),
+  image_path: z.string().optional(),
 })
 
-// .superRefine((data, ctx) => {
-//   if (data.pricing_type === "pay_what_you_want") {
-//     if (!data.sales_price) {
-//       ctx.addIssue({
-//         path: ["sales_price"],
-//         message: "required",
-//       })
-//     }
-//     if (!data.max_price) {
-//       ctx.addIssue({
-//         path: ["sales_price"],
-//         message: "required",
-//       })
-//     }
-//     if (!data.currency) {
-//       ctx.addIssue({
-//         path: ["currency"],
-//         message: "required",
-//       })
-//     }
-//   }
-
-//   if (data.pricing_type === "single_payment") {
-//     if (!data.value) {
-//       ctx.addIssue({
-//         path: ["price"],
-//         message: "required",
-//       })
-//     }
-//     if (!data.currency) {
-//       ctx.addIssue({
-//         path: ["currency"],
-//         message: "required",
-//       })
-//     }
-//   }
-// })
 
 export const productSchema = defaultProductSchema.merge(productPricingSchema)
 export const updateProductSchema = updateProduct.merge(productPricingSchema)

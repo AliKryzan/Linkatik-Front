@@ -47,14 +47,8 @@ const Preview = () => {
   const encapsulated = generateWebComponent("custom-background-" + Math.random(), html, css)
 
 
-  {console.log(data?.data.image_type)}
-  {console.log(data?.data.image_avatar)}
-  console.log("groupAvatar ====>",groupAvatar)
-
 
   const avatar = groupAvatar.find((item) => item.id === Number(data?.data.image_avatar));
-
-  console.log("avatar =====>",avatar)
 
 
   return (
@@ -86,7 +80,7 @@ const Preview = () => {
         )}
 
         <Stack gap={"lg"}>
-          <Group justify="space-between">
+          <Group justify="space-between" >
             <ActionIcon
               size={"lg"}
               variant="white"
@@ -124,7 +118,8 @@ const Preview = () => {
                 w={120}
                 radius={"50%"}
                 fallbackSrc={imagePlaceholder}
-                src={data?.data.image_type === 'avatar' ? avatar?.image : data?.data.image}
+                // src={data?.data.image_type === 'avatar' ? avatar?.image : data?.data.image}
+                src={data?.data.image_type === 'avatar' ? avatar?.image : data?.data.image == null ? avatar?.image  : data?.data.image }
               />
             </div>
             <Box mt="lg">
@@ -137,7 +132,7 @@ const Preview = () => {
             </Box>
           </div>
 
-          <Stack gap={"xl"} w={"100%"} maw={"360px"} mx={"auto"}>
+          <Stack  gap={"xl"} w={"100%"} maw={"360px"} mx={"auto"}>
             {data.data.blocks.map((block) => {
               return (
                 <>
