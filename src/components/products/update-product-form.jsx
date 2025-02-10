@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { memo } from "react"
 import { DevTool } from "@hookform/devtools"
 import { ActionIcon, Button, Group, Stack, Text, TextInput, useMantineTheme } from "@mantine/core"
@@ -7,7 +8,7 @@ import { Controller, useFormContext } from "react-hook-form"
 import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
-
+import { convertTo24HourFormat } from "../../utils/convertTo24HourFormat"
 import { Link } from "../../lib/i18n/navigation"
 import { PutProduct } from "../../services/utils"
 import { objectToFormData } from "../../utils/obj-to-formdata"
@@ -15,25 +16,55 @@ import RichTextEditorModal from "../rich-text-editor/rich-text-editor-model"
 import Dropzone from "../ui/dropzone"
 import ProductPriceType from "./product-price-type"
 import ProductPricing from "./product-pricing"
+import { useNavigate } from "../../lib/i18n/navigation";
+import ProductTypeUpdate from "./Product-type-update"
 
-const UpdateProductForm = () => {
+
+const productTypeDefaults = {
+  digital: {
+    duration: "",
+    next_days: "",
+    meeting_location: "",
+    meeting_link: "",
+  },
+  booking: {
+    meeting_location: "",
+  },
+}
+
+
+const UpdateProductForm = ({type}) => {
   const { productId } = useParams()
+  const navigate = useNavigate();
 
   const theme = useMantineTheme()
   const { t } = useTranslation()
   const form = useFormContext()
   const { control, handleSubmit, formState, watch, setValue, setError, reset } = form
 
+  const digitalProductFile = watch("digital_product_file")
+  const time_slots = watch("time_slots")
+
+
+
+
+
+ // how you set data here and in this functions i want set time_slots in case product bbooking
   const onSubmit = handleSubmit(async (data) => {
-    console.log("11=========>",data)
-    console.log("22=========>",data.image_path)
     try {
       await PutProduct(
         productId,
-        objectToFormData({ ...data, image: typeof data.image === "string" ? data.image_path : data.image,_method:'put' }),
-        // objectToFormData({ ...data, image: typeof data.image === "string" ? undefined : data.image,_method:'put' }),
+        objectToFormData({
+           ...data,
+           type,
+           image: typeof data.image === "string" ? data.image_path : data.image,
+          //  digital_product_file: digitalProductFile,
+          ...(type === "digital" ? { digital_product_file: digitalProductFile } : time_slots),
+          }),
+        // objectToFormData({ ...data, image: typeof data.image === "string" ? data.image_path : data.image,_method:'put' }),
       )
       toast.success(t("products.addProduct.successMessage"))
+      navigate(`/user/products`);
       reset()
     } catch (error) {
       console.log("🚀 ~ onSubmit ~ error:", error)
@@ -47,6 +78,7 @@ const UpdateProductForm = () => {
   const handleRemove = () => {
     setValue("image", undefined)
   }
+
 
   return (
     <>
@@ -139,6 +171,7 @@ const UpdateProductForm = () => {
 
         <ProductPriceType />
         <ProductPricing />
+        <ProductTypeUpdate type={type}/>
 
         <Group>
           <Button type="submit" loading={formState.isSubmitting}>

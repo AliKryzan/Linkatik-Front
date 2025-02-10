@@ -11,12 +11,13 @@
         padding: 12px;
         height: 54px;
         align-items: center;
-        display: grid;
+        // display: grid;
         grid-template-columns: 20% 1fr 20%;
         gap: 4px;
         position: relative;
         z-index: 1;
         color: var(--text-color);
+        // color: #3E3E3E;
     }
 
     // filled

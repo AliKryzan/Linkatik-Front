@@ -66,7 +66,7 @@ const Preview = () => {
           zIndex: 1,
           height: isPreview ? "unset" : undefined,
         }}
-        className="preview-page bio-page-preview"
+        className="preview-page bio-page-preview "
         gap={"xl"}
         justify="space-between"
         p={"md"}

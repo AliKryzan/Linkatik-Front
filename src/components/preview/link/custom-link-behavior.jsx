@@ -64,15 +64,17 @@ const CustomLinkBehavior = ({ block }) => {
   if (block.settings.link_behavior === "target") return <Default block={block} />
 
   return (
-    <div
-      style={{
-        "--button-color": buttonColor,
-        "--text-color": textColor,
-      }}
-      className="link-preview iframe">
-      <p className="block-title">{block.title}</p>
-      <div className="iframe-wrapper" dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
-    </div>
+    <>
+      <div
+        style={{
+          "--button-color": buttonColor,
+          "--text-color": textColor,
+        }}
+        className="link-preview iframe">
+        <p className="block-title">{block.title}</p>
+        <div className="iframe-wrapper" dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
+      </div>
+    </>
   )
 }
 

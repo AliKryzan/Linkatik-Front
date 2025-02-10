@@ -35,7 +35,7 @@ const ProductType = () => {
 
   return (
     <Stack gap={"lg"}>
-      <div>
+      <div >
         <div>
           <Text fz={"sm"} fw={500} pb={3}>
             {t(`products.addProduct.type`)}
@@ -123,7 +123,7 @@ const ProductType = () => {
       {type === "booking" && (
         <>
           <Stack gap={"xs"}>
-            <div>
+            <div >
               <Text size="sm" py={3} fw={500}>
                 {t("products.addProduct.meetingDetailsLabel")}
               </Text>

@@ -68,7 +68,7 @@ const CreateProduct = () => {
 
   return (
     <FormProvider {...form} >
-      <Flex  position="relative" direction={{ base: "column", lg: "row" }} align={"start"} gap={"xs"}>
+      <Flex   position="relative" direction={{ base: "column", lg: "row" }} align={"start"} gap={"xs"}>
         <Box w="100%" flex={1} style={{ zIndex: 1, position: "relative" }}>
           <Stack gap={"xl"} >
             <Stack>
