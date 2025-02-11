@@ -165,14 +165,35 @@ const CreateBioPageForm = () => {
         name="path"
         render={({ field }) => (
           <TextInput
+          dir="ltr"
+          styles={{
+            input: { direction: "ltr", textAlign: "left" },
+            wrapper: { direction: "ltr", textAlign: "left" },
+          }}
+          size="md"
+          leftSectionWidth={130}
+          leftSectionProps={{ bg: "gray" }}
+          leftSection={
+            <Box>
+              <Text size="sm">{t("products.addProduct.slug_left")}</Text>
+            </Box>
+          }
             label={t("bioPages.createPage.pathInput.label")}
-            placeholder={t("bioPages.createPage.pathInput.placeholder")}
             error={
               formState.errors.path?.message &&
               t(`bioPages.createPage.errors.${formState.errors.path?.message}`)
             }
             {...field}
           />
+          // <div className="flex items-center border rounded-md px-2 border-[#9a9a9a] relative " dir="ltr">
+          //   <label className="absolute top-[-26px] right-0" htmlFor=""> {t("bioPages.createPage.pathInput.label")}</label>
+          //   <span className="text-gray-500">https://linkatik.com/</span>
+          //   <input
+          //     {...field}
+          //     className="flex-1 outline-none border-none px-2 p-[9px]"
+          //   />
+          // </div>
+
         )}
       />
       {/* Title Input */}

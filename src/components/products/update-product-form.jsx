@@ -44,22 +44,37 @@ const UpdateProductForm = ({type}) => {
 
   const digitalProductFile = watch("digital_product_file")
   const time_slots = watch("time_slots")
+  const duration = watch("duration")
+  const next_days = watch("next_days")
+
+  console.log("duration ========>",duration)
+  console.log("next_days ========>",next_days)
 
 
 
 
 
- // how you set data here and in this functions i want set time_slots in case product bbooking
+ // how you set data here and in this functions i want set time_slots in case product booking
   const onSubmit = handleSubmit(async (data) => {
+
+    if (type === "booking") {
+      data.time_slots = time_slots.map((slot) => ({
+        ...slot,
+        start_time: convertTo24HourFormat(slot.start_time),
+        end_time: convertTo24HourFormat(slot.end_time),
+      }))
+    }
+
     try {
       await PutProduct(
         productId,
         objectToFormData({
            ...data,
            type,
+           ...productTypeDefaults[data.type],
            image: typeof data.image === "string" ? data.image_path : data.image,
           //  digital_product_file: digitalProductFile,
-          ...(type === "digital" ? { digital_product_file: digitalProductFile } : time_slots),
+          ...(type === "digital" ? { digital_product_file: digitalProductFile } : {duration : duration,next_days}),
           }),
         // objectToFormData({ ...data, image: typeof data.image === "string" ? data.image_path : data.image,_method:'put' }),
       )

@@ -80,7 +80,7 @@ const ProductForm = () => {
 
   return (
     <>
-      <Stack aw={550} component={"form"} noValidate onSubmit={onSubmit}>
+      <Stack aw={550} component={"form"} noValidate onSubmit={onSubmit} >
         <Controller
           control={control}
           name="title"

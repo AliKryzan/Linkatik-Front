@@ -19,7 +19,8 @@ const Default = ({ block }) => {
   const theme = data?.appearance?.bio_link
 
   const Button = Buttons[theme.type ?? "filled"]
-  const buttonColor = theme.button_color ?? `#F8F4E3`
+  const buttonColor = theme.button_color ?? `#9945c3`
+  // const buttonColor = theme.button_color ?? `#F8F4E3`
   const textColor = theme.text_color ?? `#3E3E3E`
   // const textColor = theme.text_color ?? `#000000`
 
@@ -29,7 +30,7 @@ const Default = ({ block }) => {
         "--button-color": buttonColor,
         "--text-color": textColor,
       }}
-      className="link-preview default rounded-2xl text-center"
+      className="link-preview default text-center"
       {...(block.url ? { href: block.url, rel: "noopener noreferrer" } : { component: "button" })}>
       <div className="button-inner">
         <Text  lineClamp={1}>{block.title || "Untitled"}</Text>

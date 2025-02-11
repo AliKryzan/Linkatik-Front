@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next"
 import { imagePlaceholder } from "../../../assets"
 import useDeleteBioPageMutation from "../../../hooks/use-delete-bio-page-mutation"
 import { Link } from "../../../lib/i18n/navigation"
+import {groupAvatar} from '../../../assets'
+import { number } from "prop-types"
 
 const bioPageStyle = {
   buttons: {
@@ -37,17 +39,25 @@ const BioPagesTableBody = ({ data, activePage }) => {
       },
     })
 
+    console.log("data =========>",data)
+    console.log("groupAvatar =========>",groupAvatar)
+
   const rows = data.map((element) => {
     return (
-      <Table.Tr key={element.id}>
+      <Table.Tr key={element.id} >
         <Table.Td>
-          <Group component={Link} to={"/user/bio-pages/" + element.id + "/" + element.path}>
+          <Group  component={Link} to={"/user/bio-pages/" + element.id + "/" + element.path}>
             <div>
               <Image
                 w={60}
                 h={60}
                 fit="cover"
-                src={element.image_path}
+                src={
+                  element.image_avatar !== null
+                    ? groupAvatar.find(avatar => Number(avatar.id) === Number(element.image_avatar) )?.image || element.image_path
+                    : element.image_path
+                }
+                
                 alt="linkatik"
                 fallbackSrc={imagePlaceholder}
               />
