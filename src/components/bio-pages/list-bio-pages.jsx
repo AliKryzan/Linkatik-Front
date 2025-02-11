@@ -20,7 +20,7 @@ const ListBioPages = () => {
 
   const { t } = useTranslation()
   return (
-    <Stack gap={"xs"}>
+    <Stack  gap={"xs"}>
       <Text className="chart-title">
         <span></span>
         {t(`bioPages.title`)}

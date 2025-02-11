@@ -65,7 +65,7 @@ function SuccessfullyCreatedBio() {
                      textAlign:"center"
                  }}
                >
-                {data?.data?.path}
+                https://app.linkatik.com/ar/preview/{data?.data?.path}
                </Text>
           </Box>
            <Box 
@@ -117,7 +117,6 @@ function SuccessfullyCreatedBio() {
                         >
                         <Image
                             src={image_type === 'custom' ? bioImage : bioImage.image  }
-                            // src={bioImage.image }
                             alt="img"
                         />
                     </Box>
@@ -146,13 +145,12 @@ function SuccessfullyCreatedBio() {
                         {data?.data?.bio}
                     </Text>
              </div>
-             <Group  justify="center" style={{marginTop:"80px"}}>
-               <Button size="xs" radius="lg" style={{fontSize:"12px"}}>شارك لينكاتك</Button>
-               {/* <a href={`/ar/user/bio-pages/${data?.data?.id}/${path}`}> */}
+             <div className='flex items-center relative w-full h-[40px] '   style={{marginTop:"80px"}}>
+               <button className=' absolute top-0 -right-[35px] md:-right-[45px] bg-[#8938B2] rounded-2xl w-[160px] text-white cursor-pointer' style={{fontSize:"12px",height:"40px",}}>شارك لينكاتك</button>
                <a href={data?.data?.id ? `/ar/user/bio-pages/${data.data.id}/${path}` : "#"}>
-               <Button size="xs" radius="lg" style={{fontSize:"12px", color:"#8938B2", background:"#E5D1FF"}}>اكمل التعديل</Button>
+               <button className=' absolute top-0 -left-[35px] md:-left-[45px] rounded-2xl w-[160px] text-[#8938B2] cursor-pointer' style={{fontSize:"12px", color:"#8938B2", background:"#E5D1FF",height:"40px"}}>اكمل التعديل</button>
                </a>
-             </Group>
+             </div>
           </Box>
       </div>
       </>

@@ -35,6 +35,7 @@ const UpdateProduct = () => {
     queryFn: () => GetProduct(productId),
   })
 
+
   const form = useForm({
     resolver: zodResolver(updateProductSchema),
     defaultValues: {
@@ -68,7 +69,7 @@ const UpdateProduct = () => {
             <Stack>
               <Title order={2}>{t("products.addProduct.title")}</Title>
             </Stack>
-            <UpdateProductForm />
+            <UpdateProductForm type={product.type || 'digital'}/>
           </Stack>
         </Box>
         <Stack

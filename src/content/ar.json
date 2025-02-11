@@ -252,7 +252,7 @@
       "pathInput": {
         "label": "مسار الصفحة",
         "description": "يمكنك ترك الحقل فارغ ليتم انشاء مسار عشوائي",
-        "leftSection": "linkatik.com/"
+        "leftSection": "https://linkatik.com/"
       },
       "segments": {
         "links": "روابط",
@@ -347,7 +347,7 @@
         "form": {
           "label": "رابط الاشتراك",
           "description": "شارك هذا الرابط لإعلام جمهورك بأنه يمكنهم الاشتراك.",
-          "placeholder": "linkatik.com/alikryzan"
+          "placeholder": "https://linkatik.com/alikryzan"
         }
       },
       "logo": {
@@ -895,7 +895,7 @@
       "next_days": "خلال",
       "next_daysUnit": "يوم",
       "slug": "مسار المنتح",
-      "slug_left": "linkatik.com/",
+      "slug_left": "https://linkatik.com/",
       "timezone": "المنطقة الزمنية",
       "meetingDetailsLabel": "تفاصيل الاجتماع",
       "visit_url": "رابط وصول",

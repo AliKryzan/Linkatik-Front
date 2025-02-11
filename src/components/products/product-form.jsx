@@ -43,6 +43,9 @@ const ProductForm = () => {
   const { control, handleSubmit, formState, watch, setValue, setError, reset } = form
 
   const onSubmit = handleSubmit(async (data) => {
+
+    console.log("data from creat product ====>",data)
+
     if (type === "booking") {
       data.time_slots = data.time_slots.map((slot) => ({
         ...slot,
@@ -77,7 +80,7 @@ const ProductForm = () => {
 
   return (
     <>
-      <Stack maw={550} component={"form"} noValidate onSubmit={onSubmit}>
+      <Stack aw={550} component={"form"} noValidate onSubmit={onSubmit} >
         <Controller
           control={control}
           name="title"
@@ -198,7 +201,7 @@ const ProductForm = () => {
         <ProductPricing />
         <ProductType />
 
-        <Group>
+        <Group >
           <Button type="submit" loading={formState.isSubmitting}>
             {t(`products.addProduct.button`)}
           </Button>
