@@ -46,15 +46,15 @@ const UpdateProductForm = ({type}) => {
   const time_slots = watch("time_slots")
   const duration = watch("duration")
   const next_days = watch("next_days")
+  const description = watch("description")
 
-  console.log("duration ========>",duration)
-  console.log("next_days ========>",next_days)
-
-
-
+  // console.log("time_slots ========>",time_slots)
+  // console.log("duration ========>",duration)
 
 
- // how you set data here and in this functions i want set time_slots in case product booking
+
+
+
   const onSubmit = handleSubmit(async (data) => {
 
     if (type === "booking") {
@@ -73,10 +73,8 @@ const UpdateProductForm = ({type}) => {
            type,
            ...productTypeDefaults[data.type],
            image: typeof data.image === "string" ? data.image_path : data.image,
-          //  digital_product_file: digitalProductFile,
           ...(type === "digital" ? { digital_product_file: digitalProductFile } : {duration : duration,next_days}),
           }),
-        // objectToFormData({ ...data, image: typeof data.image === "string" ? data.image_path : data.image,_method:'put' }),
       )
       toast.success(t("products.addProduct.successMessage"))
       navigate(`/user/products`);
@@ -97,7 +95,7 @@ const UpdateProductForm = ({type}) => {
 
   return (
     <>
-      <Stack maw={550} component={"form"} noValidate onSubmit={onSubmit} >
+      <Stack maw={550} component={"form"} noValidate onSubmit={onSubmit}  >
         <Controller
           control={control}
           name="title"

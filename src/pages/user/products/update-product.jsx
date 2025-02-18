@@ -23,8 +23,12 @@ import UpdateProductForm from "../../../components/products/update-product-form"
 import { GetProduct } from "../../../services/utils"
 import { updateProductSchema } from "../../../validation/product"
 import ProductPreview from "../../preview/product-preview"
+import { Controller, useFormContext } from "react-hook-form"
+import { useEffect } from "react"
 
 const UpdateProduct = () => {
+
+
   const { productId } = useParams()
   const { t } = useTranslation()
   const [opened, { open, close }] = useDisclosure(false)
@@ -42,29 +46,46 @@ const UpdateProduct = () => {
       title: product.title || "",
       description: product.description || "",
       long_description: product.long_description || "",
-      // image: product.image || product.image_path ,
-      // image:  product.image_path || '',
       image:  product.image,
       pricing_type: product.pricing_type,
       price: product.price,
       max_price: product.max_price,
       currency: product.currency,
       image_path:product.image_path || '',
+      time_slots:product.time_slots || [],
+      duration:product.duration || '30',
     },
   })
 
-  useQuery({
+  // useQuery({
+  //   queryKey: ["product", productId],
+  //   queryFn: () => {
+  //     return GetProduct(productId)
+  //   },
+  // })
+
+  const { setValue } = form;
+
+
+  const { data, isLoading, error } = useQuery({
     queryKey: ["product", productId],
-    queryFn: () => {
-      return GetProduct(productId)
-    },
-  })
+    queryFn: () => GetProduct(productId),
+  });
+
+  useEffect(() => {
+    if (data) {
+      setValue("time_slots", data.time_slots || []); 
+      setValue("duration", `${data.duration }`|| '30'); 
+    }
+  }, [data, setValue]);
+
+
   const { colorScheme } = useMantineColorScheme()
 
   return (
     <FormProvider {...form} >
-      <Flex position="relative" direction={{ base: "column", lg: "row" }} align={"start"} gap={"xs"}>
-        <Box w="100%" flex={1} style={{ zIndex: 1, position: "relative" }}>
+      <Flex  position="relative" direction={{ base: "column", lg: "row" }} align={"start"} gap={"xs"}>
+        <Box  w="100%" flex={1} style={{ zIndex: 1, position: "relative" }}>
           <Stack gap={"xl"}>
             <Stack>
               <Title order={2}>{t("products.addProduct.title")}</Title>

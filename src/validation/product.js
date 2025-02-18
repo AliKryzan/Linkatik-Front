@@ -24,6 +24,17 @@ export const updateProduct = z.object({
   pricing_type: z.enum(["free", "single_payment", "pay_what_you_want"], {
     required_error: "required",
   }),
+  time_slots: z
+  .array(
+    z.object({
+      day: z.string(), 
+      start_time: z.string(), 
+      end_time: z.string(), 
+    })
+  )
+  .optional(),
+  duration: z.string().optional(),
+
 })
 
 export const digitalProductSchema = z.object({

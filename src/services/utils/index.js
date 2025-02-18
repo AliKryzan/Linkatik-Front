@@ -150,7 +150,7 @@ export const GetSallaProducts = async (params) => {
   return data
 }
 export const GetProduct = async (id) => {
-  const response = await AuthLinkatikApi.get(`/user/products/${id}`)
+  const response = await AuthLinkatikApi.get(`/user/products/show/${id}`)
 
   return response.data.data
 }

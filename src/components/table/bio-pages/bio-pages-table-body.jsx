@@ -39,8 +39,7 @@ const BioPagesTableBody = ({ data, activePage }) => {
       },
     })
 
-    console.log("data =========>",data)
-    console.log("groupAvatar =========>",groupAvatar)
+
 
   const rows = data.map((element) => {
     return (
@@ -57,7 +56,7 @@ const BioPagesTableBody = ({ data, activePage }) => {
                     ? groupAvatar.find(avatar => Number(avatar.id) === Number(element.image_avatar) )?.image || element.image_path
                     : element.image_path
                 }
-                
+                className={'!border border-[#707070] !rounded-full'}
                 alt="linkatik"
                 fallbackSrc={imagePlaceholder}
               />

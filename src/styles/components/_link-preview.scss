@@ -10,9 +10,9 @@
     .button-inner {
         padding: 12px;
         height: 54px;
+        display: flex;
         align-items: center;
-        // display: grid;
-        grid-template-columns: 20% 1fr 20%;
+        justify-content: center;
         gap: 4px;
         position: relative;
         z-index: 1;
