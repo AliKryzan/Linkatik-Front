@@ -13,8 +13,6 @@ import { useState } from "react"
 
 const CreateCustomTheme = ({data}) => {
 
-  console.log("============>",data)
-  console.log("============>",data.image)
   const [img,setImg] = useState(data.image)
 
   const { t } = useTranslation()
@@ -64,7 +62,6 @@ const CreateCustomTheme = ({data}) => {
       bio_link: data.bio_link,
     }
     try {
-      console.log("image after  PutUpdateBioPage=====>",img)
       const response = await PutUpdateBioPage({
         id,
         // data: { appearance },

@@ -9,12 +9,10 @@ import { useWatch } from "react-hook-form"
 import { generateTimeSlots } from "../../utils/generate-time-slots"
 import { IosPickerItem } from "./ios-picker-item"
 
-const TimeSlots = () => {
+const UpdateTimeSlots = () => {
   const { t } = useTranslation()
 
   const data = useWatch('time_slots')
-
-  console.log('data ya====>',data)
 
   // from state
   const { control, watch } = useFormContext()
@@ -23,6 +21,9 @@ const TimeSlots = () => {
     name: "time_slots",
   })
   const [day, setDay] = useState(fields[0]?.day ?? "saturday")
+
+  console.log("fields==========>",fields)
+  // console.log("slots==========>",fields[0].slots)
 
   // modal state
   const [opened, { open, close }] = useDisclosure()
@@ -145,4 +146,4 @@ const TimeSlots = () => {
   )
 }
 
-export default TimeSlots
+export default UpdateTimeSlots

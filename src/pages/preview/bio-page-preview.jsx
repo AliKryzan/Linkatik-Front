@@ -111,14 +111,14 @@ const Preview = () => {
             ) : null}
           </Group>
           <div>
-            <div>
+            <div >
               <Image
                 mx={"auto"}
                 h={120}
                 w={120}
                 radius={"50%"}
                 fallbackSrc={imagePlaceholder}
-                // src={data?.data.image_type === 'avatar' ? avatar?.image : data?.data.image}
+                className={data?.data.image_type === 'avatar' ? '!border border-[#707070] rounded-full':''}
                 src={data?.data.image_type === 'avatar' ? avatar?.image : data?.data.image == null ? avatar?.image  : data?.data.image }
               />
             </div>

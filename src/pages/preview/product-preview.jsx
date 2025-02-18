@@ -8,7 +8,7 @@ const ProductPreview = () => {
   const product = useWatch()
   const { t } = useTranslation()
   return (
-    <Stack className="preview-page product-preview"  gap={"xl"} justify="space-between" pb={"md"}>
+    <Stack className="preview-page product-preview "  gap={"xl"} justify="space-between" pb={"md"}>
       <Stack gap={0}>
         <Box pt={"md"} px={"md"}>
           <Image
@@ -22,15 +22,10 @@ const ProductPreview = () => {
             fallbackSrc={secondaryImagePlaceholder}
             h={"30vh"}
             alt="product image"
+
           />
         </Box>
-        <Stack
-          style={{
-            marginTop: `-60px`,
-          }}>
-          <div>
-            <Image mx={"auto"} h={120} w={120} radius={"50%"} fallbackSrc={imagePlaceholder} src={null} />
-          </div>
+        <Stack>
           <Title order={1} fz={22} align={"center"}>
             {product?.title || t("products.addProduct.titleInput")}
           </Title>

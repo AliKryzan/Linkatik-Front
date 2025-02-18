@@ -9,6 +9,7 @@ import { fileIcon, scheduleIcon } from "../../assets"
 import CustomSelect from "../ui/custom-select"
 import Dropzone from "../ui/dropzone"
 import TimeSlots from "./time-slots"
+import UpdateTimeSlots from './update-time-slots'
 
 const ProductTypeUpdate = ({type}) => {
 
@@ -23,10 +24,12 @@ const ProductTypeUpdate = ({type}) => {
       })
     }
     const { watch, setValue, control, formState } = useFormContext()
-  
+
+    const duration = watch("duration")  
     useEffect(() => {
       setValue("meeting_location", "google")
-      setValue("duration", "30")
+      setValue("duration", `${duration}`)
+      // setValue("duration", "30")
       setValue("next_days", "7")
     }, [type, setValue])
 
@@ -46,7 +49,7 @@ const ProductTypeUpdate = ({type}) => {
 
   
     return (
-      <Stack gap={"lg"}>
+      <Stack gap={"lg"} >
         <div >
           <div >
             <Text fz={"sm"} fw={500} pb={3}>
@@ -186,6 +189,7 @@ const ProductTypeUpdate = ({type}) => {
             </Stack>
             {/* <TimeSlots /> */}
             {isTimeSlotsVisible && <TimeSlots />}
+            {/* {isTimeSlotsVisible && <UpdateTimeSlots />} */}
           </>
         )}
       </Stack>
