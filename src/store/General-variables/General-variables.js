@@ -6,6 +6,8 @@ const initialState = {
   bioImage: groupAvatar[0], 
   image_type:"avatar",
   uploadedImage: null,
+  main_button_color:'',
+  main_text_color:'sss'
 };
 
 const generalSlice = createSlice({
@@ -22,10 +24,14 @@ const generalSlice = createSlice({
     setImage_type:(state,action) => {
       state.image_type = action.payload
     },setUploadedImage: (state, action) => {
-      state.uploadedImage = action.payload; // تحديث `uploadedImage`
+      state.uploadedImage = action.payload; 
+    },setMain_button_color: (state, action) => {
+      state.main_button_color = action.payload; 
+    },setMain_text_color: (state, action) => {
+      state.main_text_color = action.payload; 
     },
   },
 });
 
-export const { setBioImage , setImage_type , setUploadedImage} = generalSlice.actions;
+export const { setBioImage , setImage_type , setUploadedImage,setMain_button_color,setMain_text_color} = generalSlice.actions;
 export default generalSlice.reducer;

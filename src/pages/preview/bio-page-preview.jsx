@@ -14,8 +14,13 @@ import BlockPreviewWrapper from "../../components/preview/link/block-preview-wra
 import { GetPageAppearance, GetPagePreview } from "../../services/utils"
 import { generateWebComponent } from "../../utils/generate-web-component"
 import { groupAvatar } from '../../assets';
+import { useDispatch , useSelector } from "react-redux"
+import { setMain_button_color ,setMain_text_color } from '../../store/General-variables/General-variables';
+import { useEffect } from "react"
 
 const Preview = () => {
+
+  const dispatch = useDispatch();
   const { path } = useParams()
   const { data, status, isFetching } = useQuery({
     queryKey: ["bio-page-preview", path],
@@ -32,6 +37,12 @@ const Preview = () => {
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
   })
+
+
+  useEffect(() => {
+    dispatch(setMain_button_color(data?.data?.appearance?.bio_link?.button_color));
+    dispatch(setMain_text_color(data?.data?.appearance?.bio_link?.text_color));
+  },[data])
 
   const { t } = useTranslation()
   const [opened, { open, close }] = useDisclosure(false)
@@ -66,7 +77,7 @@ const Preview = () => {
           zIndex: 1,
           height: isPreview ? "unset" : undefined,
         }}
-        className="preview-page bio-page-preview "
+        className="preview-page bio-page-preview  "
         gap={"xl"}
         justify="space-between"
         p={"md"}

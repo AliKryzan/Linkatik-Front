@@ -31,6 +31,49 @@
         height: 40px;
         background-color: black;
     }
+    .filled-button-animation {
+        width: 100%;
+        height: 40px;
+        background-color: black;
+        position: relative;
+        overflow-x: clip;
+
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: -2px;
+            right: -2px;
+            height: 3px;
+            overflow: hidden;
+            mask-position: 0px top;
+            top: -2px;
+            mask-size: 640px 3px;
+            background-color: inherit;
+            mask-image: url('/src/assets/top.svg')
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            left: -2px;
+            right: -2px;
+            height: 3px;
+            overflow: hidden;
+            mask-position: 0px top;
+            bottom: -2px;
+            mask-size: 640px 3px;
+            background-color: inherit;
+            mask-image: url('/src/assets/bottom.svg')
+        }
+
+        &:hover::before {
+            // animation: maskAnimation 0.5s ease-in-out infinite;
+            animation: maskAnimation 20s linear 0s infinite ;
+        }
+        &:hover::after {
+            animation: maskAnimation-2 20s linear 0s infinite ;
+        }
+    }
     // outline
     .outline-button {
         width: 100%;
@@ -52,6 +95,14 @@
         background-color: white;
         border: 1px solid black;
         box-shadow: 4px 4px 0 black;
+        transition: .2s ease-in-out;
+        z-index: 10;
+        position: relative;
+
+        &:hover {
+            transform: translate(4px, 4px);
+            box-shadow: rgb(0, 0, 0) 4px 4px 0px 0px;
+            }
     }
     // custom
     .custom-button-one {
@@ -59,7 +110,7 @@
         height: 40px;
         position: relative;
         display: inline-block;
-        background-color: #f68b1e; /* Orange color */
+        background-color: #f68b1e; 
         color: white;
         font-weight: bold;
         text-align: center;
@@ -68,37 +119,11 @@
         font-family: Arial, sans-serif;
         text-decoration: none;
         border: 1px solid black;
-        box-shadow: 10px 6px 0px #000; /* Black shadow */
-        &::after {
-            content: "";
-            position: absolute;
-            right: -11px; /* Adjust for shadow width */
-            top: -1px;
-            bottom: 0;
-            width: 11px;
-            height: 40px;
-            background: repeating-linear-gradient(45deg, #f68b1e, #f68b1e 5px, #000 5px, #000 6px);
-            border: 1px solid black;
-            transform-origin: top left;
-            transform: skew(0deg, 29deg);
-        }
-        &::before {
-            content: "";
-            position: absolute;
-            left: 0; /* Adjust for shadow width */
-            z-index: -1;
-            top: 0;
-            bottom: 0;
-            width: 10px;
-            height: 40px;
-            background: black;
-            transform-origin: top left;
-
-            transform: skew(0deg, 29deg);
-        }
+        box-shadow: 10px 6px 0px #000; 
+        transition: .2s ease-in-out;
         &:hover {
-            // transform: translateY(-2px);
-            // box-shadow: 5px 7px 0px #000;
+        transform: translate(4px, 4px);
+        box-shadow: rgb(0, 0, 0) 4px 4px 0px 0px;
         }
     }
 
@@ -109,6 +134,21 @@
         height: 40px;
         border: 2px solid black;
         background-color: transparent;
+        transition: all 0.5s ease-out;
+
+        &::after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 20%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            // background-color: var(--button-color);
+            background-color: rgb(156, 102, 209);
+            opacity: 0;
+            transition: all 0.5s ease-out;
+        }
 
         &::before {
             content: "";
@@ -118,6 +158,16 @@
             bottom: 5px;
             left: -6px;
             right: -6px;
+            transition: all 0.5s ease-out;
+        }
+
+        &:hover::after {
+            width: 100%;
+            opacity: 1;
+            
+        }
+        &:hover::before {
+            border: none;
         }
     }
 
@@ -152,5 +202,28 @@
             bottom: -6px;
             right: -6px;
         }
+    }
+}
+
+
+
+
+@keyframes maskAnimation {
+    0% {
+        mask-position: 0px top;
+    }
+
+    100% {
+        mask-position: 680px top;
+    }
+}
+
+@keyframes maskAnimation-2 {
+    0% {
+        mask-position: 0px top;
+    }
+
+    100% {
+        mask-position: -680px top;
     }
 }

@@ -66,7 +66,6 @@ const CreateCustomTheme = ({data}) => {
         id,
         // data: { appearance },
         data: { appearance,image:img,image_type:"custom"},
-        // data: { appearance,image:'ssssss',image_type:"custom"},
       })
       await queryClient.setQueryData(["bio-page-theme-preview", path], response.data.data)
     } catch (error) {
@@ -79,7 +78,7 @@ const CreateCustomTheme = ({data}) => {
   })
 
   return (
-    <Stack  gap={"xl"} component="form" noValidate onSubmit={onSubmit}  >
+    <Stack   gap={"xl"} component="form" noValidate onSubmit={onSubmit}  >
       <Background form={form} />
       <Buttons form={form} />
       <Font form={form} />

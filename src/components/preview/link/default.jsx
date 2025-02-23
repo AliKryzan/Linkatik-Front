@@ -16,9 +16,10 @@ const Default = ({ block }) => {
     refetchOnWindowFocus: false,
   })
 
-  // console.log("data from Buttom page =====>",data)
 
   const theme = data?.appearance?.bio_link
+
+  console.log("theme.type  =====>",theme.type )
 
   // const buttonColor = theme.button_color ?? `#F8F4E3`
   const buttonColor = theme.button_color ?? `#9945c3`
@@ -26,18 +27,20 @@ const Default = ({ block }) => {
   const Button = Buttons[theme.type ?? "filled"]
 
   return (
-    <Button
+ <>
+      <Button
       style={{
         "--button-color": buttonColor,
         "--text-color": textColor,
       }}
-      className={theme.type ? 'link-preview default text-center' : `link-preview default text-center rounded-2xl shadow-sm`}
+      className={theme.type ? ' link-preview default text-center' : `link-preview default text-center rounded-2xl shadow-sm`}
       {...(block.url ? { href: block.url, rel: "noopener noreferrer" } : { component: "button" })}>
       <div className="button-inner ">
         <Text  lineClamp={1}>{block.title || "Untitled"}</Text>
         <span></span>
       </div>
     </Button>
+ </>
   )
 }
 

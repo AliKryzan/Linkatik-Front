@@ -20,6 +20,7 @@ const Product = ({ block }) => {
       onSwiper={(swiper) => console.log(swiper)}>
       {block.settings.map((product, index) => (
         <SwiperSlide key={index}>
+          <a href={product.url || `/preview/product/${product.slug}`}>
           <Box className="slide">
             <div className="image-wrapper">
               <img className="slide-image" src={product.image || product.thumbnail} alt={product.title} />
@@ -28,6 +29,7 @@ const Product = ({ block }) => {
               {product?.title || product?.name || ''}
             </Text>
           </Box>
+          </a>
         </SwiperSlide>
       ))}
     </Swiper>

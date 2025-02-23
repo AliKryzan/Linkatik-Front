@@ -18,18 +18,34 @@ import {
   Shadow,
   ShadowRoundedLg,
   ShadowRoundedSm,
+  FilledAnimation
 } from "./buttons-preview"
+import { useEffect } from "react"
+import { useDispatch , useSelector } from "react-redux"
+
+
 
 const Buttons = ({ form }) => {
   const { t } = useTranslation()
   const { control } = form
   const { colorScheme } = useMantineColorScheme()
+  const dispatch = useDispatch();
+  const { main_button_color , main_text_color} = useSelector((state) => state.GeneralSlice)
+
+
+  const button_color = form.watch('bio_link.button_color')
+
+
+
+  
+
+
 
   return (
     <>
       <Space />
 
-      <Stack gap={"sm"}>
+      <Stack gap={"sm"} >
         <Text size="xl">{t("bioPages.appearance.themes.form.buttons")}</Text>
         <Stack className="box">
           <Controller
@@ -41,7 +57,7 @@ const Buttons = ({ form }) => {
                   <Stack>
                     <Stack>
                       <Text size="sm">{t("bioPages.appearance.themes.form.button-types.filled")}</Text>
-                      <Group gap={"lg"}>
+                      <Group gap={"lg"} >
                         <Radio.Card className="button-preview" value={"filled"}>
                           <Radio.Indicator className="indicator" />
                           <Filled />
@@ -60,7 +76,7 @@ const Buttons = ({ form }) => {
                     {/* outlined */}
                     <Stack>
                       <Text size="sm">{t("bioPages.appearance.themes.form.button-types.outline")}</Text>
-                      <Group gap={"lg"}>
+                      <Group gap={"lg"} >
                         <Radio.Card className="button-preview" value={"outline"}>
                           <Radio.Indicator className="indicator" />
                           <Outline />
@@ -79,7 +95,7 @@ const Buttons = ({ form }) => {
                     {/* shadow */}
                     <Stack>
                       <Text size="sm">{t("bioPages.appearance.themes.form.button-types.shadow")}</Text>
-                      <Group gap={"lg"}>
+                      <Group gap={"lg"} >
                         <Radio.Card className="button-preview" value={"shadow"}>
                           <Radio.Indicator className="indicator" />
                           <Shadow />
@@ -97,7 +113,7 @@ const Buttons = ({ form }) => {
                     {/* hard-shadow */}
                     <Stack>
                       <Text size="sm">{t("bioPages.appearance.themes.form.button-types.hard-shadow")}</Text>
-                      <Group gap={"lg"}>
+                      <Group gap={"lg"} >
                         <Radio.Card className="button-preview" value={"hard-shadow"}>
                           <Radio.Indicator className="indicator" />
                           <HardShadow />
@@ -122,6 +138,10 @@ const Buttons = ({ form }) => {
                           <Radio.Indicator className="indicator" />
                           <CustomButtonThree />
                         </Radio.Card>
+                        {/* <Radio.Card className="button-preview" value="filled-animation">
+                          <Radio.Indicator className="indicator" />
+                          <FilledAnimation />
+                        </Radio.Card> */}
                       </Group>
                     </Stack>
                   </Stack>
@@ -139,6 +159,11 @@ const Buttons = ({ form }) => {
               name="bio_link.text_color"
               control={control}
               render={({ field }) => {
+                useEffect(() => {
+                  if (!field.value) {
+                    field.onChange(main_text_color);
+                  }
+                }, [ main_text_color]);
                 return (
                   <Group gap={"sm"}>
                     <Box
@@ -161,6 +186,8 @@ const Buttons = ({ form }) => {
                         format="hexa"
                         variant="unstyled"
                         label={t("bioPages.appearance.themes.form.text-color")}
+                        defaultValue={field?.value || main_text_color} 
+                        onChange={(color) => field.onChange(color)} 
                         {...field}
                       />
                     </Box>
@@ -173,6 +200,11 @@ const Buttons = ({ form }) => {
               name="bio_link.button_color"
               control={control}
               render={({ field }) => {
+                useEffect(() => {
+                  if (!field.value) {
+                    field.onChange(main_button_color);
+                  }
+                }, [field, main_button_color]);
                 return (
                   <Group gap={"sm"}>
                     <Box
@@ -195,7 +227,9 @@ const Buttons = ({ form }) => {
                         format="hexa"
                         variant="unstyled"
                         label={t("bioPages.appearance.themes.form.button-color")}
-                        {...field}
+                        defaultValue={field?.value || main_button_color} 
+                        onChange={(color) => field.onChange(color)} 
+                        {...field }
                       />
                     </Box>
                   </Group>

@@ -23,6 +23,8 @@ import { useUploadFile } from "../../../hooks/use-upload-file"
 import { PutUpdateBioPage } from "../../../services/utils"
 import { BioPageProfileSchema } from "../../../validation/bio-page"
 import CropImageModal from "../../common/crop-image-modal"
+import { groupAvatar } from '../../../assets';
+
 
 const ProfileForm = ({ data }) => {
   const { id } = useParams()
@@ -32,11 +34,21 @@ const ProfileForm = ({ data }) => {
     defaultValues: {
       title: data.title,
       bio: data.bio,
-      image: data.image_path,
+      image: '',
+      // image_type:data.image_type,
       image_type:"custom",
     },
   })
   const { handleSubmit, setError, watch, setValue, formState, control } = form
+
+
+  const avatar = groupAvatar.find((item) => item.id === Number(data.image_avatar));
+
+  const img_type = watch("image_type")
+  const img = watch("image")
+
+  console.log("img_type from last condole =====>",img_type)
+  console.log("img from last condole =====>",img)
 
   const queryClient = useQueryClient()
   const onSubmit = handleSubmit(async (data) => {
@@ -95,6 +107,7 @@ const ProfileForm = ({ data }) => {
   }
 
   return (
+  <>
     <Stack gap={"sm"} >
       <Text size={"xl"}>{t("bioPages.appearance.profile.title")}</Text>
       <Stack gap={"lg"} component={"form"} onSubmit={onSubmit} className="box">
@@ -102,7 +115,16 @@ const ProfileForm = ({ data }) => {
           <LoadingOverlay visible={isPending} overlayProps={{ radius: "sm", blur: 2 }} />
 
           <div>
-            <Image w={120} h={120} radius={"50%"} fallbackSrc={imagePlaceholder} src={watch("image")} />
+            <Image 
+              w={120}
+              h={120}
+              radius={"50%"}
+              fallbackSrc={imagePlaceholder}
+              src={watch('image') === '' ? data.image_type === 'avatar' ? avatar?.image : data.image == null ? avatar?.image  : data.image : watch('image') }
+              // src={watch('image')}
+              className={'!border border-[#707070] rounded-full'}
+              // className={data?.data.image_type === 'avatar' ? '!border border-[#707070] rounded-full':''}
+               />
           </div>
           <Stack flex={1}>
             <FileButton
@@ -187,6 +209,7 @@ const ProfileForm = ({ data }) => {
         )}
       </Stack>
     </Stack>
+  </>
   )
 }
 

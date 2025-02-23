@@ -139,8 +139,6 @@ const Background = ({ form }) => {
                 />
               )}
             </div>
-            {/* <div>
-          </div> */}
           </Stack>
         </Stack>
       </Stack>
