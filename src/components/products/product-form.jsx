@@ -44,7 +44,6 @@ const ProductForm = () => {
 
   const onSubmit = handleSubmit(async (data) => {
 
-    console.log("data from creat product ====>",data)
 
     if (type === "booking") {
       data.time_slots = data.time_slots.map((slot) => ({

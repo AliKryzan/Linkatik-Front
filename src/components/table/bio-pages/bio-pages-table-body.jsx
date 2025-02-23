@@ -52,7 +52,7 @@ const BioPagesTableBody = ({ data, activePage }) => {
                 h={60}
                 fit="cover"
                 src={
-                  element.image_avatar !== null
+                  element.image_type !== 'custom'
                     ? groupAvatar.find(avatar => Number(avatar.id) === Number(element.image_avatar) )?.image || element.image_path
                     : element.image_path
                 }

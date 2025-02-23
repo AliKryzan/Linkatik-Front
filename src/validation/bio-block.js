@@ -1,12 +1,13 @@
 import { z } from "zod"
 
 export const CreateInitialBioBlockSchema = z.object({
-  url: z.string({ required_error: "required" }).min(1, "required").url("invalidUrl"),
+  url: z.string({ required_error: "required" }).min(1, "required"),
   title: z.string({ required_error: "required" }).optional(),
 })
 
-// export const CreateInitialBioBlockSchemaWithLinkBehavior = CreateInitialBioBlockSchema.extend({
-//   link_behavior: z.string({ required_error: "required" }).min(1, "required"),
+// export const CreateInitialBioBlockSchema = z.object({
+//   url: z.string({ required_error: "required" }).min(1, "required").url("invalidUrl"),
+//   title: z.string({ required_error: "required" }).optional(),
 // })
 
 export const CreateInitialBioBlockSchemaWithLinkBehavior = CreateInitialBioBlockSchema.extend({

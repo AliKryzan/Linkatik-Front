@@ -56,6 +56,8 @@ const CustomLinkBehavior = ({ block }) => {
     refetchOnWindowFocus: false,
   })
 
+
+
   const theme = data?.appearance?.bio_link
 
   const buttonColor = theme.button_color ?? `#fcf3d8`

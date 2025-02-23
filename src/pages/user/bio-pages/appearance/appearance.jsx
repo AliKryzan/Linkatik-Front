@@ -16,6 +16,8 @@ const Appearance = () => {
     queryFn: () => GetBioPageInfo(id),
   })
 
+  console.log("data from appearance",data)
+
   const bioPageThemesQuery = useQuery({
     queryKey: ["bio-page-themes"],
     queryFn: GetBioPageThemes,

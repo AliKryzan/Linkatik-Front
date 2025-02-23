@@ -216,33 +216,6 @@ export const PostCreateBioPage = async (data,bioImage,image_type) => {
 
 
 
-// export const PostCreateBioPage = async (data, bioImage) => {
-//   try {
-//     const formData = new FormData();
-
-//     // إضافة البيانات النصية
-//     Object.keys(data).forEach((key) => {
-//       formData.append(key, data[key]);
-//     });
-//     if (bioImage) {
-//       formData.append("image", bioImage); 
-//     }
-
-//     const response = await AuthLinkatikApi.post("/user/bio-pages", formData, {
-//       headers: {
-//         "Content-Type": "multipart/form-data",
-//       },
-//     });
-
-//     return response;
-//   } catch (error) {
-//     console.error("Error in PostCreateBioPage:", error);
-//     throw error;
-//   }
-// };
-
-
-
 export const DeleteBioPage = async ({ id }) => {
   const response = await AuthLinkatikApi.delete(`/user/bio-pages/${id}`)
   return response
@@ -333,6 +306,7 @@ export const GetBioPageThemes = async ({
   const response = await AuthLinkatikApi.get("/user/bio-page-themes", { params })
   return response.data
 }
+
 export const PutUpdateBioPage = async ({ id, data, abortSignal }) => {
   const response = await AuthLinkatikApi.put(
     `/user/bio-pages/${id}`,

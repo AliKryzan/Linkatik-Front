@@ -47,6 +47,9 @@ export const CustomButtonOne = () => {
 export const CustomButtonTwo = () => {
   return <div className="custom-button-two"></div>
 }
+export const FilledAnimation = () => {
+  return <div className="filled-button-animation"></div>
+}
 export const CustomButtonThree = () => {
   return (
     <div className="custom-button-three">
