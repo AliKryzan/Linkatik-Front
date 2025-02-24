@@ -43,7 +43,6 @@ export const ThemePreview = ({ theme, style }) => {
             position: "absolute",
             zIndex: 1,
             inset: "0",
-            top: -3,
           }}>
           <Stack style={{ transform: "scale(0.35)", width: "350px" }}>
             <Button

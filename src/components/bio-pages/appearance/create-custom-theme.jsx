@@ -86,10 +86,11 @@ const CreateCustomTheme = ({ data }) => {
     if (data?.appearance?.bio_page) {
       // Extract background color and image from CSS string
       const cssString = data.appearance.bio_page.css
-      const backgroundColorMatch = cssString.match(/background:\s*(#[a-fA-F0-9]{6})/)
-      const backgroundImageMatch = cssString.match(/background-image:\s*(linear-gradient[^;]+)/)
-      const backgroundImageUrlMatch = cssString.match(/background-image:\s*((?:linear-gradient[^;]+|url\([^)]+\))[^;]*)/);
-      
+      const backgroundColorMatch = cssString?.match(/background:\s*(#[a-fA-F0-9]{6})/)
+      const backgroundImageMatch = cssString?.match(/background-image:\s*(linear-gradient[^;]+)/)
+      const backgroundImageUrlMatch = cssString?.match(/background-image:\s*((?:linear-gradient[^;]+|url\([^)]+\))[^;]*)/);
+      console.log('backgroundImageMatch 0000000000000000000000000000000000000000000000000');
+      console.log(backgroundImageMatch,backgroundImageUrlMatch);
       const formData = {
         ...data.appearance,
         bio_page: {
@@ -97,7 +98,7 @@ const CreateCustomTheme = ({ data }) => {
             ? backgroundImageUrlMatch[1].startsWith('url') ? "image" : "gradient"
             : "preset",
           background_color: backgroundColorMatch ? backgroundColorMatch[1] : "#ffffff",
-          background_image: backgroundImageMatch ? backgroundImageMatch: "",
+          background_image: backgroundImageMatch ? backgroundImageMatch[1]: "linear-gradient(0deg, rgba(96,93,93,1) 0%, rgba(255,255,255,1) 100%)",
           image: backgroundImageUrlMatch && backgroundImageUrlMatch[1].startsWith('url') 
             ? backgroundImageUrlMatch[1] 
             : "",
