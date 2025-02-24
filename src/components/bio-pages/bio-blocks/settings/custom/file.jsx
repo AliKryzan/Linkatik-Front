@@ -2,7 +2,7 @@ import { ActionIcon, Group, Stack, Text, useMantineTheme } from "@mantine/core"
 import { IMAGE_MIME_TYPE, MIME_TYPES, PDF_MIME_TYPE } from "@mantine/dropzone"
 import { X } from "lucide-react"
 
-import { useUploadFile } from ".@/hooks/use-upload-file"
+import { useUploadFile } from "@/hooks/use-upload-file"
 import DropzoneComponent from "../../../../ui/dropzone"
 
 const FileBlock = ({ form, block }) => {

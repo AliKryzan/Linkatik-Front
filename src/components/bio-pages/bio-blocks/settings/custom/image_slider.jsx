@@ -3,7 +3,7 @@ import { IMAGE_MIME_TYPE } from "@mantine/dropzone"
 import { X } from "lucide-react"
 import { Controller, useFieldArray } from "react-hook-form"
 
-import { useUploadFile } from ".@/hooks/use-upload-file"
+import { useUploadFile } from "@/hooks/use-upload-file"
 import DropzoneComponent from "../../../../ui/dropzone"
 
 const ImageSlider = ({ form }) => {
