@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { PutUpdateBioPage } from "@/services/utils"
 import { Button, Space, Stack } from "@mantine/core"
 import { useForm } from "react-hook-form"
@@ -13,6 +13,8 @@ import Buttons from "./buttons"
 import Font from "./font"
 
 const CreateCustomTheme = ({ data }) => {
+  console.log("Custom theme data +++++++++++++++++++++++++++++++++++++++++++")
+  console.log(data)
   const [img, setImg] = useState(data.image)
 
   const { t } = useTranslation()
@@ -36,6 +38,7 @@ const CreateCustomTheme = ({ data }) => {
   const { handleSubmit } = form
 
   const onSubmit = handleSubmit(async (data) => {
+    console.log(data)
     const css = `
     .background{
        background: ${data.bio_page.background_color};
@@ -79,7 +82,31 @@ const CreateCustomTheme = ({ data }) => {
       })
     }
   })
+  useEffect(() => {
+    if (data?.appearance?.bio_page) {
+      // Extract background color and image from CSS string
+      const cssString = data.appearance.bio_page.css
+      const backgroundColorMatch = cssString.match(/background:\s*(#[a-fA-F0-9]{6})/)
+      const backgroundImageMatch = cssString.match(/background-image:\s*(linear-gradient[^;]+)/)
 
+      const formData = {
+        ...data.appearance,
+        bio_page: {
+          background_type: backgroundImageMatch ? "gradient" : "preset",
+          background_color: backgroundColorMatch ? backgroundColorMatch[1] : "#ffffff",
+          background_image: backgroundImageMatch ? backgroundImageMatch[1] : "",
+          image: "",
+        },
+        bio_link: data.appearance.bio_link || {
+          type: "",
+          text_color: "",
+          button_color: "",
+        },
+      }
+
+      form.reset(formData)
+    }
+  }, [data])
   return (
     <Stack gap={"xl"} component="form" noValidate onSubmit={onSubmit}>
       <Background form={form} />

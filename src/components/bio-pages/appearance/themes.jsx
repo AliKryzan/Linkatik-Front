@@ -18,7 +18,7 @@ console.log(data)
 
   const { t } = useTranslation()
   const { status, data: themes } = bioPageThemesQuery
-  const [value, setValue] = useState(data.bio_page_theme.id + "")
+  const [value, setValue] = useState(!!data?.is_custom_theme ? "custom" : data.bio_page_theme.id + "")
   const [img, setImg] = useState(data.image)
 
   // handle change theme
@@ -53,10 +53,10 @@ console.log(data)
             <Stack>
               <Radio.Card className="theme-preview" radius="md" value={"custom"}>
                 <Radio.Indicator className="indicator" />
-                <Text ta={"center"}>Create your Theme</Text>
+                <Text ta={"center"}>{t("bioPages.appearance.themes.createYourTheme")}</Text>
               </Radio.Card>
               <Text ta={"center"} size="sm">
-                Create your theme
+                {t("bioPages.appearance.themes.createYourTheme")}
               </Text>
             </Stack>
             {themes.data.map((theme,index) => (
