@@ -88,19 +88,19 @@ const CreateCustomTheme = ({ data }) => {
       const cssString = data.appearance.bio_page.css
       const backgroundColorMatch = cssString.match(/background:\s*(#[a-fA-F0-9]{6})/)
       const backgroundImageMatch = cssString.match(/background-image:\s*(linear-gradient[^;]+)/)
-
+      const backgroundImageUrlMatch = cssString.match(/background-image:\s*((?:linear-gradient[^;]+|url\([^)]+\))[^;]*)/);
+      
       const formData = {
         ...data.appearance,
         bio_page: {
-          background_type: backgroundImageMatch ? "gradient" : "preset",
+          background_type: backgroundImageUrlMatch 
+            ? backgroundImageUrlMatch[1].startsWith('url') ? "image" : "gradient"
+            : "preset",
           background_color: backgroundColorMatch ? backgroundColorMatch[1] : "#ffffff",
-          background_image: backgroundImageMatch ? backgroundImageMatch[1] : "",
-          image: "",
-        },
-        bio_link: data.appearance.bio_link || {
-          type: "",
-          text_color: "",
-          button_color: "",
+          background_image: backgroundImageMatch ? backgroundImageMatch: "",
+          image: backgroundImageUrlMatch && backgroundImageUrlMatch[1].startsWith('url') 
+            ? backgroundImageUrlMatch[1] 
+            : "",
         },
       }
 
