@@ -24,7 +24,7 @@ import Loader from "@/components/common/loader"
 import { useUploadFile } from "../../hooks/use-upload-file"
 import MyDropzone from "../../hooks/use-upload-image"
 import { setBioImage, setImage_type } from "../../store/General-variables/General-variables"
-import CreateChooceAvatar from "./Create-chooce-avatar"
+import CreateChooseAvatar from "./Create-chooce-avatar"
 
 function CreateUploadImg({ setActiveAvatar, setModalOneOpen }) {
   const { bioImage, image_type } = useSelector((state) => state.GeneralSlice)
@@ -134,7 +134,7 @@ function CreateUploadImg({ setActiveAvatar, setModalOneOpen }) {
 
       <Modal size="xl" centered opened={opened} onClose={close}>
         <Suspense fallback={<Loader />}>
-          <CreateChooceAvatar
+          <CreateChooseAvatar
             setActiveAvatar={setActiveAvatar}
             close={() => setModalOneOpen(false)}
             setModalOneOpen={setModalOneOpen}

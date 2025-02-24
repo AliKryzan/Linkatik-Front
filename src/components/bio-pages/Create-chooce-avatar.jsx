@@ -6,7 +6,7 @@ import { setBioImage , setImage_type } from '../../store/General-variables/Gener
 import { useDispatch , useSelector} from "react-redux"
 
 
-function CreateChooceAvatar({setActiveAvatar,setModalOneOpen}) {
+function CreateChooseAvatar({setActiveAvatar,setModalOneOpen}) {
 
   const {image_type } = useSelector((state) => state.GeneralSlice)
 
@@ -39,7 +39,7 @@ function CreateChooceAvatar({setActiveAvatar,setModalOneOpen}) {
             cursor: "pointer",
           }}
         >
-          <Image
+          <img
             src={item.image}
             alt={`Avatar ${index + 1}`}
             style={{
@@ -54,4 +54,4 @@ function CreateChooceAvatar({setActiveAvatar,setModalOneOpen}) {
   );
 }
 
-export default CreateChooceAvatar;
+export default CreateChooseAvatar;
