@@ -140,7 +140,7 @@ const CreateBioPage = () => {
                 h={770}
                 miw={380}
                 style={{
-                  borderRadius: "2.7rem",
+                  borderRadius: "2.9rem",
                   boxShadow: `0 0 12px ${colorScheme == "dark" ? "#121212d1" : "#ccc"}`,
                 }}>
                 <Preview />

@@ -73,13 +73,14 @@ const Preview = () => {
           position: "relative",
           zIndex: 1,
           height: isPreview ? "unset" : undefined,
-          borderRadius: "2.7rem !important",
+          borderRadius: "2.9rem !important",
         }}
-        className="preview-page bio-page-preview rounded-[2.7rem] border-[1rem] border-gray-900"
+        className="preview-page bio-page-preview relative rounded-[2.9rem] overflow-hidden border-[1rem] border-gray-900"
         gap={"xl"}
         justify="space-between"
         p={"md"}
         bg="">
+        <div className="absolute right-[29%] h-9 top-2 w-36 rounded-full bg-gray-950"></div>
         {(isUpdatingAppearance || isFetching) && (
           <Group className="preview-loader-indicator">
             <Loader2 size={18} className="spinner" color="gray" />

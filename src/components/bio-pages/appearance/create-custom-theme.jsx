@@ -54,7 +54,7 @@ const CreateCustomTheme = ({ data }) => {
          background-size: cover;
          background-position: center;
          background-repeat: no-repeat;
-         border-radius:2.7rem;
+         border-radius:2.9rem;
          margin-top: -4px;
     }
     `

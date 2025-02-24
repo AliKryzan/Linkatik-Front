@@ -7,7 +7,7 @@ export function generateWebComponent(name, html, css) {
         const shadow = this.attachShadow({ mode: "open" })
         shadow.innerHTML = `
             <style>${css} 
-                border-radius: 2.7rem;
+                border-radius: 2.9rem;
               </style>
             ${html}
           `
