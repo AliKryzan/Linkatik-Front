@@ -65,7 +65,7 @@ const CreateCustomTheme = ({ data }) => {
       const response = await PutUpdateBioPage({
         id,
         // data: { appearance },
-        data: { appearance, image: img, image_type: "custom", isCustom: true },
+        data: { appearance, image: img, image_type: "custom", is_custom_theme: true },
         // data: { appearance,image:'ssssss',image_type:"custom"},
       })
       await queryClient.setQueryData(["bio-page-theme-preview", path], response.data.data)

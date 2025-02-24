@@ -1,6 +1,6 @@
+import { generateWebComponent } from "@/utils/generate-web-component"
 import { Box, Radio, Stack, Text } from "@mantine/core"
 
-import { generateWebComponent } from "@/utils/generate-web-component"
 import RenderBackground from "../../common/render-background"
 import { Buttons } from "../../preview/link/buttons"
 
@@ -43,6 +43,7 @@ export const ThemePreview = ({ theme, style }) => {
             position: "absolute",
             zIndex: 1,
             inset: "0",
+            top: -3,
           }}>
           <Stack style={{ transform: "scale(0.35)", width: "350px" }}>
             <Button

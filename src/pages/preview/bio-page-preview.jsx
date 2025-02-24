@@ -66,7 +66,6 @@ const Preview = () => {
         style={{
           position: "fixed",
           inset: 0,
-          borderRadius: "3rem !important",
         }}
       />
       <Stack
