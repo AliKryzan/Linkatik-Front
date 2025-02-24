@@ -2,7 +2,7 @@ import { DonutChart } from "@mantine/charts"
 import { Group, Stack, Text } from "@mantine/core"
 import { useTranslation } from "react-i18next"
 
-import { formatDynamicData } from "../../../utils/formate-statistics-data"
+import { formatDynamicData } from "@/utils/formate-statistics-data"
 
 export const DynamicDonutChart = ({ data, title }) => {
   const formattedData = formatDynamicData(data)

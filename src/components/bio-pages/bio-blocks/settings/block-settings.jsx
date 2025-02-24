@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
-import { PutUpdateBlock } from "../../../../services/utils"
-import { convertDateStringsToDateObjects } from "../../../../utils/convert-date-strings-to-date-objects"
+import { PutUpdateBlock } from "@/services/utils"
+import { convertDateStringsToDateObjects } from "@/utils/convert-date-strings-to-date-objects"
 import LinkBehavior from "./link-behavior"
 import { BlockSettingsLoader } from "./settings-loader"
 

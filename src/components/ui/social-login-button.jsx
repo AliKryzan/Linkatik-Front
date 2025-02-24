@@ -2,8 +2,8 @@ import { useState } from "react"
 import { Button, Text } from "@mantine/core"
 import { useTranslation } from "react-i18next"
 
-import { appleIcon, googleIcon } from "../../assets"
-import { LinkatikApi } from "../../services"
+import { appleIcon, googleIcon } from "@/assets"
+import { LinkatikApi } from "@/services"
 
 const SocialLoginButton = ({ type, ...props }) => {
   const [loading, setIsLoading] = useState(false)

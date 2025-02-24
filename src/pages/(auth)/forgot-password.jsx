@@ -6,7 +6,7 @@ import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 import { z } from "zod"
 
-import { LinkatikApi } from "../../services"
+import { LinkatikApi } from "@/services"
 
 const ForgotPassword = () => {
   const { t } = useTranslation()
@@ -69,7 +69,7 @@ const ForgotPassword = () => {
           )}
         </Stack>
       </Stack>
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </Stack>
   )
 }

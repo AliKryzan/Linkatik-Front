@@ -2,7 +2,7 @@ import { AppShell, Box, Burger, Button, Group } from "@mantine/core"
 import { Flame } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
-import { Link } from "../../lib/i18n/navigation"
+import { Link } from "@/lib/i18n/navigation"
 import Logo from "./logo"
 import Notifications from "./notifications"
 import UserButton from "./user-button"

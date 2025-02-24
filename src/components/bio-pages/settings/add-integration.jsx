@@ -1,7 +1,7 @@
 import { Badge, Group, SimpleGrid, Stack, Text, useMantineColorScheme } from "@mantine/core"
 import { useTranslation } from "react-i18next"
 
-import { INTEGRATIONS } from "../../../config"
+import { INTEGRATIONS } from "@/config"
 
 const Integration = ({ name, icon, blocked }) => {
   const { t } = useTranslation()

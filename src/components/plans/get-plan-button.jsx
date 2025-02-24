@@ -3,10 +3,10 @@ import { useMutation } from "@tanstack/react-query"
 import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 
-import { useNavigate } from "../../lib/i18n/navigation"
-import { PostTransaction, PostUpgradePlane } from "../../services/utils"
-import { getLocalstorageUser } from "../../utils/get-localstorage-user"
-import { updateUser } from "../../utils/update-user"
+import { useNavigate } from "@/lib/i18n/navigation"
+import { PostTransaction, PostUpgradePlane } from "@/services/utils"
+import { getLocalstorageUser } from "@/utils/get-localstorage-user"
+import { updateUser } from "@/utils/update-user"
 
 const GetPlanButton = ({ plan_id, plan_period }) => {
   const { t } = useTranslation()

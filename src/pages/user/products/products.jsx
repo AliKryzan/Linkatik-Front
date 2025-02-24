@@ -3,9 +3,9 @@ import { useDebouncedState } from "@mantine/hooks"
 import { Plus, Search } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
-import ListProducts from "../../../components/products/list-products"
-import TableHeader from "../../../components/table/table-header"
-import { Link } from "../../../lib/i18n/navigation"
+import ListProducts from "@/components/products/list-products"
+import TableHeader from "@/components/table/table-header"
+import { Link } from "@/lib/i18n/navigation"
 
 const Products = () => {
   const { t } = useTranslation()

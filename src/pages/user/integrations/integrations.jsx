@@ -4,14 +4,14 @@ import { useQuery } from "@tanstack/react-query"
 import { ChevronDown } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
-import { imagePlaceholder } from "../../../assets"
-import AutoHeight from "../../../components/common/auto-height"
-import Error from "../../../components/common/error"
-import Loader from "../../../components/common/loader"
-import IntegrationsFrom from "../../../components/integrations/integrations-form"
-import { INTEGRATIONS } from "../../../config"
-import { GetIntegrations } from "../../../services/utils"
-import { getLocalstorageUser } from "../../../utils/get-localstorage-user"
+import { imagePlaceholder } from "@/assets"
+import AutoHeight from "@/components/common/auto-height"
+import Error from "@/components/common/error"
+import Loader from "@/components/common/loader"
+import IntegrationsFrom from "@/components/integrations/integrations-form"
+import { INTEGRATIONS } from "@/config"
+import { GetIntegrations } from "@/services/utils"
+import { getLocalstorageUser } from "@/utils/get-localstorage-user"
 
 const Integrations = () => {
   const { t } = useTranslation()

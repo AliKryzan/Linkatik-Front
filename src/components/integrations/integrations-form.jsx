@@ -2,8 +2,8 @@ import { Button, Stack, Text } from "@mantine/core"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useTranslation } from "react-i18next"
 
-import { GetIntegrate, PostRemoveIntegrations } from "../../services/utils"
-import { getLocalstorageUser } from "../../utils/get-localstorage-user"
+import { GetIntegrate, PostRemoveIntegrations } from "@/services/utils"
+import { getLocalstorageUser } from "@/utils/get-localstorage-user"
 
 const IntegrationsFrom = ({ type, is_connected }) => {
   const { t } = useTranslation()

@@ -17,9 +17,9 @@ import { FormProvider, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useSearchParams } from "react-router-dom"
 
-import CopyPath from "../../../components/common/copy-path"
-import ProductForm from "../../../components/products/product-form"
-import { bookingProductSchema, digitalProductSchema, productSchema } from "../../../validation/product"
+import CopyPath from "@/components/common/copy-path"
+import ProductForm from "@/components/products/product-form"
+import { bookingProductSchema, digitalProductSchema, productSchema } from "@/validation/product"
 import ProductPreview from "../../preview/product-preview"
 
 

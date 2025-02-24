@@ -18,8 +18,8 @@ import { ChartAreaIcon, Eye, Settings, Stars, UserCircle } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useSearchParams } from "react-router-dom"
 
-import CopyPath from "../../../components/common/copy-path"
-import { useParams } from "../../../lib/i18n/navigation"
+import CopyPath from "@/components/common/copy-path"
+import { useParams } from "@/lib/i18n/navigation"
 import Preview from "../../preview/bio-page-preview"
 import { PagesWrapper } from "./pages-wrapper"
 
@@ -140,7 +140,7 @@ const CreateBioPage = () => {
                 h={770}
                 miw={380}
                 style={{
-                  borderRadius: "20px",
+                  borderRadius: "2.7rem",
                   boxShadow: `0 0 12px ${colorScheme == "dark" ? "#121212d1" : "#ccc"}`,
                 }}>
                 <Preview />

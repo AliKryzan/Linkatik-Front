@@ -94,7 +94,7 @@ const Blocks = ({ searchValue }) => {
   blocksToRender = blocksToRender.filter((element) => element[1].length > 0)
 
   return (
-    <Stack p="sm" gap={"lg"} >
+    <Stack p="sm" gap={"lg"}>
       {blocksToRender.map(([key, value], index) => (
         <React.Fragment key={key}>
           <div>

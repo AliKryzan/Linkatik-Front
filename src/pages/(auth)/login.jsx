@@ -1,4 +1,7 @@
 import { useEffect } from "react"
+import { LinkatikApi } from "@/services"
+import { updateUser } from "@/utils/update-user"
+import { loginSchema } from "@/validation/login"
 import { DevTool } from "@hookform/devtools"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button, Flex, Stack, Text, TextInput, Title } from "@mantine/core"
@@ -9,11 +12,8 @@ import { Controller, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useSearchParams } from "react-router-dom"
 
-import SocialLoginButton from "../../components/ui/social-login-button"
-import { Link, useNavigate } from "../../lib/i18n/navigation"
-import { LinkatikApi } from "../../services"
-import { updateUser } from "../../utils/update-user"
-import { loginSchema } from "../../validation/login"
+import { Link, useNavigate } from "@/lib/i18n/navigation"
+import SocialLoginButton from "@/components/ui/social-login-button"
 
 const Login = () => {
   const { t } = useTranslation()
@@ -74,6 +74,7 @@ const Login = () => {
       navigate("/user")
     }
   }, [isLoading, access_token])
+
   return (
     <Stack component={"form"} noValidate onSubmit={onSubmit} w={500} gap={"xl"} py={"xl"}>
       <div>
@@ -156,7 +157,7 @@ const Login = () => {
           </Text>*/}
         </Stack>
       </Stack>
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </Stack>
   )
 }

@@ -3,8 +3,8 @@ import { useDebouncedState } from "@mantine/hooks"
 import { Search } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
-import ListSubscribers from "../../../components/subscribers/list-subscribers"
-import TableHeader from "../../../components/table/table-header"
+import ListSubscribers from "@/components/subscribers/list-subscribers"
+import TableHeader from "@/components/table/table-header"
 
 const Subscribers = () => {
   const { t } = useTranslation()

@@ -8,15 +8,15 @@ import { Controller, useFormContext } from "react-hook-form"
 import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
-import { convertTo24HourFormat } from "../../utils/convertTo24HourFormat"
-import { Link } from "../../lib/i18n/navigation"
-import { PutProduct } from "../../services/utils"
-import { objectToFormData } from "../../utils/obj-to-formdata"
+import { convertTo24HourFormat } from "@/utils/convertTo24HourFormat"
+import { Link } from "@/lib/i18n/navigation"
+import { PutProduct } from "@/services/utils"
+import { objectToFormData } from "@/utils/obj-to-formdata"
 import RichTextEditorModal from "../rich-text-editor/rich-text-editor-model"
 import Dropzone from "../ui/dropzone"
 import ProductPriceType from "./product-price-type"
 import ProductPricing from "./product-pricing"
-import { useNavigate } from "../../lib/i18n/navigation";
+import { useNavigate } from "@/lib/i18n/navigation";
 import ProductTypeUpdate from "./Product-type-update"
 
 
@@ -205,7 +205,7 @@ const UpdateProductForm = ({type}) => {
           </Text>
         )}
       </Stack>
-      <DevTool control={control} placement="left" />
+      {/* <DevTool control={control} placement="left" /> */}
     </>
   )
 }

@@ -5,9 +5,9 @@ import { Loader2, Pen } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
-import useDebouncedMutation from "../../../hooks/use-debounced-mutation"
-import { PutUpdateBlock } from "../../../services/utils"
-import { getTextWidth } from "../../../utils/get-text-width"
+import useDebouncedMutation from "@/hooks/use-debounced-mutation"
+import { PutUpdateBlock } from "@/services/utils"
+import { getTextWidth } from "@/utils/get-text-width"
 
 const TitleInput = ({ block }) => {
   const { t } = useTranslation()

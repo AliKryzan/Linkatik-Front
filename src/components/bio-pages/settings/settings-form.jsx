@@ -5,7 +5,7 @@ import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
-import { PutUpdateBioPage } from "../../../services/utils"
+import { PutUpdateBioPage } from "@/services/utils"
 
 const SettingsForm = ({ data }) => {
   const { id } = useParams()

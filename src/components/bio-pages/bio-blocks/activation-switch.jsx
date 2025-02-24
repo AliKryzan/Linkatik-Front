@@ -3,7 +3,7 @@ import { Switch } from "@mantine/core"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 
-import { PutUpdateBlock } from "../../../services/utils"
+import { PutUpdateBlock } from "@/services/utils"
 
 const ActivationSwitch = ({ block }) => {
   const { id, path } = useParams()

@@ -5,8 +5,8 @@ import { Controller, useForm } from "react-hook-form"
 import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 
-import { PutChangePassword } from "../../services/utils"
-import { updatePasswordSchema } from "../../validation/update-profile"
+import { PutChangePassword } from "@/services/utils"
+import { updatePasswordSchema } from "@/validation/update-profile"
 
 const UpdatePassword = () => {
   const { t } = useTranslation()
@@ -72,7 +72,7 @@ const UpdatePassword = () => {
           </Text>
         ) : null}
       </div>
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </Stack>
   )
 }

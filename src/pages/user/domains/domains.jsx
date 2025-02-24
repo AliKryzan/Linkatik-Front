@@ -1,9 +1,9 @@
 import { Button, Stack } from "@mantine/core"
 import { useTranslation } from "react-i18next"
 
-import ListDomains from "../../../components/domains/list-domains"
-import TableHeader from "../../../components/table/table-header"
-import { Link } from "../../../lib/i18n/navigation"
+import ListDomains from "@/components/domains/list-domains"
+import TableHeader from "@/components/table/table-header"
+import { Link } from "@/lib/i18n/navigation"
 
 const Domains = () => {
   const { t } = useTranslation()

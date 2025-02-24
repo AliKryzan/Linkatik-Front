@@ -1,31 +1,30 @@
+import { useEffect } from "react"
+import { groupAvatar, imagePlaceholder, logo } from "@/assets"
+import { GetPageAppearance, GetPagePreview } from "@/services/utils"
+import { setMain_button_color, setMain_text_color } from "@/store/General-variables/General-variables"
+import { generateWebComponent } from "@/utils/generate-web-component"
 import { ActionIcon, Box, Button, Group, Image, Modal, Stack, Text, Title } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import { useQuery } from "@tanstack/react-query"
 import { Bell, Loader2, Share } from "lucide-react"
 import { useTranslation } from "react-i18next"
+import { useDispatch, useSelector } from "react-redux"
 import { useLocation, useParams } from "react-router-dom"
 
-import { imagePlaceholder, logo } from "../../assets"
-import Error from "../../components/common/error"
-import Loader from "../../components/common/loader"
-import RenderBackground from "../../components/common/render-background"
-import SubscribeForm from "../../components/common/subscribe-form"
-import BlockPreviewWrapper from "../../components/preview/link/block-preview-wrapper"
-import { GetPageAppearance, GetPagePreview } from "../../services/utils"
-import { generateWebComponent } from "../../utils/generate-web-component"
-import { groupAvatar } from '../../assets';
-import { useDispatch , useSelector } from "react-redux"
-import { setMain_button_color ,setMain_text_color } from '../../store/General-variables/General-variables';
-import { useEffect } from "react"
+import Error from "@/components/common/error"
+import Loader from "@/components/common/loader"
+import RenderBackground from "@/components/common/render-background"
+import SubscribeForm from "@/components/common/subscribe-form"
+import BlockPreviewWrapper from "@/components/preview/link/block-preview-wrapper"
 
 const Preview = () => {
-
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const { path } = useParams()
   const { data, status, isFetching } = useQuery({
     queryKey: ["bio-page-preview", path],
     queryFn: () => GetPagePreview(path),
   })
+  console.log("appearanceData -----------------------------------------")
   const {
     data: appearanceData,
     status: statusAppearance,
@@ -38,11 +37,12 @@ const Preview = () => {
     refetchOnWindowFocus: false,
   })
 
+  console.log(data, appearanceData)
 
   useEffect(() => {
-    dispatch(setMain_button_color(data?.data?.appearance?.bio_link?.button_color));
-    dispatch(setMain_text_color(data?.data?.appearance?.bio_link?.text_color));
-  },[data])
+    dispatch(setMain_button_color(data?.data?.appearance?.bio_link?.button_color))
+    dispatch(setMain_text_color(data?.data?.appearance?.bio_link?.text_color))
+  }, [data])
 
   const { t } = useTranslation()
   const [opened, { open, close }] = useDisclosure(false)
@@ -57,10 +57,7 @@ const Preview = () => {
   const { html, css } = backgroundSettings
   const encapsulated = generateWebComponent("custom-background-" + Math.random(), html, css)
 
-
-
-  const avatar = groupAvatar.find((item) => item.id === Number(data?.data.image_avatar));
-
+  const avatar = groupAvatar.find((item) => item.id === Number(data?.data.image_avatar))
 
   return (
     <>
@@ -69,6 +66,7 @@ const Preview = () => {
         style={{
           position: "fixed",
           inset: 0,
+          borderRadius: "3rem !important",
         }}
       />
       <Stack
@@ -76,13 +74,13 @@ const Preview = () => {
           position: "relative",
           zIndex: 1,
           height: isPreview ? "unset" : undefined,
+          borderRadius: "2.7rem !important",
         }}
-        className="preview-page bio-page-preview  "
+        className="preview-page bio-page-preview rounded-[2.7rem] border-[1rem] border-gray-900"
         gap={"xl"}
         justify="space-between"
         p={"md"}
-        bg=''
-        >
+        bg="">
         {(isUpdatingAppearance || isFetching) && (
           <Group className="preview-loader-indicator">
             <Loader2 size={18} className="spinner" color="gray" />
@@ -91,7 +89,7 @@ const Preview = () => {
         )}
 
         <Stack gap={"lg"}>
-          <Group justify="space-between" >
+          <Group justify="space-between">
             <ActionIcon
               size={"lg"}
               variant="white"
@@ -122,15 +120,15 @@ const Preview = () => {
             ) : null}
           </Group>
           <div>
-            <div >
+            <div>
               <Image
                 mx={"auto"}
                 h={120}
                 w={120}
                 radius={"50%"}
                 fallbackSrc={imagePlaceholder}
-                className={data?.data.image_type === 'avatar' ? '!border border-[#707070] rounded-full':''}
-                src={data?.data.image_type === 'avatar' ? avatar?.image : data?.data.image == null ? avatar?.image  : data?.data.image }
+                className={data?.data.image_type === "avatar" ? "rounded-full !border border-[#707070]" : ""}
+                src={data?.data.image}
               />
             </div>
             <Box mt="lg">
@@ -143,8 +141,8 @@ const Preview = () => {
             </Box>
           </div>
 
-          <Stack  gap={"xl"} w={"100%"} maw={"360px"} mx={"auto"}>
-            {data.data.blocks.map((block) => {
+          <Stack gap={"xl"} w={"100%"} maw={"360px"} mx={"auto"}>
+            {data?.data?.blocks?.map((block) => {
               return (
                 <>
                   <BlockPreviewWrapper

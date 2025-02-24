@@ -2,8 +2,8 @@ import { Box, Button, Group, Image, Space, Stack, Text, Title } from "@mantine/c
 import { Tag } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
-import { logo, startSelling } from "../../../assets"
-import { Link } from "../../../lib/i18n/navigation"
+import { logo, startSelling } from "@/assets"
+import { Link } from "@/lib/i18n/navigation"
 import Spikes from "../../ui/spikes"
 
 const Success = () => {

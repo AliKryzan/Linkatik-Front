@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 
-import SettingsForm from "../../../../components/bio-pages/settings/settings-form"
-import Error from "../../../../components/common/error"
-import Loader from "../../../../components/common/loader"
-import { GetBioPageInfo } from "../../../../services/utils"
+import SettingsForm from "@/components/bio-pages/settings/settings-form"
+import Error from "@/components/common/error"
+import Loader from "@/components/common/loader"
+import { GetBioPageInfo } from "@/services/utils"
 
 const Analysis = () => {
   const { id } = useParams()

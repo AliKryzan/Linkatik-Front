@@ -4,7 +4,7 @@ import { Trash2 } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
-import useDeleteBioBlockMutation from "../../../hooks/ues-delete-bio-block-mutation"
+import useDeleteBioBlockMutation from "@/hooks/ues-delete-bio-block-mutation"
 
 const DeleteBioBlockButton = ({ blockId }) => {
   const { t } = useTranslation()

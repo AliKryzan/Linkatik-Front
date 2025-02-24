@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query"
 import { ChevronDown } from "lucide-react"
 import { useParams } from "react-router-dom"
 
-import { GetPageAppearance } from "../../../services/utils"
+import { GetPageAppearance } from "@/services/utils"
 import AutoHeight from "../../common/auto-height"
 import { Buttons } from "./buttons"
 

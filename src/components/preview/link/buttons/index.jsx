@@ -96,6 +96,7 @@ export const CustomButtonOne = ({ component: Component = "a", children, classNam
     </Component>
   )
 }
+
 export const FilledAnimation = ({ component: Component = "a", children, className, ...props }) => {
   return (
     <Component className={"filled-button-animation bio-link " + className} {...props}>
@@ -103,6 +104,7 @@ export const FilledAnimation = ({ component: Component = "a", children, classNam
     </Component>
   )
 }
+
 export const CustomButtonTwo = ({ component: Component = "a", children, className, ...props }) => {
   return (
     <Component className={"custom-button-two bio-link " + className} {...props}>
@@ -124,7 +126,6 @@ export const CustomButtonThree = ({ component: Component = "a", children, classN
 
 export const Buttons = {
   filled: Filled,
-  "filled-animation": FilledAnimation,
   "filled-rounded-sm": FilledRoundedSm,
   "filled-rounded-lg": FilledRoundedLg,
   outline: Outline,

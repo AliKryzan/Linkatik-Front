@@ -5,9 +5,9 @@ import { EllipsisVertical, Pencil, Trash2 } from "lucide-react"
 import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 
-import { imagePlaceholder } from "../../../assets"
-import { Link } from "../../../lib/i18n/navigation"
-import { DeleteProduct } from "../../../services/utils"
+import { imagePlaceholder } from "@/assets"
+import { Link } from "@/lib/i18n/navigation"
+import { DeleteProduct } from "@/services/utils"
 
 const productType = {
   booking: {

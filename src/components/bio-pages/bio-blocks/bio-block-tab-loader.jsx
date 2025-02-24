@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react"
 import { Group } from "@mantine/core"
 
-import Loader from "../../../components/common/loader"
+import Loader from "@/components/common/loader"
 
 const componentMap = {
   settings: lazy(() => import("./settings/block-settings")),

@@ -2,7 +2,7 @@ import { Stack, Title } from "@mantine/core"
 import { useTranslation } from "react-i18next"
 import { useLocation } from "react-router-dom"
 
-import DomainForm from "../../../components/domains/domain-form"
+import DomainForm from "@/components/domains/domain-form"
 
 const UpdateDomain = () => {
   const { t } = useTranslation()

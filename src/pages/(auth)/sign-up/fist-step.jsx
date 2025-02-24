@@ -5,10 +5,10 @@ import { Controller, useForm } from "react-hook-form"
 import { Trans, useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 
-import SocialLoginButton from "../../../components/ui/social-login-button"
-import { Link } from "../../../lib/i18n/navigation"
-import { setFormData, setStep } from "../../../store/sign-up/sign-up-slice"
-import { signUpSchema } from "../../../validation/sign-up"
+import SocialLoginButton from "@/components/ui/social-login-button"
+import { Link } from "@/lib/i18n/navigation"
+import { setFormData, setStep } from "@/store/sign-up/sign-up-slice"
+import { signUpSchema } from "@/validation/sign-up"
 
 const FirstStep = () => {
   const { t } = useTranslation()
@@ -117,7 +117,7 @@ const FirstStep = () => {
           </Flex>
         </Stack>
       </Stack>
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </Stack>
   )
 }

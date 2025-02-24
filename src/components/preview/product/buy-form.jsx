@@ -6,10 +6,10 @@ import { Check } from "lucide-react"
 import { Controller, FormProvider, useForm } from "react-hook-form"
 import { Trans, useTranslation } from "react-i18next"
 
-import { imagePlaceholder } from "../../../assets"
-import { PAYMENTGATEWAYS_LOGOS } from "../../../config"
-import { PostPlaceOrder } from "../../../services/utils"
-import { buyBookingProductSchema, buyProductSchema } from "../../../validation/product"
+import { imagePlaceholder } from "@/assets"
+import { PAYMENTGATEWAYS_LOGOS } from "@/config"
+import { PostPlaceOrder } from "@/services/utils"
+import { buyBookingProductSchema, buyProductSchema } from "@/validation/product"
 import BookingCalender from "./booking-calender"
 
 const BuyForm = ({ product }) => {
@@ -199,10 +199,10 @@ const BuyForm = ({ product }) => {
               />
             </Text>
           ) : null}
-          <DevTool control={form.control} />
+          {/* <DevTool control={form.control} /> */}
         </Stack>
       </FormProvider>
-      <DevTool control={form.control} />
+      {/* <DevTool control={form.control} /> */}
     </>
   )
 }

@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
-import { PutUpdateBioPage } from "../../../services/utils"
+import { PutUpdateBioPage } from "@/services/utils"
 import Error from "../../common/error"
 import Loader from "../../common/loader"
 import CreateCustomTheme from "./create-custom-theme"

@@ -4,8 +4,8 @@ import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
-import { queryClient } from "../../../lib/react-query/react-query-provider"
-import { PutUpdateBioPage } from "../../../services/utils"
+import { queryClient } from "@/lib/react-query/react-query-provider"
+import { PutUpdateBioPage } from "@/services/utils"
 import Background from "./background"
 import Buttons from "./buttons"
 import Font from "./font"
@@ -66,6 +66,7 @@ const CreateCustomTheme = ({data}) => {
         id,
         // data: { appearance },
         data: { appearance,image:img,image_type:"custom"},
+        // data: { appearance,image:'ssssss',image_type:"custom"},
       })
       await queryClient.setQueryData(["bio-page-theme-preview", path], response.data.data)
     } catch (error) {
@@ -78,7 +79,7 @@ const CreateCustomTheme = ({data}) => {
   })
 
   return (
-    <Stack   gap={"xl"} component="form" noValidate onSubmit={onSubmit}  >
+    <Stack  gap={"xl"} component="form" noValidate onSubmit={onSubmit}  >
       <Background form={form} />
       <Buttons form={form} />
       <Font form={form} />

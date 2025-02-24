@@ -5,7 +5,7 @@ import { X } from "lucide-react"
 import { Controller, useFormContext } from "react-hook-form"
 import { useSearchParams } from "react-router-dom"
 
-import { fileIcon, scheduleIcon } from "../../assets"
+import { fileIcon, scheduleIcon } from "@/assets"
 import CustomSelect from "../ui/custom-select"
 import Dropzone from "../ui/dropzone"
 import TimeSlots from "./time-slots"

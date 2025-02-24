@@ -5,8 +5,8 @@ import { EllipsisVertical, Pencil, Trash2 } from "lucide-react"
 import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 
-import { Link } from "../../../lib/i18n/navigation"
-import { DeleteDomain } from "../../../services/utils"
+import { Link } from "@/lib/i18n/navigation"
+import { DeleteDomain } from "@/services/utils"
 
 const DomainsTableBody = ({ data }) => {
   const { t } = useTranslation()

@@ -4,9 +4,9 @@ import { useMutation } from "@tanstack/react-query"
 import { useTranslation } from "react-i18next"
 import { useNavigate, useParams, useSearchParams } from "react-router-dom"
 
-import { sallaFullLogo, tiktokFullLogo, zidFullLogo } from "../../assets"
-import Error from "../../components/common/error"
-import { PostIntegrationCallback } from "../../services/utils"
+import { sallaFullLogo, tiktokFullLogo, zidFullLogo } from "@/assets"
+import Error from "@/components/common/error"
+import { PostIntegrationCallback } from "@/services/utils"
 
 const logos = {
   salla: sallaFullLogo,

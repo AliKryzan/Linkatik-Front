@@ -1,8 +1,8 @@
 import { Button, Stack, Text, Title } from "@mantine/core"
 import { useTranslation } from "react-i18next"
 
-import { Link } from "../../lib/i18n/navigation"
-import { updateUser } from "../../utils/update-user"
+import { Link } from "@/lib/i18n/navigation"
+import { updateUser } from "@/utils/update-user"
 
 const ThankYou = () => {
   const { t } = useTranslation()

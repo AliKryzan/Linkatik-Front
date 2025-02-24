@@ -7,8 +7,8 @@ import { Controller, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
-import { PutUpdateBlock } from "../../../../services/utils"
-import { BioBlockLockSchema } from "../../../../validation/bio-block"
+import { PutUpdateBlock } from "@/services/utils"
+import { BioBlockLockSchema } from "@/validation/bio-block"
 
 const BlockLock = ({ block }) => {
   const { id } = useParams()
@@ -175,7 +175,7 @@ const BlockLock = ({ block }) => {
           {formState.errors.root?.message}
         </Text>
       )}
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </Stack>
   )
 }

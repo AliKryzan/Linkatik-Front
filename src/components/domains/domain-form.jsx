@@ -6,9 +6,9 @@ import { Controller, useForm } from "react-hook-form"
 import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 
-import { useNavigate } from "../../lib/i18n/navigation"
-import { PostDomain, PutDomain } from "../../services/utils"
-import { domainSchema } from "../../validation/domain"
+import { useNavigate } from "@/lib/i18n/navigation"
+import { PostDomain, PutDomain } from "@/services/utils"
+import { domainSchema } from "@/validation/domain"
 
 const DomainForm = ({ domain }) => {
   const updateForm = domain?.id ? true : false
@@ -82,7 +82,7 @@ const DomainForm = ({ domain }) => {
           {formState.errors.root?.message}
         </Text>
       )}
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </Stack>
   )
 }

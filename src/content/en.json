@@ -1,8 +1,1038 @@
 {
+  "errorBoundary": {
+    "title": {
+      "404": "Page Not Found",
+      "401": "Unauthorized",
+      "403": "Forbidden",
+      "default": "Oops! Something went wrong"
+    },
+   "Time to share with the world": "Time to share with the world",
+    "description": {
+      "404": "The page you are looking for does not exist or has been moved",
+      "401": "Please log in to access this page",
+      "403": "You do not have permission to access this page",
+      "default": "We encountered an unexpected issue while processing your request"
+    },
+    "unexpectedError": "An unexpected error occurred",
+    "defaultError": "An error occurred",
+    "details": "Error Details",
+    "tryAgain": "Retry",
+    "goHome": "Back to Home"
+  },
   "general": {
-    "dashboard": "dashboard"
+    "share":"Share your Linkatik",
+    "continueEditing":"Continue editing",
+    "linkatikReady": "Your Linkatik page is ready!",
+    "profile": "The profile",
+    "payouts": "Sales",
+    "settings": "Settings",
+    "Subscribe": "Subscribe",
+    "domain": "Domain",
+    "integrations": "Connecting with platforms",
+    "dashboard": "Control panel",
+    "bioPages": "Bio pages",
+    "qrCodes": "QR codes",
+    "products": "Products",
+    "paymentGateways": "Payment gates",
+    "subscriptions": "Subscriptions",
+    "orders": "Requests",
+    "darkMode": "Dark situation",
+    "lightMode": "The light situation",
+    "logout": "exit",
+    "updateUserError": "An error event in updating the data",
+    "export": "export",
+    "search-placeholder": "research..."
   },
   "login": {
-    "welcomeBack": "Welcome Back"
+    "title": "Welcome to your return",
+    "description": "Log in to your Linkatik",
+    "emailInput": "Your email",
+    "passwordInput": "password",
+    "loginButton": "Log in",
+    "registerButton": "Registration",
+    "doseNotHaveAccount": "You don't have an account?",
+    "forgotPassword": "I forgot the password?",
+    "appleButton": "Log in using Apple",
+    "googleButton": "Log in using Google",
+    "warning": "This site is protected using Recaptcha. And <link rel = 'niperner' target = \"_ blank\" href = \"https://google.com\"> Privacy Policy </link> and <Termslink Rel = 'NOOPERERER' TARGET = \"_ blank\" href = \"https:/ /Google.com \"> Conditions Using </ termplink> for Google",
+    "or": "or",
+    "errors": {
+      "socialLogin": "An error occurred",
+      "invalidEmail": "Email is not valid",
+      "short": "Password is very short",
+      "long": "The password is very long",
+      "required": "This field is required",
+      "invalidLogin": "Email or password is incorrect",
+      "invalidResponse": "A mistake in contacting the server"
+    }
+  },
+  "signUp": {
+    "title": "Organize your Linkatik",
+    "description": "Choose your username, you can change it when you want",
+    "usernameInput": "user name",
+    "emailInput": "Your email",
+    "passwordInput": "password",
+    "signUpButton": "Create an account",
+    "loginButton": "Log in",
+    "haveAccount": "You have an account?",
+    "warning": "Click on the creation of an account you agree to <link to = \"to\"> Conditions and terms </link> and make sure that you have read <privacypolicylink to = \"to\"> Privacy Policy </privacypolicylink> for your Linkatik platform. You may receive offers, news and updates from us.",
+    "or": "or",
+    "errors": {
+      "invalidEmail": "Email is not valid",
+      "short": "Password is very short",
+      "long": "The password is very long",
+      "required": "This field is required",
+      "invalidUsername": "Username may contain letters, numbers, or - or _",
+      "invalidResponse": "A mistake in contacting the server"
+    }
+  },
+  "userInfo": {
+    "title": "Tell us about yourself",
+    "description": "For a better personal experience",
+    "nameInput": "Tell us your name",
+    "continueButton": "tracking",
+    "interestsLabel": "Select one category describing your interest better:",
+    "subInterestsLabel": "Select more accurate classification: (optional)",
+    "errors": {
+      "short": "Password is very short",
+      "long": "The password is very long",
+      "required": "This field is required",
+      "invalidResponse": "A mistake in contacting the server",
+      "invalidName": "The name is not valid"
+    }
+  },
+  "forgotPassword": {
+    "title": "Forget the password",
+    "description": "Sim send an email to change the password",
+    "emailInput": "Your email",
+    "submitButton": "Send an email",
+    "successMessage": "The email was successfully sent, please verify the email to change the password",
+    "errors": {
+      "invalidEmail": "Email is not valid",
+      "required": "This field is required",
+      "invalidResponse": "A mistake in contacting the server"
+    }
+  },
+  "plans": {
+    "title": "Find the right plan for you",
+    "description": "You can change the plan later",
+    "monthly_price": "monthly",
+    "annual_price": "annual",
+    "getStarted": "never",
+    "featured": "Distinctive",
+    "names": {
+      "free": "Free",
+      "pro": "Professionalism",
+      "premium": "Distinctive"
+    },
+    "plansDescription": {
+      "free": "Free, free for life",
+      "pro": "Description of the professional plan",
+      "premium": "Description of the distinctive plan"
+    },
+    "planContains": {
+      "free": "What the free plan contains",
+      "pro": "What the professional plan contains",
+      "premium": "What the special plan contains"
+    },
+    "settings": {
+      "seo": "Search engines improvement",
+      "fonts": "The feature of changing the line",
+      "pdf_size": "{{Value}} pdf files",
+      "file_size": "{{Value}} pdf files",
+      "subscribe": "Subscription",
+      "image_size": "The maximum image size {{value}} mb",
+      "video_size": "The maximum video size {{Value}} mb",
+      "ai_bio_link": "Voyeer intelligence assistant",
+      "links_limit": "The number of maximum associations {{Value}}",
+      "products_limit": "The number of maximum products {{value}}",
+      "qr_codes_limit": "{Value}} QRS",
+      "bio_links_limit": "Number of pages {{Value}}",
+      "sensitive_content": "Sensitive content",
+      "custom_backgrounds": "The background",
+      "removable_branding": "Change the brand",
+      "advanced_statistics": "Advanced statistics",
+      "password_protection": "Protecting links with passwords",
+      "prioritize_schedule": "Schedule of Linkatik",
+      "analytics_integrations": "Including statistics",
+      "custom_footer_branding": "Change the brand in the founty",
+      "customer_domains_limit": "Number of your domains",
+      "links_statistics_limit": "Links Statistics {{Value}}",
+      "payment_processors_limit": "{{Value}} Payment Processors",
+      "bio_link_blocks_per_bio_link_page_limit": "{{Value}} Bio Link BLOCKS PR BIO LINK page",
+      "bio_pages_limit": "Number of pages {{Value}}",
+      "bio_blocks_limit": "{Value}} bio blocks"
+    },
+    "billed": {
+      "free": "Free, free for life",
+      "monthly_price": "Monthly, pay every month",
+      "annual_price": "Annually, pay every year"
+    },
+    "errors": {
+      "invalidResponse": "A mistake in contacting the server"
+    }
+  },
+  "thankYou": {
+    "title": "Thank you for making your Linkatik",
+    "description": "To confirm your account, please click on the email sent to you",
+    "continueButton": "Go to your account"
+  },
+  "header": {
+    "upgrade": "Upgrade",
+    "account": "the account",
+    "myAccount": "Arithmetic",
+    "billing": "Bills",
+    "support": "Support",
+    "askAQuestion": "I ask you a question",
+    "helpTopics": "Help topics",
+    "signOut": "Exit"
+  },
+  "dashboard": {
+    "title": "Control panel",
+    "analysis": {
+      "title": "Activity",
+      "views": "Views",
+      "blocks": "Blocks",
+      "subscriber": "Subscribers",
+      "clicks": "Clicks"
+    }
+  },
+  "profile": {
+    "title": "The profile",
+    "usernameInput": "user name",
+    "emailInput": "Your email",
+    "updateButton": "Save modifications",
+    "nameInput": "the name",
+    "interestsLabel": "Select one category describing your interest better:",
+    "subInterestsLabel": "Select more accurate classification: (optional)",
+    "oldPasswordInput": "Current Password",
+    "newPasswordInput": "New Password",
+    "updatePassword": "Password editing",
+    "updateSuccess": "The profile has been successfully updated",
+    "updatePasswordSuccess": "The password has been successfully modified",
+    "deleteProfileTitle": "Delete the account",
+    "deleteProfileDescription": "Delete the account with all your pages completely and final",
+    "deleteProfileButton": "Delete the profile",
+    "errors": {
+      "invalidEmail": "Email is not valid",
+      "short": "Password is very short",
+      "long": "The password is very long",
+      "required": "This field is required",
+      "invalidUsername": "Username may contain letters, numbers, or - or _",
+      "invalidResponse": "A mistake in contacting the server",
+      "invalidName": "The name is not valid"
+    }
+  },
+  "bioPages": {
+    "title_1": "the address",
+    "addPersonalInfo": "Add your personal information",
+    "ChooicePersonalPhoto": "Choose the personal image",
+    "skip": "skip",
+    "title": "Lancets pages",
+    "addButton": "Add a page",
+    "updateButton": "amendment",
+    "cancelButton": "cancellation",
+    "deleteButton": "delete",
+    "page_deleted_successfully": "The page was successfully deleted.",
+    "page_not_deleted": "The page has not been deleted.",
+    "choose": "Add",
+    "deleteModal": {
+      "title": "Delete the lans page",
+      "description": "The lines page will be permanently deleted",
+      "successMessage": "The lans page was successfully deleted.",
+      "errorMessage": "It is not possible to delete the lans page",
+      "cancelButton": "cancellation",
+      "deleteButton": "delete"
+    },
+    "table": {
+      "general": {
+        "buttons": "buttons",
+        "blocks": "Blocks"
+      },
+      "head": {
+        "id": "ID",
+        "title": "the address",
+        "path": "Path",
+        "style": "Coordination",
+        "createdAt": "Date added",
+        "status": "the condition"
+      }
+    },
+    "createPage": {
+      "des": "Description",
+      "title_1": "the address",
+      "preview": "Show a preview",
+      "createButton": "Create a page",
+      "ChooseFromPhotoLibrary": "Choose from the photo library",
+      "FromOurLibrary": "From our library",
+      "UploadYourPhoto": "Raise your photo",
+      "FromYourDevice": "From your device",
+      "pathInput": {
+        "label": "The page path",
+        "description": "You can leave the field empty to create a random path",
+        "leftSection": "https://linkatik.com/"
+      },
+      "segments": {
+        "links": "Bonds",
+        "appearance": "Appearance",
+        "analysis": "statistics",
+        "settings": "Settings"
+      },
+      "title": "Linkatik page",
+      "errors": {
+        "required": "This field is required",
+        "invalidPath": "The path is not valid, it must contain letters, numbers, or - or _",
+        "invalidResponse": "A mistake in contacting the server"
+      }
+    },
+    "settings": {
+      "social": {
+        "title": "Life analyzes",
+        "subTitle": "Social media icons",
+        "description": "Add icons associated with your social media accounts, email and more",
+        "form": {
+          "button": "Add an icon",
+          "label": "the site",
+          "description": "Icon display site",
+          "top": "Above",
+          "bottom": "Below"
+        }
+      },
+      "mailing": {
+        "title": "Mail menu",
+        "subTitle": "Subscribe to email",
+        "description": "Add an email registration field to your Linkatik so that visitors can join your postal list."
+      },
+      "commerce": {
+        "title": "Commercial integration",
+        "subTitle": "Attach",
+        "description": "Enabling or subscribing to an accredited provider. Start collecting tips and payments, selling products and services and more.",
+        "form": {
+          "tiktok": "Tek Talk",
+          "zid": "Zid",
+          "salla": "basket",
+          "google_meet": "Google dead",
+          "connect": "Firmness",
+          "button": "Add new integration"
+        }
+      },
+      "sensitiveContent": {
+        "title": "Sensitive materials",
+        "subTitle": "View a warning about sensitive content before visitors can view your profile."
+      },
+      "seo": {
+        "title": "Mohsen search engines",
+        "subTitle": "Custom descriptive data",
+        "description": "The changes in descriptive data may take some time to appear on other basic systems.",
+        "form": {
+          "titleInput": {
+            "placeholder": "Page title",
+            "description": "Example: Ahmed Page content"
+          },
+          "descriptionInput": {
+            "placeholder": "Description of the page",
+            "description": "Example: To your Linkatik, make your links express you"
+          }
+        }
+      },
+      "analyticsIntegration": {
+        "title": "Connect statistics",
+        "form": {
+          "facebook": {
+            "title": "Facebook",
+            "pixelId": {
+              "placeholder": "Pixel Id",
+              "description": "Example: 1234567890"
+            },
+            "accessToken": {
+              "placeholder": "Access to Facebook Application Programming interface",
+              "description": "Distinctive symbol from the director of Facebook events"
+            }
+          },
+          "google": {
+            "title": "Google",
+            "googleMeasurementId": {
+              "placeholder": "Google Measurement ID",
+              "description": "Example: UA -000000-2"
+            }
+          }
+        }
+      },
+      "subscribe": {
+        "title": "Subscription",
+        "subTitle": "Allow visitors to subscribe",
+        "description": "Add Zra so visitors can subscribe to your Linkatik.",
+        "form": {
+          "label": "Subscribe link",
+          "description": "Share this link to inform your audience that they can subscribe.",
+          "placeholder": "https://linkatik.com/alikryzan"
+        }
+      },
+      "logo": {
+        "title": "Hide the logo",
+        "subTitle": "Hide the logo of your Linkatik from the Bio page"
+      },
+      "button": "save"
+    },
+    "analysis": {
+      "clicks_os": "Operating systems",
+      "clicks_browsers": "Browser",
+      "cities": "Cities"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "pickImageButton": "Choose a picture",
+      "removeImageButton": "Delete the image",
+      "profile": {
+        "title": "The profile",
+        "titleInput": "Page title",
+        "bioInput": "Description of the page",
+        "button": "save"
+      },
+      "themes": {
+        "title": "Appearance",
+        "createYourTheme": "Create your appearance",
+        "background": "Background",
+        "color": "the color",
+        "size": "Size",
+        "radius": "The corners",
+        "preview": "Show a preview",
+        "transparent": "transparent",
+        "dark": "dark",
+        "outline": "Edges",
+        "filled": "Sorted",
+        "light": "light",
+        "shadow": "Shade",
+        "style": "Coordination",
+        "font": "Line",
+        "form": {
+          "title": "Special appearance",
+          "description": "Customize your full Pew page. Change your background with colors. Choose a button style, change the font and more.",
+          "preset": "One color",
+          "gradient": "Listed",
+          "background": "Background",
+          "buttons": "Equity",
+          "image": "image",
+          "button": "Memorize the appearance",
+          "text-color": "Font color",
+          "button-color": "The color of the button",
+          "button-types": {
+            "filled": "Sorted",
+            "outline": "Edges",
+            "shadow": "Shade",
+            "hard-shadow": "Sorter"
+          }
+        }
+      },
+      "errors": {
+        "serverError": "A mistake in contacting the server",
+        "invalidDate": "History is invalid",
+        "required": "This field is required",
+        "invalidValue": "Valuable value",
+        "fileRequired": "Please add an element"
+      }
+    },
+    "bioPage": {
+      "addLinkButton": "Add a link"
+    }
+  },
+  "subscribe": {
+    "form": {
+      "button": "Subscribe",
+      "errors": {
+        "invalidEmail": "Email is not valid",
+        "short": "Password is very short",
+        "long": "The password is very long",
+        "required": "This field is required",
+        "invalidName": "The name is not valid",
+        "invalidResponse": "A mistake in contacting the server"
+      }
+    }
+  },
+  "bioPage": {
+    "subscribe": "Subscription"
+  },
+  "cropImageModal": {
+    "title": "Edit image",
+    "cancel": "cancellation",
+    "crop": "save"
+  },
+  "bioBlocks": {
+    "general": {
+      "choose": "Select",
+      "generalTitle": "Share your content",
+      "generalDescription": "Share your content directly to your Links",
+      "commercialTitle": "commerce",
+      "commercialDescription": "View your digital products and commercial platforms",
+      "advancedTitle": "commerce",
+      "advancedDescription": "View your digital products and commercial platforms",
+      "searchPlaceholder": "research ...",
+      "upgradeMessage": "Please upgrade your account to be able to open this element",
+      "bio_block_deleted_successfully": "The block was successfully deleted",
+      "bio_block_deleted_error": "The block could not be deleted"
+    },
+    "deleteModal": {
+      "title": "Link delete",
+      "description": "The link will be permanently deleted",
+      "successMessage": "The link was successfully deleted.",
+      "errorMessage": "The link is not possible to delete",
+      "cancelButton": "cancellation",
+      "deleteButton": "delete"
+    },
+    "createBlock": {
+      "custom": {
+        "header": {
+          "title": "the address",
+          "type": "Type Type",
+          "large": "big",
+          "medium": "middle",
+          "small": "small"
+        },
+        "countdown": {
+          "title": "Then by determining the end of the countdown",
+          "form": {
+            "end_date": "The date of completion",
+            "theme": "Theme",
+            "button": "save"
+          }
+        },
+        "contactForm": {
+          "title": "Fields",
+          "description": "Use the fields to collect a specific type of information. Mark a required field to make it compulsory to visitors to complete it.",
+          "form": {
+            "title": "Form address",
+            "name": "the name",
+            "email_from": "Sender email",
+            "phone": "Sender number",
+            "message": "message",
+            "country": "The state of the sender",
+            "required": "Wanted field",
+            "enabled": "required",
+            "email_to": "Communication email",
+            "email_to_description": "Send the mail directly to you",
+            "thank_you_message": "Thanks message",
+            "button": "addition"
+          }
+        },
+        "divider": {
+          "margin_top": "The highest space",
+          "margin_bottom": "Space",
+          "color": "the color"
+        },
+        "text_block": {
+          "content": "Text content"
+        },
+        "socials": {
+          "email": "E -mail",
+          "phone": "Communication number",
+          "whatsapp": "WhatsApp",
+          "telegram": "Telegram",
+          "linkedin": "Linkedness",
+          "facebook": "Facebook",
+          "twitter": "X platform",
+          "instagram": "Instagram",
+          "youtube": "YouTube"
+        },
+        "discord": {
+          "channel_id": "ID channel"
+        },
+        "faq": {
+          "question": "a question",
+          "answer": "Answer",
+          "add": "addition"
+        },
+        "email_collector": {
+          "email": "E -mail",
+          "name": "the name"
+        },
+        "vcard": {
+          "title": "Communication information",
+          "description": "Communication information will be converted to a downloadable file",
+          "title_input": "Block address",
+          "first_name": "first name",
+          "last_name": "last name",
+          "email": "E -mail",
+          "phone": "Communication number",
+          "address_street": "the address"
+        }
+      },
+      "urlInputLabel": "Link",
+      "titleInputLabel": "Block address",
+      "createButton": "Add the block",
+      "serverError": "A mistake in contacting the server",
+      "invalidDate": "History is invalid",
+      "required": "This field is required",
+      "invalidValue": "Valuable value",
+      "invalidEmail": "Email is not valid",
+      "invalidSelection": "Please choose at least one field",
+      "fileRequired": "Please add an element"
+    },
+    "tabs": {
+      "settings": {
+        "label": "Settings",
+        "title": "Block preparations",
+        "description": "Block specialized preparations by type",
+        "linkBehavior": {
+          "title": "Select the link mechanism on your page"
+        },
+        "form": {
+          "button": "save"
+        }
+      },
+      "lock": {
+        "label": "Link lock",
+        "title": "Link lock",
+        "description": "Visitors can only reach this link by collecting certain criteria.",
+        "alerts": {
+          "show_with_code": "The lock is not effective yet",
+          "show_with_code_d": "A code consisting of 4 numbers must be entered to activate the lock",
+          "show_with_birthday": "The lock is not effective yet",
+          "show_with_birthday_d": "Determine the edema to activate the lock"
+        },
+        "form": {
+          "show_with_code": "Show verification code",
+          "show_with_code_d": "Visitors need to enter a 4 -digit code to open the link",
+          "show_with_birthday": "Birth date of birth",
+          "show_with_birthday_d": "Visitors should be over a certain age to open the link with their birth date",
+          "show_with_subscribe": "Show after subscription",
+          "show_with_subscribe_d": "Visitors should subscribe to your Linkatik to open the link.",
+          "show_with_sensitive_content": "View sensitive content",
+          "show_with_sensitive_content_d": "Visitors must acknowledge that this link may contain inappropriate content for all fans.",
+          "birthday_year_label": "Determine the minimum age",
+          "button": "save"
+        }
+      },
+      "schedule": {
+        "label": "Link schedule",
+        "title": "Scheduling",
+        "description": "Choose when the link is displayed on your page",
+        "form": {
+          "start_date": "Date added",
+          "end_date": "Delete date",
+          "timezone": "Time area",
+          "button": "Scheduling",
+          "errors": {
+            "invalidDate": "History is invalid",
+            "invalidTime": "Time is not valid",
+            "invalidTimezone": "The area is not valid",
+            "invalidResponse": "A mistake in contacting the server",
+            "required": "This field is required"
+          }
+        }
+      },
+      "prioritize": {
+        "label": "Priority",
+        "title": "Priority",
+        "description": "Set the priority for the block",
+        "button": "save",
+        "errors": {
+          "required": "This field is required"
+        },
+        "radio": {
+          "label": "Excellence through:",
+          "values": {
+            "animation": "Animation",
+            "animation_d": "Show the link with a wonderful and remarkable",
+            "spotlight": "Highlight",
+            "spotlight_d": "The link is expanded automatically when the visitor reaches your Linkatik.",
+            "none": "The link is not distinguished"
+          }
+        }
+      },
+      "redirect": {
+        "label": "Recalin",
+        "description": "Send all visitors directly to this link. <br/> You can only re -direct it to one active link at any time.",
+        "button": "Repeat the guidance",
+        "form": {
+          "description": "Select the end of re -guidance time. Your Linkatik will be automatically recovered when the re -guidance has expired.",
+          "button": "save",
+          "countdown": "Determine the end of the direction",
+          "expired_at": "The date of completion",
+          "timezone": "Time area"
+        }
+      },
+      "thumbnail": {
+        "label": "Mini image",
+        "description": "Add a miniature image or icon to this link.",
+        "button": "Add a mini image",
+        "form": {
+          "button": "save",
+          "updateButton": "amendment",
+          "removeButton": "delete"
+        }
+      }
+    },
+    "errors": {
+      "required": "This field is required",
+      "invalidUrl": "The link is invalid",
+      "serverError": "A mistake in contacting the server",
+      "invalidEmail": "Email is not valid"
+    },
+    "blocks": {
+      "faq": "Common questions",
+      "faq_d": "Description of common questions",
+      "zid": "Zoom",
+      "zid_d": "Zaid's description",
+      "link": "link",
+      "link_d": "Description of a link",
+      "text_block": "text",
+      "text_block_d": "Description",
+      "header": "address",
+      "header_d": "Description of the title",
+      "video": "video",
+      "video_d": "Description of video",
+      "audio": "voice",
+      "audio_d": "Description",
+      "image": "image",
+      "image_d": "Description",
+      "salla": "basket",
+      "salla_d": "Description",
+      "vimeo": "Vimio",
+      "vimeo_d": "Fimio description",
+      "paypal": "Paypal",
+      "paypal_d": "Paypal description",
+      "twitch": "Ting",
+      "twitch_d": "Touche description",
+      "discord": "Disorder",
+      "discord_d": "Discord description",
+      "divider": "break",
+      "divider_d": "Delivery description",
+      "product": "project",
+      "product_d": "Description",
+      "socials": "Social media",
+      "socials_d": "Description of social media",
+      "spotify": "Spotify",
+      "spotify_d": "Spotify description",
+      "threads": "Thrids",
+      "threads_d": "Refreshing Thrids",
+      "x_tweet": "Tweet on X",
+      "x_tweet_d": "Description of a tweet on X",
+      "youtube": "YouTube",
+      "youtube_d": "YouTube description",
+      "donation": "donation",
+      "donation_d": "Description of a donation",
+      "facebook": "Facebook",
+      "facebook_d": "Description of Facebook",
+      "snapchat": "Snapchat",
+      "snapchat_d": "Snapchat description",
+      "countdown": "Country meter",
+      "countdown_d": "Description of a descending meter",
+      "instagram": "Instagram",
+      "instagram_d": "Instagram description",
+      "x_profile": "X profile",
+      "x_profile_d": "X profile description",
+      "google_map": "Google Map",
+      "google_map_d": "Google Map Description",
+      "apple_music": "Apple Music",
+      "apple_music_d": "Apple Music Description",
+      "link_folder": "Link folder",
+      "link_folder_d": "Description of the link folder",
+      "sound_cloud": "Sound Claude",
+      "sound_cloud_d": "Sound Cloud Description",
+      "contact_form": "Communication form",
+      "contact_form_d": "Description of the contact form",
+      "image_slider": "Photo pass bar",
+      "image_slider_d": "Photo pass bar description",
+      "file": "PDF document",
+      "file_d": "PDF document description",
+      "tiktok_video": "Tech Talk Video",
+      "tiktok_video_d": "Description of Tik Talk video",
+      "tiktok_profile": "Tik -Tok account",
+      "tiktok_profile_d": "Tik -Tok account description",
+      "buy_me_coffee": "Buy coffee for me",
+      "buy_me_coffee_d": "A description bought me coffee",
+      "telegram_post": "Telegram post",
+      "telegram_post_d": "Telegram post description",
+      "email_collector": "Email mosque",
+      "email_collector_d": "Email mosque description",
+      "pinterest_profile": "Pinterest's profile",
+      "pinterest_profile_d": "Pinterest's profile description",
+      "share_stock_price": "Arrow price",
+      "share_stock_price_d": "Description of the stock price",
+      "vcard": "Contact information",
+      "vcard_d": "Description of communication information",
+      "image_gallery": "Photo gallery",
+      "image_gallery_d": "Photo gallery description",
+      "booking": "reservation",
+      "booking_d": "Reservation description"
+    }
+  },
+  "domains": {
+    "title": "Domines",
+    "addButton": "Add a domain",
+    "deleteDomain": "delete",
+    "updateDomain": "amendment",
+    "status": {
+      "active": "effective",
+      "inactive": "inefficient"
+    },
+    "table": {
+      "head": {
+        "id": "ID",
+        "domain": "Domain",
+        "createdAt": "Date added",
+        "status": "the condition"
+      }
+    },
+    "deleteDomainModal": {
+      "cancelDeleteButton": "cancellation",
+      "deleteButton": "delete",
+      "title": "Are you sure to delete the domain?",
+      "description": "The domain {{domain}} will be deleted permanently",
+      "successMessage": "Domain was successfully deleted.",
+      "errorMessage": "The domain could not be deleted"
+    },
+    "updateDomainPage": {
+      "title": "Domain modification",
+      "successMessage": "The domain has been successfully modified.",
+      "button": "amendment"
+    },
+    "addDomain": {
+      "title": "Add a domain",
+      "warning": "Your domain or subsumain must have an a Record Pointing to 164.92.201.149 or Cname Record Pointing to Linkatik.com.",
+      "domainInput": "Domain",
+      "button": "Add a domain",
+      "successMessage": "The domain was successfully added.",
+      "errors": {
+        "required": "This field is required",
+        "invalidUrl": "Domain is invalid",
+        "invalidResponse": "A mistake in contacting the server"
+      }
+    }
+  },
+  "subscribers": {
+    "title": "Subscribers",
+    "table": {
+      "head": {
+        "id": "ID",
+        "email": "E -mail",
+        "name": "the name",
+        "bio_page": "Page",
+        "createdAt": "The date of subscription",
+        "filter": "Filter"
+      }
+    }
+  },
+  "fileUpload": {
+    "label": "Lift your product files and an email will be sent to the customer with the download link",
+    "title": "Withdraw and filter here, or click here to upload files",
+    "description": "You can upload files with a size that does not exceed {{size}} mb",
+    "button": "download",
+    "errors": {
+      "invalidResponse": "A mistake in contacting the server"
+    }
+  },
+  "products": {
+    "title": "Products",
+    "addButton": "Add a product",
+    "searchPlaceholder": "research",
+    "deleteButton": "delete",
+    "updateButton": "amendment",
+    "cancelButton": "cancellation",
+    "status": {
+      "active": "effective",
+      "inactive": "inefficient"
+    },
+    "fileUpload": {
+      "label": "Lift your product files and an email will be sent to the customer with the download link",
+      "title": "Withdraw and filter here, or click here to upload files",
+      "description": "You can upload files of no more than 5MB",
+      "button": "download",
+      "errors": {
+        "invalidResponse": "A mistake in contacting the server"
+      }
+    },
+    "general": {
+      "membership": "membership",
+      "membershipDescription": "almost",
+      "single_payment": "Once",
+      "single_paymentDescription": "Pay the product and get it",
+      "pay_what_you_want": "Pay as you want",
+      "pay_what_you_wantDescription": "Let the customer set the price",
+      "free": "Free",
+      "freeDescription": "Allow free entry",
+      "booking": "reservation",
+      "sales": "Sales",
+      "bookingDescription": "Let your customers determine the time of reservation to build on your schedule, for training, meeting or events.",
+      "digital": "digital",
+      "visit_url": "Arrival link",
+      "buyProduct": "Buy the product"
+    },
+    "table": {
+      "head": {
+        "product": "Product",
+        "price": "the price",
+        "max_price": "Favorite price",
+        "sales_price": "The minimum price",
+        "type": "Product type",
+        "sales": "Sales",
+        "revenue": "Revenue",
+        "filter": "Price type"
+      },
+      "general": {
+        "membership": "membership",
+        "single_payment": "Once",
+        "pay_what_you_want": "Pay as you want",
+        "free": "Free",
+        "booking": "reservation",
+        "digital": "digital"
+      }
+    },
+    "deleteProductModal": {
+      "cancelDeleteButton": "cancellation",
+      "deleteButton": "delete",
+      "title": "Are you sure to delete the product?",
+      "description": "The product will be deleted {{domain}} permanently",
+      "successMessage": "The product was successfully deleted.",
+      "errorMessage": "The product could not be deleted"
+    },
+    "updateProductPage": {
+      "title": "Product modification",
+      "successMessage": "The product has been successfully modified.",
+      "button": "amendment"
+    },
+    "addProduct": {
+      "title": "Add a product",
+      "titleInput": "Product name",
+      "type": "Product type",
+      "description": "A short description of the product",
+      "long_description": "Product description",
+      "image": "Product image",
+      "pricing_type": "Price type",
+      "price": "the price",
+      "max_price": "Favorite price",
+      "sales_price": "The minimum price",
+      "currency": "Currency",
+      "duration": "Period",
+      "durationUnit": "minute",
+      "next_days": "during",
+      "next_daysUnit": "day",
+      "slug": "The pathway path",
+      "slug_left": "https://linkatik.com/",
+      "timezone": "Time area",
+      "meetingDetailsLabel": "Details of the meeting",
+      "visit_url": "Arrival link",
+      "time_slots": "Available times",
+      "chooseTimeSlot": "Choose a period",
+      "choose": "Select",
+      "addTimeSlot": "Add a period",
+      "meetingLocationLabels": {
+        "google": "Google dead",
+        "custom": "Dedicated"
+      },
+      "meetingLocationDescriptions": {
+        "google": "The meeting link will be created automatically using your information in the Google account",
+        "custom": "Place the meeting link"
+      },
+      "meeting_location": "The meeting site",
+      "meeting_link": "The meeting link",
+      "bg_color": "The background color",
+      "button": "Add a product",
+      "successMessage": "The product was successfully added.",
+      "errors": {
+        "required": "This field is required",
+        "invalidPrice": "The value of the price is not acceptable",
+        "invalidResponse": "A mistake in contacting the server",
+        "invalidUrl": "Rabat is not valid"
+      }
+    }
+  },
+  "paymentGateways": {
+    "title": "Payment gates",
+    "addButton": "Add a portal",
+    "form": {
+      "name": "the name",
+      "processor": "Gate",
+      "is_active": "active",
+      "settings": "Settings",
+      "client_id": "Client Key",
+      "secret": "Secret Key",
+      "live_mode": "Live Mode",
+      "test_mode": "Test Mode",
+      "addButton": "Add a portal",
+      "deleteButton": "Delete the gate",
+      "updateButton": "amendment",
+      "mode": "Live Mode"
+    },
+    "errors": {
+      "required": "This field is required",
+      "invalidResponse": "A mistake in contacting the server"
+    }
+  },
+  "integrations": {
+    "title": "Integration with platforms",
+    "connect": "Firmness",
+    "disconnect": "Canceling the link",
+    "google_meet": {
+      "label": "Google Meet",
+      "description": "Connect your Google account to create and scheduling your meetings"
+    },
+    "zid": {
+      "label": "Zid",
+      "description": "Connect your store in a basket to be able to share your products on your Bio page"
+    },
+    "salla": {
+      "label": "Salla",
+      "description": "Connect your store in Z to be able to share your products on your Bio page"
+    },
+    "tiktok": {
+      "label": "TikTok",
+      "description": "Connect your account in Tiktok to be able to share your profile on your Bio page"
+    }
+  },
+  "callback": {
+    "title": "Please wait"
+  },
+  "product-preview": {
+    "title": "Complete the application",
+    "form": {
+      "name-input-label": "the name",
+      "name-input-placeholder": "Enter your name",
+      "email-input-label": "e-mail",
+      "price-input-label": "Select the amount to be paid {{min} - {{max}}",
+      "price-input-placeholder": "You can specify the price to be paid",
+      "payment_processors_id-input-label": "Choose the payment method",
+      "email-input-placeholder": "Enter your email",
+      "calender-title": "Date determination",
+      "time_slot_id": "Time",
+      "buy-button": "Buy now",
+      "errors": {
+        "invalidEmail": "Email is not valid",
+        "required": "This field is required",
+        "invalidResponse": "A mistake in contacting the server"
+      }
+    },
+    "payment-url": "In the event that you are not transferred to the payment portal <link rel = 'nooperer' target = \"_ blank\" href = \"https://google.com\"> Click here </ link>",
+    "success": {
+      "title": "amazing!!",
+      "sub-title": "Thanks for completing your request",
+      "description": "You will receive an email containing your product information, receipt, and product contents.",
+      "needs-help": {
+        "title": "Do you have any problems? Contact with support:",
+        "button": "Communicate with support"
+      },
+      "start-selling": {
+        "title": "Start selling on your Links.",
+        "button": "Start now!"
+      }
+    }
+  },
+  "orders": {
+    "title": "Requests",
+    "status": {
+      "pending": "Waiting",
+      "success": "Complete",
+      "failed": "Rejected"
+    },
+    "table": {
+      "head": {
+        "id": "ID",
+        "email": "Customer",
+        "product": "Product",
+        "status": "the condition",
+        "createdAt": "The date of the operation",
+        "revenue": "Profits"
+      }
+    }
   }
-} 
+}

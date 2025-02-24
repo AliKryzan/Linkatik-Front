@@ -3,8 +3,8 @@ import { Box } from "@mantine/core"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useForm } from "react-hook-form"
 
-import { DeletePaymentGateWay, PutPaymentsGateWays } from "../../services/utils"
-import { AddPaymentGatewaySchema } from "../../validation/payments-gateways"
+import { DeletePaymentGateWay, PutPaymentsGateWays } from "@/services/utils"
+import { AddPaymentGatewaySchema } from "@/validation/payments-gateways"
 import PaymentGatewayForm from "./form"
 
 const EditPaymentGateWay = ({ defaultValues, id }) => {

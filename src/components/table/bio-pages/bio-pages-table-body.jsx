@@ -3,10 +3,10 @@ import { modals } from "@mantine/modals"
 import { EllipsisVertical, Pencil, Trash2 } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
-import { imagePlaceholder } from "../../../assets"
-import useDeleteBioPageMutation from "../../../hooks/use-delete-bio-page-mutation"
-import { Link } from "../../../lib/i18n/navigation"
-import {groupAvatar} from '../../../assets'
+import { imagePlaceholder } from "@/assets"
+import useDeleteBioPageMutation from "@/hooks/use-delete-bio-page-mutation"
+import { Link } from "@/lib/i18n/navigation"
+import {groupAvatar} from '@/assets'
 import { number } from "prop-types"
 
 const bioPageStyle = {

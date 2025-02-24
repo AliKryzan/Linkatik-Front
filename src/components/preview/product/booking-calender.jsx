@@ -5,7 +5,7 @@ import dayjs from "dayjs"
 import { Controller, useFormContext } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 
-import { GetAvailableDates } from "../../../utils/get-avalibale-dates"
+import { GetAvailableDates } from "@/utils/get-avalibale-dates"
 
 const BookingCalender = ({ product }) => {
   const { time_slots, next_days } = product

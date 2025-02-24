@@ -9,16 +9,16 @@ import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 import { useSearchParams } from "react-router-dom"
 
-import { Link } from "../../lib/i18n/navigation"
-import { PostProduct } from "../../services/utils"
-import { convertTo24HourFormat } from "../../utils/convertTo24HourFormat"
-import { objectToFormData } from "../../utils/obj-to-formdata"
+import { Link } from "@/lib/i18n/navigation"
+import { PostProduct } from "@/services/utils"
+import { convertTo24HourFormat } from "@/utils/convertTo24HourFormat"
+import { objectToFormData } from "@/utils/obj-to-formdata"
 import RichTextEditorModal from "../rich-text-editor/rich-text-editor-model"
 import Dropzone from "../ui/dropzone"
 import ProductPriceType from "./product-price-type"
 import ProductPricing from "./product-pricing"
 import ProductType from "./product-type"
-import { useNavigate } from "../../lib/i18n/navigation";
+import { useNavigate } from "@/lib/i18n/navigation";
 
 const productTypeDefaults = {
   digital: {
@@ -44,6 +44,7 @@ const ProductForm = () => {
 
   const onSubmit = handleSubmit(async (data) => {
 
+    console.log("data from creat product ====>",data)
 
     if (type === "booking") {
       data.time_slots = data.time_slots.map((slot) => ({
@@ -219,7 +220,7 @@ const ProductForm = () => {
           </Text>
         )}
       </Stack>
-      <DevTool control={control} placement="left" />
+      {/* <DevTool control={control} placement="left" /> */}
     </>
   )
 }

@@ -2,8 +2,8 @@ import { AppShell, Box, useMatches } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import { Outlet } from "react-router-dom"
 
-import Header from "../components/common/header"
-import Navbar from "../components/common/navbar"
+import Header from "@/components/common/header"
+import Navbar from "@/components/common/navbar"
 
 export function UserLayout() {
   const [opened, { toggle }] = useDisclosure()

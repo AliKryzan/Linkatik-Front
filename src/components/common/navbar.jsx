@@ -20,13 +20,16 @@ import {
   DollarSign,
   Home,
   Link,
+  MoonIcon,
   // QrCode,
   ShoppingCart,
+  SunIcon,
   // UserCircle,
 } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
-import { NavLink, usePathname } from "../../lib/i18n/navigation"
+import { NavLink, usePathname } from "@/lib/i18n/navigation"
+
 import Logo from "./logo"
 
 const navItems = [
@@ -109,7 +112,7 @@ const Navbar = ({ toggle }) => {
       withBorder={false}
       className="navbar"
       p="lg">
-      <Stack gap={"xl"} justify="space-between" flex={1} >
+      <Stack gap={"xl"} justify="space-between" flex={1}>
         <Stack gap={"xl"}>
           <AppShell.Section>
             <Group className="navbar-logo" justify="center">
@@ -154,9 +157,27 @@ const Navbar = ({ toggle }) => {
             value={colorScheme}
             onChange={setColorScheme}
             data={[
-              { label: t("general.darkMode"), value: "dark" },
-              { label: t("general.lightMode"), value: "light" },
+              {
+                label: (
+                  <div className="flex items-center gap-3 py-1.5 px-2">
+                    <MoonIcon className="size-5" /> {t("general.darkMode")}
+                  </div>
+                ),
+                value: "dark",
+              },
+              {
+                label: (
+                  <div className="flex items-center gap-3 py-1.5 px-2">
+                    {" "}
+                    <SunIcon className="size-5" /> {t("general.lightMode")}
+                  </div>
+                ),
+                value: "light",
+              },
             ]}
+            classNames={{
+              indicator: "!rounded-full",
+            }}
           />
         </Stack>
       </Stack>

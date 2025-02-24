@@ -3,7 +3,7 @@ import { useSuspenseQuery } from "@tanstack/react-query"
 import { Eye, Grid2x2, MousePointerClickIcon, User } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
-import { GetBioPageStatistics, GetGeneralStatistics } from "../../services/utils"
+import { GetBioPageStatistics, GetGeneralStatistics } from "@/services/utils"
 
 const statistics = {
   views: {

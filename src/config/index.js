@@ -117,7 +117,7 @@ Object.values(PAYMENTGATEWAYS).forEach((gateway) => (PAYMENTGATEWAYS_LOGOS[gatew
 
 export const bio_blocks = {
   faq: "الاسئلة الشائعة",
-  zid: "زيد",
+  zid: "زد",
   link: "رابط",
   text: "نص",
   audio: "صوت",

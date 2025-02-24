@@ -1,4 +1,4 @@
-import { BlocksWithLinkBehavior } from "../../../config/bio-blocks"
+import { BlocksWithLinkBehavior } from "@/config/bio-blocks"
 import AppleMusic from "./apple-music"
 import AudioPreview from "./audio"
 import ContactForm from "./contact-form"

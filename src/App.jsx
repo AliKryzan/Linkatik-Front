@@ -20,16 +20,15 @@ export default function App() {
   const dir = i18n.dir()
   document.documentElement.dir = dir
 
-
   return (
     <>
-      <ColorSchemeScript forceColorScheme="light"  />
+      <ColorSchemeScript forceColorScheme="light" />
       <MantineProvider theme={theme} defaultColorScheme="light">
         <ModalsProvider>
           <DirectionProvider initialDirection={dir} detectDirection>
             <StoreProvider>
               <ReactQueryProvider>
-                <RouterProvider router={MyRouter}></RouterProvider>
+                <RouterProvider router={MyRouter} />
                 <Toaster
                   toastOptions={{
                     duration: 5000,

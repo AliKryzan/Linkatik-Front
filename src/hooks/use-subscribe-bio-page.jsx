@@ -1,6 +1,6 @@
 import { modals } from "@mantine/modals"
 
-import SubscribeForm from "../components/common/subscribe-form"
+import SubscribeForm from "@/components/common/subscribe-form"
 
 const useSubscribeBioPage = (block) => {
   const open = () =>

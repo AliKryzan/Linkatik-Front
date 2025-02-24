@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 
 import { LOCALSTORAGE_KEY } from "../../config"
-import { DeleteProfile } from "../../services/utils"
+import { DeleteProfile } from "@/services/utils"
 
 const DeleteProfileComponent = () => {
   const { t } = useTranslation()

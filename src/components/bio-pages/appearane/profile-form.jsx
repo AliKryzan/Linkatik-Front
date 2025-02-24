@@ -18,12 +18,12 @@ import { useTranslation } from "react-i18next"
 import Resizer from "react-image-file-resizer"
 import { useParams } from "react-router-dom"
 
-import { imagePlaceholder } from "../../../assets"
-import { useUploadFile } from "../../../hooks/use-upload-file"
-import { PutUpdateBioPage } from "../../../services/utils"
-import { BioPageProfileSchema } from "../../../validation/bio-page"
-import CropImageModal from "../../common/crop-image-modal"
-import { groupAvatar } from '../../../assets';
+import { imagePlaceholder } from "@/assets"
+import { useUploadFile } from "@/hooks/use-upload-file"
+import { PutUpdateBioPage } from "@/services/utils"
+import { BioPageProfileSchema } from "@/validation/bio-page"
+import CropImageModal from "@/common/crop-image-modal"
+import { groupAvatar } from '@/assets';
 
 
 const ProfileForm = ({ data }) => {

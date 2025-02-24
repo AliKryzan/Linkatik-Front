@@ -1,4 +1,4 @@
-import WorldMap from "../../../../components/bio-pages/analysis/world-map"
+import WorldMap from "@/components/bio-pages/analysis/world-map"
 
 import "@mantine/charts/styles.css"
 
@@ -6,11 +6,11 @@ import { SimpleGrid, Stack } from "@mantine/core"
 import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 
-import { DynamicDonutChart } from "../../../../components/bio-pages/analysis/donut-chart"
-import GeneralStatistics from "../../../../components/bio-pages/general-statistics"
-import Error from "../../../../components/common/error"
-import Loader from "../../../../components/common/loader"
-import { GetBioPageStatistics } from "../../../../services/utils"
+import { DynamicDonutChart } from "@/components/bio-pages/analysis/donut-chart"
+import GeneralStatistics from "@/components/bio-pages/general-statistics"
+import Error from "@/components/common/error"
+import Loader from "@/components/common/loader"
+import { GetBioPageStatistics } from "@/services/utils"
 
 const Analysis = () => {
   const { id } = useParams()

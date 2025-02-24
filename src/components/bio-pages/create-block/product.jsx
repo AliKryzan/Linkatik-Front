@@ -2,9 +2,9 @@ import { Checkbox, Group, Image, Loader, ScrollArea, SimpleGrid, Stack, Text } f
 import { useInfiniteQuery } from "@tanstack/react-query"
 import { Controller, useFormContext } from "react-hook-form"
 
-import { imagePlaceholder } from "../../../assets"
-import { GetProducts, GetSallaProducts,GetZidProducts } from "../../../services/utils"
-import { getLocalstorageUser } from "../../../utils/get-localstorage-user"
+import { imagePlaceholder } from "@/assets"
+import { GetProducts, GetSallaProducts,GetZidProducts } from "@/services/utils"
+import { getLocalstorageUser } from "@/utils/get-localstorage-user"
 import Error from "../../common/error"
 import InfiniteScrollContainer from "../../common/infinite-scroll-container"
 

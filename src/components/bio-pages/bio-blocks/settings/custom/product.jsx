@@ -5,7 +5,7 @@ import { X } from "lucide-react"
 import { FormProvider } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 
-import { getLocalstorageUser } from "../../../../../utils/get-localstorage-user"
+import { getLocalstorageUser } from "@/utils/get-localstorage-user"
 import AddProductBlock from "../../../create-block/product"
 
 const UpdateProducts = () => {

@@ -1,6 +1,30 @@
 {
+  "errorBoundary": {
+    "title": {
+      "404": "الصفحة غير موجودة",
+      "401": "غير مصرح",
+      "403": "ممنوع",
+      "default": "عذراً! حدث خطأ ما"
+    },
+    "description": {
+      "404": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها",
+      "401": "يرجى تسجيل الدخول للوصول إلى هذه الصفحة",
+      "403": "ليس لديك صلاحية للوصول إلى هذه الصفحة",
+      "default": "واجهنا مشكلة غير متوقعة أثناء معالجة طلبك"
+    },
+    "unexpectedError": "حدث خطأ غير متوقع",
+    "defaultError": "حدث خطأ",
+    "details": "تفاصيل الخطأ",
+    "tryAgain": "إعادة المحاولة",
+    "goHome": "العودة إلى الرئيسية"
+  },
+  "Time to share with the world": "حان الوقت لتشاركه مع العالم",
   "general": {
+   "share": "شارك لينكاتك",
+   "continueEditing": "اكمل التعديل",
+    "linkatikReady": "لينكاتك أصبحت جاهزة",
     "profile": "الملف الشخصي",
+    "Subscribe": "إشترك",
     "payouts": "المبيعات",
     "settings": "الاعدادات",
     "domain": "الدومين",
@@ -206,10 +230,10 @@
     }
   },
   "bioPages": {
-    "title_1":"العنوان",
-    "addPersonalInfo":"اضف معلوماتك الشخصية ",
-    "ChooicePersonalPhoto":" اختر الصورة الشخصيه",
-    "skip":"تخطي",
+    "title_1": "العنوان",
+    "addPersonalInfo": "اضف معلوماتك الشخصية ",
+    "ChooicePersonalPhoto": " اختر الصورة الشخصيه",
+    "skip": "تخطي",
     "title": "صفحات اللنكات",
     "addButton": "اضافة صفحة",
     "updateButton": "تعديل ",
@@ -241,14 +265,14 @@
       }
     },
     "createPage": {
-      "des":"الوصف",
-      "title_1":"العنوان",
+      "des": "الوصف",
+      "title_1": "العنوان",
       "preview": "عرض معاينة",
       "createButton": "انشأ الصفحة",
-      "ChooseFromPhotoLibrary":"اختيار من مكتبة الصور",
-      "FromOurLibrary":"من مكتبتنا",
-      "UploadYourPhoto":"رفع الصورة الخاصة بك",
-      "FromYourDevice":"من جهازك",
+      "ChooseFromPhotoLibrary": "اختيار من مكتبة الصور",
+      "FromOurLibrary": "من مكتبتنا",
+      "UploadYourPhoto": "رفع الصورة الخاصة بك",
+      "FromYourDevice": "من جهازك",
       "pathInput": {
         "label": "مسار الصفحة",
         "description": "يمكنك ترك الحقل فارغ ليتم انشاء مسار عشوائي",
@@ -654,8 +678,8 @@
     "blocks": {
       "faq": "الاسئلة الشائعة",
       "faq_d": "وصف الاسئلة الشائعة",
-      "zid": "زيد",
-      "zid_d": "وصف زيد",
+      "zid": "زد",
+      "zid_d": "وصف زد",
       "link": "رابط",
       "link_d": "وصف رابط",
       "text_block": "نص",

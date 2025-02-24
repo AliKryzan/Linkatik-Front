@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react"
 
 import "@mantine/dates/styles.css"
 
-import Loader from "../../../components/common/loader"
+import Loader from "@/components/common/loader"
 
 const componentMap = {
   analysis: lazy(() => import("./analysis/analysis")),

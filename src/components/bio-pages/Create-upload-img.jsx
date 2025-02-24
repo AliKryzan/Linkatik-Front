@@ -1,155 +1,146 @@
-import React, { useEffect, useState , useRef } from 'react'
-import { Box, Button, Image, Stack, Text, TextInput, Group,Modal,FileButton,LoadingOverlay } from "@mantine/core";
-import { useTranslation } from "react-i18next";
-import  MyDropzone  from "../../hooks/use-upload-image";
-import { Plus , Image as Image_ ,  } from "lucide-react";
+import React, { Suspense, useEffect, useRef, useState } from "react"
+import { groupAvatar } from "@/assets"
+import {
+  Box,
+  Button,
+  FileButton,
+  Group,
+  Image,
+  LoadingOverlay,
+  Modal,
+  Stack,
+  Text,
+  TextInput,
+} from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
-import CreateChooceAvatar from './Create-chooce-avatar';
-import { setBioImage,setImage_type } from '../../store/General-variables/General-variables';
-import { useDispatch, useSelector } from "react-redux"
-import { groupAvatar } from '../../assets';
-import { Suspense } from "react"
-import Loader from "../../components/common/loader"
-import { Controller, useForm } from "react-hook-form"
 import { useQueryClient } from "@tanstack/react-query"
+import { Image as Image_, Plus, UsersIcon } from "lucide-react"
+import { Controller, useForm } from "react-hook-form"
+import { useTranslation } from "react-i18next"
+import { useDispatch, useSelector } from "react-redux"
+
+import Loader from "@/components/common/loader"
+
 import { useUploadFile } from "../../hooks/use-upload-file"
+import MyDropzone from "../../hooks/use-upload-image"
+import { setBioImage, setImage_type } from "../../store/General-variables/General-variables"
+import CreateChooceAvatar from "./Create-chooce-avatar"
 
+function CreateUploadImg({ setActiveAvatar, setModalOneOpen }) {
+  const { bioImage, image_type } = useSelector((state) => state.GeneralSlice)
 
+  const dispatch = useDispatch()
 
-function CreateUploadImg({setActiveAvatar,setModalOneOpen}) {
+  const { t } = useTranslation()
+  const [opened, { open, close }] = useDisclosure(false)
+  const [img, setImg] = useState(bioImage)
 
-    const { bioImage,image_type } = useSelector((state) => state.GeneralSlice)
-
-    const dispatch = useDispatch()
-    
-    const { t } = useTranslation();
-    const [opened, { open, close }] = useDisclosure(false)
-    const [img,setImg] = useState(bioImage)
-
-
-    useEffect(() => {
-        dispatch(setBioImage(img))
-        
-    },[img])
-
-
+  useEffect(() => {
+    dispatch(setBioImage(img))
+  }, [img])
 
   return (
     <>
-        <Group
+      <Group
         gap="sm"
         align="center"
         position="center"
         style={{
-            alignItems:"center",
-            display:"flex",
-            justifyContent:"center",
-            width:"100%",
-            marginTop:"5px",
-        }}
-    >
+          alignItems: "center",
+          display: "flex",
+          justifyContent: "center",
+          width: "100%",
+          marginTop: "5px",
+        }}>
         <Stack
-           onClick={open}
-            align="center"
-            justify="flex-end"
-            gap="xs"
-            style={{
-            height:"200px",
-            width:"200px",
-            borderRadius:"16px",
-            border:"1px solid #959595",
-            cursor:"pointer",
+          onClick={open}
+          align="center"
+          justify="flex-end"
+          gap="xs"
+          style={{
+            height: "200px",
+            width: "200px",
+            borderRadius: "16px",
+            border: "1px solid #959595",
+            cursor: "pointer",
             transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-            e.currentTarget.style.border = "1px solid #8938b2"; 
-            e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)"; 
-            }}
-            onMouseLeave={(e) => {
-            e.currentTarget.style.border = "1px solid #959595"; 
-            e.currentTarget.style.boxShadow = "none"; 
-            }}
-        >
-            <Text
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.border = "1px solid #8938b2"
+            e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)"
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.border = "1px solid #959595"
+            e.currentTarget.style.boxShadow = "none"
+          }}>
+          <UsersIcon color="#959595" size={100} strokeWidth={0.5} />
+          <Text
             style={{
-                fontSize:"15px",
-                fontWeight:"bold",
-                color:"#6E6E6E"
+              fontSize: "15px",
+              fontWeight: "bold",
+              color: "#6E6E6E",
             }}
             fw={700}
-            size="lg"
-            >
+            size="lg">
             {t("bioPages.createPage.ChooseFromPhotoLibrary")}
-            </Text>
-            <Text
+          </Text>
+          <Text
             style={{
-                color:"#6E6E6E"
-            }}
-            >
+              color: "#6E6E6E",
+            }}>
             {t("bioPages.createPage.FromOurLibrary")}
-            </Text>
+          </Text>
         </Stack>
         <Stack
-            align="center"
-            justify="flex-end"
-            gap="xs"
+          align="center"
+          justify="flex-end"
+          gap="xs"
+          style={{
+            height: "200px",
+            width: "200px",
+            borderRadius: "16px",
+            border: "1px solid #959595",
+            position: "relative",
+            cursor: "pointer",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.border = "1px solid #8938b2"
+            e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)"
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.border = "1px solid #959595"
+            e.currentTarget.style.boxShadow = "none"
+          }}>
+          <MyDropzone setImg={setImg} setModalOneOpen={setModalOneOpen} />
+          <Image_ color="#959595" size={100} strokeWidth={0.5} />
+          <Text
             style={{
-            height:"200px",
-            width:"200px",
-            borderRadius:"16px",
-            border:"1px solid #959595",
-            position:"relative",
-            cursor:"pointer"
-            }}
-            onMouseEnter={(e) => {
-            e.currentTarget.style.border = "1px solid #8938b2"; 
-            e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)"; 
-            }}
-            onMouseLeave={(e) => {
-            e.currentTarget.style.border = "1px solid #959595"; 
-            e.currentTarget.style.boxShadow = "none"; 
-            }}
-        >
-            <MyDropzone 
-              setImg={setImg}
-              setModalOneOpen={setModalOneOpen}
-            />
-            <Image_ color="#959595" size={100} strokeWidth={0.5} />
-            <Text
-            style={{
-                fontSize:"15px",
-                fontWeight:"bold",
-                color:"#6E6E6E"
+              fontSize: "15px",
+              fontWeight: "bold",
+              color: "#6E6E6E",
             }}
             fw={700}
-            size="lg"
-            >
+            size="lg">
             {t("bioPages.createPage.UploadYourPhoto")}
-            </Text>
-            <Text
+          </Text>
+          <Text
             style={{
-                color:"#6E6E6E"
-            }}
-            >
+              color: "#6E6E6E",
+            }}>
             {t("bioPages.createPage.FromYourDevice")}
-            </Text>
+          </Text>
         </Stack>
-       </Group>
+      </Group>
 
-         <Modal 
-           size="xl" 
-           centered 
-           opened={opened} 
-           onClose={close}
-         >
+      <Modal size="xl" centered opened={opened} onClose={close}>
         <Suspense fallback={<Loader />}>
-            <CreateChooceAvatar
-               setActiveAvatar={setActiveAvatar}
-               close={() => setModalOneOpen(false)}
-               setModalOneOpen={setModalOneOpen}
-            />
+          <CreateChooceAvatar
+            setActiveAvatar={setActiveAvatar}
+            close={() => setModalOneOpen(false)}
+            setModalOneOpen={setModalOneOpen}
+          />
         </Suspense>
-         </Modal>
+      </Modal>
     </>
   )
 }

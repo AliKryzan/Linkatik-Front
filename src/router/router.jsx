@@ -1,40 +1,43 @@
 import { Suspense } from "react"
+import AuthLayout from "@/layouts/auth-layout"
+import { UserLayout } from "@/layouts/user-layout"
+import ForgotPassword from "@/pages/(auth)/forgot-password"
+import Login from "@/pages/(auth)/login"
+import Plans from "@/pages/(auth)/plans"
+import SignUp from "@/pages/(auth)/sign-up/sign-up"
+import ThankYou from "@/pages/(auth)/thank-you"
+import CallBack from "@/pages/[integration]/callback"
+import Preview from "@/pages/preview/bio-page-preview"
+import WebProductPreview from "@/pages/preview/web-product-preview"
+import CreateBioPage from "@/pages/user/bio-pages/create-bio-page"
+import SuccessfullyCreatedBio from "@/pages/user/bio-pages/Successfully-created-bio"
+import Dashboard from "@/pages/user/dashboard"
+import AddDomain from "@/pages/user/domains/add-domain"
+import Domains from "@/pages/user/domains/domains"
+import UpdateDomain from "@/pages/user/domains/update-domain"
+import Integrations from "@/pages/user/integrations/integrations"
+import Orders from "@/pages/user/orders/Orders"
+import PaymentGateways from "@/pages/user/payments-gateways/payment-gateways"
+import CreateProduct from "@/pages/user/products/create-product"
+import Products from "@/pages/user/products/products"
+import UpdateProduct from "@/pages/user/products/update-product"
+import Profile from "@/pages/user/profile"
+import Subscribers from "@/pages/user/subscribers/subscribers"
 import { Group } from "@mantine/core"
 import { createBrowserRouter } from "react-router-dom"
 
-import Loader from "../components/common/loader"
-import AuthLayout from "../layouts/auth-layout"
-import { UserLayout } from "../layouts/user-layout"
-import LanguageWrapper from "../lib/i18n/language-wrapper"
-import { Navigate } from "../lib/i18n/navigation"
-import ForgotPassword from "../pages/(auth)/forgot-password"
-import Login from "../pages/(auth)/login"
-import Plans from "../pages/(auth)/plans"
-import SignUp from "../pages/(auth)/sign-up/sign-up"
-import ThankYou from "../pages/(auth)/thank-you"
-import CallBack from "../pages/[integration]/callback"
-import Preview from "../pages/preview/bio-page-preview"
-import WebProductPreview from "../pages/preview/web-product-preview"
-import CreateBioPage from "../pages/user/bio-pages/create-bio-page"
-import Dashboard from "../pages/user/dashboard"
-import AddDomain from "../pages/user/domains/add-domain"
-import Domains from "../pages/user/domains/domains"
-import UpdateDomain from "../pages/user/domains/update-domain"
-import Integrations from "../pages/user/integrations/integrations"
-import Orders from "../pages/user/orders/Orders"
-import PaymentGateways from "../pages/user/payments-gateways/payment-gateways"
-import CreateProduct from "../pages/user/products/create-product"
-import Products from "../pages/user/products/products"
-import UpdateProduct from "../pages/user/products/update-product"
-import Profile from "../pages/user/profile"
-import Subscribers from "../pages/user/subscribers/subscribers"
+import LanguageWrapper from "@/lib/i18n/language-wrapper"
+import { Navigate } from "@/lib/i18n/navigation"
+import Loader from "@/components/common/loader"
+
 import ProtectedRoute from "./protected-routes"
-import SuccessfullyCreatedBio from "../pages/user/bio-pages/Successfully-created-bio"
+import RouterErrorBoundary from "./RouterErrorBoundary"
 
 export const MyRouter = createBrowserRouter([
   {
     path: "/:lang?",
     element: <LanguageWrapper />,
+    errorElement: <RouterErrorBoundary />,
     children: [
       {
         path: "",
@@ -96,7 +99,7 @@ export const MyRouter = createBrowserRouter([
               },
               {
                 path: ":id/:path/Successfully",
-                element: <SuccessfullyCreatedBio/>,
+                element: <SuccessfullyCreatedBio />,
               },
             ],
           },

@@ -4,11 +4,11 @@ import { useQuery } from "@tanstack/react-query"
 import { User } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
-import { useNavigate } from "../../lib/i18n/navigation"
-import { GetUser } from "../../services/utils"
-import { getLocalstorageUser } from "../../utils/get-localstorage-user"
-import { removeUser } from "../../utils/logout"
-import { updateUser } from "../../utils/update-user"
+import { useNavigate } from "@/lib/i18n/navigation"
+import { GetUser } from "@/services/utils"
+import { getLocalstorageUser } from "@/utils/get-localstorage-user"
+import { removeUser } from "@/utils/logout"
+import { updateUser } from "@/utils/update-user"
 
 const UserButton = () => {
   const { t } = useTranslation()

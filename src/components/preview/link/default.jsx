@@ -2,8 +2,8 @@ import { Text } from "@mantine/core"
 import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 
-import { BlocksInArray } from "../../../config/bio-blocks"
-import { GetPageAppearance } from "../../../services/utils"
+import { BlocksInArray } from "@/config/bio-blocks"
+import { GetPageAppearance } from "@/services/utils"
 import { Buttons } from "./buttons"
 
 const Default = ({ block }) => {

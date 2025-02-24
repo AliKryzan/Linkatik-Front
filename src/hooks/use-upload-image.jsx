@@ -1,10 +1,6 @@
-
-
-
-
 import React, { useState } from "react";
 import Dropzone from "react-dropzone";
-import Loader from "../components/common/loader";
+import Loader from "@/components/common/loader";
 import { setBioImage, setImage_type, setUploadedImage } from '../store/General-variables/General-variables';
 import { useDispatch } from "react-redux"
 import { useForm } from "react-hook-form"
@@ -73,7 +69,7 @@ const MyDropzone = ({ setImg, setModalOneOpen }) => {
                 justifyContent: "center",
                 alignItems: "center",
                 cursor: "pointer",
-                position: "relative",
+                // position: "relative",
                 marginBottom: "16px",
                 position: "absolute",
                 top: "0",

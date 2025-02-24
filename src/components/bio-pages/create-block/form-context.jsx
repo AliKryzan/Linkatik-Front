@@ -6,11 +6,11 @@ import { FormProvider, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 
-import { BlocksWithLinkBehavior, NoURlBlocks } from "../../../config/bio-blocks"
-import { useAddBlockMutation } from "../../../hooks/use-add-block-mutation"
-import useValidURL from "../../../hooks/use-valid-url"
-import { GetLinkDetections } from "../../../services/utils"
-import { CloseBlockModal } from "../../../store/bio-block/bio-block-slice"
+import { BlocksWithLinkBehavior, NoURlBlocks } from "@/config/bio-blocks"
+import { useAddBlockMutation } from "@/hooks/use-add-block-mutation"
+import useValidURL from "@/hooks/use-valid-url"
+import { GetLinkDetections } from "@/services/utils"
+import { CloseBlockModal } from "@/store/bio-block/bio-block-slice"
 import {
   ContactDetailsSchema,
   ContactFormSchema,
@@ -22,7 +22,7 @@ import {
   CreateSocialBlockSchema,
   CreateTextBlockSchema,
   DiscordBlockSchema,
-} from "../../../validation/bio-block"
+} from "@/validation/bio-block"
 
 const pickSchema = (name) => {
   const defaultValues = {
@@ -311,7 +311,7 @@ const FormContext = ({ children }) => {
           </Text>
         )}
       </Stack>
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </FormProvider>
   )
 }

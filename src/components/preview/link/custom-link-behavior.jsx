@@ -2,7 +2,7 @@ import { memo, useEffect, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 
-import { GetPageAppearance } from "../../../services/utils"
+import { GetPageAppearance } from "@/services/utils"
 import Default from "./default"
 
 const CustomLinkBehavior = ({ block }) => {
@@ -55,8 +55,6 @@ const CustomLinkBehavior = ({ block }) => {
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
   })
-
-
 
   const theme = data?.appearance?.bio_link
 

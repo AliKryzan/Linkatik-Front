@@ -4,9 +4,11 @@ import './index.css'
 import App from "./App.jsx"
 
 import "./lib/i18n/index.js"
+import AppErrorBoundary from "./components/common/app-error-boundary"
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <AppErrorBoundary>
+    <App /></AppErrorBoundary>
   </StrictMode>,
 )

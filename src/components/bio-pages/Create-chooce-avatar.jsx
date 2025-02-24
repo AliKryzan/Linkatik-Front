@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Image, Group } from "@mantine/core";
-import { groupAvatar } from '../../assets';
+import { groupAvatar } from '@/assets';
 import Loader from '../common/loader';
 import { setBioImage , setImage_type } from '../../store/General-variables/General-variables';
 import { useDispatch , useSelector} from "react-redux"

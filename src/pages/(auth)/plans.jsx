@@ -3,10 +3,10 @@ import { Flex, Group, Stack, Tabs, Text, Title } from "@mantine/core"
 import { useQuery } from "@tanstack/react-query"
 import { useTranslation } from "react-i18next"
 
-import Error from "../../components/common/error"
-import Loader from "../../components/common/loader"
-import Plan from "../../components/plans/plan"
-import { GetPlans } from "../../services/utils"
+import Error from "@/components/common/error"
+import Loader from "@/components/common/loader"
+import Plan from "@/components/plans/plan"
+import { GetPlans } from "@/services/utils"
 
 const Plans = () => {
   const { t } = useTranslation()

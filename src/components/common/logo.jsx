@@ -1,5 +1,5 @@
-import { logo } from "../../assets/index.js"
-import { Link } from "../../lib/i18n/navigation.jsx"
+import { logo } from "@/assets/index.js"
+import { Link } from "@/lib/i18n/navigation.jsx"
 
 const Logo = (props) => {
   return (

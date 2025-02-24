@@ -7,12 +7,12 @@ import { Controller, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 
-import Interests from "../../../components/sign-up/interests"
-import { useNavigate } from "../../../lib/i18n/navigation"
-import { LinkatikApi } from "../../../services"
-import { setErrorMessage, setFormData, setStep } from "../../../store/sign-up/sign-up-slice"
-import { updateUser } from "../../../utils/update-user"
-import { signUpSchema, userInfoSchema } from "../../../validation/sign-up"
+import Interests from "@/components/sign-up/interests"
+import { useNavigate } from "@/lib/i18n/navigation"
+import { LinkatikApi } from "@/services"
+import { setErrorMessage, setFormData, setStep } from "@/store/sign-up/sign-up-slice"
+import { updateUser } from "@/utils/update-user"
+import { signUpSchema, userInfoSchema } from "@/validation/sign-up"
 
 const SecondStep = () => {
   const { t } = useTranslation()
@@ -94,7 +94,7 @@ const SecondStep = () => {
           </Text>
         )}
       </Stack>
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </Stack>
   )
 }

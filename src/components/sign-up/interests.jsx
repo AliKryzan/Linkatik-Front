@@ -5,7 +5,7 @@ import { Star } from "lucide-react"
 import { Controller } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 
-import { GetInterests } from "../../services/utils"
+import { GetInterests } from "@/services/utils"
 import Error from "../common/error"
 import Loader from "../common/loader"
 

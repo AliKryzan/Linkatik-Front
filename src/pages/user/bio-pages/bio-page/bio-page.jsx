@@ -7,13 +7,13 @@ import { Stack } from "@mantine/core"
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 
-import BioBlock from "../../../../components/bio-pages/bio-blocks/bio-block"
-import CreateLinkButton from "../../../../components/bio-pages/create-link-button"
-import Error from "../../../../components/common/error"
-import InfiniteScrollContainer from "../../../../components/common/infinte-scroll-container"
-import Loader from "../../../../components/common/loader"
-import useDebouncedMutation from "../../../../hooks/use-debounced-mutation"
-import { GetBioPage, PutUpdateBlock } from "../../../../services/utils"
+import BioBlock from "@/components/bio-pages/bio-blocks/bio-block"
+import CreateLinkButton from "@/components/bio-pages/create-link-button"
+import Error from "@/components/common/error"
+import InfiniteScrollContainer from "@/components/common/infinte-scroll-container"
+import Loader from "@/components/common/loader"
+import useDebouncedMutation from "@/hooks/use-debounced-mutation"
+import { GetBioPage, PutUpdateBlock } from "@/services/utils"
 
 const BioPage = () => {
   const { id, path } = useParams()

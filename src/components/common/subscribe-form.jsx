@@ -3,8 +3,8 @@ import { Button, Stack, Text, TextInput } from "@mantine/core"
 import { Controller, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 
-import { PostSubscribe } from "../../services/utils"
-import { subscribeSchema } from "../../validation/subscribe"
+import { PostSubscribe } from "@/services/utils"
+import { subscribeSchema } from "@/validation/subscribe"
 
 const SubscribeForm = ({ title, bio_page_id, close }) => {
   const form = useForm({

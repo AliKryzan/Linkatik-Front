@@ -4,9 +4,9 @@ import { useQueryClient } from "@tanstack/react-query"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
-import { imagePlaceholder } from "../../../../assets"
-import { PutUpdateBlock } from "../../../../services/utils"
-import { UploadFile } from "../../../../services/utils/upload"
+import { imagePlaceholder } from "@/assets"
+import { PutUpdateBlock } from "@/services/utils"
+import { UploadFile } from "@/services/utils/upload"
 
 const ThumbnailForm = ({ block }) => {
   const { id, path } = useParams()

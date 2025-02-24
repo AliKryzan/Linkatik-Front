@@ -4,7 +4,7 @@ import { X } from "lucide-react"
 import { useFormContext } from "react-hook-form"
 import { useSelector } from "react-redux"
 
-import { useUploadFile } from "../../../hooks/use-upload-file"
+import { useUploadFile } from "@/hooks/use-upload-file"
 import DropzoneComponent from "../../ui/dropzone"
 
 const FileBlock = () => {

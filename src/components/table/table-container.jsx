@@ -1,6 +1,6 @@
 import { Box, Pagination, Table, useMantineColorScheme } from "@mantine/core"
 
-import { theme } from "../../lib/mantine/theme"
+import { theme } from "@/lib/mantine/theme"
 
 const TableContainer = ({ head, rows, minWidth, page, setPage, totalPages }) => {
   const { colorScheme } = useMantineColorScheme()

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
 
-import Logo from "../components/common/logo"
+import Logo from "@/components/common/logo"
 import { Navigate, usePathname } from "../lib/i18n/navigation"
 import { isAuthenticated } from "../utils/is-authenticated"
 

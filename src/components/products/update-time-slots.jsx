@@ -6,7 +6,7 @@ import { useFieldArray, useFormContext } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useWatch } from "react-hook-form"
 
-import { generateTimeSlots } from "../../utils/generate-time-slots"
+import { generateTimeSlots } from "@/utils/generate-time-slots"
 import { IosPickerItem } from "./ios-picker-item"
 
 const UpdateTimeSlots = () => {

@@ -1,7 +1,7 @@
 import { Skeleton } from "@mantine/core"
 import { useQuery } from "@tanstack/react-query"
 
-import { GetBlockPreview } from "../../../services/utils"
+import { GetBlockPreview } from "@/services/utils"
 import Error from "../../common/error"
 import RenderBlock from "./render-block"
 

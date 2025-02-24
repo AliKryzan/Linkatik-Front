@@ -2,7 +2,7 @@ import { Box, Button, Group, Image, Stack, Text, Title, TypographyStylesProvider
 import { useWatch } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 
-import { imagePlaceholder, logo, secondaryImagePlaceholder } from "../../assets"
+import { imagePlaceholder, logo, secondaryImagePlaceholder } from "@/assets"
 
 const ProductPreview = () => {
   const product = useWatch()

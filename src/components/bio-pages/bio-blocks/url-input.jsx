@@ -4,9 +4,9 @@ import { useElementSize } from "@mantine/hooks"
 import { Loader2, Pen } from "lucide-react"
 import { useParams } from "react-router-dom"
 
-import useDebouncedMutation from "../../../hooks/use-debounced-mutation"
-import { PutUpdateBlock } from "../../../services/utils"
-import { getTextWidth } from "../../../utils/get-text-width"
+import useDebouncedMutation from "@/hooks/use-debounced-mutation"
+import { PutUpdateBlock } from "@/services/utils"
+import { getTextWidth } from "@/utils/get-text-width"
 
 const UrlInput = ({ block }) => {
   const { id: pageId } = useParams()

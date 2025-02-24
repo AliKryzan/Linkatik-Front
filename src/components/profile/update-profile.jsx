@@ -6,9 +6,9 @@ import { Controller, useForm } from "react-hook-form"
 import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 
-import { PutUpdateProfile } from "../../services/utils"
-import { getLocalstorageUser } from "../../utils/get-localstorage-user"
-import { updateProfileSchema } from "../../validation/update-profile"
+import { PutUpdateProfile } from "@/services/utils"
+import { getLocalstorageUser } from "@/utils/get-localstorage-user"
+import { updateProfileSchema } from "@/validation/update-profile"
 import Interests from "../sign-up/interests"
 
 const UpdateProfile = () => {
@@ -83,7 +83,7 @@ const UpdateProfile = () => {
           {formState.errors.root.message}
         </Text>
       ) : null}
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </Stack>
   )
 }

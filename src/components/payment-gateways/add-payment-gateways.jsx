@@ -5,8 +5,8 @@ import { useQueryClient } from "@tanstack/react-query"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 
-import { PostPaymentsGateWays } from "../../services/utils"
-import { AddPaymentGatewaySchema } from "../../validation/payments-gateways"
+import { PostPaymentsGateWays } from "@/services/utils"
+import { AddPaymentGatewaySchema } from "@/validation/payments-gateways"
 import PaymentGatewayForm from "./form"
 
 const Form = ({ close }) => {

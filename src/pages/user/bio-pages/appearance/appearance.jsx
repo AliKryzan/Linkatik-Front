@@ -2,11 +2,11 @@ import { Space, Stack } from "@mantine/core"
 import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 
-import ProfileForm from "../../../../components/bio-pages/appearane/profile-form"
-import Themes from "../../../../components/bio-pages/appearane/themes"
-import Error from "../../../../components/common/error"
-import Loader from "../../../../components/common/loader"
-import { GetBioPageInfo, GetBioPageThemes } from "../../../../services/utils"
+import ProfileForm from "@/components/bio-pages/appearance/profile-form"
+import Themes from "@/components/bio-pages/appearance/themes"
+import Error from "@/components/common/error"
+import Loader from "@/components/common/loader"
+import { GetBioPageInfo, GetBioPageThemes } from "@/services/utils"
 
 const Appearance = () => {
   const { id } = useParams()
@@ -15,8 +15,6 @@ const Appearance = () => {
     queryKey: ["bio-page-info", id],
     queryFn: () => GetBioPageInfo(id),
   })
-
-  console.log("data from appearance",data)
 
   const bioPageThemesQuery = useQuery({
     queryKey: ["bio-page-themes"],
