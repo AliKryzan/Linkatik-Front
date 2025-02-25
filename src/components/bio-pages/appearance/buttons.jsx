@@ -145,47 +145,7 @@ const Buttons = ({ form }) => {
           <Space />
 
           <Group>
-            <Controller
-              key={"bio_link.text_color"}
-              name="bio_link.text_color"
-              control={control}
-              render={({ field }) => {
-                useEffect(() => {
-                  if (!field.value) {
-                    field.onChange(main_text_color);
-                  }
-                }, [ main_text_color]);
-                return (
-                  <Group gap={"sm"}>
-                    <Box
-                      style={{
-                        width: "50px",
-                        height: "50px",
-                        background: form.watch("bio_link.text_color"),
-                        borderRadius: "var(--mantine-radius-md)",
-                      }}></Box>
-                    <Box
-                      style={{
-                        borderRadius: "var(--mantine-radius-md)",
-                      }}
-                      bg={colorScheme === "dark" ? "dark.6" : "gray.0"}
-                      px="sm">
-                      <ColorInput
-                        size="sm"
-                        w={200}
-                        leftSection={"HEXA"}
-                        format="hexa"
-                        variant="unstyled"
-                        label={t("bioPages.appearance.themes.form.text-color")}
-                        defaultValue={field?.value || main_text_color} 
-                        onChange={(color) => field.onChange(color)} 
-                        {...field}
-                      />
-                    </Box>
-                  </Group>
-                )
-              }}
-            />
+          
             <Controller
               key={"bio_link.button_color"}
               name="bio_link.button_color"
@@ -214,7 +174,7 @@ const Buttons = ({ form }) => {
                       <ColorInput
                         size="sm"
                         w={200}
-                        leftSection={"HEXA"}
+                        //leftSection={"HEXA"}
                         format="hexa"
                         variant="unstyled"
                         label={t("bioPages.appearance.themes.form.button-color")}

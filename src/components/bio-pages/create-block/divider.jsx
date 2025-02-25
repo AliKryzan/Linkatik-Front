@@ -73,7 +73,7 @@ const DividerBlock = () => {
                 <ColorInput
                   size="sm"
                   w={200}
-                  leftSection={"HEXA"}
+                  //leftSection={"HEXA"}
                   format="hexa"
                   variant="unstyled"
                   label={t("bioBlocks.createBlock.custom.divider.color")}

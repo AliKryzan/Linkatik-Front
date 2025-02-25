@@ -93,7 +93,7 @@ const Background = ({ form }) => {
                           <ColorInput
                             size="sm"
                             w={200}
-                            leftSection={"HEXA"}
+                            //leftSection={"HEXA"}
                             format="hexa"
                             variant="unstyled"
                             label={t("bioPages.appearance.themes.color")}

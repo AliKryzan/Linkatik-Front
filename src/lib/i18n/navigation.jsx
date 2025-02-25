@@ -9,6 +9,32 @@ import {
 } from "react-router-dom"
 
 import { LOCALES } from "../../config"
+import { useTranslation } from "react-i18next"
+
+export const useChangeLocale = () => {
+  const navigate = useReactRouterNavigate()
+  const location = useLocation()
+  const { lang } = useParams()
+  const { i18n } = useTranslation()
+
+  return (newLocale) => {
+    // Change URL locale
+    const newPath = location.pathname.replace(`/${lang}`, `/${newLocale}`)
+    navigate(newPath)
+    
+    // Change i18next language
+    i18n.changeLanguage(newLocale)
+    
+    // Change document direction
+    document.documentElement.dir = newLocale === 'ar' ? 'rtl' : 'ltr'
+    document.documentElement.lang = newLocale
+  }
+}
+
+export const useCurrentLocale = () => {
+  const { lang } = useParams()
+  return lang || "ar"
+}
 
 // wrappers for react-router-dom elements to add language prefix on navigation
 export const useParams = () => {

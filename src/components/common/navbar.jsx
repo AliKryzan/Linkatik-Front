@@ -28,7 +28,8 @@ import {
 } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
-import { NavLink, usePathname } from "@/lib/i18n/navigation"
+// Add this import at the top with other imports
+import { NavLink, useChangeLocale, useCurrentLocale, usePathname } from "@/lib/i18n/navigation"
 
 import Logo from "./logo"
 
@@ -99,6 +100,10 @@ const navItems = [
   ],
 ]
 const Navbar = ({ toggle }) => {
+  // Add these hooks with other hooks
+  const changeLocale = useChangeLocale()
+  const locale = useCurrentLocale()
+
   const { t } = useTranslation()
   const pathname = usePathname()
   const { setColorScheme, colorScheme } = useMantineColorScheme()
@@ -151,7 +156,25 @@ const Navbar = ({ toggle }) => {
             </Stack>
           </ScrollArea>
         </Stack>
-        <Stack>
+        <div className="-mt-10 flex items-center gap-3 [@media(min-width:993px)]:flex-col">
+          <SegmentedControl
+            size="xs"
+            value={locale}
+            onChange={(value) => changeLocale(value)}
+            data={[
+              {
+                label: <div className="flex items-center justify-center px-2 py-1.5">EN</div>,
+                value: "en",
+              },
+              {
+                label: <div className="flex items-center justify-center px-2 py-1.5">عربي</div>,
+                value: "ar",
+              },
+            ]}
+            classNames={{
+              indicator: "!rounded-full",
+            }}
+          />
           <SegmentedControl
             size="xs"
             value={colorScheme}
@@ -159,7 +182,7 @@ const Navbar = ({ toggle }) => {
             data={[
               {
                 label: (
-                  <div className="flex items-center gap-3 py-1.5 px-2">
+                  <div className="flex items-center gap-3 px-2 py-1.5">
                     <MoonIcon className="size-5" /> {t("general.darkMode")}
                   </div>
                 ),
@@ -167,8 +190,7 @@ const Navbar = ({ toggle }) => {
               },
               {
                 label: (
-                  <div className="flex items-center gap-3 py-1.5 px-2">
-                    {" "}
+                  <div className="flex items-center gap-3 px-2 py-1.5">
                     <SunIcon className="size-5" /> {t("general.lightMode")}
                   </div>
                 ),
@@ -179,7 +201,7 @@ const Navbar = ({ toggle }) => {
               indicator: "!rounded-full",
             }}
           />
-        </Stack>
+        </div>
       </Stack>
     </AppShell.Navbar>
   )
