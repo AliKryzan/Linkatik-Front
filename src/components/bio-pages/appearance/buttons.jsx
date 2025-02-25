@@ -31,16 +31,7 @@ const Buttons = ({ form }) => {
   const { colorScheme } = useMantineColorScheme()
   const dispatch = useDispatch();
   const { main_button_color , main_text_color} = useSelector((state) => state.GeneralSlice)
-
-
   const button_color = form.watch('bio_link.button_color')
-
-
-
-  
-
-
-
   return (
     <>
       <Space />
@@ -57,7 +48,7 @@ const Buttons = ({ form }) => {
                   <Stack>
                     <Stack>
                       <Text size="sm">{t("bioPages.appearance.themes.form.button-types.filled")}</Text>
-                      <Group gap={"lg"} >
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
                         <Radio.Card className="button-preview" value={"filled"}>
                           <Radio.Indicator className="indicator" />
                           <Filled />
@@ -70,13 +61,13 @@ const Buttons = ({ form }) => {
                           <Radio.Indicator className="indicator" />
                           <FilledRoundedLg />
                         </Radio.Card>
-                      </Group>
+                      </div>
                     </Stack>
                     <Space />
                     {/* outlined */}
                     <Stack>
                       <Text size="sm">{t("bioPages.appearance.themes.form.button-types.outline")}</Text>
-                      <Group gap={"lg"} >
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
                         <Radio.Card className="button-preview" value={"outline"}>
                           <Radio.Indicator className="indicator" />
                           <Outline />
@@ -89,13 +80,13 @@ const Buttons = ({ form }) => {
                           <Radio.Indicator className="indicator" />
                           <OutlineRoundedLg />
                         </Radio.Card>
-                      </Group>
+                      </div>
                     </Stack>
 
                     {/* shadow */}
                     <Stack>
                       <Text size="sm">{t("bioPages.appearance.themes.form.button-types.shadow")}</Text>
-                      <Group gap={"lg"} >
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
                         <Radio.Card className="button-preview" value={"shadow"}>
                           <Radio.Indicator className="indicator" />
                           <Shadow />
@@ -108,12 +99,12 @@ const Buttons = ({ form }) => {
                           <Radio.Indicator className="indicator" />
                           <ShadowRoundedLg />
                         </Radio.Card>
-                      </Group>
+                      </div>
                     </Stack>
                     {/* hard-shadow */}
                     <Stack>
                       <Text size="sm">{t("bioPages.appearance.themes.form.button-types.hard-shadow")}</Text>
-                      <Group gap={"lg"} >
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
                         <Radio.Card className="button-preview" value={"hard-shadow"}>
                           <Radio.Indicator className="indicator" />
                           <HardShadow />
@@ -142,7 +133,7 @@ const Buttons = ({ form }) => {
                           <Radio.Indicator className="indicator" />
                           <FilledAnimation />
                         </Radio.Card> */}
-                      </Group>
+                      </div>
                     </Stack>
                   </Stack>
                 </Radio.Group>

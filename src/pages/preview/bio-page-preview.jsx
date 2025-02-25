@@ -69,7 +69,7 @@ const Preview = () => {
           borderRadius: "2.9rem !important",
           overflow:"hidden"
         }}
-        className="preview-page bio-page-preview relative rounded-[2.9rem] border-[1rem] border-gray-900"
+        className="preview-page bio-page-preview relative rounded-[2.9rem] border-[1rem] !max-w-100 !z-10 border-[#404040]"
         gap={"xl"}
         justify="space-between"
         p={"md"}
@@ -81,10 +81,9 @@ const Preview = () => {
             top:13 ,
             inset: 0,
             zIndex: -1,
-            marginTop:3
           }}
         />
-        <div className="fixed top-7 right-[30%] h-9 w-36 rounded-full bg-gray-950"></div>
+        {/* <div className="fixed top-7 right-[30%] h-9 w-36 rounded-full bg-gray-950"></div> */}
         {(isUpdatingAppearance || isFetching) && (
           <Group className="preview-loader-indicator">
             <Loader2 size={18} className="spinner" color="gray" />

@@ -102,7 +102,7 @@ const CreateCustomTheme = ({ data }) => {
           background_color: backgroundColorMatch ? backgroundColorMatch[1] : "#ffffff",
           background_image: backgroundImageMatch
             ? backgroundImageMatch[1]
-            : "linear-gradient(0deg, rgba(96,93,93,1) 0%, rgba(255,255,255,1) 100%)",
+            : "linear-gradient(0deg, #CCC6F4 0%, #000F43 100%)",
           image:
             backgroundImageUrlMatch && backgroundImageUrlMatch[1].startsWith("url")
               ? backgroundImageUrlMatch[1]
@@ -115,7 +115,7 @@ const CreateCustomTheme = ({ data }) => {
     }
   }, [data])
   return (
-    <Stack gap={"xl"} component="form" noValidate onSubmit={onSubmit}>
+    <Stack gap={"xl"} className="!max-w-screen-sm mx-auto" component="form" noValidate onSubmit={onSubmit}>
       <Background form={form} />
       <Buttons form={form} />
       <Font form={form} />
