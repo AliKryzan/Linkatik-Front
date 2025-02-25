@@ -12,6 +12,7 @@ import {
   TableTh,
   TextInput,
 } from "@mantine/core"
+import i18n from "../i18n"
 
 const primary = [
   "#fbedff",
@@ -44,7 +45,7 @@ export const theme = createTheme({
     primary,
     gray,
   },
-  fontFamily: "Tajawal, sans-serif",
+  fontFamily:i18n.dir==="ar"?"Tajawal ,Poppins": "Poppins ,Tajawal",
   fontFamilyMonospace: "Monaco, Courier, monospace",
   fontWeight: 400,
   primaryColor: "primary",

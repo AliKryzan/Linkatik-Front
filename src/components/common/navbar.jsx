@@ -124,12 +124,12 @@ const Navbar = ({ toggle }) => {
               <Logo />
             </Group>
           </AppShell.Section>
-          <ScrollArea h={height - 190}>
+          <ScrollArea>
             <Stack gap={"md"} flex={1}>
               {navItems.map((item, index) => (
                 <Fragment key={index}>
-                  <AppShell.Section key={index}>
-                    <Stack gap={"xs"}>
+                  <AppShell.Section key={index} className=" !overflow-x-hidden">
+                    <Stack gap={"xs"} className=" !overflow-x-hidden">
                       {item.map((item) => (
                         <Button
                           onClick={toggle}

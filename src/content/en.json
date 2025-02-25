@@ -180,12 +180,12 @@
   "header": {
     "upgrade": "Upgrade",
     "account": "the account",
-    "myAccount": "Arithmetic",
+    "myAccount": "My Account",
     "billing": "Bills",
     "support": "Support",
     "askAQuestion": "I ask you a question",
     "helpTopics": "Help topics",
-    "signOut": "Exit"
+    "signOut": "Logout"
   },
   "dashboard": {
     "title": "Control panel",
