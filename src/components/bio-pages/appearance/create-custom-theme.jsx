@@ -38,8 +38,7 @@ const CreateCustomTheme = ({ data }) => {
   const { handleSubmit } = form
 
   const onSubmit = handleSubmit(async (data) => {
-    
-    console.log('handleSubmit',data)
+    console.log("handleSubmit", data)
     const css = `
     .background{
        background: ${data.bio_page.background_color};
@@ -108,6 +107,7 @@ const CreateCustomTheme = ({ data }) => {
             backgroundImageUrlMatch && backgroundImageUrlMatch[1].startsWith("url")
               ? backgroundImageUrlMatch[1]
               : "",
+          font: data?.appearance.bio_page.font,
         },
       }
 
