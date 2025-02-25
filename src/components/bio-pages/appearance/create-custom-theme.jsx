@@ -38,7 +38,8 @@ const CreateCustomTheme = ({ data }) => {
   const { handleSubmit } = form
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data)
+    
+    console.log('handleSubmit',data)
     const css = `
     .background{
        background: ${data.bio_page.background_color};
@@ -60,7 +61,7 @@ const CreateCustomTheme = ({ data }) => {
       bio_page: {
         html: '<div style="height:100%;" class="background"></div>',
         css,
-        font: data.font,
+        font: data.bio_page.font ?? "N/A",
       },
       bio_link: data.bio_link,
     }
@@ -86,20 +87,27 @@ const CreateCustomTheme = ({ data }) => {
       const cssString = data.appearance.bio_page.css
       const backgroundColorMatch = cssString?.match(/background:\s*(#[a-fA-F0-9]{6})/)
       const backgroundImageMatch = cssString?.match(/background-image:\s*(linear-gradient[^;]+)/)
-      const backgroundImageUrlMatch = cssString?.match(/background-image:\s*((?:linear-gradient[^;]+|url\([^)]+\))[^;]*)/);
-      console.log('backgroundImageMatch 0000000000000000000000000000000000000000000000000');
-      console.log(backgroundImageMatch,backgroundImageUrlMatch);
+      const backgroundImageUrlMatch = cssString?.match(
+        /background-image:\s*((?:linear-gradient[^;]+|url\([^)]+\))[^;]*)/,
+      )
+      console.log("backgroundImageMatch 0000000000000000000000000000000000000000000000000")
+      console.log(backgroundImageMatch, backgroundImageUrlMatch)
       const formData = {
         ...data.appearance,
         bio_page: {
-          background_type: backgroundImageUrlMatch 
-            ? backgroundImageUrlMatch[1].startsWith('url') ? "image" : "gradient"
+          background_type: backgroundImageUrlMatch
+            ? backgroundImageUrlMatch[1].startsWith("url")
+              ? "image"
+              : "gradient"
             : "preset",
           background_color: backgroundColorMatch ? backgroundColorMatch[1] : "#ffffff",
-          background_image: backgroundImageMatch ? backgroundImageMatch[1]: "linear-gradient(0deg, rgba(96,93,93,1) 0%, rgba(255,255,255,1) 100%)",
-          image: backgroundImageUrlMatch && backgroundImageUrlMatch[1].startsWith('url') 
-            ? backgroundImageUrlMatch[1] 
-            : "",
+          background_image: backgroundImageMatch
+            ? backgroundImageMatch[1]
+            : "linear-gradient(0deg, rgba(96,93,93,1) 0%, rgba(255,255,255,1) 100%)",
+          image:
+            backgroundImageUrlMatch && backgroundImageUrlMatch[1].startsWith("url")
+              ? backgroundImageUrlMatch[1]
+              : "",
         },
       }
 

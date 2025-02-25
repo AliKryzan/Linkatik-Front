@@ -13,7 +13,6 @@ const Font = ({ form }) => {
         <Stack gap={"sm"}>
           <Text size="xl">{t("bioPages.appearance.themes.font")}</Text>
           <Stack className="box">
-            {" "}
             <Controller
               name="bio_page.font"
               control={control}
@@ -25,6 +24,7 @@ const Font = ({ form }) => {
                     { value: "light", label: t("bioPages.appearance.themes.light") },
                   ]}
                   {...field}
+                  onChange={(value) => field.onChange(value)}
                 />
               )}
             />
