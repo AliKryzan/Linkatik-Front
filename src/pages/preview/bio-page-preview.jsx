@@ -60,27 +60,31 @@ const Preview = () => {
   const avatar = groupAvatar.find((item) => item.id === Number(data?.data.image_avatar))
 
   return (
-    <>
-      <RenderBackground
-        encapsulated={encapsulated}
-        style={{
-          position: "fixed",
-          inset: 0,
-        }}
-      />
+    <div className="relative overflow-hidden">
       <Stack
         style={{
           position: "relative",
           zIndex: 1,
           height: isPreview ? "unset" : undefined,
           borderRadius: "2.9rem !important",
+          overflow:"hidden"
         }}
-        className="preview-page bio-page-preview relative rounded-[2.9rem] overflow-hidden border-[1rem] border-gray-900"
+        className="preview-page bio-page-preview relative rounded-[2.9rem] border-[1rem] border-gray-900"
         gap={"xl"}
         justify="space-between"
         p={"md"}
         bg="">
-        <div className="absolute right-[29%] h-9 top-2 w-36 rounded-full bg-gray-950"></div>
+        <RenderBackground
+          encapsulated={encapsulated}
+          style={{
+            position: "absolute",
+            top:13 ,
+            inset: 0,
+            zIndex: -1,
+            marginTop:3
+          }}
+        />
+        <div className="fixed top-7 right-[30%] h-9 w-36 rounded-full bg-gray-950"></div>
         {(isUpdatingAppearance || isFetching) && (
           <Group className="preview-loader-indicator">
             <Loader2 size={18} className="spinner" color="gray" />
@@ -162,7 +166,7 @@ const Preview = () => {
           </Group>
         )}
       </Stack>
-    </>
+    </div>
   )
 }
 

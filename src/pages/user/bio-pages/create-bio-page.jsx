@@ -18,8 +18,9 @@ import { ChartAreaIcon, Eye, Settings, Stars, UserCircle } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useSearchParams } from "react-router-dom"
 
-import CopyPath from "@/components/common/copy-path"
 import { useParams } from "@/lib/i18n/navigation"
+import CopyPath from "@/components/common/copy-path"
+
 import Preview from "../../preview/bio-page-preview"
 import { PagesWrapper } from "./pages-wrapper"
 
@@ -42,7 +43,7 @@ const CreateBioPage = () => {
     {
       value: "appearance",
       label: (
-        <Group align="center" justify="center" wrap="nowrap" >
+        <Group align="center" justify="center" wrap="nowrap">
           <Flex align={"center"} display={{ base: "none", sm: "flex" }}>
             <Stars size={20} />
           </Flex>
@@ -83,7 +84,7 @@ const CreateBioPage = () => {
   const { colorScheme } = useMantineColorScheme()
   return (
     <>
-      <Flex  position="relative" direction={{ base: "column", lg: "row" }} align={"start"} gap={"xs"} >
+      <Flex position="relative" direction={{ base: "column", lg: "row" }} align={"start"} gap={"xs"}>
         <Box w="100%" flex={1} style={{ zIndex: 1, position: "relative" }}>
           <Stack w="100%" maw={950} mx={"auto"} gap={"xl"}>
             <Title ta={fullScreen ? "unset" : "center"} order={2}>
@@ -157,19 +158,11 @@ const CreateBioPage = () => {
           radius={0}
           transitionProps={{ transition: "fade", duration: 200 }}>
           <Modal.Content>
-            <Box
-              style={{
-                position: "absolute",
-                left: "1rem",
-                top: "1rem",
-                zIndex: 1,
-              }}>
-              <Modal.CloseButton color="white" />
+            <Box className="absolute top-7 left-[13%] z-10">
+              <Modal.CloseButton color="black" className="!bg-red-500/20 text-white" />
             </Box>
             <Modal.Body>
-              <Group justify="center">
                 <Preview />
-              </Group>
             </Modal.Body>
           </Modal.Content>
         </Modal.Root>
