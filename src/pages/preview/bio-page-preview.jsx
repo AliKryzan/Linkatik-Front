@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { groupAvatar, imagePlaceholder, logo } from "@/assets"
 import { GetPageAppearance, GetPagePreview } from "@/services/utils"
 import { setMain_button_color, setMain_text_color } from "@/store/General-variables/General-variables"
@@ -40,9 +40,11 @@ const Preview = ({ isStandAlonePage = false }) => {
   })
 
   console.log(data, appearanceData)
-
+  const requestSentRef = useRef(false)
+  
   useEffect(() => {
     const trackPageVisit = async () => {
+      if (requestSentRef.current) return
       try {
         // Get geolocation data
         const geoResponse = await axios.get('https://ipapi.co/json')
@@ -66,7 +68,7 @@ const Preview = ({ isStandAlonePage = false }) => {
             'other'
           )
         }
-
+  
         // Combine analytics data
         const analyticsData = {
           path,
@@ -76,19 +78,20 @@ const Preview = ({ isStandAlonePage = false }) => {
           country: geoResponse.data.country_name,
           city: geoResponse.data.city
         }
-
+  
         // Send to your analytics endpoint
         await AuthLinkatikApi.post('/bio-page-stats', analyticsData)
+        requestSentRef.current = true
       } catch (error) {
         console.error('Error tracking page visit:', error)
       }
     }
-
+  
    if(path){
     trackPageVisit()
    }
   }, [path])
-
+  
   dispatch(setMain_button_color(data?.data?.appearance?.bio_link?.button_color))
   dispatch(setMain_text_color(data?.data?.appearance?.bio_link?.text_color))
   const { t } = useTranslation()
