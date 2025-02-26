@@ -19,7 +19,6 @@ import RenderBackground from "@/components/common/render-background"
 import SubscribeForm from "@/components/common/subscribe-form"
 import BlockPreviewWrapper from "@/components/preview/link/block-preview-wrapper"
 
-// Custom hook for tracking page visits
 const usePageVisitTracking = (path) => {
   const requestSentRef = useRef(false)
   
