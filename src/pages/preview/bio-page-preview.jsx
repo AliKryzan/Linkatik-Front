@@ -53,16 +53,16 @@ const Preview = ({ isStandAlonePage = false }) => {
         const userAgent = window.navigator.userAgent
         const deviceInfo = {
           device: /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/.test(userAgent) ? "mobile" : "desktop",
-          os: /Windows/.test(userAgent)
-            ? "windows"
-            : /Mac/.test(userAgent)
-              ? "macos"
-              : /Linux/.test(userAgent)
-                ? "linux"
-                : /Android/.test(userAgent)
-                  ? "android"
-                  : /iOS/.test(userAgent)
-                    ? "ios"
+          os: /Android/.test(userAgent)
+            ? "android"
+            : /iOS/.test(userAgent)
+              ? "ios"
+              : /Windows/.test(userAgent)
+                ? "windows"
+                : /Mac/.test(userAgent)
+                  ? "macos"
+                  : /Linux/.test(userAgent)
+                    ? "linux"
                     : "other",
           browser: /Chrome/.test(userAgent)
             ? "Chrome"
