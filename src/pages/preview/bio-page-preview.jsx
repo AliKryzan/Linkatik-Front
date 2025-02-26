@@ -70,7 +70,7 @@ const Preview = ({ isStandAlonePage = false }) => {
           borderRadius: "2.9rem !important",
           overflow: "hidden",
         }}
-        className="preview-page bio-page-preview relative !z-10 !max-w-80 !h-[610px] rounded-[2.9rem] border-[1rem] border-[#404040]"
+        className="preview-page bio-page-preview relative !z-10 !max-w-80 !h-[613px] rounded-[2.9rem] border-[1rem] border-[#404040]"
         gap={"xl"}
         justify="space-between"
         p={"md"}
