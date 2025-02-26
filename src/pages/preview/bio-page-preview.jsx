@@ -10,12 +10,14 @@ import { Bell, Loader2, Share } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 import { useLocation, useParams } from "react-router-dom"
+import axios from 'axios'
 
 import Error from "@/components/common/error"
 import Loader from "@/components/common/loader"
 import RenderBackground from "@/components/common/render-background"
 import SubscribeForm from "@/components/common/subscribe-form"
 import BlockPreviewWrapper from "@/components/preview/link/block-preview-wrapper"
+import { AuthLinkatikApi } from "@/services"
 
 const Preview = ({ isStandAlonePage = false }) => {
   const dispatch = useDispatch()
@@ -40,10 +42,55 @@ const Preview = ({ isStandAlonePage = false }) => {
   console.log(data, appearanceData)
 
   useEffect(() => {
-    dispatch(setMain_button_color(data?.data?.appearance?.bio_link?.button_color))
-    dispatch(setMain_text_color(data?.data?.appearance?.bio_link?.text_color))
-  }, [data])
+    const trackPageVisit = async () => {
+      try {
+        // Get geolocation data
+        const geoResponse = await axios.get('https://ipapi.co/json')
+        
+        // Get device/browser info
+        const userAgent = window.navigator.userAgent
+        const deviceInfo = {
+          device: /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/.test(userAgent) ? 'mobile' : 'desktop',
+          os: (
+            /Windows/.test(userAgent) ? 'windows' :
+            /Mac/.test(userAgent) ? 'macos' :
+            /Linux/.test(userAgent) ? 'linux' :
+            /Android/.test(userAgent) ? 'android' :
+            /iOS/.test(userAgent) ? 'ios' : 'other'
+          ),
+          browser: (
+            /Chrome/.test(userAgent) ? 'Chrome' :
+            /Firefox/.test(userAgent) ? 'Firefox' :
+            /Safari/.test(userAgent) ? 'Safari' :
+            /Edge/.test(userAgent) ? 'Edge' :
+            'other'
+          )
+        }
 
+        // Combine analytics data
+        const analyticsData = {
+          path,
+          device: deviceInfo.device,
+          os: deviceInfo.os,
+          browser: deviceInfo.browser,
+          country: geoResponse.data.country_name,
+          city: geoResponse.data.city
+        }
+
+        // Send to your analytics endpoint
+        await AuthLinkatikApi.post('/bio-page-stats', analyticsData)
+      } catch (error) {
+        console.error('Error tracking page visit:', error)
+      }
+    }
+
+   if(path){
+    trackPageVisit()
+   }
+  }, [path])
+
+  dispatch(setMain_button_color(data?.data?.appearance?.bio_link?.button_color))
+  dispatch(setMain_text_color(data?.data?.appearance?.bio_link?.text_color))
   const { t } = useTranslation()
   const [opened, { open, close }] = useDisclosure(false)
   const location = useLocation()
