@@ -29,15 +29,13 @@ const GeneralStatistics = ({ id }) => {
     queryKey: ["analysis", id || "genral"],
     queryFn: id ? () => GetBioPageStatistics(id) : GetGeneralStatistics,
   })
-
   // Calculate statistics from the array data
   const statsData = {
-    views: data.data.length, // Each entry represents a view
-    clicks: data.data.length, // Each entry represents a click
-    subscriber: data.data.filter(item => item.subscriber).length,
-    blocks: data.data.filter(item => item.block).length
+    views: data?.data?.length || 0, // Each entry represents a view
+    clicks: data?.data?.length || 0, // Each entry represents a click
+    subscriber: data?.data?.filter(item => item?.subscriber)?.length || 0,
+    blocks: data?.data?.filter(item => item?.block)?.length || 0
   }
-
   const { t } = useTranslation()
   const { colorScheme } = useMantineColorScheme()
   return (

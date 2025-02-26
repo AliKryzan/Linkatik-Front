@@ -24,7 +24,7 @@ const Analysis = () => {
   
   // Process data for different visualizations
   const processedData = {
-    clicks_countries: data.data.reduce((acc, item) => {
+    clicks_countries: !data?.data?.length ? [] : data.data.reduce((acc, item) => {
       const country = acc.find(c => c.country_en === item.country)
       if (country) {
         country.clicks++
@@ -33,21 +33,21 @@ const Analysis = () => {
       }
       return acc
     }, []),
-    clicks_os: data.data.reduce((acc, item) => {
+    clicks_os: !data?.data?.length ? [] : data.data.reduce((acc, item) => {
       const os = acc.find(o => o.name === item.os)
       if (os) {
         os.value++
       } else {
-        acc.push({ name: item.os, value: 1 })
+        acc.push({ name: item.os || "Unknown", value: 1 })
       }
       return acc
     }, []),
-    clicks_browsers: data.data.reduce((acc, item) => {
+    clicks_browsers: !data?.data?.length ? [] : data.data.reduce((acc, item) => {
       const browser = acc.find(b => b.name === item.browser)
       if (browser) {
         browser.value++
       } else {
-        acc.push({ name: item.browser, value: 1 })
+        acc.push({ name: item.browser || "Unknown", value: 1 })
       }
       return acc
     }, [])
