@@ -92,7 +92,7 @@ const Preview = ({ isStandAlonePage = false }) => {
         console.error("Error tracking page visit:", error)
       }
     }
-    if (path) {
+    if (path && isStandAlonePage) {
       trackPageVisit()
     }
   }, [path])
