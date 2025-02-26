@@ -21,14 +21,45 @@ const Analysis = () => {
 
   if (status === "pending") return <Loader />
   if (status === "error") return <Error />
+  
+  // Process data for different visualizations
+  const processedData = {
+    clicks_countries: data.data.reduce((acc, item) => {
+      const country = acc.find(c => c.country_en === item.country)
+      if (country) {
+        country.clicks++
+      } else {
+        acc.push({ country_en: item.country, clicks: 1, views: 0, subscribe: 0 })
+      }
+      return acc
+    }, []),
+    clicks_os: data.data.reduce((acc, item) => {
+      const os = acc.find(o => o.name === item.os)
+      if (os) {
+        os.value++
+      } else {
+        acc.push({ name: item.os, value: 1 })
+      }
+      return acc
+    }, []),
+    clicks_browsers: data.data.reduce((acc, item) => {
+      const browser = acc.find(b => b.name === item.browser)
+      if (browser) {
+        browser.value++
+      } else {
+        acc.push({ name: item.browser, value: 1 })
+      }
+      return acc
+    }, [])
+  }
 
   return (
     <Stack gap={"xl"}>
-      <WorldMap data={data.data.clicks_countries} />
+      <WorldMap data={processedData.clicks_countries} />
       <GeneralStatistics id={id} />
       <SimpleGrid spacing="lg" cols={2}>
-        <DynamicDonutChart title={"clicks_os"} data={data.data.clicks_os} />
-        <DynamicDonutChart title={"clicks_browsers"} data={data.data.clicks_browsers} />
+        <DynamicDonutChart title={"clicks_os"} data={processedData.clicks_os} />
+        <DynamicDonutChart title={"clicks_browsers"} data={processedData.clicks_browsers} />
       </SimpleGrid>
     </Stack>
   )

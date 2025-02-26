@@ -92,7 +92,6 @@ const Preview = ({ isStandAlonePage = false }) => {
         console.error("Error tracking page visit:", error)
       }
     }
-
     if (path) {
       trackPageVisit()
     }
@@ -114,14 +113,10 @@ const Preview = ({ isStandAlonePage = false }) => {
   const encapsulated = generateWebComponent("custom-background-" + Math.random(), html, css)
 
   const avatar = groupAvatar.find((item) => item.id === Number(data?.data.image_avatar))
-  
-  const getPageStats = async () => {
-    const { data } = await AuthLinkatikApi.get(`/user/bio-page-stats-index?bio_page_id=190`)
-    console.log(data)
-  }
-  useEffect(() => {
-    getPageStats()
-  }, [])
+
+  // useEffect(() => {
+  //   getPageStats()
+  // }, [])
   return (
     <div
       className={`relative overflow-hidden ${isStandAlonePage ? "flex min-h-dvh items-center justify-center" : ""}`}>

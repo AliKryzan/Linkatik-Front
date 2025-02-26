@@ -348,7 +348,7 @@ export const PutUpdateBioPage = async ({ id, data, abortSignal }) => {
   return response
 }
 export const GetBioPageStatistics = async (pageId) => {
-  const response = await AuthLinkatikApi.get(`/user/statistics/${pageId}`)
+  const response = await AuthLinkatikApi.get(`/user/bio-page-stats-index?bio_page_id=${pageId}`)
   return response.data
 }
 export const GetGeneralStatistics = async () => {

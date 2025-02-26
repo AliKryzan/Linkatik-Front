@@ -22,19 +22,12 @@ function getRandomColor(index) {
   return color
 }
 export function formatDynamicData(data) {
-  let formattedData = []
+  if (!data || !Array.isArray(data)) return []
 
-  if (data && Array.isArray(data) && length >= 1) {
-    const nameKey = Object.keys(data[0] ?? {}).find((key) => key.includes("ar") || key.includes("en"))
-    const countKey = Object.keys(data[0] ?? {}).find((key) => key === "clicks")
-    formattedData = data.map((item, index) => {
-      return {
-        name: item[nameKey],
-        value: item[countKey],
-        color: getRandomColor(index),
-      }
-    })
-  }
-
-  return formattedData
+  // Handle pre-formatted data with name and value properties
+  return data.map((item, index) => ({
+    name: item.name,
+    value: item.value,
+    color: getRandomColor(index)
+  }))
 }

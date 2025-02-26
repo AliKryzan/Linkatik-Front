@@ -18,12 +18,6 @@ const WorldMap = ({ data }) => {
         borderRadius: "var(--mantine-radius-lg)",
       }}>
       <ComposableMap
-        // projectionConfig={{
-        //   center: [0, 40],
-        // }}
-        // projection="geoMercator"
-        // width={1000}
-        // height={650}
         projection="geoEquirectangular"
         projectionConfig={{
           center: [25, 15],
@@ -34,14 +28,13 @@ const WorldMap = ({ data }) => {
         <Geographies geography={"/map.json"}>
           {({ geographies }) =>
             geographies.map((geo) => {
+              const countryData = countries[geo.properties.name] || { clicks: 0, views: 0, subscribe: 0 }
               return (
                 <Geography
                   data-tooltip-id="world-map-tooltip"
                   data-tooltip-content={geo.properties.name}
-                  data-tooltip-html={`<div class="map-tooltip"><p class="map-tooltip-title">${geo.properties.name}</p><ul>
-                    <li>clicks ${countries[geo.properties.name]?.clicks || 0}</li>
-                    <li>Views ${countries[geo.properties.name]?.views || 0}</li>
-                    <li>subscribers ${countries[geo.properties.name]?.subscribe || 0}</li>
+                  data-tooltip-html={`<div class=\"map-tooltip\"><p class=\"map-tooltip-title\">${geo.properties.name}</p><ul>
+                    <li>Clicks: ${countryData.clicks || 0}</li>
                     </ul></div>`}
                   data-tooltip-place="top"
                   key={geo.rsmKey}
