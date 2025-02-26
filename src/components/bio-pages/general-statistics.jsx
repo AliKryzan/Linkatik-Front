@@ -31,10 +31,10 @@ const GeneralStatistics = ({ id }) => {
   })
   // Calculate statistics from the array data
   const statsData = {
-    views: data?.data?.length || 0, // Each entry represents a view
-    clicks: data?.data?.length || 0, // Each entry represents a click
-    subscriber: data?.data?.filter(item => item?.subscriber)?.length || 0,
-    blocks: data?.data?.filter(item => item?.block)?.length || 0
+    views: Array.isArray(data?.data) ? data.data.length : 0,
+    clicks: Array.isArray(data?.data) ? data.data.length : 0,
+    subscriber: Array.isArray(data?.data) ? data.data.filter(item => item?.subscriber).length : 0,
+    blocks: Array.isArray(data?.data) ? data.data.filter(item => item?.block).length : 0
   }
   const { t } = useTranslation()
   const { colorScheme } = useMantineColorScheme()
