@@ -56,7 +56,7 @@ const Analysis = () => {
   return (
     <Stack gap={"xl"}>
       <WorldMap data={processedData.clicks_countries} />
-      <GeneralStatistics id={id} />
+      {/* <GeneralStatistics id={id} /> */}
       <SimpleGrid spacing="lg" cols={2}>
         <DynamicDonutChart title={"clicks_os"} data={processedData.clicks_os} />
         <DynamicDonutChart title={"clicks_browsers"} data={processedData.clicks_browsers} />
