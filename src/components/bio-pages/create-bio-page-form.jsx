@@ -148,7 +148,7 @@ const CreateBioPageForm = () => {
             leftSectionProps={{ bg: "gray" }}
             leftSection={
               <Box>
-                <Text size="sm">{t("products.addProduct.slug_left")}</Text>
+                <Text size="xs">{t("products.addProduct.slug_left")}</Text>
               </Box>
             }
             label={t("bioPages.createPage.pathInput.label")}

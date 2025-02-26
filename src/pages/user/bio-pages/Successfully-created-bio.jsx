@@ -9,6 +9,7 @@ import { GetPageAppearance, GetPagePreview, GetSuccessfullyPreview } from "@/ser
 import Error from "@/components/common/error"
 import Loader from "@/components/common/loader"
 import { useTranslation } from 'react-i18next';
+import toast from 'react-hot-toast';
 
 
 function SuccessfullyCreatedBio() {
@@ -36,15 +37,32 @@ function SuccessfullyCreatedBio() {
       <div className="flex items-center justify-center px-4">
         <div className="w-full max-w-md flex flex-col items-center gap-8">
           {/* Success Message Section */}
-          <div className="text-center space-y-4">
+          <div className="text-center !space-y-4">
             <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
               {t("general.linkatikReady")}
             </h1>
             <p className="text-gray-600 text-lg">
               {t("Time to share with the world")}
             </p>
-            <div className="bg-gray-50 rounded-lg p-3 text-sm text-gray-500 border border-gray-100">
-              https://app.linkatik.com/ar/preview/{data?.data?.path}
+            <div className="bg-gray-50 rounded-lg p-3 text-sm text-gray-500 border border-gray-100 flex items-center justify-between gap-2" dir='ltr'>
+              <span className="truncate">https://app.linkatik.com/ar/preview/{data?.data?.path}</span>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(`https://app.linkatik.com/ar/preview/${data?.data?.path}`)
+                    .then(() => {
+                     toast.success(t("general.copied"),{
+                      position:"top-center"
+                     })
+                    })
+                }}
+                className="shrink-0 p-1.5 text-purple-600 hover:bg-purple-50 rounded-md transition-colors"
+                title={t("general.copy")}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                </svg>
+              </button>
             </div>
           </div>
 

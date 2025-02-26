@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 import { groupAvatar, imagePlaceholder, logo } from "@/assets"
-import { AuthLinkatikApi } from "@/services"
+import { LinkatikApi } from "@/services"
 import { GetPageAppearance, GetPagePreview } from "@/services/utils"
 import { setMain_button_color, setMain_text_color } from "@/store/General-variables/General-variables"
 import { generateWebComponent } from "@/utils/generate-web-component"
@@ -86,7 +86,7 @@ const Preview = ({ isStandAlonePage = false }) => {
         }
 
         // Send to your analytics endpoint
-        await AuthLinkatikApi.post("/bio-page-stats", analyticsData)
+        await LinkatikApi.post("/bio-page-stats", analyticsData)
         requestSentRef.current = true
       } catch (error) {
         console.error("Error tracking page visit:", error)

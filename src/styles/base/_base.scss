@@ -1,8 +1,8 @@
-body {
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-}
+// body {
+//     -webkit-user-select: none; /* Safari */
+//     -ms-user-select: none; /* IE 10 and IE 11 */
+//     user-select: none; /* Standard syntax */
+// }
 html body[data-scroll-locked] {
     margin-right: 0 !important;
 }
