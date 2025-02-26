@@ -162,7 +162,7 @@ export const MyRouter = createBrowserRouter([
         path: "preview/:path",
         element: (
           <ProtectedRoute>
-            <Preview />
+            <Preview isStandAlonePage />
           </ProtectedRoute>
         ),
       },

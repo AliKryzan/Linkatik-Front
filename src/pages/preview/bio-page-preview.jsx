@@ -17,7 +17,7 @@ import RenderBackground from "@/components/common/render-background"
 import SubscribeForm from "@/components/common/subscribe-form"
 import BlockPreviewWrapper from "@/components/preview/link/block-preview-wrapper"
 
-const Preview = () => {
+const Preview = ({ isStandAlonePage = false }) => {
   const dispatch = useDispatch()
   const { path } = useParams()
   const { data, status, isFetching } = useQuery({
@@ -60,16 +60,17 @@ const Preview = () => {
   const avatar = groupAvatar.find((item) => item.id === Number(data?.data.image_avatar))
 
   return (
-    <div className="relative overflow-hidden">
+    <div
+      className={`relative overflow-hidden ${isStandAlonePage ? "flex min-h-dvh items-center justify-center" : ""}`}>
       <Stack
         style={{
           position: "relative",
           zIndex: 1,
           height: isPreview ? "unset" : undefined,
           borderRadius: "2.9rem !important",
-          overflow:"hidden"
+          overflow: "hidden",
         }}
-        className="preview-page bio-page-preview relative rounded-[2.9rem] border-[1rem] !max-w-100 !z-10 border-[#404040]"
+        className="preview-page bio-page-preview relative !z-10 !max-w-80 !h-[630px] rounded-[2.9rem] border-[1rem] border-[#404040]"
         gap={"xl"}
         justify="space-between"
         p={"md"}
@@ -78,7 +79,7 @@ const Preview = () => {
           encapsulated={encapsulated}
           style={{
             position: "absolute",
-            top:13 ,
+            top: 13,
             inset: 0,
             zIndex: -1,
           }}
