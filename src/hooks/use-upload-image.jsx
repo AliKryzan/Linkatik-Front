@@ -99,7 +99,7 @@ const MyDropzone = ({ setImg, setModalOneOpen }) => {
             justifyContent: "center",
             alignItems: "center",
             cursor: "pointer",
-            position: "relative",
+            // position: "relative",
             marginBottom: "16px",
             position: "absolute",
             top: "0",
