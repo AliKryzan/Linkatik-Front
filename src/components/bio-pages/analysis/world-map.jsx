@@ -1,7 +1,5 @@
 import { ComposableMap, Geographies, Geography } from "react-simple-maps"
-
 import "react-tooltip/dist/react-tooltip.css"
-
 import { Box, useMantineColorScheme } from "@mantine/core"
 import { Tooltip } from "react-tooltip"
 
@@ -11,6 +9,7 @@ const WorldMap = ({ data }) => {
     countries[country.country_en] = country
   })
   const { colorScheme } = useMantineColorScheme()
+  
   return (
     <Box
       bg={colorScheme === "dark" ? "dark.6" : "gray.0"}
@@ -29,24 +28,33 @@ const WorldMap = ({ data }) => {
           {({ geographies }) =>
             geographies.map((geo) => {
               const countryData = countries[geo.properties.name] || { clicks: 0, views: 0, subscribe: 0 }
+              const hasClicks = countryData.clicks > 0
+              
               return (
                 <Geography
-                  data-tooltip-id="world-map-tooltip"
-                  data-tooltip-content={geo.properties.name}
-                  data-tooltip-html={`<div class=\"map-tooltip\"><p class=\"map-tooltip-title\">${geo.properties.name}</p><ul>
+                  data-tooltip-id={hasClicks ? "world-map-tooltip" : ""}
+                  data-tooltip-content={hasClicks ? geo.properties.name : ""}
+                  data-tooltip-html={hasClicks ? `<div class="map-tooltip"><p class="map-tooltip-title">${geo.properties.name}</p><ul>
                     <li>Clicks: ${countryData.clicks || 0}</li>
-                    </ul></div>`}
+                    </ul></div>` : ""}
                   data-tooltip-place="top"
+                  data-tooltip-float={hasClicks}
                   key={geo.rsmKey}
                   geography={geo}
                   style={{
                     default: {
-                      fill: colorScheme === "dark" ? "var(--mantine-color-gray-5)" : "#D6D6D6",
+                      fill: hasClicks 
+                        ? colorScheme === "dark" 
+                          ? "var(--mantine-color-primary-7)" 
+                          : "var(--mantine-color-primary-4)"
+                        : colorScheme === "dark" 
+                          ? "var(--mantine-color-gray-5)" 
+                          : "#D6D6D6",
                       stroke: "#fafafa",
                       strokeWidth: 0.5,
                     },
                     hover: {
-                      fill: "#9E1E7D",
+                      fill: hasClicks ? "var(--mantine-color-primary-6)" : "#9E1E7D",
                       outline: "none",
                     },
                     pressed: {
