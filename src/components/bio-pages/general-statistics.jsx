@@ -29,12 +29,30 @@ const GeneralStatistics = ({ id }) => {
     queryKey: ["analysis", id || "genral"],
     queryFn: id ? () => GetBioPageStatistics(id) : GetGeneralStatistics,
   })
-  // Calculate statistics from the array data
+
+  console.log('GeneralStatistics',data);
+  // Calculate statistics from either array or object data structure
   const statsData = {
-    views: Array.isArray(data?.data) ? data.data.length : 0,
-    clicks: Array.isArray(data?.data) ? data.data.length : 0,
-    subscriber: Array.isArray(data?.data) ? data.data.filter(item => item?.subscriber).length : 0,
-    blocks: Array.isArray(data?.data) ? data.data.filter(item => item?.block).length : 0
+    views: Array.isArray(data?.data) 
+      ? data.data.length 
+      : typeof data?.data?.views === 'number' 
+        ? data.data.views 
+        : 0,
+    clicks: Array.isArray(data?.data) 
+      ? data.data.length 
+      : typeof data?.data?.clicks === 'number' 
+        ? data.data.clicks 
+        : 0,
+    subscriber: Array.isArray(data?.data) 
+      ? data.data.filter(item => item?.subscriber).length 
+      : typeof data?.data?.subscriber === 'number' 
+        ? data.data.subscriber 
+        : 0,
+    blocks: Array.isArray(data?.data) 
+      ? data.data.filter(item => item?.block).length 
+      : typeof data?.data?.blocks === 'number' 
+        ? data.data.blocks 
+        : 0
   }
   const { t } = useTranslation()
   const { colorScheme } = useMantineColorScheme()
