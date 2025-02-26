@@ -10,7 +10,7 @@ import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { Bell, Loader2, Share } from "lucide-react"
 import { useTranslation } from "react-i18next"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useLocation, useParams } from "react-router-dom"
 
 import Error from "@/components/common/error"
@@ -19,15 +19,37 @@ import RenderBackground from "@/components/common/render-background"
 import SubscribeForm from "@/components/common/subscribe-form"
 import BlockPreviewWrapper from "@/components/preview/link/block-preview-wrapper"
 
-const usePageVisitTracking = (path) => {
+const Preview = ({ isStandAlonePage = false }) => {
+  const dispatch = useDispatch()
+  const { path } = useParams()
+  const { data, status, isFetching } = useQuery({
+    queryKey: ["bio-page-preview", path],
+    queryFn: () => GetPagePreview(path),
+  })
+  console.log("appearanceData -----------------------------------------")
+  const {
+    data: appearanceData,
+    status: statusAppearance,
+    isFetching: isUpdatingAppearance,
+  } = useQuery({
+    queryKey: ["bio-page-theme-preview", path],
+    queryFn: () => GetPageAppearance(path),
+    staleTime: Infinity,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
+  })
+
+  console.log(data, appearanceData)
   const requestSentRef = useRef(false)
-  
+
   useEffect(() => {
-    if (requestSentRef.current || !path) return
-  
     const trackPageVisit = async () => {
+      if (requestSentRef.current) return
       try {
+        // Get geolocation data
         const geoResponse = await axios.get("https://ipapi.co/json")
+
+        // Get device/browser info
         const userAgent = window.navigator.userAgent
         const deviceInfo = {
           device: /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/.test(userAgent) ? "mobile" : "desktop",
@@ -52,7 +74,8 @@ const usePageVisitTracking = (path) => {
                   ? "Edge"
                   : "other",
         }
-  
+
+        // Combine analytics data
         const analyticsData = {
           path,
           device: deviceInfo.device,
@@ -61,103 +84,44 @@ const usePageVisitTracking = (path) => {
           country: geoResponse.data.country_name,
           city: geoResponse.data.city,
         }
-  
+
+        // Send to your analytics endpoint
         await AuthLinkatikApi.post("/bio-page-stats", analyticsData)
         requestSentRef.current = true
       } catch (error) {
         console.error("Error tracking page visit:", error)
       }
     }
-  
-    trackPageVisit()
-  }, [path])
-}
 
-// Header component with share and subscribe buttons
-const PageHeader = ({ onSubscribe, emailSignup, bioPageId }) => {
+    if (path) {
+      trackPageVisit()
+    }
+  }, [path])
+
+  dispatch(setMain_button_color(data?.data?.appearance?.bio_link?.button_color))
+  dispatch(setMain_text_color(data?.data?.appearance?.bio_link?.text_color))
   const { t } = useTranslation()
   const [opened, { open, close }] = useDisclosure(false)
-
-  return (
-    <Group justify="space-between">
-      <ActionIcon
-        size={"lg"}
-        variant="white"
-        color="black"
-        style={{ boxShadow: "0 0 8px #ccc" }}
-        radius={"xl"}>
-        <Share size={18} />
-      </ActionIcon>
-      {emailSignup && (
-        <>
-          <Button
-            onClick={open}
-            leftSection={<Bell size={18} />}
-            variant="white"
-            color="black"
-            style={{ boxShadow: "0 0 8px #ccc" }}
-            radius={"xl"}>
-            Subscribe
-          </Button>
-
-          <Modal.Root centered opened={opened} onClose={close}>
-            <Modal.Overlay />
-            <Modal.Content component={"div"} radius={"xl"}>
-              <SubscribeForm close={close} bio_page_id={bioPageId} title={t("bioPage.subscribe")} />
-            </Modal.Content>
-          </Modal.Root>
-        </>
-      )}
-    </Group>
-  )
-}
-
-const Preview = ({ isStandAlonePage = false }) => {
-  const dispatch = useDispatch()
-  const { path } = useParams()
   const location = useLocation()
-  const { t } = useTranslation()
-
-  // Fetch page data and appearance
-  const { data, status, isFetching } = useQuery({
-    queryKey: ["bio-page-preview", path],
-    queryFn: () => GetPagePreview(path),
-  })
-
-  const {
-    data: appearanceData,
-    status: statusAppearance,
-    isFetching: isUpdatingAppearance,
-  } = useQuery({
-    queryKey: ["bio-page-theme-preview", path],
-    queryFn: () => GetPageAppearance(path),
-    staleTime: Infinity,
-    refetchOnReconnect: false,
-    refetchOnWindowFocus: false,
-  })
-
-  // Track page visits
-  usePageVisitTracking(path)
-
-  // Update theme colors
-  useEffect(() => {
-    if (data?.data?.appearance?.bio_link) {
-      dispatch(setMain_button_color(data.data.appearance.bio_link.button_color))
-      dispatch(setMain_text_color(data.data.appearance.bio_link.text_color))
-    }
-  }, [data, dispatch])
-
-  // Handle loading and error states
+  const isPreview = location.pathname.includes("preview")
+  // console.log("🚀 ~ Preview ~ appearanceData:", appearanceData)
   if (status === "pending" || statusAppearance === "pending") return <Loader />
   if (status === "error" || statusAppearance === "error") return <Error />
   if (status === "success" && !data.data) return <Error />
 
-  // Generate background component
-  const isPreview = location.pathname.includes("preview")
   const backgroundSettings = appearanceData.appearance?.bio_page ?? { html: "", css: "" }
   const { html, css } = backgroundSettings
   const encapsulated = generateWebComponent("custom-background-" + Math.random(), html, css)
 
+  const avatar = groupAvatar.find((item) => item.id === Number(data?.data.image_avatar))
+  
+  const getPageStats = async () => {
+    const { data } = await AuthLinkatikApi.get(`/user/bio-page-stats-index?bio_page_id=190`)
+    console.log(data)
+  }
+  useEffect(() => {
+    getPageStats()
+  }, [])
   return (
     <div
       className={`relative overflow-hidden ${isStandAlonePage ? "flex min-h-dvh items-center justify-center" : ""}`}>
@@ -183,7 +147,7 @@ const Preview = ({ isStandAlonePage = false }) => {
             zIndex: -1,
           }}
         />
-
+        {/* <div className="fixed top-7 right-[30%] h-9 w-36 rounded-full bg-gray-950"></div> */}
         {(isUpdatingAppearance || isFetching) && (
           <Group className="preview-loader-indicator">
             <Loader2 size={18} className="spinner" color="gray" />
@@ -192,11 +156,36 @@ const Preview = ({ isStandAlonePage = false }) => {
         )}
 
         <Stack gap={"lg"}>
-          <PageHeader 
-            emailSignup={data.data.settings?.email_singup}
-            bioPageId={data.data.id}
-          />
+          <Group justify="space-between">
+            <ActionIcon
+              size={"lg"}
+              variant="white"
+              color="black"
+              style={{ boxShadow: "0 0 8px #ccc" }}
+              radius={"xl"}>
+              <Share size={18} />
+            </ActionIcon>
+            {data.data.settings?.email_singup ? (
+              <>
+                <Button
+                  onClick={open}
+                  leftSection={<Bell size={18} />}
+                  variant="white"
+                  color="black"
+                  style={{ boxShadow: "0 0 8px #ccc" }}
+                  radius={"xl"}>
+                  Subscribe
+                </Button>
 
+                <Modal.Root centered opened={opened} onClose={close}>
+                  <Modal.Overlay />
+                  <Modal.Content component={"div"} radius={"xl"}>
+                    <SubscribeForm close={close} bio_page_id={data.data.id} title={t("bioPage.subscribe")} />
+                  </Modal.Content>
+                </Modal.Root>
+              </>
+            ) : null}
+          </Group>
           <div>
             <div>
               <Image
@@ -220,18 +209,21 @@ const Preview = ({ isStandAlonePage = false }) => {
           </div>
 
           <Stack gap={"xl"} w={"100%"} maw={"360px"} mx={"auto"}>
-            {data?.data?.blocks?.map((block) => (
-              <BlockPreviewWrapper
-                theme={appearanceData?.appearance?.bio_link}
-                pageId={data.data.id}
-                key={block.id}
-                block={block}
-              />
-            ))}
+            {data?.data?.blocks?.map((block) => {
+              return (
+                <>
+                  <BlockPreviewWrapper
+                    theme={appearanceData?.appearance?.bio_link}
+                    pageId={data.data.id}
+                    key={block.id}
+                    block={block}
+                  />
+                </>
+              )
+            })}
           </Stack>
         </Stack>
-
-        {!data.data.settings?.hide_logo && (
+        {data.data.settings?.hide_logo ? null : (
           <Group justify="center" mt={"lg"}>
             <img src={logo} alt="linkatik" />
           </Group>
