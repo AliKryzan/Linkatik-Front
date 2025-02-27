@@ -27,7 +27,10 @@ import { PagesWrapper } from "./pages-wrapper"
 const CreateBioPage = () => {
   const { path } = useParams()
   let [searchParams, setSearchParams] = useSearchParams()
-  const { t } = useTranslation()
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation()
   const segments = [
     {
       value: "links",
@@ -96,6 +99,7 @@ const CreateBioPage = () => {
                 onChange={(e) => setSearchParams({ tab: e })}
                 size="md"
                 radius={"lg"}
+                dir="rtl"
                 value={searchParams.get("tab") || "links"}
                 withItemsBorders={false}
                 data={segments}
@@ -135,7 +139,7 @@ const CreateBioPage = () => {
               justify="end"
               style={{
                 scale: "0.78",
-                transformOrigin: dir == "rtl" ? "top left" : "top right",
+                transformOrigin: language === "ar" ? "top left" : "top right",
               }}>
               <ScrollArea
                 h={770}
@@ -163,7 +167,7 @@ const CreateBioPage = () => {
               <Modal.CloseButton color="black" className="!bg-red-500/20 text-white" />
             </Box>
             <Modal.Body>
-                <Preview />
+              <Preview />
             </Modal.Body>
           </Modal.Content>
         </Modal.Root>

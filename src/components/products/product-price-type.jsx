@@ -33,10 +33,10 @@ const ProductPriceType = () => {
       <Group wrap="nowrap" align="flex-start">
         <Radio.Indicator variant="outline" icon={Check} />
         <div>
-          <Text c={"gray"} className="label">
+          <Text c={"gray"} className="!font-semibold !text-sm">
             {item.name}
           </Text>
-          <Text c={"gray"} className="description">
+          <Text c={"gray"} size="xs" className="!text-xm">
             {item.description}
           </Text>
         </div>
