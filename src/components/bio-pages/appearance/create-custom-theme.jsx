@@ -115,7 +115,7 @@ const CreateCustomTheme = ({ data }) => {
     }
   }, [data])
   return (
-    <Stack gap={"xl"} className="!max-w-screen-sm mx-auto" component="form" noValidate onSubmit={onSubmit}>
+    <Stack gap={"xl"} className="!max-w-screen-lg" component="form" noValidate onSubmit={onSubmit}>
       <Background form={form} />
       <Buttons form={form} />
       <Font form={form} />

@@ -119,16 +119,16 @@ const Preview = ({ isStandAlonePage = false }) => {
   // }, [])
   return (
     <div
-      className={`relative overflow-hidden ${isStandAlonePage ? "flex min-h-dvh items-center justify-center" : ""}`}>
+      className={`${isStandAlonePage ? "flex min-h-dvh items-center justify-center" : ""}`}>
       <Stack
         style={{
           position: "relative",
           zIndex: 1,
-          height: isPreview ? "unset" : undefined,
+          // height: isPreview ? "unset" : undefined,
           borderRadius: "2.9rem !important",
           overflow: "hidden",
         }}
-        className="preview-page bio-page-preview relative !z-10 !h-[613px] !max-w-80 rounded-[2.9rem] border-[1rem] border-[#404040]"
+        className="preview-page bio-page-preview !z-10 !h-[670px] border-[6px] border-[#ebebeb] !m-7 !max-w-80 rounded-[3rem] shadow-[0_121px_49px_rgba(0,0,0,0.02),0_18px_41px_rgba(0,0,0,0.08),0_30px_30px_rgba(0,0,0,0.14),0_8px_17px_rgba(0,0,0,0.16)]"
         gap={"xl"}
         justify="space-between"
         p={"md"}
@@ -150,7 +150,7 @@ const Preview = ({ isStandAlonePage = false }) => {
           </Group>
         )}
 
-        <Stack gap={"lg"}>
+        <Stack gap={"lg"} className="overflow-y-auto">
           <Group justify="space-between">
             <ActionIcon
               size={"lg"}

@@ -57,7 +57,7 @@ const ProductPriceType = () => {
               }
               label={t("products.addProduct.pricing_type")}
               {...field}>
-              <Group gap="xs">{cards}</Group>
+              <div className="grid sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">{cards}</div>
             </Radio.Group>
           </>
         )}

@@ -1,4 +1,7 @@
 import { memo } from "react"
+import { PostProduct } from "@/services/utils"
+import { convertTo24HourFormat } from "@/utils/convertTo24HourFormat"
+import { objectToFormData } from "@/utils/obj-to-formdata"
 import { DevTool } from "@hookform/devtools"
 import { ActionIcon, Box, Button, Group, Stack, Text, TextInput, useMantineTheme } from "@mantine/core"
 import { IMAGE_MIME_TYPE } from "@mantine/dropzone"
@@ -9,16 +12,13 @@ import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 import { useSearchParams } from "react-router-dom"
 
-import { Link } from "@/lib/i18n/navigation"
-import { PostProduct } from "@/services/utils"
-import { convertTo24HourFormat } from "@/utils/convertTo24HourFormat"
-import { objectToFormData } from "@/utils/obj-to-formdata"
+import { Link, useNavigate } from "@/lib/i18n/navigation"
+
 import RichTextEditorModal from "../rich-text-editor/rich-text-editor-model"
 import Dropzone from "../ui/dropzone"
 import ProductPriceType from "./product-price-type"
 import ProductPricing from "./product-pricing"
 import ProductType from "./product-type"
-import { useNavigate } from "@/lib/i18n/navigation";
 
 const productTypeDefaults = {
   digital: {
@@ -32,8 +32,7 @@ const productTypeDefaults = {
   },
 }
 const ProductForm = () => {
-
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const type = searchParams.get("type") ?? "digital"
 
@@ -43,8 +42,7 @@ const ProductForm = () => {
   const { control, handleSubmit, formState, watch, setValue, setError, reset } = form
 
   const onSubmit = handleSubmit(async (data) => {
-
-    console.log("data from creat product ====>",data)
+    console.log("data from creat product ====>", data)
 
     if (type === "booking") {
       data.time_slots = data.time_slots.map((slot) => ({
@@ -56,7 +54,7 @@ const ProductForm = () => {
     try {
       await PostProduct(objectToFormData({ ...data, type, ...productTypeDefaults[data.type] }))
       toast.success(t("products.addProduct.successMessage"))
-      navigate(`/user/products`);
+      navigate(`/user/products`)
       reset()
     } catch (error) {
       console.log("🚀 ~ onSubmit ~ error:", error)
@@ -80,12 +78,15 @@ const ProductForm = () => {
 
   return (
     <>
-      <Stack aw={550} component={"form"} noValidate onSubmit={onSubmit} >
+      <Stack aw={550} component={"form"} noValidate onSubmit={onSubmit}>
         <Controller
           control={control}
           name="title"
           render={({ field }) => (
             <TextInput
+              classNames={{
+                label: "mb-2",
+              }}
               label={t("products.addProduct.titleInput")}
               error={
                 formState.errors.title?.message &&
@@ -101,6 +102,9 @@ const ProductForm = () => {
           name="description"
           render={({ field }) => (
             <TextInput
+              classNames={{
+                label: "mb-2",
+              }}
               label={t("products.addProduct.description")}
               error={
                 formState.errors.description?.message &&
@@ -117,6 +121,9 @@ const ProductForm = () => {
           render={({ field }) => (
             <RichTextEditorModal
               setValue={field.onChange}
+              classNames={{
+                label: "mb-2",
+              }}
               label={t("products.addProduct.long_description")}
               field={field}
               error={
@@ -142,10 +149,12 @@ const ProductForm = () => {
                 leftSectionWidth={100}
                 leftSectionProps={{ bg: "gray" }}
                 leftSection={
-                  <Box>
-                    <Text size="sm">{t("products.addProduct.slug_left")}</Text>
-                  </Box>
+                    <Text size="sm" className="!whitespace-nowrap !ms-15">{t("products.addProduct.slug_left")}</Text>
                 }
+                classNames={{
+                  label: "mb-2",
+                  input:"!ps-37"
+                }}
                 label={t("products.addProduct.slug")}
                 error={
                   formState.errors.slug?.message &&
@@ -162,7 +171,7 @@ const ProductForm = () => {
           name="image"
           render={({ field: { onChange, ...field } }) => (
             <div>
-              <Text fw={"500"}>{t("products.addProduct.image")}</Text>
+              <Text fw={"500"} className="!mb-2">{t("products.addProduct.image")}</Text>
               <Dropzone
                 error={
                   formState.errors.image?.message &&
@@ -201,7 +210,7 @@ const ProductForm = () => {
         <ProductPricing />
         <ProductType />
 
-        <Group >
+        <Group>
           <Button type="submit" loading={formState.isSubmitting}>
             {t(`products.addProduct.button`)}
           </Button>
