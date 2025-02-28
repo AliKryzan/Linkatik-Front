@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { LinkatikApi } from "@/services"
 import { updateUser } from "@/utils/update-user"
 import { loginSchema } from "@/validation/login"
@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Button, Flex, Stack, Text, TextInput, Title } from "@mantine/core"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { Lock, Mail } from "lucide-react"
+import { Eye, EyeOff, Lock, Mail } from "lucide-react"
 import { Controller, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useSearchParams } from "react-router-dom"
@@ -17,7 +17,7 @@ import SocialLoginButton from "@/components/ui/social-login-button"
 
 const Login = () => {
   const { t } = useTranslation()
-
+  const [showPassword, setShowPassword] = useState(false)
   // manage form state
   const { handleSubmit, control, formState, reset, setError } = useForm({
     resolver: zodResolver(loginSchema),
@@ -109,9 +109,23 @@ const Login = () => {
               error={
                 formState.errors.password?.message && t(`login.errors.${formState.errors.password?.message}`)
               }
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder={t("login.passwordInput")}
               leftSection={<Lock size={18} />}
+              rightSection={
+                <button
+                  style={{
+                    cursor: "pinter !important",
+                  }}
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? (
+                    <Eye className="!cursor-pinter" size={18} />
+                  ) : (
+                    <EyeOff className="!cursor-pinter" size={18} />
+                  )}
+                </button>
+              }
               {...field}
             />
           )}
