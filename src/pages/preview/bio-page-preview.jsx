@@ -76,7 +76,7 @@ const Preview = ({ isStandAlonePage = false }) => {
         }
 
         // Get referrer information
-        const referrer = document.referrer || 'direct'
+        const referrer = document.referrer || "direct"
 
         // Combine analytics data
         const analyticsData = {
@@ -86,7 +86,7 @@ const Preview = ({ isStandAlonePage = false }) => {
           browser: deviceInfo.browser,
           country: geoResponse.data.country_name,
           city: geoResponse.data.city,
-          referrer
+          referrer,
         }
 
         // Send to your analytics endpoint
@@ -131,7 +131,7 @@ const Preview = ({ isStandAlonePage = false }) => {
           // height: isPreview ? "unset" : undefined,
           overflow: "hidden",
         }}
-        className="preview-page bio-page-preview !z-10 !h-[630px] lg:!h-[730px] border-[6px] border-[#ebebeb] !m-7 !min-w-80 lg:!min-w-[23rem] max-w-[23rem] rounded-[3rem] shadow-[0_121px_49px_rgba(0,0,0,0.02),0_18px_41px_rgba(0,0,0,0.08),0_30px_30px_rgba(0,0,0,0.14),0_8px_17px_rgba(0,0,0,0.16)]"
+        className="preview-page bio-page-preview !z-10 !m-7 !h-[630px] max-w-[23rem] !min-w-80 rounded-[3rem] border-[6px] border-[#ebebeb] shadow-[0_121px_49px_rgba(0,0,0,0.02),0_18px_41px_rgba(0,0,0,0.08),0_30px_30px_rgba(0,0,0,0.14),0_8px_17px_rgba(0,0,0,0.16)] lg:!h-[730px] lg:!min-w-[23rem]"
         gap={"xl"}
         justify="space-between"
         p={"md"}
@@ -147,14 +147,14 @@ const Preview = ({ isStandAlonePage = false }) => {
         />
         {/* <div className="fixed top-7 right-[30%] h-9 w-36 rounded-full bg-gray-950"></div> */}
         {(isUpdatingAppearance || isFetching) && (
-          <Group className="preview-loader-indicator !mt-5">
+          <Group className="preview-loader-indicator">
             <LoaderCircle size={18} className="animate-spin" />
             loading
           </Group>
         )}
 
-        <div gap={"lg"} className="overflow-y-auto flex flex-col items-center gap-y-5">
-          <Group justify="space-between" className="!self-start">
+        <Stack gap={"lg"} className="overflow-y-auto">
+          <Group justify="space-between">
             <ActionIcon
               size={"lg"}
               variant="white"
@@ -206,7 +206,7 @@ const Preview = ({ isStandAlonePage = false }) => {
             </Box>
           </div>
 
-          <div className="overflow-y-auto flex flex-col items-center gap-y-7 max-w-full">
+          <Stack gap={"xl"} w={"100%"} maw={"360px"} mx={"auto"}>
             {data?.data?.blocks?.map((block) => {
               return (
                 <>
@@ -219,8 +219,8 @@ const Preview = ({ isStandAlonePage = false }) => {
                 </>
               )
             })}
-          </div>
-        </div>
+          </Stack>
+        </Stack>
         {data.data.settings?.hide_logo ? null : (
           <Group justify="center" mt={"lg"}>
             <img src={logo} alt="linkatik" />
