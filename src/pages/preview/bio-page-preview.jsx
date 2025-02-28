@@ -154,7 +154,7 @@ const Preview = ({ isStandAlonePage = false }) => {
           </Group>
         )}
 
-        <Stack gap={"lg"} className="overflow-y-auto scrollbar">
+        <Stack gap={"lg"} className="overflow-y-auto !pb-5 scrollbar">
           <Group justify="space-between">
             <ActionIcon
               size={"lg"}
