@@ -85,7 +85,7 @@ const GeneralStatistics = ({ id }) => {
                   fw={500}
                   style={{
                     fontSize: "42px",
-                    lineHeight: "1",
+                    lineHeight: "0.7",
                   }}
                   c={"dark"}>
                   {statsData[key]}
