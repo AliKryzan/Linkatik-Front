@@ -31,3 +31,7 @@
   border: 2px solid #f0f0f0;
   border-radius: 10px;
 }
+
+.hide-scroll-bar::-webkit-scrollbar {
+  width: 0px !important;
+}
