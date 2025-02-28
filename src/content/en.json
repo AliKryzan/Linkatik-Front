@@ -378,7 +378,9 @@
     "analysis": {
       "clicks_os": "Operating systems",
       "clicks_browsers": "Browser",
-      "cities": "Cities"
+      "clicks_devices": "Devices",
+      "cities": "Cities",
+      "referrers": "Referrers"
     },
     "appearance": {
       "title": "Appearance",

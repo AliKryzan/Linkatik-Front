@@ -75,6 +75,9 @@ const Preview = ({ isStandAlonePage = false }) => {
                   : "other",
         }
 
+        // Get referrer information
+        const referrer = document.referrer || 'direct'
+
         // Combine analytics data
         const analyticsData = {
           path,
@@ -83,6 +86,7 @@ const Preview = ({ isStandAlonePage = false }) => {
           browser: deviceInfo.browser,
           country: geoResponse.data.country_name,
           city: geoResponse.data.city,
+          referrer
         }
 
         // Send to your analytics endpoint
@@ -150,7 +154,7 @@ const Preview = ({ isStandAlonePage = false }) => {
           </Group>
         )}
 
-        <Stack gap={"lg"} className="overflow-y-auto">
+        <Stack gap={"lg"} className="overflow-y-auto scrollbar">
           <Group justify="space-between">
             <ActionIcon
               size={"lg"}

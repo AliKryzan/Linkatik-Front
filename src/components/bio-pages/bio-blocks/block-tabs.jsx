@@ -42,7 +42,10 @@ const noSettingsTab = [
   "instagram",
 ]
 const BioBlockTabs = ({ block }) => {
-  const { t } = useTranslation()
+  const {
+    t,
+    i18n: { language }
+  } = useTranslation()
   const theme = useMantineTheme()
   const { dir } = useDirection()
   const [activeTab, setActiveTab] = useState("")
@@ -78,7 +81,7 @@ const BioBlockTabs = ({ block }) => {
           <Group gap={4} p={5} align="center" justify={"center"}>
             <AlignEndHorizontal color={theme.colors.gray[7]} size={23} strokeWidth={1.3} />
             <Text size="sm" c="gray.6">
-              {block.clicks_count} {dir === "rtl" ? "زيارات" : "clicks"}
+              {block.clicks_count} {language === "rtl" ? "زيارات" : "clicks"}
             </Text>
           </Group>
           <Flex flex={1} justify="flex-end">

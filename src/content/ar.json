@@ -18,12 +18,12 @@
     "tryAgain": "إعادة المحاولة",
     "goHome": "العودة إلى الرئيسية"
   },
-  "Notifications":"الاشعارات",
-  "No notifications":"لا يوجد اشعارات",
+  "Notifications": "الاشعارات",
+  "No notifications": "لا يوجد اشعارات",
   "Time to share with the world": "حان الوقت لتشاركه مع العالم",
   "general": {
-   "share": "شارك لينكاتك",
-   "continueEditing": "اكمل التعديل",
+    "share": "شارك لينكاتك",
+    "continueEditing": "اكمل التعديل",
     "linkatikReady": "لينكاتك أصبحت جاهزة",
     "profile": "الملف الشخصي",
     "Subscribe": "إشترك",
@@ -386,7 +386,9 @@
     "analysis": {
       "clicks_os": "أنظمة التشغيل",
       "clicks_browsers": "المتصفحات",
-      "cities": "المدن"
+      "clicks_devices": "الجهاز",
+      "cities": "المدن",
+      "referrers": "المراجع"
     },
     "appearance": {
       "title": "المظهر",

@@ -10,3 +10,23 @@
   --breakpoint-xs: 31rem;
   --breakpoint-smd: 74.5rem;
 }
+
+.scrollbar {
+  scrollbar-color: #aaa #f0f0f0;
+  scrollbar-width: thin;
+  -ms-overflow-style: auto;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border: 2px solid #f0f0f0;
+  border-radius: 10px;
+}
