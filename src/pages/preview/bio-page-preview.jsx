@@ -131,7 +131,7 @@ const Preview = ({ isStandAlonePage = false }) => {
           // height: isPreview ? "unset" : undefined,
           overflow: "hidden",
         }}
-        className="preview-page bio-page-preview !z-10 !h-[630px] lg:!h-[730px] border-[6px] border-[#ebebeb] !m-7 !max-w-80 lg:!max-w-90 rounded-[3rem] shadow-[0_121px_49px_rgba(0,0,0,0.02),0_18px_41px_rgba(0,0,0,0.08),0_30px_30px_rgba(0,0,0,0.14),0_8px_17px_rgba(0,0,0,0.16)]"
+        className="preview-page bio-page-preview !z-10 !h-[630px] lg:!h-[730px] border-[6px] border-[#ebebeb] !m-7 !min-w-80 lg:!min-w-[23rem] max-w-[23rem] rounded-[3rem] shadow-[0_121px_49px_rgba(0,0,0,0.02),0_18px_41px_rgba(0,0,0,0.08),0_30px_30px_rgba(0,0,0,0.14),0_8px_17px_rgba(0,0,0,0.16)]"
         gap={"xl"}
         justify="space-between"
         p={"md"}

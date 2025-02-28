@@ -1,6 +1,7 @@
 import WorldMap from "@/components/bio-pages/analysis/world-map"
 
 import "@mantine/charts/styles.css"
+import { BarChart } from "@mantine/charts"
 
 import { GetBioPageStatistics } from "@/services/utils"
 import { SimpleGrid, Stack } from "@mantine/core"
@@ -90,12 +91,33 @@ const Analysis = () => {
           }
           return acc
         }, []),
+    timeline: !data?.data?.length
+      ? []
+      : data.data.reduce((acc, item) => {
+          const date = item?.created_at?.split('T')[0]
+          const existingDate = acc.find(d => d.date === date)
+          if (existingDate) {
+            existingDate.clicks++
+            existingDate.views++
+          } else {
+            acc.push({ date, clicks: 1, views: 1 })
+          }
+          return acc
+        }, []).sort((a, b) => new Date(a.date) - new Date(b.date)),
   }
-
   return (
     <Stack gap={"xl"}>
       <WorldMap data={processedData.clicks_countries} />
       <GeneralStatistics id={id} />
+      {/* <div className="chart-container">
+        <BarChart
+          h={300}
+          data={processedData.timeline}
+          dataKey="date"
+          series={[{ name: 'clicks', color: 'blue' }, { name: 'views', color: 'green' }]}
+          tickLine="y"
+        />
+      </div> */}
       <div className="grid gap-7 sm:grid-cols-2">
         <div className="col-span-full">
           <DynamicDonutChart title={"referrers"} data={processedData.cities} />
