@@ -1,5 +1,3 @@
-
- 
 export const themes = [
   {
     id: 1,
@@ -293,7 +291,8 @@ export const themes = [
       },
     },
   },
-   {
+
+  {
     id: 18,
     name: "Gradient Flow",
     image: "https://back-dev-project.linkatik.com/storage/550/rotate-group.svg",
@@ -305,9 +304,9 @@ export const themes = [
       },
       bio_page: {
         css: ".background { height: 100lvh; background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); animation: gradientFlow 15s ease infinite; background-size: 400% 400%; } @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }",
-        html: "<div class='background'></div>"
-      }
-    }
+        html: "<div class='background'></div>",
+      },
+    },
   },
   {
     id: 19,
@@ -317,13 +316,13 @@ export const themes = [
       bio_link: {
         type: "filled",
         text_color: "#ffffff",
-        button_color: "#2d00f7"
+        button_color: "#2d00f7",
       },
       bio_page: {
         css: ".background { height: 100lvh; background: #000000; position: relative; overflow: hidden; } .neon-circle { position: absolute; width: 200px; height: 200px; border-radius: 50%; filter: blur(80px); animation: neonPulse 4s ease-in-out infinite; } .circle1 { background: #ff0080; top: 20%; left: 30%; } .circle2 { background: #00ff00; bottom: 20%; right: 30%; animation-delay: -2s; } @keyframes neonPulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.5); opacity: 0.8; } }",
-        html: "<div class='background'><div class='neon-circle circle1'></div><div class='neon-circle circle2'></div></div>"
-      }
-    }
+        html: "<div class='background'><div class='neon-circle circle1'></div><div class='neon-circle circle2'></div></div>",
+      },
+    },
   },
   {
     id: 20,
@@ -333,13 +332,13 @@ export const themes = [
       bio_link: {
         type: "filled",
         text_color: "#ffffff",
-        button_color: "#6366f1"
+        button_color: "#6366f1",
       },
       bio_page: {
         css: ".background { height: 100lvh; background: #1a1a1a; position: relative; overflow: hidden; } .wave { position: absolute; width: 100%; height: 100%; opacity: 0.4; animation: waveAnimation 8s linear infinite; } .wave1 { background: repeating-linear-gradient(45deg, #6366f1 0%, transparent 10%); animation-delay: -2s; } .wave2 { background: repeating-linear-gradient(-45deg, #2563eb 0%, transparent 10%); animation-delay: -4s; } .wave3 { background: repeating-linear-gradient(0deg, #7c3aed 0%, transparent 10%); animation-delay: -6s; } @keyframes waveAnimation { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }",
-        html: "<div class='background'><div class='wave wave1'></div><div class='wave wave2'></div><div class='wave wave3'></div></div>"
-      }
-    }
+        html: "<div class='background'><div class='wave wave1'></div><div class='wave wave2'></div><div class='wave wave3'></div></div>",
+      },
+    },
   },
   {
     id: 21,
@@ -349,13 +348,13 @@ export const themes = [
       bio_link: {
         type: "filled",
         text_color: "#ffffff",
-        button_color: "#0f172a"
+        button_color: "#0f172a",
       },
       bio_page: {
         css: ".background { height: 100lvh; background: #0f172a; position: relative; overflow: hidden; } .particle { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; animation: float 6s infinite; } .p1 { top: 20%; left: 20%; } .p2 { top: 60%; left: 80%; animation-delay: -2s; } .p3 { top: 40%; left: 40%; animation-delay: -4s; } .line { position: absolute; width: 100px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transform-origin: left; animation: rotateLine 4s linear infinite; } .l1 { top: 30%; left: 25%; } .l2 { top: 70%; left: 75%; animation-delay: -2s; } @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, 20px); } } @keyframes rotateLine { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }",
-        html: "<div class='background'><div class='particle p1'></div><div class='particle p2'></div><div class='particle p3'></div><div class='line l1'></div><div class='line l2'></div></div>"
-      }
-    }
+        html: "<div class='background'><div class='particle p1'></div><div class='particle p2'></div><div class='particle p3'></div><div class='line l1'></div><div class='line l2'></div></div>",
+      },
+    },
   },
   {
     id: 22,
@@ -365,12 +364,12 @@ export const themes = [
       bio_link: {
         type: "filled",
         text_color: "#ffffff",
-        button_color: "#0c4a6e"
+        button_color: "#0c4a6e",
       },
       bio_page: {
         css: ".background { height: 100lvh; background: linear-gradient(180deg, #0c4a6e 0%, #0f172a 100%); position: relative; overflow: hidden; } .aurora { position: absolute; width: 100%; height: 100%; mix-blend-mode: screen; } .a1 { background: linear-gradient(90deg, #4ade80 0%, transparent 100%); animation: auroraFlow 8s ease-in-out infinite; } .a2 { background: linear-gradient(-90deg, #818cf8 0%, transparent 100%); animation: auroraFlow 8s ease-in-out infinite reverse; } .a3 { background: linear-gradient(0deg, #2dd4bf 0%, transparent 100%); animation: auroraFlow 8s ease-in-out infinite; animation-delay: -4s; } @keyframes auroraFlow { 0%, 100% { opacity: 0.5; transform: translateY(0) skewY(0deg); } 50% { opacity: 0.8; transform: translateY(-20px) skewY(-5deg); } }",
-        html: "<div class='background'><div class='aurora a1'></div><div class='aurora a2'></div><div class='aurora a3'></div></div>"
-      }
-    }
+        html: "<div class='background'><div class='aurora a1'></div><div class='aurora a2'></div><div class='aurora a3'></div></div>",
+      },
+    },
   },
 ]
