@@ -142,7 +142,7 @@ const CreateBioPage = () => {
                 transformOrigin: language === "ar" ? "top left" : "top right",
               }}>
               <ScrollArea
-                h={870}
+                // h={870}
                 miw={380}
                 style={{
                   // borderRadius: "2.9rem",
