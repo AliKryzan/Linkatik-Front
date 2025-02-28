@@ -294,7 +294,7 @@ export const themes = [
     },
   },
   {
-    id: 18,
+    id: 15,
     name: "Gradient Flow",
     image: "https://back-dev-project.linkatik.com/storage/550/rotate-group.svg",
     settings: {
@@ -310,7 +310,7 @@ export const themes = [
     }
   },
   {
-    id: 19,
+    id: 16,
     name: "Neon Pulse",
     image: "https://back-dev-project.linkatik.com/storage/551/rotate-group.svg",
     settings: {
@@ -326,7 +326,7 @@ export const themes = [
     }
   },
   {
-    id: 20,
+    id: 17,
     name: "Geometric Waves",
     image: "https://back-dev-project.linkatik.com/storage/552/rotate-group.svg",
     settings: {
@@ -342,7 +342,7 @@ export const themes = [
     }
   },
   {
-    id: 21,
+    id: 18,
     name: "Particle Network",
     image: "https://back-dev-project.linkatik.com/storage/553/rotate-group.svg",
     settings: {
@@ -358,7 +358,7 @@ export const themes = [
     }
   },
   {
-    id: 22,
+    id: 19,
     name: "Aurora Borealis",
     image: "https://back-dev-project.linkatik.com/storage/554/rotate-group.svg",
     settings: {

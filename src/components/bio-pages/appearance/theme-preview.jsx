@@ -34,7 +34,7 @@ export const ThemePreview = ({ theme, style }) => {
         value={theme.id + ""}
         key={theme.id + theme.name}>
         <Radio.Indicator className="indicator" />
-        <RenderBackground encapsulated={encapsulated} />
+        <RenderBackground encapsulated={encapsulated} style={{ height: '100%' }} />
         <Stack
           justify="center"
           align="center"
