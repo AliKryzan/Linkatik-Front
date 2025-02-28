@@ -8,7 +8,7 @@ import { ActionIcon, Box, Button, Group, Image, Modal, Stack, Text, Title } from
 import { useDisclosure } from "@mantine/hooks"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { Bell, Loader2, Share } from "lucide-react"
+import { Bell, Loader2, LoaderCircle, Share } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 import { useLocation, useParams } from "react-router-dom"
@@ -123,16 +123,15 @@ const Preview = ({ isStandAlonePage = false }) => {
   // }, [])
   return (
     <div
-      className={`${isStandAlonePage ? "flex min-h-dvh items-center justify-center" : ""}`}>
+      className={`${isStandAlonePage ? "flex min-h-dvh items-center justify-center" : ""} flex min-h-dvh items-center justify-center`}>
       <Stack
         style={{
           position: "relative",
           zIndex: 1,
           // height: isPreview ? "unset" : undefined,
-          borderRadius: "2.9rem !important",
           overflow: "hidden",
         }}
-        className="preview-page bio-page-preview !z-10 !h-[670px] border-[6px] border-[#ebebeb] !m-7 !max-w-80 rounded-[3rem] shadow-[0_121px_49px_rgba(0,0,0,0.02),0_18px_41px_rgba(0,0,0,0.08),0_30px_30px_rgba(0,0,0,0.14),0_8px_17px_rgba(0,0,0,0.16)]"
+        className="preview-page bio-page-preview !z-10 !h-[630px] lg:!h-[730px] border-[6px] border-[#ebebeb] !m-7 !max-w-80 lg:!max-w-90 rounded-[3rem] shadow-[0_121px_49px_rgba(0,0,0,0.02),0_18px_41px_rgba(0,0,0,0.08),0_30px_30px_rgba(0,0,0,0.14),0_8px_17px_rgba(0,0,0,0.16)]"
         gap={"xl"}
         justify="space-between"
         p={"md"}
@@ -148,14 +147,14 @@ const Preview = ({ isStandAlonePage = false }) => {
         />
         {/* <div className="fixed top-7 right-[30%] h-9 w-36 rounded-full bg-gray-950"></div> */}
         {(isUpdatingAppearance || isFetching) && (
-          <Group className="preview-loader-indicator">
-            <Loader2 size={18} className="spinner" color="gray" />
+          <Group className="preview-loader-indicator !mt-5">
+            <LoaderCircle size={18} className="animate-spin" />
             loading
           </Group>
         )}
 
-        <Stack gap={"lg"} className="overflow-y-auto !pb-5">
-          <Group justify="space-between">
+        <div gap={"lg"} className="overflow-y-auto flex flex-col items-center gap-y-5">
+          <Group justify="space-between" className="!self-start">
             <ActionIcon
               size={"lg"}
               variant="white"
@@ -207,7 +206,7 @@ const Preview = ({ isStandAlonePage = false }) => {
             </Box>
           </div>
 
-          <Stack gap={"xl"} w={"100%"} maw={"360px"} mx={"auto"}>
+          <div className="overflow-y-auto flex flex-col items-center gap-y-7 max-w-full">
             {data?.data?.blocks?.map((block) => {
               return (
                 <>
@@ -220,8 +219,8 @@ const Preview = ({ isStandAlonePage = false }) => {
                 </>
               )
             })}
-          </Stack>
-        </Stack>
+          </div>
+        </div>
         {data.data.settings?.hide_logo ? null : (
           <Group justify="center" mt={"lg"}>
             <img src={logo} alt="linkatik" />

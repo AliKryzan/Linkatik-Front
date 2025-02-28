@@ -142,10 +142,10 @@ const CreateBioPage = () => {
                 transformOrigin: language === "ar" ? "top left" : "top right",
               }}>
               <ScrollArea
-                h={770}
+                h={870}
                 miw={380}
                 style={{
-                  borderRadius: "2.9rem",
+                  // borderRadius: "2.9rem",
                   backgroundColor: "transparent",
                   // boxShadow: `0 0 12px ${colorScheme == "dark" ? "#121212d1" : "#ccc"}`,
                 }}>
@@ -166,7 +166,7 @@ const CreateBioPage = () => {
             <Box className="absolute top-7 left-[13%] z-10">
               <Modal.CloseButton color="black" className="!bg-red-500/20 text-white" />
             </Box>
-            <Modal.Body>
+            <Modal.Body className="!flex !items-center !justify-center">
               <Preview />
             </Modal.Body>
           </Modal.Content>
