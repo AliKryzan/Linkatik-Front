@@ -1,4 +1,6 @@
 import { useState } from "react"
+import Error from "../../common/error"
+import Loader from "../../common/loader"
 import { PutUpdateBioPage } from "@/services/utils"
 import { Group, Radio, Stack, Text } from "@mantine/core"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
@@ -6,18 +8,16 @@ import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 
-import Error from "../../common/error"
-import Loader from "../../common/loader"
 import CreateCustomTheme from "./create-custom-theme"
 import { ThemePreview } from "./theme-preview"
+import { themes } from "@/constants"
 
-const Themes = ({ bioPageThemesQuery, data }) => {
+const Themes = ({ data }) => {
   console.log("Themes data --------------------------------------------")
   console.log(data)
   const { bioImage, image_type } = useSelector((state) => state.GeneralSlice)
 
   const { t } = useTranslation()
-  const { status, data: themes } = bioPageThemesQuery
   const [value, setValue] = useState(!!data?.is_custom_theme ? "custom" : data.bio_page_theme.id + "")
   const [img, setImg] = useState(data.image)
 
@@ -49,7 +49,7 @@ const Themes = ({ bioPageThemesQuery, data }) => {
             setValue(value)
             mutate({ value: value })
           }}>
-          <div className="xs:grid-cols-3 smd:grid-cols-3 grid grid-cols-2 gap-y-3 sm:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
+          <div className="xs:grid-cols-3 smd:grid-cols-3 3xl:grid-cols-6 grid grid-cols-2 gap-y-3 sm:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5">
             <Stack>
               <Radio.Card className="theme-preview" radius="md" value={"custom"}>
                 <Radio.Indicator className="indicator" />
@@ -59,7 +59,7 @@ const Themes = ({ bioPageThemesQuery, data }) => {
                 {t("bioPages.appearance.themes.createYourTheme")}
               </Text>
             </Stack>
-            {themes.data.map((theme, index) => (
+            {themes.map((theme, index) => (
               <ThemePreview key={index} theme={theme} />
             ))}
           </div>

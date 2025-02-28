@@ -16,17 +16,17 @@ const Appearance = () => {
     queryFn: () => GetBioPageInfo(id),
   })
 
-  const bioPageThemesQuery = useQuery({
-    queryKey: ["bio-page-themes"],
-    queryFn: GetBioPageThemes,
-  })
+  // const bioPageThemesQuery = useQuery({
+  //   queryKey: ["bio-page-themes"],
+  //   queryFn: GetBioPageThemes,
+  // })
   if (status === "pending") return <Loader />
   if (status === "error") return <Error />
   return (
     <Stack gap={"xl"} >
       <ProfileForm data={data.data} />
       <Space />
-      <Themes bioPageThemesQuery={bioPageThemesQuery} data={data.data} />
+      <Themes data={data.data} />
     </Stack>
   )
 }

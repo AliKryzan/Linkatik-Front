@@ -80,7 +80,6 @@ export const ThemePreview = ({ theme, style }) => {
               className="link-preview default"
               component="div">
               <div className="button-inner">
-                {" "}
                 <Box w={32} h={32}></Box>
                 <Text lineClamp={1}></Text>
                 <span></span>
