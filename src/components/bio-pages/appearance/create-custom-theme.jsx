@@ -23,7 +23,7 @@ const CreateCustomTheme = ({ data }) => {
     defaultValues: {
       bio_page: {
         background_type: "preset",
-        background_color: "#ffffff",
+        background_color: "#0F0F45CC",
         background_image: "linear-gradient(0deg, rgba(96,93,93,1) 0%, rgba(255,255,255,1) 100%)",
         image: "",
       },
@@ -99,7 +99,7 @@ const CreateCustomTheme = ({ data }) => {
               ? "image"
               : "gradient"
             : "preset",
-          background_color: backgroundColorMatch ? backgroundColorMatch[1] : "#ffffff",
+          background_color: backgroundColorMatch ? backgroundColorMatch[1] : "#0F0F45CC",
           background_image: backgroundImageMatch
             ? backgroundImageMatch[1]
             : "linear-gradient(0deg, #CCC6F4 0%, #000F43 100%)",
