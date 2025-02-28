@@ -49,7 +49,7 @@ const Themes = ({ bioPageThemesQuery, data }) => {
             setValue(value)
             mutate({ value: value })
           }}>
-          <div className="xs:grid-cols-3 smd:grid-cols-3 grid grid-cols-2 gap-y-3 sm:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6">
+          <div className="xs:grid-cols-3 smd:grid-cols-3 grid grid-cols-2 gap-y-3 sm:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
             <Stack>
               <Radio.Card className="theme-preview" radius="md" value={"custom"}>
                 <Radio.Indicator className="indicator" />
