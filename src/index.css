@@ -32,6 +32,6 @@
   border-radius: 10px;
 }
 
-.hide-scroll-bar::-webkit-scrollbar {
+.hide-scrollbar::-webkit-scrollbar {
   width: 0px !important;
 }
