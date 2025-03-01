@@ -205,8 +205,8 @@ const Preview = ({ isStandAlonePage = false }) => {
               </Text>
             </Box>
           </div>
-
-          <Stack gap={"xl"} w={"100%"} maw={"360px"} mx={"auto"}>
+<div className="ms-2.5" >
+          <Stack gap={"xl"} w={"100%"} >
             {data?.data?.blocks?.map((block) => {
               return (
                 <>
@@ -219,7 +219,7 @@ const Preview = ({ isStandAlonePage = false }) => {
                 </>
               )
             })}
-          </Stack>
+          </Stack></div>
         </Stack>
         {data.data.settings?.hide_logo ? null : (
           <Group justify="center" mt={"lg"}>
