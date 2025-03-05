@@ -32,6 +32,7 @@ import Loader from "@/components/common/loader"
 
 import ProtectedRoute from "./protected-routes"
 import RouterErrorBoundary from "./RouterErrorBoundary"
+import SubscriptionExpired from "@/pages/subscription-expired"
 
 export const MyRouter = createBrowserRouter([
   {
@@ -81,6 +82,10 @@ export const MyRouter = createBrowserRouter([
           </ProtectedRoute>
         ),
         children: [
+          {
+            path: "subscription-expired",
+            element: <SubscriptionExpired />,
+          },
           {
             path: "dashboard?",
             element: <Dashboard />,

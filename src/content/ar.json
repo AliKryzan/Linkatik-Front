@@ -21,6 +21,13 @@
   "Notifications": "الاشعارات",
   "No notifications": "لا يوجد اشعارات",
   "Time to share with the world": "حان الوقت لتشاركه مع العالم",
+  "subscription": {
+    "expired": {
+      "title": "انتهت صلاحية اشتراكك",
+      "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
+      "renew": "تجديد الاشتراك"
+    }
+  },
   "general": {
     "share": "شارك لينكاتك",
     "continueEditing": "اكمل التعديل",
@@ -254,7 +261,14 @@
       "deleteButton": "حذف"
     },
     "table": {
-      "general": {
+      "subscription": {
+    "expired": {
+      "title": "انتهت صلاحية اشتراكك",
+      "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
+      "renew": "تجديد الاشتراك"
+    }
+  },
+  "general": {
         "buttons": "ازرار",
         "blocks": "بلوكات"
       },
@@ -469,7 +483,14 @@
     "crop": "حفظ"
   },
   "bioBlocks": {
-    "general": {
+    "subscription": {
+    "expired": {
+      "title": "انتهت صلاحية اشتراكك",
+      "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
+      "renew": "تجديد الاشتراك"
+    }
+  },
+  "general": {
       "choose": "اختر",
       "generalTitle": "شارك محتواك",
       "generalDescription": "قم بمشاركة المحتوى الخاص بك مباشرة الى لينكاتك",
@@ -855,7 +876,14 @@
       }
     },
 
-    "general": {
+    "subscription": {
+    "expired": {
+      "title": "انتهت صلاحية اشتراكك",
+      "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
+      "renew": "تجديد الاشتراك"
+    }
+  },
+  "general": {
       "membership": "عضوية",
       "membershipDescription": "قريبا",
       "single_payment": "دفع مرة واحدة",
@@ -883,7 +911,14 @@
         "revenue": "العائد",
         "filter": "نوع السعر"
       },
-      "general": {
+      "subscription": {
+    "expired": {
+      "title": "انتهت صلاحية اشتراكك",
+      "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
+      "renew": "تجديد الاشتراك"
+    }
+  },
+  "general": {
         "membership": "عضوية",
         "single_payment": "دفع مرة واحدة",
         "pay_what_you_want": "دفع كما تريد",

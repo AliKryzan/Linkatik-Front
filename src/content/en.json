@@ -19,6 +19,13 @@
     "tryAgain": "Retry",
     "goHome": "Back to Home"
   },
+  "subscription": {
+    "expired": {
+      "title": "Your Subscription Has Expired",
+      "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
+      "renew": "Renew Subscription"
+    }
+  },
   "general": {
     "copied":"Copied",
     "share":"Share your Linkatik",
@@ -246,7 +253,14 @@
       "deleteButton": "delete"
     },
     "table": {
-      "general": {
+      "subscription": {
+    "expired": {
+      "title": "Your Subscription Has Expired",
+      "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
+      "renew": "Renew Subscription"
+    }
+  },
+  "general": {
         "buttons": "buttons",
         "blocks": "Blocks"
       },
@@ -462,7 +476,14 @@
     "crop": "save"
   },
   "bioBlocks": {
-    "general": {
+    "subscription": {
+    "expired": {
+      "title": "Your Subscription Has Expired",
+      "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
+      "renew": "Renew Subscription"
+    }
+  },
+  "general": {
       "choose": "Select",
       "generalTitle": "Share your content",
       "generalDescription": "Share your content directly to your Links",
@@ -846,7 +867,14 @@
         "invalidResponse": "A mistake in contacting the server"
       }
     },
-    "general": {
+    "subscription": {
+    "expired": {
+      "title": "Your Subscription Has Expired",
+      "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
+      "renew": "Renew Subscription"
+    }
+  },
+  "general": {
       "membership": "membership",
       "membershipDescription": "almost",
       "single_payment": "Once",
@@ -873,7 +901,14 @@
         "revenue": "Revenue",
         "filter": "Price type"
       },
-      "general": {
+      "subscription": {
+    "expired": {
+      "title": "Your Subscription Has Expired",
+      "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
+      "renew": "Renew Subscription"
+    }
+  },
+  "general": {
         "membership": "membership",
         "single_payment": "Once",
         "pay_what_you_want": "Pay as you want",

@@ -205,21 +205,22 @@ const Preview = ({ isStandAlonePage = false }) => {
               </Text>
             </Box>
           </div>
-<div className="ms-2.5" >
-          <Stack gap={"xl"} w={"100%"} >
-            {data?.data?.blocks?.map((block) => {
-              return (
-                <>
-                  <BlockPreviewWrapper
-                    theme={appearanceData?.appearance?.bio_link}
-                    pageId={data.data.id}
-                    key={block.id}
-                    block={block}
-                  />
-                </>
-              )
-            })}
-          </Stack></div>
+          <div className="ms-2.5">
+            <Stack gap={"xl"} w={"100%"}>
+              {data?.data?.blocks?.map((block) => {
+                return (
+                  <>
+                    <BlockPreviewWrapper
+                      theme={appearanceData?.appearance?.bio_link}
+                      pageId={data.data.id}
+                      key={block.id}
+                      block={block}
+                    />
+                  </>
+                )
+              })}
+            </Stack>
+          </div>
         </Stack>
         {data.data.settings?.hide_logo ? null : (
           <Group justify="center" mt={"lg"}>

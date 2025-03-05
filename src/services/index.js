@@ -56,6 +56,9 @@ AuthLinkatikApi.interceptors.response.use(
       window.localStorage.removeItem(LOCALSTORAGE_KEY)
       window.location = "/"
     }
+    if (error.response?.status === 403 && error.response?.data?.message === "خطة الاشتراك الخاصة بك قد انتهت") {
+      window.location = "/user/subscription-expired"
+    }
     return Promise.reject(error)
   },
 )
