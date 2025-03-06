@@ -1,15 +1,18 @@
 import { DevTool } from "@hookform/devtools"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button, Stack, Text, TextInput, Title } from "@mantine/core"
+import { ArrowLeft } from "lucide-react"
 import { Controller, useForm } from "react-hook-form"
 import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 import { z } from "zod"
 
 import { LinkatikApi } from "@/services"
+import { useNavigate } from "react-router-dom"
 
 const ForgotPassword = () => {
   const { t } = useTranslation()
+  const navigate = useNavigate()
 
   // manage form state
   const { handleSubmit, control, formState, setError, reset } = useForm({
@@ -36,6 +39,16 @@ const ForgotPassword = () => {
 
   return (
     <Stack component={"form"} noValidate onSubmit={onSubmit} w={500} gap={"xl"} py={"xl"}>
+      <Button
+        onClick={() => navigate(-1)}
+        variant="subtle"
+        leftSection={<ArrowLeft size={16} />}
+        justify="flex-start"
+        px={0}
+        w="fit-content"
+      >
+        {t("general.back")}
+      </Button>
       <div>
         <Title fs={"sm"}>{t("forgotPassword.title")}</Title>
         <Text size="sm" fw={400} mt={9}>

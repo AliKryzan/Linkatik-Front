@@ -6,7 +6,7 @@
       "403": "Forbidden",
       "default": "Oops! Something went wrong"
     },
-   "Time to share with the world": "Time to share with the world",
+    "Time to share with the world": "Time to share with the world",
     "description": {
       "404": "The page you are looking for does not exist or has been moved",
       "401": "Please log in to access this page",
@@ -27,9 +27,10 @@
     }
   },
   "general": {
-    "copied":"Copied",
-    "share":"Share your Linkatik",
-    "continueEditing":"Continue editing",
+    "back": "Back",
+    "copied": "Copied",
+    "share": "Share your Linkatik",
+    "continueEditing": "Continue editing",
     "linkatikReady": "Your Linkatik page is ready!",
     "profile": "The profile",
     "payouts": "Sales",
@@ -70,6 +71,9 @@
       "short": "Password is very short",
       "long": "The password is very long",
       "required": "This field is required",
+      "invalidUsername": "Username may contain letters, numbers, or - or _",
+      "usernameNoSpaces": "Username cannot contain spaces",
+      "usernameOnlyAllowed": "Username can only contain letters, numbers, underscores, and hyphens",
       "invalidLogin": "Email or password is incorrect",
       "invalidResponse": "A mistake in contacting the server"
     }
@@ -91,6 +95,8 @@
       "long": "The password is very long",
       "required": "This field is required",
       "invalidUsername": "Username may contain letters, numbers, or - or _",
+      "usernameNoSpaces": "Username cannot contain spaces",
+      "usernameOnlyAllowed": "Username can only contain letters, numbers, hyphens (-) and underscores (_)",
       "invalidResponse": "A mistake in contacting the server"
     }
   },
@@ -269,13 +275,13 @@
     },
     "table": {
       "subscription": {
-    "expired": {
-      "title": "Your Subscription Has Expired",
-      "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
-      "renew": "Renew Subscription"
-    }
-  },
-  "general": {
+        "expired": {
+          "title": "Your Subscription Has Expired",
+          "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
+          "renew": "Renew Subscription"
+        }
+      },
+      "general": {
         "buttons": "buttons",
         "blocks": "Blocks"
       },
@@ -422,7 +428,6 @@
         "button": "save"
       },
       "themes": {
-        
         "title": "Appearance",
         "createYourTheme": "Create your appearance",
         "background": "Background",
@@ -492,14 +497,15 @@
   },
   "bioBlocks": {
     "subscription": {
-    "expired": {
-      "title": "Your Subscription Has Expired",
-      "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
-      "renew": "Renew Subscription"
-    }
-  },
-  "general": {
+      "expired": {
+        "title": "Your Subscription Has Expired",
+        "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
+        "renew": "Renew Subscription"
+      }
+    },
+    "general": {
       "choose": "Select",
+
       "generalTitle": "Share your content",
       "generalDescription": "Share your content directly to your Links",
       "commercialTitle": "commerce",
@@ -883,13 +889,13 @@
       }
     },
     "subscription": {
-    "expired": {
-      "title": "Your Subscription Has Expired",
-      "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
-      "renew": "Renew Subscription"
-    }
-  },
-  "general": {
+      "expired": {
+        "title": "Your Subscription Has Expired",
+        "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
+        "renew": "Renew Subscription"
+      }
+    },
+    "general": {
       "membership": "membership",
       "membershipDescription": "almost",
       "single_payment": "Once",
@@ -917,13 +923,13 @@
         "filter": "Price type"
       },
       "subscription": {
-    "expired": {
-      "title": "Your Subscription Has Expired",
-      "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
-      "renew": "Renew Subscription"
-    }
-  },
-  "general": {
+        "expired": {
+          "title": "Your Subscription Has Expired",
+          "description": "It seems your subscription plan has expired. To continue using our services, please renew your subscription.",
+          "renew": "Renew Subscription"
+        }
+      },
+      "general": {
         "membership": "membership",
         "single_payment": "Once",
         "pay_what_you_want": "Pay as you want",

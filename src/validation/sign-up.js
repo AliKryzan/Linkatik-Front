@@ -17,7 +17,14 @@ export const signUpSchema = z.object({
     .string({ required_error: "required" })
     .trim()
     .min(1, { message: "required" })
-    .regex(/^[a-zA-Z0-9_-]*$/, { message: "invalidUsername" }),
+    .refine(
+      (value) => !/\s/.test(value),
+      { message: "usernameNoSpaces" }
+    )
+    .refine(
+      (value) => /^[a-zA-Z0-9_-]*$/.test(value),
+      { message: "usernameOnlyAllowed" }
+    ),
   email: z
     .string({ required_error: "required" })
     .trim()
