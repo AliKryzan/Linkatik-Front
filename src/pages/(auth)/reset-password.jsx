@@ -21,12 +21,15 @@ const ResetPassword = () => {
       navigate("/login")
       return
     }
-console.log(token);
     // Fetch user data using token
     const fetchUserData = async () => {
       try {
-        const user = GetUser({ token })
-        setUserEmail(user?.email)
+        const { data } = await LinkatikApi.get("/user/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        setUserEmail(data?.data?.email)
       } catch (error) {
         toast.error(t("general.error"))
         navigate("/login")
@@ -34,7 +37,7 @@ console.log(token);
     }
 
     fetchUserData()
-  }, [token, navigate, t])
+  }, [token, navigate])
 
   const {
     register,
@@ -44,7 +47,7 @@ console.log(token);
   } = useForm()
 
   const { mutate, isPending } = useMutation({
-    mutationFn: (data) => ResetPasswordService({ ...data, token }),
+    mutationFn: (data) => ResetPasswordService({ ...data, token, email: userEmail }),
     onSuccess: () => {
       toast.success(t("auth.resetPassword.success"))
       navigate("/login")
@@ -55,7 +58,9 @@ console.log(token);
   })
 
   const onSubmit = (data) => {
-    mutate(data)
+    if (userEmail) {
+      mutate(data)
+    }
   }
 
   return (
