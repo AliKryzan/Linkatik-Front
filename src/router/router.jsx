@@ -33,6 +33,7 @@ import Loader from "@/components/common/loader"
 import ProtectedRoute from "./protected-routes"
 import RouterErrorBoundary from "./RouterErrorBoundary"
 import SubscriptionExpired from "@/pages/subscription-expired"
+import ResetPassword from "@/pages/(auth)/reset-password"
 
 export const MyRouter = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ export const MyRouter = createBrowserRouter([
           {
             path: "payment",
             element: <ThankYou />,
+          },
+          {
+            path: "reset-password",
+            element: <ResetPassword />,
           },
         ],
       },

@@ -397,3 +397,8 @@ export const GetOrders = async (params) => {
 
   return (await response).data
 }
+
+export const ResetPasswordService = async (data) => {
+  const response = await LinkatikApi.post("/user/reset-password", data)
+  return response.data
+}
