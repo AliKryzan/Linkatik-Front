@@ -11,7 +11,7 @@ import axios from "axios"
 import { Bell, Loader2, LoaderCircle, Share } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
-import { useLocation, useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 
 import Loader from "@/components/common/loader"
 import RenderBackground from "@/components/common/render-background"
