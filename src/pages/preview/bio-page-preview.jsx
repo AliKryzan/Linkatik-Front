@@ -23,13 +23,13 @@ const Error = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-gray-50 to-white">
       <Container className="px-4">
         <Stack className="max-w-md mx-auto text-center space-y-8">
           <div className="space-y-6">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-purple-800/30 blur-2xl rounded-full transform -translate-y-4" />
-              <div className="relative bg-white dark:bg-gray-800 rounded-full p-6 shadow-xl inline-block">
+              <div className="relative bg-white rounded-full p-6 shadow-xl inline-block">
                 <svg
                   className="h-20 w-20 text-purple-600 dark:text-purple-400"
                   xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ const Error = () => {
               <Title className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent dark:from-purple-400 dark:to-purple-600">
                 {t("errors.noAccountTitle", "Account Not Found")}
               </Title>
-              <Text className="text-gray-600 dark:text-gray-300 text-lg">
+              <Text className="text-gray-600 text-lg">
                 {t("errors.noAccountDescription", "The account you're looking for doesn't exist or has been removed.")}
               </Text>
             </div>
@@ -61,7 +61,7 @@ const Error = () => {
               variant="light"
               radius="xl"
               size="lg"
-              className="hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all shadow-sm hover:shadow-md"
+              className="hover:bg-purple-50  transition-all shadow-sm hover:shadow-md"
             >
               {t("general.goBack", "Go Back")}
             </Button>
@@ -212,7 +212,7 @@ const Preview = ({ isStandAlonePage = false }) => {
         {(isUpdatingAppearance || isFetching) && (
           <Group className="preview-loader-indicator">
             <LoaderCircle size={18} className="animate-spin" />
-            loading
+            Loading...
           </Group>
         )}
 
