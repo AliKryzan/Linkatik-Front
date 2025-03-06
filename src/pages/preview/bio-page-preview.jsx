@@ -13,14 +13,77 @@ import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 import { useLocation, useParams } from "react-router-dom"
 
-import Error from "@/components/common/error"
 import Loader from "@/components/common/loader"
 import RenderBackground from "@/components/common/render-background"
 import SubscribeForm from "@/components/common/subscribe-form"
 import BlockPreviewWrapper from "@/components/preview/link/block-preview-wrapper"
 
+const Error = () => {
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+
+  return (
+    <div className="min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <Container className="px-4">
+        <Stack className="max-w-md mx-auto text-center space-y-8">
+          <div className="space-y-6">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-purple-800/30 blur-2xl rounded-full transform -translate-y-4" />
+              <div className="relative bg-white dark:bg-gray-800 rounded-full p-6 shadow-xl inline-block">
+                <svg
+                  className="h-20 w-20 text-purple-600 dark:text-purple-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <Title className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent dark:from-purple-400 dark:to-purple-600">
+                {t("errors.noAccountTitle", "Account Not Found")}
+              </Title>
+              <Text className="text-gray-600 dark:text-gray-300 text-lg">
+                {t("errors.noAccountDescription", "The account you're looking for doesn't exist or has been removed.")}
+              </Text>
+            </div>
+          </div>
+          <div className="flex justify-center gap-4">
+            <Button
+              onClick={() => navigate(-1)}
+              variant="light"
+              radius="xl"
+              size="lg"
+              className="hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all shadow-sm hover:shadow-md"
+            >
+              {t("general.goBack", "Go Back")}
+            </Button>
+            <Button
+              onClick={() => navigate("/")}
+              radius="xl"
+              size="lg"
+              className="bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5"
+            >
+              {t("general.goHome", "Go Home")}
+            </Button>
+          </div>
+        </Stack>
+      </Container>
+    </div>
+  )
+}
+
+
 const Preview = ({ isStandAlonePage = false }) => {
   const dispatch = useDispatch()
+  const { bioImage, image_type, uploadedImage } = useSelector((state) => state.GeneralSlice)
   const { path } = useParams()
   const { data, status, isFetching } = useQuery({
     queryKey: ["bio-page-preview", path],
@@ -193,7 +256,7 @@ const Preview = ({ isStandAlonePage = false }) => {
                 radius={"50%"}
                 fallbackSrc={imagePlaceholder}
                 className={data?.data.image_type === "avatar" ? "rounded-full !border border-[#707070]" : ""}
-                src={data?.data.image}
+                src={data?.data.image_type === "avatar"? bioImage?.image : data?.data.image}
               />
             </div>
             <Box mt="lg">

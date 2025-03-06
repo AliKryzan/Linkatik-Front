@@ -208,7 +208,7 @@ const CreateBioPageForm = () => {
         </Button>
         {formState.errors.root?.message && (
           <Text c={"red"} size="xs" ta={"center"}>
-            {formState.errors.root.message}
+            {formState.errors.root.message === "تم أخذ path بالفعل." ? t("bioPages.createPage.pathTaken") :formState.errors.root.message}
           </Text>
         )}
       </Stack>

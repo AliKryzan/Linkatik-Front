@@ -299,6 +299,7 @@
       "title_1": "the address",
       "preview": "Show a preview",
       "createButton": "Create a page",
+      "pathTaken": "There is another route for the page with the same name.",
       "ChooseFromPhotoLibrary": "Choose from the photo library",
       "FromOurLibrary": "From our library",
       "UploadYourPhoto": "Raise your photo",

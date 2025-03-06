@@ -83,7 +83,7 @@
     "usernameInput": "اسم المستخدم",
     "emailInput": "إيميلك",
     "passwordInput": "كلمة المرور",
-    "signUpButton": "انشأ حساب",
+    "signUpButton": "أنشئ حساب",
     "loginButton": "سجل دخول",
     "haveAccount": "لديك حساب؟",
     "warning": "باضغط على انشاء حساب انت توافق على <Link to=\"to\">الشروط والاحكام</Link> وتأكد انك قراءت <PrivacyPolicyLink to=\"to\">سياسة الخصوصية</PrivacyPolicyLink> الخاصة بمنصة لنكاتك. ربما تتلقى عروض والاخبار والتحديثات مننا.",
@@ -302,7 +302,7 @@
       "des": "الوصف",
       "title_1": "العنوان",
       "preview": "عرض معاينة",
-      "createButton": "انشأ الصفحة",
+      "createButton": "أنشئ الصفحة",
       "ChooseFromPhotoLibrary": "اختيار من مكتبة الصور",
       "FromOurLibrary": "من مكتبتنا",
       "UploadYourPhoto": "رفع الصورة الخاصة بك",
@@ -312,6 +312,7 @@
         "description": "يمكنك ترك الحقل فارغ ليتم انشاء مسار عشوائي",
         "leftSection": "https://linkatik.com/"
       },
+      "pathTaken": "يوجد مسار آخر للصفحة بنفس الاسم",
       "segments": {
         "links": "روابط",
         "appearance": "المظهر",
@@ -433,7 +434,7 @@
       },
       "themes": {
         "title": "المظهر",
-        "createYourTheme": "انشأ المظهر الخاص بك",
+        "createYourTheme": "أنشئ المظهر الخاص بك",
         "background": "الخلفية",
         "color": "اللون",
         "size": "الحجم",

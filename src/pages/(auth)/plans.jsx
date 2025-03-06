@@ -16,7 +16,6 @@ const Plans = () => {
     queryFn: () => GetPlans(),
     refetchInterval: Infinity,
   })
-
   if (status === "pending") return <Loader />
   if (status === "error") return <Error />
   if (status === "success" && !data.data) return <Error />
