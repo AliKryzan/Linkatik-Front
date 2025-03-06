@@ -23,7 +23,7 @@ const Error = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-dvh flex items-center justify-center bg-gradient-to-b from-gray-50 to-white">
       <Container className="px-4">
         <Stack className="max-w-md mx-auto text-center space-y-8">
           <div className="space-y-6">
