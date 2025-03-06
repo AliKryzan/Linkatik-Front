@@ -121,6 +121,21 @@
       "invalidResponse": "A mistake in contacting the server"
     }
   },
+  "auth": {
+    "resetPassword": {
+      "title": "Reset Password",
+      "newPassword": "New Password",
+      "newPasswordPlaceholder": "Enter your new password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your new password",
+      "submit": "Reset Password",
+      "success": "Password has been reset successfully",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 8 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordMismatch": "Passwords do not match"
+    }
+  },
   "plans": {
     "title": "Find the right plan for you",
     "description": "You can change the plan later",

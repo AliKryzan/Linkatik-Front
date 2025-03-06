@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { ResetPasswordService } from "@/services/utils"
+import { LinkatikApi } from "@/services"
+import { GetUser, ResetPasswordService } from "@/services/utils"
 import { Box, Button, Group, PasswordInput, Stack, Text } from "@mantine/core"
 import { useMutation } from "@tanstack/react-query"
 import { useForm } from "react-hook-form"
@@ -11,13 +12,29 @@ const ResetPassword = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  const token = searchParams.get("token")
+  const encodedToken = searchParams.get("token")
+  const token = encodedToken ? atob(encodedToken) : null
+  const [userEmail, setUserEmail] = useState("")
 
   useEffect(() => {
     if (!token) {
       navigate("/login")
+      return
     }
-  }, [token, navigate])
+console.log(token);
+    // Fetch user data using token
+    const fetchUserData = async () => {
+      try {
+        const user = GetUser({ token })
+        setUserEmail(user?.email)
+      } catch (error) {
+        toast.error(t("general.error"))
+        navigate("/login")
+      }
+    }
+
+    fetchUserData()
+  }, [token, navigate, t])
 
   const {
     register,
@@ -42,12 +59,12 @@ const ResetPassword = () => {
   }
 
   return (
-    <Box maw={400} mx="auto">
+    <Stack w={500} gap={"xl"} py={"xl"}>
       <Text size="xl" fw={500} mb="xl" ta="center">
         {t("auth.resetPassword.title")}
       </Text>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form noValidate onSubmit={handleSubmit(onSubmit)}>
         <Stack>
           <PasswordInput
             label={t("auth.resetPassword.newPassword")}
@@ -79,7 +96,7 @@ const ResetPassword = () => {
           </Group>
         </Stack>
       </form>
-    </Box>
+    </Stack>
   )
 }
 
