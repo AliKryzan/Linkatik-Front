@@ -87,15 +87,15 @@ const ResetPassword = () => {
           <PasswordInput
             label={t("auth.resetPassword.confirmPassword")}
             placeholder={t("auth.resetPassword.confirmPasswordPlaceholder")}
-            {...register("confirmPassword", {
+            {...register("password_confirmation", {
               required: t("auth.resetPassword.confirmPasswordRequired"),
               validate: (value) => value === watch("password") || t("auth.resetPassword.passwordMismatch"),
             })}
-            error={errors.confirmPassword?.message}
+            error={errors.password_confirmation?.message}
           />
 
           <Group justify="flex-end" mt="md">
-            <Button type="submit" loading={isPending}>
+            <Button type="submit" disabled={!userEmail} loading={isPending}>
               {t("auth.resetPassword.submit")}
             </Button>
           </Group>
