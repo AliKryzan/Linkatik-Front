@@ -9,8 +9,11 @@ import SocialLoginButton from "@/components/ui/social-login-button"
 import { Link } from "@/lib/i18n/navigation"
 import { setFormData, setStep } from "@/store/sign-up/sign-up-slice"
 import { signUpSchema } from "@/validation/sign-up"
+import { useState } from "react"
+import { Eye, EyeOff, Lock } from "lucide-react"
 
 const FirstStep = () => {
+  const [showPassword, setShowPassword] = useState(false)
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const { formData, errorMessage } = useSelector((state) => state.signUp)
@@ -70,11 +73,27 @@ const FirstStep = () => {
           render={({ field }) => (
             <TextInput
               variant="filled"
+              
               error={
                 formState.errors.password?.message && t(`signUp.errors.${formState.errors.password?.message}`)
               }
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder={t("signUp.passwordInput")}
+              leftSection={<Lock size={18} />}
+              rightSection={
+                <button
+                  style={{
+                    cursor: "pinter !important",
+                  }}
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? (
+                    <Eye className="!cursor-pinter" size={18} />
+                  ) : (
+                    <EyeOff className="!cursor-pinter" size={18} />
+                  )}
+                </button>
+              }
               {...field}
             />
           )}
