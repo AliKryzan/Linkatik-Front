@@ -125,8 +125,8 @@ const ProfileForm = ({ data }) => {
                 h={120}
                 radius={"50%"}
                 fallbackSrc={imagePlaceholder}
-                src={image_type === "avatar" ? bioImage.image : watch("image")}
-                // src={watch('image')}
+                // src={image_type === "avatar" ? bioImage.image : watch("image")}
+                src={watch('image')}
                 className={"rounded-full !border border-[#707070]"}
                 // className={data?.data.image_type === 'avatar' ? '!border border-[#707070] rounded-full':''}
               />
