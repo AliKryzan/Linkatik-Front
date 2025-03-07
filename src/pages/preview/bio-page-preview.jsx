@@ -11,7 +11,6 @@ import axios from "axios"
 import { Bell, Copy, Loader2, LoaderCircle, MessageCircle, Share, X as XIcon } from "lucide-react"
 import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
-import { FaFacebook, FaWhatsapp , FaLinkedin, FaXTwitter,FaFacebookMessenger  } from "react-icons/fa6"
 import { useDispatch, useSelector } from "react-redux"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 
@@ -19,6 +18,7 @@ import Loader from "@/components/common/loader"
 import RenderBackground from "@/components/common/render-background"
 import SubscribeForm from "@/components/common/subscribe-form"
 import BlockPreviewWrapper from "@/components/preview/link/block-preview-wrapper"
+import ShareModal from "./share-modal"
 
 const Error = () => {
   const { t } = useTranslation()
@@ -106,9 +106,6 @@ const Preview = ({ isStandAlonePage = false }) => {
   console.log(data, appearanceData)
   const requestSentRef = useRef(false)
 
-  // Share modal state
-  const [shareModalOpened, { open: openShareModal, close: closeShareModal }] = useDisclosure(false)
-
   useEffect(() => {
     const trackPageVisit = async () => {
       if (requestSentRef.current) return
@@ -168,49 +165,6 @@ const Preview = ({ isStandAlonePage = false }) => {
     }
   }, [path])
 
-  // Share functionality
-  const handleCopyLink = () => {
-    const linkToCopy = `${window.location.origin}/preview/${path}`
-    navigator.clipboard
-      .writeText(linkToCopy)
-      .then(() => {
-        toast.success(t("general.copied", "Link copied to clipboard"))
-        closeShareModal()
-      })
-      .catch(() => {
-        toast.error(t("general.copyFailed", "Failed to copy link"))
-      })
-  }
-
-  const handleShareSocial = (platform) => {
-    const url = encodeURIComponent(`${window.location.origin}/preview/${path}`)
-    const title = encodeURIComponent(data?.data?.title || "Check out my Linkatik page")
-    let shareUrl = ""
-
-    switch (platform) {
-      case "facebook":
-        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`
-        break
-      case "twitter":
-        shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`
-        break
-      case "whatsapp":
-        shareUrl = `https://api.whatsapp.com/send?text=${title}%20${url}`
-        break
-      case "linkedin":
-        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`
-        break
-      case "messenger":
-        shareUrl = `https://www.facebook.com/dialog/send?link=${url}&app_id=291494419107518&redirect_uri=${url}`
-        break
-      default:
-        return
-    }
-
-    window.open(shareUrl, "_blank", "noopener,noreferrer")
-    closeShareModal()
-  }
-
   dispatch(setMain_button_color(data?.data?.appearance?.bio_link?.button_color))
   dispatch(setMain_text_color(data?.data?.appearance?.bio_link?.text_color))
   const { t } = useTranslation()
@@ -247,92 +201,6 @@ const Preview = ({ isStandAlonePage = false }) => {
         p={"md"}
         bg="">
         {/* Share Modal */}
-        <Modal.Root opened={shareModalOpened} onClose={closeShareModal} centered size="lg">
-          <Modal.Overlay blur={3} opacity={0.55} />
-          <Modal.Content className="overflow-hidden p-0" radius="lg">
-            <div className="relative bg-gradient-to-r from-purple-600 to-purple-800 p-6 text-white">
-              <Modal.CloseButton className="absolute top-3 right-3 !bg-white/20 !text-white hover:!bg-white/30" />
-              <div className="flex flex-col items-center">
-                <img
-                  src={data?.data.image_type === "avatar" ? bioImage?.image : data?.data.image}
-                  
-                  className="mb-3 size-20 sm:size-30 lg:size-40 object-cover rounded-full border-2 border-white"
-                />
-                <Text fw={600} size="lg" className="mb-1">
-                  {data?.data?.title || "My Linkatik"}
-                </Text>
-                <Text size="sm" opacity={0.9}>
-                  Share this page with your friends
-                </Text>
-              </div>
-            </div>
-
-            <div className="p-4">
-              <div className="mb-2 grid grid-cols-3 gap-4">
-                {/* Copy Link Button */}
-                <div className="flex flex-col items-center" onClick={handleCopyLink}>
-                  <div className="mb-1 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200">
-                    <Copy size={20} className="text-gray-700" />
-                  </div>
-                  <Text size="xs" align="center">
-                    Copy Link
-                  </Text>
-                </div>
-
-                {/* Twitter/X Button */}
-                <div className="flex flex-col items-center" onClick={() => handleShareSocial("twitter")}>
-                  <div className="mb-1 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-black transition-opacity hover:opacity-80">
-                    <FaXTwitter size={20} className="text-white" />
-                  </div>
-                  <Text size="xs" align="center">
-                    X
-                  </Text>
-                </div>
-
-                {/* Facebook Button */}
-                <div className="flex flex-col items-center" onClick={() => handleShareSocial("facebook")}>
-                  <div className="mb-1 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-blue-600 transition-colors hover:bg-blue-700">
-                    <FaFacebook size={20} className="text-white" />
-                  </div>
-                  <Text size="xs" align="center">
-                    Facebook
-                  </Text>
-                </div>
-
-                {/* WhatsApp Button */}
-                <div className="flex flex-col items-center" onClick={() => handleShareSocial("whatsapp")}>
-                  <div className="mb-1 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-green-500 transition-colors hover:bg-green-600">
-                    <FaWhatsapp size={20} className="text-white"  />
-                  </div>
-
-                  <Text size="xs" align="center">
-                    WhatsApp
-                  </Text>
-                </div>
-
-                {/* LinkedIn Button */}
-                <div className="flex flex-col items-center" onClick={() => handleShareSocial("linkedin")}>
-                  <div className="mb-1 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-blue-700 transition-colors hover:bg-blue-800">
-                    <FaLinkedin size={20} className="text-white" />
-                  </div>
-                  <Text size="xs" align="center">
-                    LinkedIn
-                  </Text>
-                </div>
-
-                {/* Messenger Button */}
-                <div className="flex flex-col items-center" onClick={() => handleShareSocial("messenger")}>
-                  <div className="mb-1 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-blue-300 transition-opacity hover:opacity-90">
-                    <FaFacebookMessenger  size={20} className="text-white" />
-                  </div>
-                  <Text size="xs" align="center">
-                    Messenger
-                  </Text>
-                </div>
-              </div>
-            </div>
-          </Modal.Content>
-        </Modal.Root>
         <RenderBackground
           encapsulated={encapsulated}
           style={{
@@ -352,15 +220,7 @@ const Preview = ({ isStandAlonePage = false }) => {
 
         <Stack gap={"lg"} className="overflow-y-auto">
           <Group justify="space-between">
-            <ActionIcon
-              onClick={openShareModal}
-              size={"lg"}
-              variant="white"
-              color="black"
-              style={{ boxShadow: "0 0 8px #ccc" }}
-              radius={"xl"}>
-              <Share size={18} />
-            </ActionIcon>
+            <ShareModal data={data} />
             {data.data.settings?.email_singup ? (
               <>
                 <Button
