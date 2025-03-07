@@ -28,7 +28,13 @@ const DefaultForm = () => {
             error={formState.errors.url?.message && t(`bioBlocks.errors.${formState.errors.url?.message}`)}
             {...field}
             onBlur={(e) => {
-              checkURL(e.target.value)
+              let url = e.target.value.trim();
+              if (url && !url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+                // Update the field value with the modified URL
+                field.onChange(url);
+              }
+              checkURL(url);
             }}
           />
         )}
