@@ -36,14 +36,14 @@ const DropzoneComponent = forwardRef(function Component(
             <Text size="lg" ta={"center"} inline>
               {t("fileUpload.title")}
             </Text>
-            <Text ta={"center"} size="sm" c="dimmed" inline mt={7}>
+            <Text ta={"center"} size="sm" c="dimmed" inline mt={11}>
               {t("fileUpload.description", { size: maxSize })}
             </Text>
           </div>
         </Group>
       </Dropzone>
       {error ? (
-        <Text c={"red"} size="sm">
+        <Text c={"red"} ta={"center"} size="xs" mt={11}>
           {error}
         </Text>
       ) : null}

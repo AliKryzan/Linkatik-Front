@@ -877,6 +877,7 @@
     "title": "Withdraw and filter here, or click here to upload files",
     "description": "You can upload files with a size that does not exceed {{size}} mb",
     "button": "download",
+    "invalidImageFormat": "Invalid image format. Please upload an image file in one of the supported formats: JPG, JPEG, PNG, GIF, WebP.",
     "errors": {
       "invalidResponse": "A mistake in contacting the server"
     }

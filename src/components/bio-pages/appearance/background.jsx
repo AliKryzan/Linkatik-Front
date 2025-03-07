@@ -1,10 +1,12 @@
+import { imagePlaceholder } from "@/assets"
 import { Box, ColorInput, Group, Radio, Space, Stack, Text, useMantineColorScheme } from "@mantine/core"
 import { IMAGE_MIME_TYPE } from "@mantine/dropzone"
 import { Controller } from "react-hook-form"
+import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 
-import { imagePlaceholder } from "@/assets"
 import { useUploadFile } from "@/hooks/use-upload-file"
+
 import DropzoneComponent from "../../ui/dropzone"
 import GradientColorPicker from "../../ui/gradient-color-picker"
 import { ThemePreview } from "./theme-preview"
@@ -130,6 +132,13 @@ const Background = ({ form }) => {
                   loading={isUploading}
                   accept={IMAGE_MIME_TYPE}
                   multiple={false}
+                  error={(files) => files?.length > 0 && t("fileUpload.invalidImageFormat")}
+                  onReject={(files) => {
+                    console.error("File upload rejected:", files)
+                    toast.error(t("fileUpload.invalidImageFormat"), {
+                      position: "top-center",
+                    })
+                  }}
                   onDrop={(files) => {
                     upload({
                       files: files[0],
