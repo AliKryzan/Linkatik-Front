@@ -220,7 +220,9 @@ const Preview = ({ isStandAlonePage = false }) => {
 
         <Stack gap={"lg"} className="overflow-y-auto">
           <Group justify="space-between">
-            <ShareModal data={data} />
+          <div className="absolute top-5 right-6">
+          <ShareModal data={data} />
+          </div>
             {data.data.settings?.email_singup ? (
               <>
                 <Button
