@@ -52,7 +52,19 @@
     "logout": "خروج",
     "updateUserError": "حدث خطاء في تحديث البيانات",
     "export": "تصدير",
-    "search-placeholder": "بحث..."
+    "search-placeholder": "بحث...",
+    "shareWithFriends": "شارك هذه الصفحة مع أصدقائك",
+    "copyFailed": "فشل نسخ الرابط",
+    "shareNotSupported": "المشاركة المحلية غير مدعومة على هذا الجهاز",
+    "copy": "نسخ",
+    "twitter": "تويتر",
+    "facebook": "فيسبوك",
+    "whatsapp": "واتساب",
+    "linkedin": "لينكد إن",
+    "messenger": "ماسنجر",
+    "snapchat": "سناب شات",
+    "email": "البريد الإلكتروني",
+    "more": "المزيد"
   },
   "login": {
     "title": "أهلا بعودتك",

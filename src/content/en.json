@@ -50,7 +50,19 @@
     "logout": "exit",
     "updateUserError": "An error event in updating the data",
     "export": "export",
-    "search-placeholder": "research..."
+    "search-placeholder": "research...",
+    "shareWithFriends": "Share this page with your friends",
+    "copyFailed": "Failed to copy link",
+    "shareNotSupported": "Native sharing not supported on this device",
+    "copy": "Copy",
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "messenger": "Messenger",
+    "snapchat": "Snapchat",
+    "email": "Email",
+    "more": "More"
   },
   "login": {
     "title": "Welcome to your return",
