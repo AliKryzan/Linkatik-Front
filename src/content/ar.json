@@ -130,17 +130,17 @@
   },
   "auth": {
     "resetPassword": {
-      "title": "Reset Password",
-      "newPassword": "New Password",
-      "newPasswordPlaceholder": "Enter your new password",
-      "confirmPassword": "Confirm Password",
-      "confirmPasswordPlaceholder": "Confirm your new password",
-      "submit": "Reset Password",
-      "success": "Password has been reset successfully",
-      "passwordRequired": "Password is required",
-      "passwordMinLength": "Password must be at least 8 characters",
-      "confirmPasswordRequired": "Please confirm your password",
-      "passwordMismatch": "Passwords do not match"
+      "title": "إعادة تعيين كلمة المرور",
+      "newPassword": "كلمة المرور الجديدة",
+      "newPasswordPlaceholder": "أدخل كلمة المرور الجديدة",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "أكد كلمة المرور الجديدة",
+      "submit": "إعادة تعيين كلمة المرور",
+      "success": "تمت إعادة تعيين كلمة المرور بنجاح",
+      "passwordRequired": "كلمة المرور مطلوبة",
+      "passwordMinLength": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+      "confirmPasswordRequired": "يرجى تأكيد كلمة المرور",
+      "passwordMismatch": "كلمتا المرور غير متطابقتين"
     }
   },
   "plans": {
