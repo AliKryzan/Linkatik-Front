@@ -251,7 +251,7 @@ const Preview = ({ isStandAlonePage = false }) => {
                 radius={"50%"}
                 fallbackSrc={imagePlaceholder}
                 className={data?.data.image_type === "avatar" ? "rounded-full !border border-[#707070]" : ""}
-                src={data?.data.image_type === "avatar" ? bioImage?.image : data?.data.image}
+                src={data?.data.image}
               />
             </div>
             <Box mt="lg">
