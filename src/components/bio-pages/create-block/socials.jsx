@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next"
 const SocialBlock = () => {
   const { t } = useTranslation()
 
-  //
   const fields = [
     "email",
     "phone",
@@ -19,7 +18,8 @@ const SocialBlock = () => {
   ]
 
   const { formState, control } = useFormContext()
-
+  console.log("Controller9999999999999999999999999999999999999999999999999999999999999999999")
+  console.log(formState.errors)
   return (
     <>
       {fields.map((element) => {
@@ -34,8 +34,8 @@ const SocialBlock = () => {
                 size="md"
                 label={t(`bioBlocks.createBlock.custom.socials.${element}`)}
                 error={
-                  formState.errors[element]?.message &&
-                  t(`bioBlocks.errors..settings${formState.errors[element]?.message}`)
+                  formState?.errors?.settings?.[element]?.message &&
+                  t(`bioBlocks.errors.${formState?.errors?.settings[element]?.message}`)
                 }
                 {...field}
               />

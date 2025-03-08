@@ -725,7 +725,8 @@
       "required": "This field is required",
       "invalidUrl": "The link is invalid",
       "serverError": "A mistake in contacting the server",
-      "invalidEmail": "Email is not valid"
+      "invalidEmail": "Email is not valid",
+      "invalidNumber":"The phone number is not valid"
     },
     "blocks": {
       "faq": "Common questions",

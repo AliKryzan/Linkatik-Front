@@ -29,7 +29,6 @@
     }
   },
   "general": {
-    "back": "رجوع",
     "share": "شارك لينكاتك",
     "continueEditing": "اكمل التعديل",
     "linkatikReady": "لينكاتك أصبحت جاهزة",
@@ -52,19 +51,7 @@
     "logout": "خروج",
     "updateUserError": "حدث خطاء في تحديث البيانات",
     "export": "تصدير",
-    "search-placeholder": "بحث...",
-    "shareWithFriends": "شارك هذه الصفحة مع أصدقائك",
-    "copyFailed": "فشل نسخ الرابط",
-    "shareNotSupported": "المشاركة المحلية غير مدعومة على هذا الجهاز",
-    "copy": "نسخ",
-    "twitter": "تويتر",
-    "facebook": "فيسبوك",
-    "whatsapp": "واتساب",
-    "linkedin": "لينكد إن",
-    "messenger": "ماسنجر",
-    "snapchat": "سناب شات",
-    "email": "البريد الإلكتروني",
-    "more": "المزيد"
+    "search-placeholder": "بحث..."
   },
   "login": {
     "title": "أهلا بعودتك",
@@ -95,7 +82,7 @@
     "usernameInput": "اسم المستخدم",
     "emailInput": "إيميلك",
     "passwordInput": "كلمة المرور",
-    "signUpButton": "أنشئ حساب",
+    "signUpButton": "انشأ حساب",
     "loginButton": "سجل دخول",
     "haveAccount": "لديك حساب؟",
     "warning": "باضغط على انشاء حساب انت توافق على <Link to=\"to\">الشروط والاحكام</Link> وتأكد انك قراءت <PrivacyPolicyLink to=\"to\">سياسة الخصوصية</PrivacyPolicyLink> الخاصة بمنصة لنكاتك. ربما تتلقى عروض والاخبار والتحديثات مننا.",
@@ -106,9 +93,7 @@
       "long": "كلمة المرور طويلة جدا",
       "required": "هذا الحقل مطلوب",
       "invalidUsername": "اسم المستخدم قد يحتوى على حروف او ارقام او - او _",
-      "invalidResponse": "حدث خطاء في الاتصال بالسيرفر",
-      "usernameNoSpaces": "اسم المستخدم لا يمكن ان يحتوي على مسافات",
-      "usernameOnlyAllowed": "يمكن أن يحتوي اسم المستخدم على الأحرف والأرقام والشرطات السفلية والشرطات العادية فقط"
+      "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
     }
   },
   "userInfo": {
@@ -142,17 +127,17 @@
   },
   "auth": {
     "resetPassword": {
-      "title": "إعادة تعيين كلمة المرور",
-      "newPassword": "كلمة المرور الجديدة",
-      "newPasswordPlaceholder": "أدخل كلمة المرور الجديدة",
-      "confirmPassword": "تأكيد كلمة المرور",
-      "confirmPasswordPlaceholder": "أكد كلمة المرور الجديدة",
-      "submit": "إعادة تعيين كلمة المرور",
-      "success": "تمت إعادة تعيين كلمة المرور بنجاح",
-      "passwordRequired": "كلمة المرور مطلوبة",
-      "passwordMinLength": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
-      "confirmPasswordRequired": "يرجى تأكيد كلمة المرور",
-      "passwordMismatch": "كلمتا المرور غير متطابقتين"
+      "title": "Reset Password",
+      "newPassword": "New Password",
+      "newPasswordPlaceholder": "Enter your new password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your new password",
+      "submit": "Reset Password",
+      "success": "Password has been reset successfully",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 8 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordMismatch": "Passwords do not match"
     }
   },
   "plans": {
@@ -291,13 +276,13 @@
     },
     "table": {
       "subscription": {
-        "expired": {
-          "title": "انتهت صلاحية اشتراكك",
-          "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
-          "renew": "تجديد الاشتراك"
-        }
-      },
-      "general": {
+    "expired": {
+      "title": "انتهت صلاحية اشتراكك",
+      "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
+      "renew": "تجديد الاشتراك"
+    }
+  },
+  "general": {
         "buttons": "ازرار",
         "blocks": "بلوكات"
       },
@@ -314,7 +299,7 @@
       "des": "الوصف",
       "title_1": "العنوان",
       "preview": "عرض معاينة",
-      "createButton": "أنشئ الصفحة",
+      "createButton": "انشأ الصفحة",
       "ChooseFromPhotoLibrary": "اختيار من مكتبة الصور",
       "FromOurLibrary": "من مكتبتنا",
       "UploadYourPhoto": "رفع الصورة الخاصة بك",
@@ -324,7 +309,6 @@
         "description": "يمكنك ترك الحقل فارغ ليتم انشاء مسار عشوائي",
         "leftSection": "https://linkatik.com/"
       },
-      "pathTaken": "يوجد مسار آخر للصفحة بنفس الاسم",
       "segments": {
         "links": "روابط",
         "appearance": "المظهر",
@@ -446,7 +430,7 @@
       },
       "themes": {
         "title": "المظهر",
-        "createYourTheme": "أنشئ المظهر الخاص بك",
+        "createYourTheme": "انشأ المظهر الخاص بك",
         "background": "الخلفية",
         "color": "اللون",
         "size": "الحجم",
@@ -514,15 +498,14 @@
   },
   "bioBlocks": {
     "subscription": {
-      "expired": {
-        "title": "انتهت صلاحية اشتراكك",
-        "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
-        "renew": "تجديد الاشتراك"
-      }
-    },
-    "general": {
+    "expired": {
+      "title": "انتهت صلاحية اشتراكك",
+      "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
+      "renew": "تجديد الاشتراك"
+    }
+  },
+  "general": {
       "choose": "اختر",
-
       "generalTitle": "شارك محتواك",
       "generalDescription": "قم بمشاركة المحتوى الخاص بك مباشرة الى لينكاتك",
       "commercialTitle": "التجارة",
@@ -729,7 +712,8 @@
       "required": "هذا الحقل مطلوب",
       "invalidUrl": "الرباط غير صالح",
       "serverError": "حدث خطاء في الاتصال بالسيرفر",
-      "invalidEmail": "البريد الإلكتروني غير صالح"
+      "invalidEmail": "البريد الإلكتروني غير صالح",
+      "invalidNumber":"رقم الهاتف غير صالح"
     },
 
     "blocks": {
@@ -882,7 +866,6 @@
     "title": "قم بالسحب والافلات هنا , او النقر هنا لرفع الملفات",
     "description": "يمكنك رفع ملفات بحجم لا يتجاوزال {{size}}MB",
     "button": "تحميل",
-    "invalidImageFormat":"صيغة الصورة غير صالحة. يرجى رفع ملف صورة بإحدى الصيغ المدعومة: JPG، JPEG، PNG، GIF، WebP.",
     "errors": {
       "invalidResponse": "حدث خطاء في الاتصال بالسيرفر"
     }
@@ -909,13 +892,13 @@
     },
 
     "subscription": {
-      "expired": {
-        "title": "انتهت صلاحية اشتراكك",
-        "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
-        "renew": "تجديد الاشتراك"
-      }
-    },
-    "general": {
+    "expired": {
+      "title": "انتهت صلاحية اشتراكك",
+      "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
+      "renew": "تجديد الاشتراك"
+    }
+  },
+  "general": {
       "membership": "عضوية",
       "membershipDescription": "قريبا",
       "single_payment": "دفع مرة واحدة",
@@ -944,13 +927,13 @@
         "filter": "نوع السعر"
       },
       "subscription": {
-        "expired": {
-          "title": "انتهت صلاحية اشتراكك",
-          "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
-          "renew": "تجديد الاشتراك"
-        }
-      },
-      "general": {
+    "expired": {
+      "title": "انتهت صلاحية اشتراكك",
+      "description": "يبدو أن خطة اشتراكك قد انتهت. لمواصلة استخدام خدماتنا، يرجى تجديد اشتراكك.",
+      "renew": "تجديد الاشتراك"
+    }
+  },
+  "general": {
         "membership": "عضوية",
         "single_payment": "دفع مرة واحدة",
         "pay_what_you_want": "دفع كما تريد",

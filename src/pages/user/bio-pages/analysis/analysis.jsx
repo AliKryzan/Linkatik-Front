@@ -120,7 +120,7 @@ const Analysis = () => {
       </div> */}
       <div className="grid gap-7 sm:grid-cols-2">
         <div className="col-span-full">
-          <DynamicDonutChart title={"referrers"} data={processedData.cities} />
+          <DynamicDonutChart title={"referrers"} data={processedData.referrers} />
         </div>
         <DynamicDonutChart title={"clicks_os"} data={processedData.clicks_os} />
         <DynamicDonutChart title={"clicks_browsers"} data={processedData.clicks_browsers} />
