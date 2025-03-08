@@ -109,7 +109,7 @@ function SuccessfullyCreatedBio() {
 
             {/* Action Buttons */}
             <div className="relative mt-4 flex h-12 items-center gap-3">
-              <ShareModal data={data}>
+              <ShareModal data={data} path={path}>
                 <button className="h-10 w-[160px] cursor-pointer rounded-2xl bg-gradient-to-r from-purple-600 to-purple-700 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-200">
                   {t("general.share")}
                 </button>

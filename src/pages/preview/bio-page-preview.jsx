@@ -222,7 +222,7 @@ const Preview = ({ isStandAlonePage = false }) => {
         <Stack gap={"lg"} className="overflow-y-auto">
           <Group justify="space-between">
             <div className="absolute top-5 right-6">
-              <ShareModal data={data}>
+              <ShareModal data={data} path={path}>
                 <ActionIcon size="lg" variant="white" color="black" className="rounded-xl shadow-md">
                   <ShareIcon size={18} />
                 </ActionIcon>

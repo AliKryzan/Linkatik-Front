@@ -13,14 +13,18 @@ import {
   FaXTwitter,
 } from "react-icons/fa6"
 import { useSelector } from "react-redux"
+import { useParams } from "react-router-dom"
 
-const ShareModal = ({ data ,children}) => {
+const ShareModal = ({ data, children }) => {
+  console.log("ShareModal-------------------------------------------------------------------")
+  console.log(data)
+  const { path } = useParams()
   const { t } = useTranslation()
   const { bioImage } = useSelector((state) => state.GeneralSlice)
   const [shareModalOpened, { open: openShareModal, close: closeShareModal }] = useDisclosure(false)
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  const shareUrl = `${window.location.origin}/preview/${data?.path}`
+  const shareUrl = `${window.location.origin}/preview/${path}`
   const encodedUrl = encodeURIComponent(shareUrl)
   const title = encodeURIComponent(data?.data?.title || "Check out my Linkatik page")
 
@@ -139,7 +143,7 @@ const ShareModal = ({ data ,children}) => {
   return (
     <>
       <div className="" onClick={openShareModal}>
-       {children}
+        {children}
       </div>
 
       <Modal.Root opened={shareModalOpened} onClose={closeShareModal} centered className="w-full max-w-md">
