@@ -40,6 +40,7 @@ const CreateBioPageForm = () => {
     resolver: zodResolver(BlankBioBaPageSchema),
     defaultValues: {
       path: "",
+      image: "",
       title: "",
       bio: "",
       style: "buttons",
@@ -68,7 +69,7 @@ const CreateBioPageForm = () => {
   })
 
   useEffect(() => {
-    form.setValue("image", bioImage)
+    form.setValue("image", image_type === "avatar" ? bioImage.image : bioImage)
     form.setValue("image_type", `${image_type}`)
   }, [bioImage, image_type, form])
 

@@ -1,19 +1,19 @@
-import { Box, Flex, Text, Stack, Image, Button, Group } from '@mantine/core'
-import { Download, Bell } from 'lucide-react'
-import React from 'react'
-import { groupAvatar } from '@/assets';
+import React from "react"
+import { groupAvatar } from "@/assets"
+import { GetPageAppearance, GetPagePreview, GetSuccessfullyPreview } from "@/services/utils"
+import { Box, Button, Flex, Group, Image, Stack, Text } from "@mantine/core"
+import { useQuery } from "@tanstack/react-query"
+import { Bell, Download } from "lucide-react"
+import toast from "react-hot-toast"
+import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 import { useLocation, useParams } from "react-router-dom"
-import { useQuery } from "@tanstack/react-query"
-import { GetPageAppearance, GetPagePreview, GetSuccessfullyPreview } from "@/services/utils"
+
 import Error from "@/components/common/error"
 import Loader from "@/components/common/loader"
-import { useTranslation } from 'react-i18next';
-import toast from 'react-hot-toast';
-
+import ShareModal from "@/pages/preview/share-modal"
 
 function SuccessfullyCreatedBio() {
-
   const { path } = useParams()
   const { id } = useParams()
 
@@ -35,46 +35,55 @@ function SuccessfullyCreatedBio() {
   return (
     <>
       <div className="flex items-center justify-center px-4">
-        <div className="w-full max-w-md flex flex-col items-center gap-8">
+        <div className="flex w-full max-w-md flex-col items-center gap-8">
           {/* Success Message Section */}
-          <div className="text-center !space-y-4">
-            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+          <div className="!space-y-4 text-center">
+            <h1 className="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
               {t("general.linkatikReady")}
             </h1>
-            <p className="text-gray-600 text-lg">
-              {t("Time to share with the world")}
-            </p>
-            <div className="bg-gray-50 rounded-lg p-3 text-sm text-gray-500 border border-gray-100 flex items-center justify-between gap-2" dir='ltr'>
+            <p className="text-lg text-gray-600">{t("Time to share with the world")}</p>
+            <div
+              className="flex items-center justify-between gap-2 rounded-lg border border-gray-100 bg-gray-50 p-3 text-sm text-gray-500"
+              dir="ltr">
               <span className="truncate">https://app.linkatik.com/ar/preview/{data?.data?.path}</span>
               <button
                 onClick={() => {
-                  navigator.clipboard.writeText(`https://app.linkatik.com/ar/preview/${data?.data?.path}`)
+                  navigator.clipboard
+                    .writeText(`https://app.linkatik.com/ar/preview/${data?.data?.path}`)
                     .then(() => {
-                     toast.success(t("general.copied"),{
-                      position:"top-center"
-                     })
+                      toast.success(t("general.copied"), {
+                        position: "top-center",
+                      })
                     })
                 }}
-                className="shrink-0 p-1.5 text-purple-600 hover:bg-purple-50 rounded-md transition-colors"
-                title={t("general.copy")}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                className="shrink-0 rounded-md p-1.5 text-purple-600 transition-colors hover:bg-purple-50"
+                title={t("general.copy")}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round">
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
                 </svg>
               </button>
             </div>
           </div>
 
           {/* Preview Card */}
-          <div className="w-[370px] bg-white rounded-2xl shadow-lg shadow-purple-100/50 p-6 flex flex-col gap-6">
+          <div className="flex w-[370px] flex-col gap-6 rounded-2xl bg-white p-6 shadow-lg shadow-purple-100/50">
             {/* Top Actions */}
             <div className="flex items-center justify-between">
-              <button className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm hover:shadow transition-all">
+              <button className="flex items-center gap-2 rounded-xl bg-white px-4 py-2 shadow-sm transition-all hover:shadow">
                 <Bell size={18} className="text-purple-600" />
                 <span className="text-sm font-medium">{t("general.Subscribe")}</span>
               </button>
-              <button className="w-9 h-9 flex items-center justify-center bg-white rounded-full shadow-sm hover:shadow transition-all">
+              <button className="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-sm transition-all hover:shadow">
                 <Download size={18} className="text-purple-600" />
               </button>
             </div>
@@ -82,33 +91,31 @@ function SuccessfullyCreatedBio() {
             {/* Profile Content */}
             <div className="flex flex-col items-center gap-4">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full blur-lg opacity-20 animate-pulse" />
-                <div className="relative w-24 h-24 rounded-full border-2 border-purple-600 p-1 overflow-hidden">
+                <div className="absolute inset-0 animate-pulse rounded-full bg-gradient-to-br from-purple-500 to-purple-600 opacity-20 blur-lg" />
+                <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-purple-600 p-1">
                   <Image
-                    src={image_type === 'custom' ? bioImage : bioImage.image}
+                    src={image_type === "custom" ? bioImage : bioImage.image}
                     alt="Profile"
-                    className="w-full h-full rounded-full object-cover"
+                    className="h-full w-full rounded-full object-cover"
                   />
                 </div>
               </div>
 
               <div className="space-y-2 text-center">
-                <h2 className="text-xl font-semibold text-gray-800">
-                  {data?.data?.title}
-                </h2>
-                <p className="text-gray-600 text-sm line-clamp-4">
-                  {data?.data?.bio}
-                </p>
+                <h2 className="text-xl font-semibold text-gray-800">{data?.data?.title}</h2>
+                <p className="line-clamp-4 text-sm text-gray-600">{data?.data?.bio}</p>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="relative flex items-center gap-3 mt-4 h-12">
-              <button className="w-[160px] cursor-pointer h-10 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-2xl text-sm font-medium hover:shadow-lg hover:shadow-purple-200 transition-all duration-300">
-                {t("general.share")}
-              </button>
+            <div className="relative mt-4 flex h-12 items-center gap-3">
+              <ShareModal data={data}>
+                <button className="h-10 w-[160px] cursor-pointer rounded-2xl bg-gradient-to-r from-purple-600 to-purple-700 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-200">
+                  {t("general.share")}
+                </button>
+              </ShareModal>
               <a href={data?.data?.id ? `/ar/user/bio-pages/${data.data.id}/${path}` : "#"}>
-                <button className="cursor-pointer w-[160px] h-10 bg-purple-100 text-purple-700 rounded-2xl text-sm font-medium hover:bg-purple-200 transition-all duration-300">
+                <button className="h-10 w-[160px] cursor-pointer rounded-2xl bg-purple-100 text-sm font-medium text-purple-700 transition-all duration-300 hover:bg-purple-200">
                   {t("general.continueEditing")}
                 </button>
               </a>

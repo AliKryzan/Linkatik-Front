@@ -8,7 +8,7 @@ import { ActionIcon, Box, Button, Container, Group, Image, Modal, Stack, Text, T
 import { useDisclosure } from "@mantine/hooks"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { Bell, Copy, Loader2, LoaderCircle, MessageCircle, Share, X as XIcon } from "lucide-react"
+import { Bell, Copy, Loader2, LoaderCircle, MessageCircle, Share, ShareIcon, X as XIcon } from "lucide-react"
 import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
@@ -18,6 +18,7 @@ import Loader from "@/components/common/loader"
 import RenderBackground from "@/components/common/render-background"
 import SubscribeForm from "@/components/common/subscribe-form"
 import BlockPreviewWrapper from "@/components/preview/link/block-preview-wrapper"
+
 import ShareModal from "./share-modal"
 
 const Error = () => {
@@ -220,9 +221,13 @@ const Preview = ({ isStandAlonePage = false }) => {
 
         <Stack gap={"lg"} className="overflow-y-auto">
           <Group justify="space-between">
-          <div className="absolute top-5 right-6">
-          <ShareModal data={data} />
-          </div>
+            <div className="absolute top-5 right-6">
+              <ShareModal data={data}>
+                <ActionIcon size="lg" variant="white" color="black" className="rounded-xl shadow-md">
+                  <ShareIcon size={18} />
+                </ActionIcon>
+              </ShareModal>
+            </div>
             {data.data.settings?.email_singup ? (
               <>
                 <Button

@@ -8,8 +8,9 @@ export const BlankBioBaPageSchema = z.object({
   bio_page_theme_id: z.number().min(1, "required"),
   style: z.enum(["buttons", "blocks"], { required_error: "required" }),
   title: z.string().min(1, "required"),
-  bio:z.string(),
-  image_type:z.string(),
+  bio: z.string(),
+  image_type: z.string(),
+  image: z.string(),
 })
 
 export const BioPageProfileSchema = z.object({
