@@ -34,6 +34,7 @@ const RedirectForm = ({ block }) => {
         data: {
           type: block.type,
           redirect: { ...data, is_enable: true },
+          image: block.image, // Preserve the existing image
         },
       })
     } catch (error) {

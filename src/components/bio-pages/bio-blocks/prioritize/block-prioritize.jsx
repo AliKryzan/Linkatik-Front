@@ -1,12 +1,11 @@
+import { PutUpdateBlock } from "@/services/utils"
+import { BioBlockPrioritizeSchema } from "@/validation/bio-block"
 import { DevTool } from "@hookform/devtools"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button, Group, Radio, Space, Stack, Text } from "@mantine/core"
 import { Controller, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
-
-import { PutUpdateBlock } from "@/services/utils"
-import { BioBlockPrioritizeSchema } from "@/validation/bio-block"
 
 const animations = [
   {
@@ -20,7 +19,7 @@ const animations = [
   {
     value: "shakex",
     label: "shake x",
-},
+  },
   {
     value: "tada",
     label: "tada",
@@ -70,6 +69,7 @@ const BlockPrioritize = ({ block }) => {
               is_enable: false,
             },
           },
+          image: data?.image,
         })
         return
       }
@@ -82,6 +82,8 @@ const BlockPrioritize = ({ block }) => {
             is_enable: true,
             ...data,
           },
+          ...data,
+          image: block.image, // Preserve the existing image
         },
       })
     } catch (error) {
@@ -134,7 +136,7 @@ const BlockPrioritize = ({ block }) => {
                       t(`bioBlocks.tabs.prioritize.errors.${formState.errors.animation?.message}`)
                     }
                     {...field}>
-                    <Group gap="md" style={{ flexWrap: 'wrap' }}>
+                    <Group gap="md" style={{ flexWrap: "wrap" }}>
                       {animations.map((element) => (
                         <Radio.Card
                           opacity={watch("type") === "animation" ? 1 : 0.5}
@@ -144,16 +146,18 @@ const BlockPrioritize = ({ block }) => {
                           h={"80px"}
                           p="xl"
                           style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            margin: '5px',
-                            transition: 'all 0.2s ease',
-                            cursor: watch("type") === "animation" ? 'pointer' : 'default',
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            margin: "5px",
+                            transition: "all 0.2s ease",
+                            cursor: watch("type") === "animation" ? "pointer" : "default",
                           }}
                           value={element.value}
                           key={element.value}>
-                          <Text ta={"center"} fw={500}>{element.label}</Text>
+                          <Text ta={"center"} fw={500}>
+                            {element.label}
+                          </Text>
                         </Radio.Card>
                       ))}
                     </Group>

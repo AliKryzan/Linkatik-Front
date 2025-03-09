@@ -40,6 +40,7 @@ const BlockLock = ({ block }) => {
             ...data,
             birthday_year: data.birthday_year ? new Date().getFullYear() - data.birthday_year : null,
           },
+          image: block.image, // Preserve the existing image
         },
       })
     } catch (error) {

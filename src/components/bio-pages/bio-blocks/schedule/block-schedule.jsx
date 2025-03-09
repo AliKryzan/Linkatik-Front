@@ -31,6 +31,7 @@ const BlockSchedule = ({ block }) => {
         data: {
           type: block.type,
           schedule: { ...data, is_enable: true },
+          image: block.image, // Preserve the existing image
         },
       })
       console.log("🚀 ~ onSubmit ~ response:", response)
