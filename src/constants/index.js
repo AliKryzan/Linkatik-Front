@@ -1,5 +1,5 @@
+// Additional animated themes
 export const themes = [
- 
   {
     id: 3,
     name: "Custom",
@@ -233,6 +233,232 @@ export const themes = [
       bio_page: {
         css: ".desert-container { height: 100lvh; position: relative; overflow: hidden; background: linear-gradient(180deg, #f97316 0%, #7c2d12 100%); } .desert-bg { position: absolute; bottom: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8MXx8ZGVzZXJ0fHwwfHx8fDE2MTQwODkwMjA&ixlib=rb-4.0.3&q=80&w=1080'); background-size: cover; background-position: center; animation: desertShift 30s ease-in-out infinite alternate; } .sun { position: absolute; top: 15%; left: 25%; width: 80px; height: 80px; background: radial-gradient(circle, #FFD700 30%, rgba(255, 215, 0, 0) 70%); border-radius: 50%; animation: sunHeat 8s ease-in-out infinite; } .dune { position: absolute; bottom: 0; width: 100%; height: 30%; } .dune1 { background-image: url('https://images.unsplash.com/photo-1473580044835-7a9b0200c77a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8ZHVuZXN8fDB8fHx8MTYxNDA4OTA0OA&ixlib=rb-4.0.3&q=80&w=1080'); background-size: cover; background-position: center; animation: duneShift 15s ease-in-out infinite; } .dune2 { background-image: url('https://images.unsplash.com/photo-1489493512598-d08130f49bea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8ZHVuZXN8fDB8fHx8MTYxNDA4OTA0OA&ixlib=rb-4.0.3&q=80&w=1080'); background-size: cover; background-position: center; opacity: 0.7; height: 20%; animation: duneShift 20s ease-in-out infinite reverse; } .mirage { position: absolute; bottom: 25%; width: 100%; height: 10%; background: linear-gradient(0deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%); animation: mirageWave 4s ease-in-out infinite; } .tumbleweed { position: absolute; width: 30px; height: 30px; background-image: url('https://images.unsplash.com/photo-1580661669722-bc39fbcc58a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8MXx8dHVtYmxld2VlZHx8MHx8fHwxNjE0MDg5MDcx&ixlib=rb-4.0.3&q=80&w=1080'); background-size: contain; background-repeat: no-repeat; bottom: 15%; left: -30px; animation: tumbleRoll 15s linear infinite; } @keyframes desertShift { 0% { transform: translateX(0); } 100% { transform: translateX(-50px); } } @keyframes sunHeat { 0%, 100% { transform: scale(1); filter: blur(2px); } 50% { transform: scale(1.1); filter: blur(5px); } } @keyframes duneShift { 0% { transform: translateX(0); } 100% { transform: translateX(-100px); } } @keyframes mirageWave { 0%, 100% { opacity: 0.3; transform: scaleY(1); } 50% { opacity: 0.5; transform: scaleY(1.2); } } @keyframes tumbleRoll { from { transform: translateX(0) rotate(0deg); } to { transform: translateX(calc(100vw + 30px)) rotate(1080deg); } }",
         html: "<div class='desert-container'><div class='desert-bg'></div><div class='sun'></div><div class='dune dune1'></div><div class='dune dune2'></div><div class='mirage'></div><div class='tumbleweed'></div></div>",
+      },
+    },
+  },
+  {
+    id: 31,
+    name: "Liquid Gradient",
+    image: "https://example.com/liquid-gradient-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#06b6d4",
+      },
+      bio_page: {
+        css: ".liquid-container { height: 100lvh; position: relative; overflow: hidden; } .liquid-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); background-size: 400% 400%; animation: gradientFlow 15s ease infinite; } .bubble { position: absolute; border-radius: 50%; background: rgba(255, 255, 255, 0.1); animation: bubbleFloat linear infinite; } .b1 { width: 80px; height: 80px; top: 10%; left: 10%; animation-duration: 20s; } .b2 { width: 40px; height: 40px; top: 20%; left: 80%; animation-duration: 15s; } .b3 { width: 100px; height: 100px; top: 60%; left: 30%; animation-duration: 25s; } .b4 { width: 60px; height: 60px; top: 80%; left: 70%; animation-duration: 18s; } .light-streak { position: absolute; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); transform: rotate(45deg); animation: streakMove 8s linear infinite; } .ls1 { top: 30%; left: -50%; width: 200%; } .ls2 { top: 70%; left: -50%; width: 200%; animation-delay: -4s; } @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } } @keyframes bubbleFloat { 0% { transform: translate(0, 0) scale(1); opacity: 0; } 10% { opacity: 0.8; } 90% { opacity: 0.6; } 100% { transform: translate(20px, -100vh) scale(1.5); opacity: 0; } } @keyframes streakMove { 0% { transform: translateX(-100%) rotate(45deg); opacity: 0; } 10% { opacity: 0.7; } 90% { opacity: 0.7; } 100% { transform: translateX(100%) rotate(45deg); opacity: 0; } }",
+        html: "<div class='liquid-container'><div class='liquid-bg'></div><div class='bubble b1'></div><div class='bubble b2'></div><div class='bubble b3'></div><div class='bubble b4'></div><div class='light-streak ls1'></div><div class='light-streak ls2'></div></div>",
+      },
+    },
+  },
+  {
+    id: 32,
+    name: "Floating Particles",
+    image: "https://example.com/floating-particles-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#1d4ed8",
+      },
+      bio_page: {
+        css: ".particles-container { height: 100lvh; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); position: relative; overflow: hidden; } .particle { position: absolute; background: #fff; border-radius: 50%; opacity: 0.5; animation: particleFloat linear infinite; } .p1 { width: 3px; height: 3px; top: 10%; left: 20%; animation-duration: 60s; } .p2 { width: 4px; height: 4px; top: 20%; left: 80%; animation-duration: 75s; } .p3 { width: 2px; height: 2px; top: 30%; left: 40%; animation-duration: 90s; } .p4 { width: 5px; height: 5px; top: 40%; left: 60%; animation-duration: 105s; } .p5 { width: 3px; height: 3px; top: 50%; left: 10%; animation-duration: 120s; } .p6 { width: 2px; height: 2px; top: 60%; left: 30%; animation-duration: 135s; } .p7 { width: 4px; height: 4px; top: 70%; left: 50%; animation-duration: 150s; } .p8 { width: 3px; height: 3px; top: 80%; left: 70%; animation-duration: 165s; } .p9 { width: 2px; height: 2px; top: 90%; left: 90%; animation-duration: 180s; } .connection { position: absolute; height: 1px; background: rgba(255, 255, 255, 0.1); transform-origin: left center; animation: connectionPulse 8s ease-in-out infinite alternate; } .c1 { width: 200px; top: 20%; left: 30%; transform: rotate(30deg); } .c2 { width: 150px; top: 40%; left: 60%; transform: rotate(-45deg); } .c3 { width: 180px; top: 70%; left: 20%; transform: rotate(60deg); } .c4 { width: 220px; top: 50%; left: 70%; transform: rotate(-30deg); } .glow { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, rgba(56, 189, 248, 0) 70%); filter: blur(30px); animation: glowPulse 10s ease-in-out infinite; } .g1 { top: 30%; left: 20%; } .g2 { top: 60%; left: 70%; animation-delay: -5s; } @keyframes particleFloat { 0% { transform: translate(0, 0); } 100% { transform: translate(20px, 20px); } } @keyframes connectionPulse { 0%, 100% { opacity: 0.1; } 50% { opacity: 0.3; } } @keyframes glowPulse { 0%, 100% { transform: scale(1); opacity: 0.1; } 50% { transform: scale(1.2); opacity: 0.2; } }",
+        html: "<div class='particles-container'><div class='glow g1'></div><div class='glow g2'></div><div class='particle p1'></div><div class='particle p2'></div><div class='particle p3'></div><div class='particle p4'></div><div class='particle p5'></div><div class='particle p6'></div><div class='particle p7'></div><div class='particle p8'></div><div class='particle p9'></div><div class='connection c1'></div><div class='connection c2'></div><div class='connection c3'></div><div class='connection c4'></div></div>",
+      },
+    },
+  },
+  {
+    id: 33,
+    name: "Digital Rain",
+    image: "https://example.com/digital-rain-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#15803d",
+      },
+      bio_page: {
+        css: ".matrix-container { height: 100lvh; background-color: #000000; position: relative; overflow: hidden; } .rain-column { position: absolute; top: -100px; font-family: monospace; color: #00ff41; font-size: 16px; line-height: 1; animation: raindrop linear infinite; width: 20px; text-align: center; } .col1 { left: 5%; animation-duration: 10s; } .col2 { left: 15%; animation-duration: 8s; animation-delay: -2s; } .col3 { left: 25%; animation-duration: 12s; animation-delay: -5s; } .col4 { left: 35%; animation-duration: 9s; animation-delay: -1s; } .col5 { left: 45%; animation-duration: 11s; animation-delay: -7s; } .col6 { left: 55%; animation-duration: 7s; animation-delay: -3s; } .col7 { left: 65%; animation-duration: 10s; animation-delay: -6s; } .col8 { left: 75%; animation-duration: 9s; animation-delay: -4s; } .col9 { left: 85%; animation-duration: 8s; animation-delay: -2s; } .col10 { left: 95%; animation-duration: 11s; animation-delay: -5s; } .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%); } @keyframes raindrop { 0% { transform: translateY(0); opacity: 1; } 95% { opacity: 0.8; } 100% { transform: translateY(calc(100vh + 100px)); opacity: 0; } }",
+        html: "<div class='matrix-container'><div class='rain-column col1'>10010110<br>01101001<br>10110010<br>01001101<br>10100101</div><div class='rain-column col2'>01101001<br>10110010<br>01001101<br>10100101<br>01011010</div><div class='rain-column col3'>10110010<br>01001101<br>10100101<br>01011010<br>10010110</div><div class='rain-column col4'>01001101<br>10100101<br>01011010<br>10010110<br>01101001</div><div class='rain-column col5'>10100101<br>01011010<br>10010110<br>01101001<br>10110010</div><div class='rain-column col6'>01011010<br>10010110<br>01101001<br>10110010<br>01001101</div><div class='rain-column col7'>10010110<br>01101001<br>10110010<br>01001101<br>10100101</div><div class='rain-column col8'>01101001<br>10110010<br>01001101<br>10100101<br>01011010</div><div class='rain-column col9'>10110010<br>01001101<br>10100101<br>01011010<br>10010110</div><div class='rain-column col10'>01001101<br>10100101<br>01011010<br>10010110<br>01101001</div><div class='overlay'></div></div>",
+      },
+    },
+  },
+  {
+    id: 34,
+    name: "Falling Leaves",
+    image: "https://example.com/falling-leaves-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#b45309",
+      },
+      bio_page: {
+        css: ".autumn-container { height: 100lvh; background: linear-gradient(180deg, #f97316 0%, #7c2d12 100%); position: relative; overflow: hidden; } .leaf { position: absolute; width: 20px; height: 20px; background-size: contain; background-repeat: no-repeat; opacity: 0.8; animation: leafFall linear infinite, leafSway ease-in-out infinite alternate; } .leaf1 { background-image: url('https://api.placeholder.com/20x20'); top: -20px; left: 10%; animation-duration: 12s, 3s; animation-delay: -2s, -1s; } .leaf2 { background-image: url('https://api.placeholder.com/20x20'); top: -20px; left: 30%; animation-duration: 10s, 4s; animation-delay: -5s, -2s; } .leaf3 { background-image: url('https://api.placeholder.com/20x20'); top: -20px; left: 50%; animation-duration: 15s, 2.5s; animation-delay: -3s, -0.5s; } .leaf4 { background-image: url('https://api.placeholder.com/20x20'); top: -20px; left: 70%; animation-duration: 11s, 3.5s; animation-delay: -7s, -1.5s; } .leaf5 { background-image: url('https://api.placeholder.com/20x20'); top: -20px; left: 90%; animation-duration: 14s, 4.5s; animation-delay: -1s, -2.5s; } .tree { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 200px; height: 300px; background-image: url('https://api.placeholder.com/200x300'); background-size: contain; background-repeat: no-repeat; background-position: bottom center; } .ground { position: absolute; bottom: 0; width: 100%; height: 30%; background: linear-gradient(180deg, rgba(120,53,15,0) 0%, rgba(120,53,15,1) 100%); } @keyframes leafFall { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(calc(100vh + 20px)) rotate(360deg); } } @keyframes leafSway { 0% { transform: translateX(-15px); } 100% { transform: translateX(15px); } }",
+        html: "<div class='autumn-container'><div class='leaf leaf1'></div><div class='leaf leaf2'></div><div class='leaf leaf3'></div><div class='leaf leaf4'></div><div class='leaf leaf5'></div><div class='tree'></div><div class='ground'></div></div>",
+      },
+    },
+  },
+  {
+    id: 35,
+    name: "Neon Glow",
+    image: "https://example.com/neon-glow-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#d946ef",
+      },
+      bio_page: {
+        css: ".neon-container { height: 100lvh; background-color: #0f0f1f; position: relative; overflow: hidden; } .neon-grid { position: absolute; width: 200%; height: 200%; background-image: linear-gradient(#ff00ea 1px, transparent 1px), linear-gradient(90deg, #ff00ea 1px, transparent 1px); background-size: 40px 40px; opacity: 0.3; transform: perspective(500px) rotateX(60deg); transform-origin: center top; animation: gridMove 15s linear infinite; } .horizon { position: absolute; bottom: 0; width: 100%; height: 30%; background: linear-gradient(0deg, #ff00ea 0%, rgba(255,0,234,0) 100%); opacity: 0.2; } .sun { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; background: radial-gradient(circle, #00fff2 0%, rgba(0,255,242,0) 70%); border-radius: 50%; filter: blur(10px); animation: sunPulse 4s ease-in-out infinite; } .neon-line { position: absolute; height: 2px; background: #00fff2; animation: neonLinePulse 2s ease-in-out infinite; } .line1 { width: 60%; top: 20%; left: 20%; } .line2 { width: 40%; top: 30%; left: 30%; animation-delay: -0.5s; } .line3 { width: 70%; top: 70%; left: 15%; animation-delay: -1s; } .line4 { width: 50%; top: 80%; left: 25%; animation-delay: -1.5s; } @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0); } 100% { transform: perspective(500px) rotateX(60deg) translateY(40px); } } @keyframes sunPulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; } 50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; } } @keyframes neonLinePulse { 0%, 100% { opacity: 0.5; filter: blur(1px); box-shadow: 0 0 5px #00fff2, 0 0 10px #00fff2; } 50% { opacity: 1; filter: blur(2px); box-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2; } }",
+        html: "<div class='neon-container'><div class='neon-grid'></div><div class='horizon'></div><div class='sun'></div><div class='neon-line line1'></div><div class='neon-line line2'></div><div class='neon-line line3'></div><div class='neon-line line4'></div></div>",
+      },
+    },
+  },
+
+  // Beautiful non-animated themes with static backgrounds
+  {
+    id: 36,
+    name: "Tranquil Sunset",
+    image: "https://example.com/tranquil-sunset-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#f59e0b",
+      },
+      bio_page: {
+        css: ".sunset-container { height: 100lvh; position: relative; overflow: hidden; } .sunset-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, #ff7e5f 0%, #feb47b 100%); } .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%); } .silhouette { position: absolute; bottom: 0; width: 100%; height: 30%; background-image: url('https://api.placeholder.com/1920x300'); background-size: cover; background-position: center bottom; opacity: 0.7; }",
+        html: "<div class='sunset-container'><div class='sunset-bg'></div><div class='overlay'></div><div class='silhouette'></div></div>",
+      },
+    },
+  },
+  {
+    id: 37,
+    name: "Minimal Bloom",
+    image: "https://example.com/minimal-bloom-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#1e293b",
+        button_color: "#ffffff",
+      },
+      bio_page: {
+        css: ".minimal-container { height: 100lvh; background-color: #f8fafc; position: relative; overflow: hidden; } .bloom { position: absolute; width: 500px; height: 500px; border-radius: 50%; filter: blur(100px); opacity: 0.8; } .bloom1 { background-color: #f0abfc; top: -200px; right: -200px; } .bloom2 { background-color: #bae6fd; bottom: -200px; left: -200px; }",
+        html: "<div class='minimal-container'><div class='bloom bloom1'></div><div class='bloom bloom2'></div></div>",
+      },
+    },
+  },
+  {
+    id: 38,
+    name: "Deep Forest",
+    image: "https://example.com/deep-forest-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#047857",
+      },
+      bio_page: {
+        css: ".forest-container { height: 100lvh; position: relative; overflow: hidden; } .forest-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8MXx8Zm9yZXN0fHwwfHx8fDE2MTQwOTIxMzM&ixlib=rb-4.0.3&q=80&w=1080'); background-size: cover; background-position: center; } .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(0deg, rgba(4,120,87,0.4) 0%, rgba(4,120,87,0.1) 100%); }",
+        html: "<div class='forest-container'><div class='forest-bg'></div><div class='overlay'></div></div>",
+      },
+    },
+  },
+  {
+    id: 39,
+    name: "Elegant Marble",
+    image: "https://example.com/elegant-marble-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#1e293b",
+        button_color: "#f8fafc",
+      },
+      bio_page: {
+        css: ".marble-container { height: 100lvh; position: relative; overflow: hidden; } .marble-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1541123437800-1bb1317badc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8MXx8bWFyYmxlfHwwfHx8fDE2MTQwOTIxNzM&ixlib=rb-4.0.3&q=80&w=1080'); background-size: cover; background-position: center; } .vignette { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at center, rgba(255,255,255,0) 70%, rgba(220,220,220,0.5) 100%); }",
+        html: "<div class='marble-container'><div class='marble-bg'></div><div class='vignette'></div></div>",
+      },
+    },
+  },
+  {
+    id: 40,
+    name: "Desert Calm",
+    image: "https://example.com/desert-calm-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#1e293b",
+        button_color: "#fef3c7",
+      },
+      bio_page: {
+        css: ".desert-calm-container { height: 100lvh; position: relative; overflow: hidden; } .desert-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1547234935-80c7145ec969?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8MXx8c2FuZCUyMGR1bmVzfHwwfHx8fDE2MTQwOTIyMTA&ixlib=rb-4.0.3&q=80&w=1080'); background-size: cover; background-position: center; } .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(0deg, rgba(254,243,199,0.3) 0%, rgba(254,243,199,0) 100%); }",
+        html: "<div class='desert-calm-container'><div class='desert-bg'></div><div class='overlay'></div></div>",
+      },
+    },
+  },
+  {
+    id: 41,
+    name: "Abstract Art",
+    image: "https://example.com/abstract-art-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#db2777",
+      },
+      bio_page: {
+        css: ".abstract-container { height: 100lvh; position: relative; overflow: hidden; } .abstract-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8MXx8YWJzdHJhY3QlMjBhcnR8fDB8fHx8MTYxNDA5MjI0Nw&ixlib=rb-4.0.3&q=80&w=1080'); background-size: cover; background-position: center; } .color-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(219,39,119,0.2); }",
+        html: "<div class='abstract-container'><div class='abstract-bg'></div><div class='color-overlay'></div></div>",
+      },
+    },
+  },
+  {
+    id: 42,
+    name: "Monochrome",
+    image: "https://example.com/monochrome-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#262626",
+      },
+      bio_page: {
+        css: ".monochrome-container { height: 100lvh; position: relative; overflow: hidden; } .monochrome-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1502230831726-fe5549140034?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8MXx8YmxhY2slMjBhbmQlMjB3aGl0ZXx8MHx8fHwxNjE0MDkyMjgw&ixlib=rb-4.0.3&q=80&w=1080'); background-size: cover; background-position: center; filter: grayscale(100%) contrast(120%); } .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%); }",
+        html: "<div class='monochrome-container'><div class='monochrome-bg'></div><div class='overlay'></div></div>",
+      },
+    },
+  },
+  {
+    id: 43,
+    name: "Serene Ocean",
+    image: "https://example.com/serene-ocean-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#0369a1",
+      },
+      bio_page: {
+        css: ".ocean-calm-container { height: 100lvh; position: relative; overflow: hidden; } .ocean-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8b2NlYW58fDB8fHx8MTYxNDA4ODg3MA&ixlib=rb-4.0.3&q=80&w=1080'); background-size: cover; background-position: center; } .blue-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(3,105,161,0.2); }",
+        html: "<div class='ocean-calm-container'><div class='ocean-bg'></div><div class='blue-overlay'></div></div>",
+      },
+    },
+  },
+  {
+    id: 44,
+    name: "Mountain Vista",
+    image: "https://example.com/mountain-vista-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#4b5563",
+      },
+      bio_page: {
+        css: ".mountain-vista-container { height: 100lvh; position: relative; overflow: hidden; } .mountain-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8MXx8bW91bnRhaW4lMjB2aXN0YXx8MHx8fHwxNjE0MDkyMzQx&ixlib=rb-4.0.3&q=80&w=1080'); background-size: cover; background-position: center; } .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(0deg, rgba(75,85,99,0.4) 0%, rgba(75,85,99,0) 100%); }",
+        html: "<div class='mountain-vista-container'><div class='mountain-bg'></div><div class='overlay'></div></div>",
       },
     },
   },
