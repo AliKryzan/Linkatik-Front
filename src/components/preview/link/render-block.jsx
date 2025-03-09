@@ -20,10 +20,13 @@ import VideoPreview from "./video"
 
 const RenderBlock = (props) => {
   // Get priority settings from the block
-  const { block } = props;
+  const { block, theme } = props;
   const hasPriority = block.priority?.is_enable;
   const priorityType = block.priority?.type;
   const animationType = block.priority?.animation;
+  
+  // Get theme colors
+  const backgroundColor = theme?.background_color ?? '#FFFFFF';
   
   // Determine animation class based on priority settings
   let animationClass = '';
@@ -32,10 +35,14 @@ const RenderBlock = (props) => {
   } else if (hasPriority && priorityType === 'spotlight') {
     animationClass = 'spotlight max-w-70 ms-2';
   }
-  // Wrap the component with the animation class
+  // Wrap the component with the animation class and theme styles
   const renderWithAnimation = (Component) => {
     return (
-      <Component {...props} className={`${props.className || ''} ${animationClass}`} />
+      <Component 
+        {...props} 
+        className={`${props.className || ''} ${animationClass}`}
+        style={{ backgroundColor: backgroundColor, ...props.style }} 
+      />
     );
   };
   // console.log("BlocksWithLinkBehavior ========>",props)

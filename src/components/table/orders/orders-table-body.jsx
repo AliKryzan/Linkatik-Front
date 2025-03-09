@@ -10,7 +10,7 @@ const OrdersBody = ({ data }) => {
   const rows = data.map((element) => {
     return (
       <Table.Tr key={element.id}>
-        <Table.Td>{element.id}</Table.Td>
+        <Table.Td>{element?.product?.title}</Table.Td>
         <Table.Td>{element.name}</Table.Td>
         <Table.Td>{element.subscriber_email}</Table.Td>
         <Table.Td>{element.created_at}</Table.Td>

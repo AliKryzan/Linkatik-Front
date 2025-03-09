@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"
 
 import { Buttons } from "./buttons"
 
-const Default = ({ block, className }) => {
+const Default = ({ block, className, style }) => {
   const { path } = useParams()
   const { data } = useQuery({
     queryKey: ["bio-page-theme-preview", path],
@@ -29,6 +29,7 @@ const Default = ({ block, className }) => {
     <>
       <Button
         style={{
+          ...style,
           "--button-color": buttonColor,
           "--text-color": textColor,
         }}
