@@ -7,8 +7,9 @@ import { useParams } from "react-router-dom"
 import { GetPageAppearance } from "@/services/utils"
 import AutoHeight from "../../common/auto-height"
 import { Buttons } from "./buttons"
+import { cn } from "@/lib/utils"
 
-function FaqPreview({ block }) {
+function FaqPreview({ block,className }) {
   const { path } = useParams()
   const { data } = useQuery({
     queryKey: ["bio-page-theme-preview", path],
@@ -26,7 +27,7 @@ function FaqPreview({ block }) {
   const [opened, setOpened] = useState(null)
 
   return (
-    <div className="faq-preview">
+    <div className={cn("faq-preview",className)}>
       <Stack>
         {block.settings.faqs.map((item, index) => {
           return (

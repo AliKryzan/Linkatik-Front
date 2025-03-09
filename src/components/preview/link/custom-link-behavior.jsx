@@ -1,11 +1,12 @@
 import { memo, useEffect, useState } from "react"
+import { GetPageAppearance } from "@/services/utils"
 import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 
-import { GetPageAppearance } from "@/services/utils"
 import Default from "./default"
+import { cn } from "@/lib/utils"
 
-const CustomLinkBehavior = ({ block }) => {
+const CustomLinkBehavior = ({ block, className }) => {
   if (block.type === "youtube") {
     console.log("🚀 ~ CustomLinkBehavior ~ block:", block)
   }
@@ -70,7 +71,7 @@ const CustomLinkBehavior = ({ block }) => {
           "--button-color": buttonColor,
           "--text-color": textColor,
         }}
-        className="link-preview iframe">
+        className={cn("link-preview iframe", className)}>
         <p className="block-title">{block.title}</p>
         <div className="iframe-wrapper" dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
       </div>

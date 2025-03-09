@@ -1,12 +1,14 @@
 import { Group } from "@mantine/core"
 
+import { cn } from "@/lib/utils"
+
 import Default from "./default"
 
-const TwitchPreview = ({ block }) => {
+const TwitchPreview = ({ block, className }) => {
   if (block.settings.link_behavior === "target") return <Default block={block} />
 
   return (
-    <div className="link-preview iframe">
+    <div className={cn("link-preview iframe", className)}>
       <p className="block-title">{block.title}</p>
       <Group gap={"0"} grow wrap="nowrap" className="iframe-wrapper">
         {block.settings.link_behavior?.includes("channel") ? (

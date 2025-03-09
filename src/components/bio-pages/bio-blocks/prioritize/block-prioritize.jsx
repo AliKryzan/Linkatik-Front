@@ -20,7 +20,7 @@ const animations = [
   {
     value: "shakex",
     label: "shake x",
-  },
+},
   {
     value: "tada",
     label: "tada",
@@ -40,7 +40,7 @@ const BlockPrioritize = ({ block }) => {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      if (data.prioritize === "none") {
+      if (data.type === "none") {
         await PutUpdateBlock({
           pageId: id,
           blockId: block.id,

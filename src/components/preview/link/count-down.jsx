@@ -6,7 +6,7 @@ function toTwoDigits(num) {
   return num < 10 ? "0" + num : num.toString()
 }
 
-const CountDown = ({ block }) => {
+const CountDown = ({ block ,className}) => {
   const { t } = useTranslation()
 
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -61,7 +61,7 @@ const CountDown = ({ block }) => {
   }
 
   return (
-    <div className="countdown-preview-block">
+    <div  className={cn("countdown-preview-block", className)}>
       <Countdown date={new Date(block?.settings?.end_date)} renderer={renderer} oPadDays={2} zeroPadTime={2}>
         <Text>{t("bioBlocks.tabs.redirect.form.countdown")}</Text>
       </Countdown>

@@ -19,52 +19,118 @@ import TwitchPreview from "./twitch"
 import VideoPreview from "./video"
 
 const RenderBlock = (props) => {
-
+  // Get priority settings from the block
+  const { block } = props;
+  const hasPriority = block.priority?.is_enable;
+  const priorityType = block.priority?.type;
+  const animationType = block.priority?.animation;
+  
+  // Determine animation class based on priority settings
+  let animationClass = '';
+  if (hasPriority && priorityType === 'animation' && animationType) {
+    animationClass = `animate-${animationType}`;
+  } else if (hasPriority && priorityType === 'spotlight') {
+    animationClass = 'spotlight max-w-70 ms-2';
+  }
+  // Wrap the component with the animation class
+  const renderWithAnimation = (Component) => {
+    return (
+      <Component {...props} className={`${props.className || ''} ${animationClass}`} />
+    );
+  };
   // console.log("BlocksWithLinkBehavior ========>",props)
   const type = BlocksWithLinkBehavior.find((e) => e === props.block.type) ? "link_behavior" : props.block.type
-
-  console.log("type ==========>",type)
+  console.log("type ==========>", type);
+  console.log("priority settings ==========>", { hasPriority, priorityType, animationType, animationClass });
+  
+  // If no priority is set, render normally without animation wrapper
+  if (!hasPriority) {
+    switch (type) {
+      case "link_behavior":
+        return <CustomLinkBehavior {...props} />
+      case "twitch":
+        return <TwitchPreview {...props} />
+      case "header":
+        return <HeaderPreview {...props} />
+      case "file":
+        return <FilePreview {...props} />
+      case "audio":
+        return <AudioPreview {...props} />
+      case "image":
+        return <ImagePreview {...props} />
+      case "video":
+        return <VideoPreview {...props} />
+      case "countdown":
+        return <CountDown {...props} />
+      case "contact_form":
+        return <ContactForm {...props} />
+      case "faq":
+        return <FaqPreview {...props} />
+      case "image_slider":
+        return <ImageSliderPreview {...props} />
+      case "divider":
+        return <DividerPreview {...props} />
+      case "text_block":
+        return <Text {...props} />
+      case "socials":
+        return <SocialsPreview {...props} />
+      case "apple_music":
+        return <AppleMusic {...props} />
+      case "email_collector":
+        return <EmailCollector {...props} />
+      case "zid":
+        return <Product {...props} />
+      case "product":
+        return <Product {...props} />
+      case "salla":
+        return <Product {...props} />
+      default:
+        return <Default {...props} />
+    }
+  }
+  
+  // If priority is set, render with animation wrapper
   switch (type) {
     case "link_behavior":
-      return <CustomLinkBehavior {...props} />
+      return renderWithAnimation(CustomLinkBehavior)
     case "twitch":
-      return <TwitchPreview {...props} />
+      return renderWithAnimation(TwitchPreview)
     case "header":
-      return <HeaderPreview {...props} />
+      return renderWithAnimation(HeaderPreview)
     case "file":
-      return <FilePreview {...props} />
+      return renderWithAnimation(FilePreview)
     case "audio":
-      return <AudioPreview {...props} />
+      return renderWithAnimation(AudioPreview)
     case "image":
-      return <ImagePreview {...props} />
+      return renderWithAnimation(ImagePreview)
     case "video":
-      return <VideoPreview {...props} />
+      return renderWithAnimation(VideoPreview)
     case "countdown":
-      return <CountDown {...props} />
+      return renderWithAnimation(CountDown)
     case "contact_form":
-      return <ContactForm {...props} />
+      return renderWithAnimation(ContactForm)
     case "faq":
-      return <FaqPreview {...props} />
+      return renderWithAnimation(FaqPreview)
     case "image_slider":
-      return <ImageSliderPreview {...props} />
+      return renderWithAnimation(ImageSliderPreview)
     case "divider":
-      return <DividerPreview {...props} />
+      return renderWithAnimation(DividerPreview)
     case "text_block":
-      return <Text {...props} />
+      return renderWithAnimation(Text)
     case "socials":
-      return <SocialsPreview {...props} />
+      return renderWithAnimation(SocialsPreview)
     case "apple_music":
-      return <AppleMusic {...props} />
+      return renderWithAnimation(AppleMusic)
     case "email_collector":
-      return <EmailCollector {...props} />
+      return renderWithAnimation(EmailCollector)
     case "zid":
-      return <Product {...props} />
+      return renderWithAnimation(Product)
     case "product":
-      return <Product {...props} />
+      return renderWithAnimation(Product)
     case "salla":
-      return <Product {...props} />
+      return renderWithAnimation(Product)
     default:
-      return <Default {...props} />
+      return renderWithAnimation(Default)
   }
 }
 

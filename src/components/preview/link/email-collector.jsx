@@ -8,7 +8,7 @@ import { GetPageAppearance } from "@/services/utils"
 import SubscribeForm from "../../common/subscribe-form"
 import { Buttons } from "./buttons"
 
-const EmailCollector = ({ block }) => {
+const EmailCollector = ({ block,className }) => {
   const { path } = useParams()
   const { data } = useQuery({
     queryKey: ["bio-page-theme-preview", path],
@@ -26,6 +26,7 @@ const EmailCollector = ({ block }) => {
   const [opened, { open, close }] = useDisclosure(false)
   return (
     <div
+    className={className}
       style={{
         "--button-color": buttonColor,
         "--text-color": textColor,

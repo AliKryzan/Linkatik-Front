@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils"
 import { Group, ScrollArea } from "@mantine/core"
 import { MailsIcon } from "lucide-react"
 import {
@@ -12,7 +13,7 @@ import {
   FaYoutube,
 } from "react-icons/fa6"
 
-const SocialsPreview = ({ block }) => {
+const SocialsPreview = ({ block ,className}) => {
   const socialsArray = [
     "email",
     "phone",
@@ -37,7 +38,7 @@ const SocialsPreview = ({ block }) => {
     whatsapp: <FaWhatsapp size={41} className="p-1.5 bg-white rounded-full text-green-600" />,
   }
   return (
-    <ScrollArea w={300} className="!py-2.5" >
+    <ScrollArea w={300} className={cn("!py-2.5",className)} >
       <div className="flex items-center gap-5 py-2.5">
         {socialsArray.map((element) => {
           return (

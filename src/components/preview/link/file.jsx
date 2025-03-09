@@ -1,9 +1,11 @@
 import { FileText } from "lucide-react"
 
-const FilePreview = ({ block }) => {
+import { cn } from "@/lib/utils"
+
+const FilePreview = ({ block, className }) => {
   return (
     <a
-      className="link-preview file"
+      className={cn("link-preview file", className)}
       download
       href={block.settings.file_url}
       target="_blank"

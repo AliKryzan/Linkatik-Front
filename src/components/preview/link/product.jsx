@@ -6,14 +6,15 @@ import "swiper/css"
 
 
 import { Box, Text } from "@mantine/core"
+import { cn } from "@/lib/utils"
 
-const Product = ({ block }) => {
+const Product = ({ block ,className}) => {
   console.log("🚀 ~ Product ~ block:", block)
   console.log("block=====>", block)
 
   return (
     <Swiper
-      className="image-slider link-preview"
+      className={cn("image-slider link-preview",className)}
       spaceBetween={15}
       slidesPerView={2}
       onSlideChange={() => console.log("slide change")}

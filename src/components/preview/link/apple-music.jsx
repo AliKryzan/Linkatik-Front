@@ -1,7 +1,8 @@
+import { cn } from "@/lib/utils"
 import AudioPlayer from "../../ui/audio-player"
 import Default from "./default"
 
-const AppleMusic = ({ block }) => {
+const AppleMusic = ({ block,className }) => {
   if (block.settings.link_behavior === "target") return <Default block={block} />
 
   if (!block.settings.audioUrl)
@@ -15,7 +16,7 @@ const AppleMusic = ({ block }) => {
     )
 
   return (
-    <div className="link-preview iframe apple_music">
+    <div className={cn("link-preview iframe apple_music",className)}>
       <p className="block-title">{block.title}</p>
       <div className="iframe-wrapper">
         <img className="thumbnail" src={block.settings?.thumbnailUrl || ""} alt={"cover"} />

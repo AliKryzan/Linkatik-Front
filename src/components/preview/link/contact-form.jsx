@@ -1,14 +1,20 @@
 import { Button, Select, Stack, Text, Textarea, TextInput } from "@mantine/core"
 import { Controller, useForm } from "react-hook-form"
 
-const ContactForm = ({ block }) => {
+import { cn } from "@/lib/utils"
+
+const ContactForm = ({ block, className }) => {
   const form = useForm({})
   const onSubmit = form.handleSubmit(async (data) => {
     console.log("🚀 ~ onSubmit ~ data:", data)
   })
 
   return (
-    <Stack gap="xl" component={"form"} className="link-preview contact-form" onSubmit={onSubmit}>
+    <Stack
+      gap="xl"
+      component={"form"}
+      className={cn("link-preview contact-form", className)}
+      onSubmit={onSubmit}>
       <Text ta={"center"}>{block.title}</Text>
 
       <Stack>

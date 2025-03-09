@@ -68,6 +68,7 @@
     "react-tooltip": "^5.28.0",
     "recharts": "^2.13.0",
     "swiper": "^11.1.14",
+    "tailwind-merge": "^3.0.2",
     "tinymce": "^7.6.1",
     "typescript": "^5.7.3",
     "vite-tsconfig-paths": "^5.1.4",

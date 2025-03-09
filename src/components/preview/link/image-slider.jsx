@@ -6,9 +6,11 @@ import "swiper/css"
 
 import { Box, Text } from "@mantine/core"
 
-const ImageSliderPreview = ({ block }) => {
+import { cn } from "@/lib/utils"
+
+const ImageSliderPreview = ({ block, className }) => {
   return (
-    <Swiper className="image-slider link-preview" spaceBetween={15} slidesPerView={2}>
+    <Swiper className={(cn("image-slider link-preview"), className)} spaceBetween={15} slidesPerView={2}>
       {block.settings.images.map((image, index) => (
         <SwiperSlide key={index}>
           <Box className="slide">
