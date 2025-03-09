@@ -58,7 +58,7 @@ const RenderBlock = (props) => {
       case "link_behavior":
         return (
           <CustomLinkBehavior
-          {...props}
+            {...props}
             style={{
               ...props.style,
               backgroundColor: theme?.button_color ?? "#FFFFFF",
