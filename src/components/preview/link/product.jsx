@@ -8,7 +8,7 @@ import "swiper/css"
 import { Box, Text } from "@mantine/core"
 import { cn } from "@/lib/utils"
 
-const Product = ({ block ,className}) => {
+const Product = ({ block ,className,style}) => {
   console.log("🚀 ~ Product ~ block:", block)
   console.log("block=====>", block)
 

@@ -3,10 +3,11 @@ import { GetPageAppearance } from "@/services/utils"
 import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 
-import Default from "./default"
 import { cn } from "@/lib/utils"
 
-const CustomLinkBehavior = ({ block, className }) => {
+import Default from "./default"
+
+const CustomLinkBehavior = ({ block, className, style }) => {
   if (block.type === "youtube") {
     console.log("🚀 ~ CustomLinkBehavior ~ block:", block)
   }
@@ -67,10 +68,11 @@ const CustomLinkBehavior = ({ block, className }) => {
   return (
     <>
       <div
-        style={{
-          "--button-color": buttonColor,
-          "--text-color": textColor,
-        }}
+        // style={{
+        //   "--button-color": buttonColor,
+        //   "--text-color": textColor,
+        // }}
+        style={style}
         className={cn("link-preview iframe", className)}>
         <p className="block-title">{block.title}</p>
         <div className="iframe-wrapper" dangerouslySetInnerHTML={{ __html: htmlContent }}></div>

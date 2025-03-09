@@ -1,4 +1,5 @@
 import { BlocksWithLinkBehavior } from "@/config/bio-blocks"
+
 import AppleMusic from "./apple-music"
 import AudioPreview from "./audio"
 import ContactForm from "./contact-form"
@@ -20,36 +21,37 @@ import VideoPreview from "./video"
 
 const RenderBlock = (props) => {
   // Get priority settings from the block
-  const { block, theme } = props;
-  const hasPriority = block.priority?.is_enable;
-  const priorityType = block.priority?.type;
-  const animationType = block.priority?.animation;
-  
-  // Get theme colors
-  const backgroundColor = theme?.background_color ?? '#FFFFFF';
-  
+  const { block, theme } = props
+  const hasPriority = block.priority?.is_enable
+  const priorityType = block.priority?.type
+  const animationType = block.priority?.animation
+
   // Determine animation class based on priority settings
-  let animationClass = '';
-  if (hasPriority && priorityType === 'animation' && animationType) {
-    animationClass = `animate-${animationType}`;
-  } else if (hasPriority && priorityType === 'spotlight') {
-    animationClass = 'spotlight max-w-70 ms-2';
+  let animationClass = ""
+  if (hasPriority && priorityType === "animation" && animationType) {
+    animationClass = `animate-${animationType}`
+  } else if (hasPriority && priorityType === "spotlight") {
+    animationClass = "spotlight max-w-70 ms-2"
   }
   // Wrap the component with the animation class and theme styles
   const renderWithAnimation = (Component) => {
     return (
-      <Component 
-        {...props} 
-        className={`${props.className || ''} ${animationClass}`}
-        style={{ backgroundColor: backgroundColor, ...props.style }} 
+      <Component
+        {...props}
+        className={`${props.className || ""} ${animationClass}`}
+        style={{
+          ...props.style,
+          backgroundColor: theme?.button_color ?? "#FFFFFF",
+          color: theme?.text_color ?? "#FFFFFF",
+        }}
       />
-    );
-  };
+    )
+  }
   // console.log("BlocksWithLinkBehavior ========>",props)
   const type = BlocksWithLinkBehavior.find((e) => e === props.block.type) ? "link_behavior" : props.block.type
-  console.log("type ==========>", type);
-  console.log("priority settings ==========>", { hasPriority, priorityType, animationType, animationClass });
-  
+  console.log("type ==========>", type)
+  console.log("priority settings ==========>", { hasPriority, priorityType, animationType, animationClass })
+
   // If no priority is set, render normally without animation wrapper
   if (!hasPriority) {
     switch (type) {
@@ -92,10 +94,19 @@ const RenderBlock = (props) => {
       case "salla":
         return <Product {...props} />
       default:
-        return <Default {...props} />
+        return (
+          <Default
+            {...props}
+            style={{
+              ...props.style,
+              backgroundColor: theme?.button_color ?? "#FFFFFF",
+              color: theme?.text_color ?? "#FFFFFF",
+            }}
+          />
+        )
     }
   }
-  
+
   // If priority is set, render with animation wrapper
   switch (type) {
     case "link_behavior":

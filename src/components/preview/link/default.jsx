@@ -28,12 +28,8 @@ const Default = ({ block, className, style }) => {
   return (
     <>
       <Button
-        style={{
-          ...style,
-          "--button-color": buttonColor,
-          "--text-color": textColor,
-        }}
-        className={`${className} ${
+        style={style}
+        className={`${className ?? ""} ${
           theme.type
             ? "link-preview default text-center"
             : `link-preview default rounded-2xl text-center shadow-sm`

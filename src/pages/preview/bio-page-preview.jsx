@@ -178,13 +178,13 @@ const Preview = ({ isStandAlonePage = false }) => {
   if (status === "error" || statusAppearance === "error") return <Error />
   if (status === "success" && !data.data) return <Error />
 
-  const backgroundSettings = themes.find((theme) => theme.id === Number(appearanceData?.custom_theme_id))
-    ?.settings?.bio_page ?? {
+  const selectedTheme = themes.find((theme) => theme.id === Number(appearanceData?.custom_theme_id))
+  console.log("selectedTheme", selectedTheme)
+
+  const { html, css } = selectedTheme?.settings?.bio_page ?? {
     html: "",
     css: "",
   }
-  console.log("backgroundSettings", backgroundSettings)
-  const { html, css } = backgroundSettings
   const encapsulated = generateWebComponent("custom-background-" + Math.random(), html, css)
 
   const avatar = groupAvatar.find((item) => item.id === Number(data?.data.image_avatar))
@@ -268,10 +268,14 @@ const Preview = ({ isStandAlonePage = false }) => {
               />
             </div>
             <Box mt="lg">
-              <Title order={1} fz={22} align={"center"}>
+              <Title
+                order={1}
+                fz={22}
+                align={"center"}
+                style={{ color: selectedTheme?.settings?.bio_link?.text_color }}>
                 {data.data.title}
               </Title>
-              <Text fz={14} align={"center"}>
+              <Text fz={14} align={"center"} style={{ color: selectedTheme?.settings?.bio_link?.text_color }}>
                 {data.data.bio}
               </Text>
             </Box>
@@ -282,7 +286,7 @@ const Preview = ({ isStandAlonePage = false }) => {
                 return (
                   <>
                     <BlockPreviewWrapper
-                      theme={appearanceData?.appearance?.bio_link}
+                      theme={selectedTheme?.settings?.bio_link}
                       pageId={data.data.id}
                       key={block.id}
                       block={block}
