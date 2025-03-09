@@ -32,8 +32,6 @@ const BlockSchedule = ({ block }) => {
 
     const startMoment = moment(startDate)
     const endMoment = moment(endDate)
-
-    // Check if end datetime is actually after start datetime
     return endMoment.isAfter(startMoment)
   }
 
@@ -70,6 +68,8 @@ const BlockSchedule = ({ block }) => {
   useEffect(() => {
     if (startDate && endDate) {
       const isValid = validateDates(startDate, endDate)
+      console.log(isValid)
+
       if (!isValid) {
         form.setError("end_date", { message: "end_date_before_start_date" })
       } else {
@@ -114,7 +114,7 @@ const BlockSchedule = ({ block }) => {
           render={({ field }) => (
             <CustomDateTimePicker
               {...field}
-              minDate={form.watch("start_date")} // Remove dependence on start date for min value
+              minDate={startDate ? new Date(startDate) : new Date()} // Ensure it respects both date and time
               onChange={(date) => {
                 field.onChange(date)
               }}
