@@ -103,6 +103,17 @@ const BlockLock = ({ block }) => {
                   w={"50%"}
                   variant="filled"
                   type="number"
+                  min={1}
+                  onKeyDown={(e) => {
+                    if (e.key === '-' || e.key === 'e' || e.key === '.') {
+                      e.preventDefault();
+                    }
+                  }}
+                  onInput={(e) => {
+                    if (e.target.value < 1) {
+                      e.target.value = 1;
+                    }
+                  }}
                   label={t("bioBlocks.tabs.lock.form.birthday_year_label")}
                   error={
                     formState.errors.birthday_year?.message &&
