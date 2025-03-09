@@ -16,6 +16,8 @@ import {
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 
+import { cn } from "@/lib/utils"
+
 const ShareModal = ({ data, children }) => {
   const { path } = useParams()
   const { t } = useTranslation()
@@ -161,7 +163,10 @@ const ShareModal = ({ data, children }) => {
           </div>
 
           <div
-            className="my-4 rounded-lg px-6 py-4 text-center"
+            className={cn(
+              "my-4 rounded-lg px-6 py-4 text-center",
+              !selectedTheme && "bg-gradient-to-r from-purple-600 to-purple-800 text-white",
+            )}
             style={{
               backgroundColor: selectedTheme?.button_color,
               color: selectedTheme?.text_color,
