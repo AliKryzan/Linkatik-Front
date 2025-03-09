@@ -1,6 +1,5 @@
 import { useState } from "react"
-import Error from "../../common/error"
-import Loader from "../../common/loader"
+import { themes } from "@/constants"
 import { PutUpdateBioPage } from "@/services/utils"
 import { Group, Radio, Stack, Text } from "@mantine/core"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
@@ -8,9 +7,10 @@ import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 
+import Error from "../../common/error"
+import Loader from "../../common/loader"
 import CreateCustomTheme from "./create-custom-theme"
 import { ThemePreview } from "./theme-preview"
-import { themes } from "@/constants"
 
 const Themes = ({ data }) => {
   console.log("Themes data --------------------------------------------")
@@ -18,7 +18,7 @@ const Themes = ({ data }) => {
   const { bioImage, image_type } = useSelector((state) => state.GeneralSlice)
 
   const { t } = useTranslation()
-  const [value, setValue] = useState(!!data?.is_custom_theme ? "custom" : data.bio_page_theme.id + "")
+  const [value, setValue] = useState(!!data?.is_custom_theme ? "custom" : data.custom_theme_id)
   const [img, setImg] = useState(data.image)
 
   // handle change theme
@@ -46,6 +46,7 @@ const Themes = ({ data }) => {
         <Radio.Group
           value={value}
           onChange={(value) => {
+            console.log(value);
             setValue(value)
             mutate({ value: value })
           }}>

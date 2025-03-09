@@ -31,7 +31,7 @@ export const ThemePreview = ({ theme, style }) => {
         p="0"
         className="theme-preview"
         radius="md"
-        value={theme.id + ""}
+        value={String(theme.id)}
         key={theme.id + theme.name}>
         <Radio.Indicator className="indicator" />
         <RenderBackground encapsulated={encapsulated} style={{ height: '100%' }} />
