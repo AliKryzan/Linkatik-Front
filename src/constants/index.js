@@ -462,4 +462,185 @@ export const themes = [
       },
     },
   },
+  {
+    id: 45,
+    name: "Galaxy Spin",
+    image: "https://example.com/galaxy-spin-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#6d28d9",
+      },
+      bio_page: {
+        css: `.galaxy-container {
+            height: 100lvh;
+            background: radial-gradient(circle, #1e1b4b 0%, #0f172a 100%);
+            position: relative;
+            overflow: hidden;
+          }
+          .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+          }
+          .galaxy {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(109, 40, 217, 0.5) 0%, rgba(109, 40, 217, 0) 70%);
+            border-radius: 50%;
+            animation: spin 20s linear infinite;
+          }
+          @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+          }
+          @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+          }`,
+        html: `<div class="galaxy-container">
+            <div class="galaxy"></div>
+            <div class="star" style="top: 10%; left: 20%;"></div>
+            <div class="star" style="top: 30%; left: 70%;"></div>
+            <div class="star" style="top: 50%; left: 40%;"></div>
+            <div class="star" style="top: 80%; left: 60%;"></div>
+          </div>`,
+      },
+    },
+  },
+  {
+    id: 46,
+    name: "Neon Cityscape",
+    image: "https://example.com/neon-cityscape-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#db2777",
+      },
+      bio_page: {
+        css: `.cityscape-container {
+            height: 100lvh;
+            background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
+            position: relative;
+            overflow: hidden;
+          }
+          .building {
+            position: absolute;
+            bottom: 0;
+            width: 100px;
+            height: 300px;
+            background: #1e293b;
+            animation: glow 3s infinite alternate;
+          }
+          .building1 { left: 10%; height: 200px; animation-delay: -1s; }
+          .building2 { left: 30%; height: 250px; animation-delay: -2s; }
+          .building3 { left: 50%; height: 300px; animation-delay: -3s; }
+          .building4 { left: 70%; height: 220px; animation-delay: -4s; }
+          @keyframes glow {
+            0% { box-shadow: 0 0 10px #db2777; }
+            100% { box-shadow: 0 0 20px #db2777, 0 0 30px #db2777; }
+          }`,
+        html: `<div class="cityscape-container">
+            <div class="building building1"></div>
+            <div class="building building2"></div>
+            <div class="building building3"></div>
+            <div class="building building4"></div>
+          </div>`,
+      },
+    },
+  },
+
+  // New static background themes
+  {
+    id: 47,
+    name: "Golden Hour",
+    image: "https://example.com/golden-hour-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#f59e0b",
+      },
+      bio_page: {
+        css: `.golden-hour-container {
+            height: 100lvh;
+            background: linear-gradient(180deg, #f59e0b 0%, #f97316 100%);
+            position: relative;
+            overflow: hidden;
+          }
+          .sun {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #ffd700 0%, rgba(255, 215, 0, 0) 70%);
+            border-radius: 50%;
+          }`,
+        html: `<div class="golden-hour-container">
+            <div class="sun"></div>
+          </div>`,
+      },
+    },
+  },
+  {
+    id: 48,
+    name: "Pastel Dream",
+    image: "https://example.com/pastel-dream-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#1e293b",
+        button_color: "#f8fafc",
+      },
+      bio_page: {
+        css: `.pastel-container {
+            height: 100lvh;
+            background: linear-gradient(135deg, #f0abfc 0%, #bae6fd 100%);
+            position: relative;
+            overflow: hidden;
+          }`,
+        html: `<div class="pastel-container"></div>`,
+      },
+    },
+  },
+  {
+    id: 49,
+    name: "Mystic Fog",
+    image: "https://example.com/mystic-fog-thumbnail.svg",
+    settings: {
+      bio_link: {
+        type: "filled",
+        text_color: "#ffffff",
+        button_color: "#4c1d95",
+      },
+      bio_page: {
+        css: `.mystic-container {
+            height: 100lvh;
+            background: linear-gradient(180deg, #4c1d95 0%, #6d28d9 100%);
+            position: relative;
+            overflow: hidden;
+          }
+          .fog {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+          }`,
+        html: `<div class="mystic-container">
+            <div class="fog"></div>
+          </div>`,
+      },
+    },
+  },
 ]
