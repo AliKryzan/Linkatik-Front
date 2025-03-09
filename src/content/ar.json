@@ -674,7 +674,8 @@
             "invalidTime": "الوقت غير صالح",
             "invalidTimezone": "المنطقة غير صالحة",
             "invalidResponse": "حدث خطاء في الاتصال بالسيرفر",
-            "required": "هذا الحقل مطلوب"
+            "required": "هذا الحقل مطلوب",
+            "end_date_before_start_date": "يجب أن يكون تاريخ و وقت الانتهاء بعد تاريخ ووقت البدء"
           }
         }
       },

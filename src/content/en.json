@@ -675,7 +675,8 @@
             "invalidTime": "Time is not valid",
             "invalidTimezone": "The area is not valid",
             "invalidResponse": "A mistake in contacting the server",
-            "required": "This field is required"
+            "required": "This field is required",
+            "end_date_before_start_date": "End date and time must be after start date and time"
           }
         }
       },
@@ -726,7 +727,7 @@
       "invalidUrl": "The link is invalid",
       "serverError": "A mistake in contacting the server",
       "invalidEmail": "Email is not valid",
-      "invalidNumber":"The phone number is not valid"
+      "invalidNumber": "The phone number is not valid"
     },
     "blocks": {
       "faq": "Common questions",

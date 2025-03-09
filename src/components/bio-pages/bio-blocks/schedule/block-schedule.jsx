@@ -1,12 +1,14 @@
+import { useEffect } from "react"
+import { PutUpdateBlock } from "@/services/utils"
+import { BioBlockScheduleSchema } from "@/validation/bio-block"
 import { DevTool } from "@hookform/devtools"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button, Group, Stack, Text } from "@mantine/core"
+import moment from "moment" // Import moment
 import { Controller, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
-import { PutUpdateBlock } from "@/services/utils"
-import { BioBlockScheduleSchema } from "@/validation/bio-block"
 import CustomDateTimePicker from "../../../ui/custom-date-time-picker"
 
 // import CustomSelect from "../../../ui/custom-select"
@@ -22,9 +24,28 @@ const BlockSchedule = ({ block }) => {
       // timezone: block.schedule.timezone,
     },
   })
-  const { handleSubmit, control, formState, setError } = form
+  const { handleSubmit, control, formState, setError, watch } = form
+
+  // Validation function to check if end date/time is after start date/time
+  const validateDates = (startDate, endDate) => {
+    if (!startDate || !endDate) return true
+
+    const startMoment = moment(startDate)
+    const endMoment = moment(endDate)
+
+    // Check if end datetime is actually after start datetime
+    return endMoment.isAfter(startMoment)
+  }
+
   const onSubmit = handleSubmit(async (data) => {
     try {
+      // Validate that end date/time is after start date/time
+      if (!validateDates(data.start_date, data.end_date)) {
+        return setError("end_date", {
+          message: "end_date_before_start_date",
+        })
+      }
+
       const response = await PutUpdateBlock({
         pageId: id,
         blockId: block.id,
@@ -40,6 +61,23 @@ const BlockSchedule = ({ block }) => {
       setError("root", { message: error.response?.data?.message || error.response?.message || error.message })
     }
   })
+
+  // Get current start date for validation
+  const startDate = watch("start_date")
+  const endDate = watch("end_date")
+
+  // Validate dates whenever either changes
+  useEffect(() => {
+    if (startDate && endDate) {
+      const isValid = validateDates(startDate, endDate)
+      if (!isValid) {
+        form.setError("end_date", { message: "end_date_before_start_date" })
+      } else {
+        form.clearErrors("end_date")
+      }
+    }
+  }, [startDate, endDate, form])
+
   return (
     <Stack p={"lg"} component={"form"} onSubmit={onSubmit} noValidate>
       <div>
@@ -50,7 +88,6 @@ const BlockSchedule = ({ block }) => {
           {t("bioBlocks.tabs.schedule.description")}
         </Text>
       </div>
-
       <Group grow>
         <Controller
           control={control}
@@ -65,6 +102,9 @@ const BlockSchedule = ({ block }) => {
                 t(`bioBlocks.tabs.schedule.form.errors.${formState.errors.start_date?.message}`)
               }
               {...field}
+              onChange={(date) => {
+                field.onChange(date)
+              }}
             />
           )}
         />
@@ -73,9 +113,10 @@ const BlockSchedule = ({ block }) => {
           name="end_date"
           render={({ field }) => (
             <CustomDateTimePicker
-              minDate={form.watch("start_date")}
+              {...field}
+              minDate={form.watch("start_date")} // Remove dependence on start date for min value
               onChange={(date) => {
-                field.onChange(date.toString())
+                field.onChange(date)
               }}
               variant="filled"
               label={t("bioBlocks.tabs.schedule.form.end_date")}
@@ -83,28 +124,21 @@ const BlockSchedule = ({ block }) => {
                 formState.errors.end_date?.message &&
                 t(`bioBlocks.tabs.schedule.form.errors.${formState.errors.end_date?.message}`)
               }
-              {...field}
             />
           )}
         />
       </Group>
-      {/* <Controller
-        control={control}
-        name={"timezone"}
-        render={({ field }) => (
-          <CustomSelect
-            label={t("bioBlocks.tabs.schedule.form.timezone")}
-            error={
-              formState.errors.timezone?.message &&
-              t(`bioBlocks.tabs.schedule.form.errors.${formState.errors.timezone?.message}`)
-            }
-            data={["GMT", "UTC"]}
-            {...field}
-          />
-        )}
-      /> */}
-
-      <Button loading={formState.isSubmitting} type="submit" radius={"xl"}>
+      <Button
+        loading={formState.isSubmitting}
+        type="submit"
+        radius={"xl"}
+        disabled={
+          formState.isSubmitting ||
+          Object.keys(formState.errors).length > 0 ||
+          !startDate ||
+          !endDate ||
+          !validateDates(startDate, endDate)
+        }>
         {t("bioBlocks.tabs.schedule.form.button")}
       </Button>
       {formState.errors.root?.message && (
