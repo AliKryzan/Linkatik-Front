@@ -100,7 +100,7 @@ export const themes = [
       bio_link: {
         type: "filled",
         text_color: "#ffffff",
-        button_color: "#0f172a",
+        button_color: "#14b8a6",
       },
       bio_page: {
         css: ".background { height: 100lvh; background: #0f172a; position: relative; overflow: hidden; } .particle { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; animation: float 6s infinite; } .p1 { top: 20%; left: 20%; } .p2 { top: 60%; left: 80%; animation-delay: -2s; } .p3 { top: 40%; left: 40%; animation-delay: -4s; } .line { position: absolute; width: 100px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transform-origin: left; animation: rotateLine 4s linear infinite; } .l1 { top: 30%; left: 25%; } .l2 { top: 70%; left: 75%; animation-delay: -2s; } @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, 20px); } } @keyframes rotateLine { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }",
