@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react"
+import { GetBioPage, PutUpdateBlock } from "@/services/utils"
 import { closestCenter, DndContext, PointerSensor, TouchSensor, useSensor, useSensors } from "@dnd-kit/core"
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers"
 import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable"
@@ -7,13 +8,12 @@ import { Stack } from "@mantine/core"
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 
+import useDebouncedMutation from "@/hooks/use-debounced-mutation"
 import BioBlock from "@/components/bio-pages/bio-blocks/bio-block"
 import CreateLinkButton from "@/components/bio-pages/create-link-button"
 import Error from "@/components/common/error"
 import InfiniteScrollContainer from "@/components/common/infinte-scroll-container"
 import Loader from "@/components/common/loader"
-import useDebouncedMutation from "@/hooks/use-debounced-mutation"
-import { GetBioPage, PutUpdateBlock } from "@/services/utils"
 
 const BioPage = () => {
   const { id, path } = useParams()
@@ -64,21 +64,29 @@ const BioPage = () => {
 
   function handleDragEnd(event) {
     const { active, over } = event
-
     if (active.id !== over.id) {
       setBlocks((items) => {
         const oldIndex = items.findIndex((item) => item.id == active.id)
         const newIndex = items.findIndex((item) => item.id == over.id)
+
+        // Create the reordered array
+        const newItems = arrayMove(items, oldIndex, newIndex)
+
+        // Update the moved item
         mutate({
           pageId: id,
           blockId: items[oldIndex].id,
           data: {
+            image: items[oldIndex].image,
             type: items[oldIndex].type,
             order: newIndex + 1,
           },
         })
 
-        return arrayMove(items, oldIndex, newIndex)
+        // You might need to update all affected items if your backend requires
+        // consistent ordering with no gaps
+
+        return newItems
       })
     }
   }
