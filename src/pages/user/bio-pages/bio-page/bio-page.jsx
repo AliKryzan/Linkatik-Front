@@ -61,36 +61,33 @@ const BioPage = () => {
   })
 
   const sensors = useSensors(useSensor(PointerSensor), useSensor(TouchSensor))
-
   function handleDragEnd(event) {
     const { active, over } = event
+  
     if (active.id !== over.id) {
       setBlocks((items) => {
         const oldIndex = items.findIndex((item) => item.id == active.id)
         const newIndex = items.findIndex((item) => item.id == over.id)
-
-        // Create the reordered array
-        const newItems = arrayMove(items, oldIndex, newIndex)
-
-        // Update the moved item
+        
+        // Determine if we're moving up or down in the list
+        // If oldIndex > newIndex, we're moving up (bottom to top)
+        // If oldIndex < newIndex, we're moving down (top to bottom)
+        const orderAdjustment = oldIndex > newIndex ? 1 : 2
+        
         mutate({
           pageId: id,
           blockId: items[oldIndex].id,
           data: {
             image: items[oldIndex].image,
             type: items[oldIndex].type,
-            order: newIndex + 1,
+            order: newIndex + orderAdjustment,
           },
         })
-
-        // You might need to update all affected items if your backend requires
-        // consistent ordering with no gaps
-
-        return newItems
+  
+        return arrayMove(items, oldIndex, newIndex)
       })
     }
   }
-
   if (status === "pending") return <Loader />
   if (status === "error") return <Error />
   return (
