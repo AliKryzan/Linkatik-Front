@@ -282,13 +282,13 @@ const Preview = ({ isStandAlonePage = false }) => {
           </div>
           <div className="ms-2.5">
             <Stack gap={"xl"} w={"100%"}>
-              {data?.data?.blocks?.map((block) => {
+              {data?.data?.blocks?.map((block, index) => {
                 return (
                   <>
                     <BlockPreviewWrapper
                       theme={selectedTheme?.settings?.bio_link}
                       pageId={data.data.id}
-                      key={block.id}
+                      key={index}
                       block={block}
                     />
                   </>
