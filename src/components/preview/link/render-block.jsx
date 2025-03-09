@@ -56,7 +56,16 @@ const RenderBlock = (props) => {
   if (!hasPriority) {
     switch (type) {
       case "link_behavior":
-        return <CustomLinkBehavior {...props} />
+        return (
+          <CustomLinkBehavior
+          {...props}
+            style={{
+              ...props.style,
+              backgroundColor: theme?.button_color ?? "#FFFFFF",
+              color: theme?.text_color ?? "#FFFFFF",
+            }}
+          />
+        )
       case "twitch":
         return <TwitchPreview {...props} />
       case "header":
@@ -68,7 +77,16 @@ const RenderBlock = (props) => {
       case "image":
         return <ImagePreview {...props} />
       case "video":
-        return <VideoPreview {...props} />
+        return (
+          <VideoPreview
+            {...props}
+            style={{
+              ...props.style,
+              backgroundColor: theme?.button_color ?? "#FFFFFF",
+              color: theme?.text_color ?? "#FFFFFF",
+            }}
+          />
+        )
       case "countdown":
         return <CountDown {...props} />
       case "contact_form":
