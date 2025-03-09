@@ -290,14 +290,14 @@ const Preview = ({ isStandAlonePage = false }) => {
                   </>
                 )
               })}
+              {data.data.settings?.hide_logo ? null : (
+                <Group justify="center" mt={"lg"}>
+                  <img src={logo} alt="linkatik" />
+                </Group>
+              )}
             </Stack>
           </div>
         </Stack>
-        {data.data.settings?.hide_logo ? null : (
-          <Group justify="center" mt={"lg"}>
-            <img src={logo} alt="linkatik" />
-          </Group>
-        )}
       </Stack>
     </div>
   )
