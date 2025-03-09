@@ -26,7 +26,7 @@ const ProductPreview = () => {
           />
         </Box>
         <Stack>
-          <Title order={1} fz={22} align={"center"}>
+          <Title order={1} fz={22} align={"center"} mt={17}>
             {product?.title || t("products.addProduct.titleInput")}
           </Title>
           <Text fz={14} align={"center"}>
