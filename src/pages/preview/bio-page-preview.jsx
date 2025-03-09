@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
 import { groupAvatar, imagePlaceholder, logo } from "@/assets"
+import { themes } from "@/constants"
 import { AuthLinkatikApi } from "@/services"
 import { GetPageAppearance, GetPagePreview } from "@/services/utils"
 import { setMain_button_color, setMain_text_color } from "@/store/General-variables/General-variables"
@@ -177,7 +178,12 @@ const Preview = ({ isStandAlonePage = false }) => {
   if (status === "error" || statusAppearance === "error") return <Error />
   if (status === "success" && !data.data) return <Error />
 
-  const backgroundSettings = appearanceData.appearance?.bio_page ?? { html: "", css: "" }
+  const backgroundSettings = themes.find((theme) => theme.id === Number(appearanceData?.custom_theme_id))
+    ?.settings?.bio_page ?? {
+    html: "",
+    css: "",
+  }
+  console.log("backgroundSettings", backgroundSettings)
   const { html, css } = backgroundSettings
   const encapsulated = generateWebComponent("custom-background-" + Math.random(), html, css)
 
