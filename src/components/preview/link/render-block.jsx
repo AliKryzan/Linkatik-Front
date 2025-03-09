@@ -92,7 +92,11 @@ const RenderBlock = (props) => {
       case "contact_form":
         return <ContactForm {...props} />
       case "faq":
-        return <FaqPreview {...props} />
+        return <FaqPreview  style={{
+          ...props.style,
+          backgroundColor: theme?.button_color ?? "#FFFFFF",
+          color: theme?.text_color ?? "#FFFFFF",
+        }} {...props} />
       case "image_slider":
         return <ImageSliderPreview {...props} />
       case "divider":
