@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { themes } from "@/constants"
 import { ActionIcon, Modal, Text } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import { ChevronLeft, ChevronRight, Copy, Mail, MoreHorizontal, ShareIcon } from "lucide-react"
@@ -16,17 +17,20 @@ import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 
 const ShareModal = ({ data, children }) => {
-  console.log("ShareModal-------------------------------------------------------------------")
-  console.log(data)
   const { path } = useParams()
   const { t } = useTranslation()
   const { bioImage } = useSelector((state) => state.GeneralSlice)
   const [shareModalOpened, { open: openShareModal, close: closeShareModal }] = useDisclosure(false)
   const [currentSlide, setCurrentSlide] = useState(0)
 
+  const selectedTheme = themes.find((theme) => theme.id === Number(data?.data?.custom_theme_id))?.settings
+    ?.bio_link
   const shareUrl = `${window.location.origin}/preview/${path}`
   const encodedUrl = encodeURIComponent(shareUrl)
   const title = encodeURIComponent(data?.data?.title || "Check out my Linkatik page")
+
+  console.log("ShareModal-------------------------------------------------------------------")
+  console.log(data, selectedTheme)
 
   const handleCopyLink = () => {
     navigator.clipboard
@@ -156,7 +160,12 @@ const ShareModal = ({ data, children }) => {
             <Modal.CloseButton className="!absolute !top-2 !right-3 !bg-white/20 hover:!bg-white/30" />
           </div>
 
-          <div className="my-4 rounded-lg bg-gradient-to-r from-purple-600 to-purple-800 px-6 py-4 text-center text-white">
+          <div
+            className="my-4 rounded-lg px-6 py-4 text-center"
+            style={{
+              backgroundColor: selectedTheme?.button_color,
+              color: selectedTheme?.text_color,
+            }}>
             <img
               src={data?.data.image_type === "avatar" ? bioImage?.image : data?.data.image}
               className="mx-auto mb-3 h-24 w-24 rounded-full border-2 border-white object-cover"
