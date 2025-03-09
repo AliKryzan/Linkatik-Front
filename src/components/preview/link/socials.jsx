@@ -25,16 +25,16 @@ const SocialsPreview = ({ block }) => {
     "youtube",
   ]
   const icons = {
-    phone: <FaPhone size={31}  />,
-    email: <MailsIcon size={31} className="" />,
-    linkedin: <FaLinkedin size={31} className=" text-sky-500" />,
-    facebook: <FaFacebook size={31} className=" text-blue-600" />,
-    instagram: <FaInstagram size={31} className=" text-pink-500" />,
-    youtube: <FaYoutube size={31} className=" text-red-500" />,
-    telegram: <FaTelegram size={31} className=" text-sky-600" />,
-    twitter: <FaSquareXTwitter size={31} className="text-black" />,
-    tiktok: <FaTiktok size={31} className=" text-blue-600" />,
-    whatsapp: <FaWhatsapp size={31} className=" text-green-600" />,
+    phone: <FaPhone size={34}  className="p-1.5 bg-white rounded-full" />,
+    email: <MailsIcon size={41} className="p-1.5 bg-white rounded-full" />,
+    linkedin: <FaLinkedin size={41} className="p-1.5 bg-white rounded-full text-sky-500" />,
+    facebook: <FaFacebook size={41} className="p-1.5 bg-white rounded-full text-blue-600" />,
+    instagram: <FaInstagram size={41} className="p-1.5 bg-white rounded-full text-pink-500" />,
+    youtube: <FaYoutube size={41} className="p-1.5 bg-white rounded-full text-red-500" />,
+    telegram: <FaTelegram size={41} className="p-1.5 bg-white rounded-full text-sky-600" />,
+    twitter: <FaSquareXTwitter size={41} className="p-1.5 bg-white rounded-full text-black" />,
+    tiktok: <FaTiktok size={41} className="p-1.5 bg-white rounded-full text-blue-600" />,
+    whatsapp: <FaWhatsapp size={41} className="p-1.5 bg-white rounded-full text-green-600" />,
   }
   return (
     <ScrollArea w={300} className="!py-2.5" >
