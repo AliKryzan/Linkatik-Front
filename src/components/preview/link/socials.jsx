@@ -41,7 +41,8 @@ const SocialsPreview = ({ block ,className}) => {
     <ScrollArea w={300} className={cn("!py-2.5",className)} >
       <div className="flex items-center gap-5 py-2.5">
         {socialsArray.map((element) => {
-          return (
+          // Only render the social media icon if it has a value in block.settings
+          return block.settings[element] ? (
             <a
               key={element}
               href={
@@ -55,7 +56,7 @@ const SocialsPreview = ({ block ,className}) => {
               rel="noopener noreferrer">
               {icons[element]}
             </a>
-          )
+          ) : null
         })}
       </div>
     </ScrollArea>

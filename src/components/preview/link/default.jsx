@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"
 
 import { Buttons } from "./buttons"
 
-const Default = ({ block,className }) => {
+const Default = ({ block, className }) => {
   const { path } = useParams()
   const { data } = useQuery({
     queryKey: ["bio-page-theme-preview", path],
@@ -32,16 +32,16 @@ const Default = ({ block,className }) => {
           "--button-color": buttonColor,
           "--text-color": textColor,
         }}
-        className={
-          `${className} ${theme.type
+        className={`${className} ${
+          theme.type
             ? "link-preview default text-center"
-            : `link-preview default rounded-2xl text-center shadow-sm`}`
-        }
+            : `link-preview default rounded-2xl text-center shadow-sm`
+        }`}
         {...(block.url ? { href: block.url, rel: "noopener noreferrer" } : { component: "button" })}>
         <div className="button-inner">
           <Text lineClamp={1}>{block.title || "Untitled"}</Text>
           <span></span>
-          <img src={block?.image} className="size-11 rounded-full bg-contain" />
+          {block?.image && <img src={block?.image} className="size-11 rounded-full bg-contain" />}
         </div>
       </Button>
     </>
