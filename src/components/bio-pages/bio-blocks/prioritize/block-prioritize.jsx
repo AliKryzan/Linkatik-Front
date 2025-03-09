@@ -25,6 +25,26 @@ const animations = [
     value: "tada",
     label: "tada",
   },
+  {
+    value: "fade",
+    label: "fade",
+  },
+  {
+    value: "flip",
+    label: "flip",
+  },
+  {
+    value: "rotate",
+    label: "rotate",
+  },
+  {
+    value: "scale",
+    label: "scale",
+  },
+  {
+    value: "glow",
+    label: "glow",
+  },
 ]
 const BlockPrioritize = ({ block }) => {
   const { id } = useParams()
@@ -114,17 +134,26 @@ const BlockPrioritize = ({ block }) => {
                       t(`bioBlocks.tabs.prioritize.errors.${formState.errors.animation?.message}`)
                     }
                     {...field}>
-                    <Group grow>
+                    <Group gap="md" style={{ flexWrap: 'wrap' }}>
                       {animations.map((element) => (
                         <Radio.Card
                           opacity={watch("type") === "animation" ? 1 : 0.5}
                           disabled={watch("type") !== "animation"}
                           className="animation-type-radio-root"
-                          w={"fit-content"}
-                          p="lg"
+                          w={"120px"}
+                          h={"80px"}
+                          p="xl"
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            margin: '5px',
+                            transition: 'all 0.2s ease',
+                            cursor: watch("type") === "animation" ? 'pointer' : 'default',
+                          }}
                           value={element.value}
                           key={element.value}>
-                          <Text ta={"center"}>{element.label}</Text>
+                          <Text ta={"center"} fw={500}>{element.label}</Text>
                         </Radio.Card>
                       ))}
                     </Group>
