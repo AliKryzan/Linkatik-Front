@@ -4,11 +4,11 @@ import { cn } from "@/lib/utils"
 
 import Default from "./default"
 
-const TwitchPreview = ({ block, className }) => {
+const TwitchPreview = ({ block, className,onClick }) => {
   if (block.settings.link_behavior === "target") return <Default block={block} />
 
   return (
-    <div className={cn("link-preview iframe", className)}>
+    <div onClick={onClick} className={cn("link-preview iframe", className)}>
       <p className="block-title">{block.title}</p>
       <Group gap={"0"} grow wrap="nowrap" className="iframe-wrapper">
         {block.settings.link_behavior?.includes("channel") ? (

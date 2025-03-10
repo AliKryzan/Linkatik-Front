@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils"
 import { Group, ScrollArea } from "@mantine/core"
 import { MailsIcon } from "lucide-react"
 import {
@@ -13,7 +12,9 @@ import {
   FaYoutube,
 } from "react-icons/fa6"
 
-const SocialsPreview = ({ block ,className}) => {
+import { cn } from "@/lib/utils"
+
+const SocialsPreview = ({ block, className, onClick }) => {
   const socialsArray = [
     "email",
     "phone",
@@ -26,25 +27,26 @@ const SocialsPreview = ({ block ,className}) => {
     "youtube",
   ]
   const icons = {
-    phone: <FaPhone size={34}  className="p-1.5 bg-white rounded-full" />,
-    email: <MailsIcon size={41} className="p-1.5 bg-white rounded-full" />,
-    linkedin: <FaLinkedin size={41} className="p-1.5 bg-white rounded-full text-sky-500" />,
-    facebook: <FaFacebook size={41} className="p-1.5 bg-white rounded-full text-blue-600" />,
-    instagram: <FaInstagram size={41} className="p-1.5 bg-white rounded-full text-pink-500" />,
-    youtube: <FaYoutube size={41} className="p-1.5 bg-white rounded-full text-red-500" />,
-    telegram: <FaTelegram size={41} className="p-1.5 bg-white rounded-full text-sky-600" />,
-    twitter: <FaSquareXTwitter size={41} className="p-1.5 bg-white rounded-full text-black" />,
-    tiktok: <FaTiktok size={41} className="p-1.5 bg-white rounded-full text-blue-600" />,
-    whatsapp: <FaWhatsapp size={41} className="p-1.5 bg-white rounded-full text-green-600" />,
+    phone: <FaPhone size={34} className="rounded-full bg-white p-1.5" />,
+    email: <MailsIcon size={41} className="rounded-full bg-white p-1.5" />,
+    linkedin: <FaLinkedin size={41} className="rounded-full bg-white p-1.5 text-sky-500" />,
+    facebook: <FaFacebook size={41} className="rounded-full bg-white p-1.5 text-blue-600" />,
+    instagram: <FaInstagram size={41} className="rounded-full bg-white p-1.5 text-pink-500" />,
+    youtube: <FaYoutube size={41} className="rounded-full bg-white p-1.5 text-red-500" />,
+    telegram: <FaTelegram size={41} className="rounded-full bg-white p-1.5 text-sky-600" />,
+    twitter: <FaSquareXTwitter size={41} className="rounded-full bg-white p-1.5 text-black" />,
+    tiktok: <FaTiktok size={41} className="rounded-full bg-white p-1.5 text-blue-600" />,
+    whatsapp: <FaWhatsapp size={41} className="rounded-full bg-white p-1.5 text-green-600" />,
   }
   return (
-    <ScrollArea w={300} className={cn("!py-2.5",className)} >
+    <ScrollArea w={300} className={cn("!py-2.5", className)}>
       <div className="flex items-center justify-center gap-5 py-2.5">
         {socialsArray.map((element) => {
           // Only render the social media icon if it has a value in block.settings
           return block.settings[element] ? (
             <a
               key={element}
+              onClick={onClick}
               href={
                 element === "email"
                   ? `mailto:${block.settings[element]}`
