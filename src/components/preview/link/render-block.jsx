@@ -1,4 +1,6 @@
 import { BlocksWithLinkBehavior } from "@/config/bio-blocks"
+import { AuthLinkatikApi } from "@/services"
+import { useQueryClient } from "@tanstack/react-query"
 
 import AppleMusic from "./apple-music"
 import AudioPreview from "./audio"
@@ -18,13 +20,47 @@ import SocialsPreview from "./socials"
 import Text from "./text"
 import TwitchPreview from "./twitch"
 import VideoPreview from "./video"
+import { useParams } from "react-router-dom"
 
 const RenderBlock = (props) => {
   // Get priority settings from the block
+  const { id, path } = useParams()
   const { block, theme } = props
   const hasPriority = block.priority?.is_enable
   const priorityType = block.priority?.type
   const animationType = block.priority?.animation
+  const queryClient = useQueryClient()
+  
+  // Check if the block has scheduling enabled and if it should be displayed based on current time
+  const hasSchedule = block.schedule?.is_enable
+  const startDate = hasSchedule ? new Date(block.schedule.start_date) : null
+  const endDate = hasSchedule ? new Date(block.schedule.end_date) : null
+  const currentDate = new Date()
+  
+  // If scheduling is enabled but current time is outside the schedule window, don't render the block
+  if (hasSchedule && (currentDate < startDate || currentDate > endDate)) {
+    console.log("Block not displayed due to scheduling", { 
+      blockId: block.id, 
+      currentDate, 
+      startDate, 
+      endDate 
+    })
+    return null
+  }
+  
+  // Track block clicks
+  const trackBlockClick = () => {
+    try {
+      if (block && block.id) {
+        AuthLinkatikApi.post("/bio-block-clicks", { bio_block_id: block.id }).catch((error) =>
+          console.error("Error tracking block click:", error),
+        );
+        queryClient.invalidateQueries({ queryKey: ["bio-page", id, path] })
+      }
+    } catch (error) {
+      console.error("Error in trackBlockClick:", error)
+    }
+  }
 
   // Determine animation class based on priority settings
   let animationClass = ""
@@ -38,6 +74,7 @@ const RenderBlock = (props) => {
     return (
       <Component
         {...props}
+        onClick={trackBlockClick}
         className={`${props.className || ""} ${animationClass}`}
         style={{
           ...props.style,
@@ -51,6 +88,15 @@ const RenderBlock = (props) => {
   const type = BlocksWithLinkBehavior.find((e) => e === props.block.type) ? "link_behavior" : props.block.type
   console.log("type ==========>", type)
   console.log("priority settings ==========>", { hasPriority, priorityType, animationType, animationClass })
+  if (hasSchedule) {
+    console.log("schedule settings ==========>", { 
+      hasSchedule, 
+      startDate: startDate.toISOString(), 
+      endDate: endDate.toISOString(), 
+      currentDate: currentDate.toISOString(),
+      isActive: currentDate >= startDate && currentDate <= endDate
+    })
+  }
 
   // If no priority is set, render normally without animation wrapper
   if (!hasPriority) {
@@ -59,6 +105,7 @@ const RenderBlock = (props) => {
         return (
           <CustomLinkBehavior
             {...props}
+            onClick={trackBlockClick}
             style={{
               ...props.style,
               backgroundColor: theme?.button_color ?? "#FFFFFF",
@@ -67,19 +114,20 @@ const RenderBlock = (props) => {
           />
         )
       case "twitch":
-        return <TwitchPreview {...props} />
+        return <TwitchPreview {...props} onClick={trackBlockClick} />
       case "header":
-        return <HeaderPreview {...props} />
+        return <HeaderPreview {...props} onClick={trackBlockClick} />
       case "file":
-        return <FilePreview {...props} />
+        return <FilePreview {...props} onClick={trackBlockClick} />
       case "audio":
-        return <AudioPreview {...props} />
+        return <AudioPreview {...props} onClick={trackBlockClick} />
       case "image":
-        return <ImagePreview {...props} />
+        return <ImagePreview {...props} onClick={trackBlockClick} />
       case "video":
         return (
           <VideoPreview
             {...props}
+            onClick={trackBlockClick}
             style={{
               ...props.style,
               backgroundColor: theme?.button_color ?? "#FFFFFF",
@@ -88,37 +136,44 @@ const RenderBlock = (props) => {
           />
         )
       case "countdown":
-        return <CountDown {...props} />
+        return <CountDown {...props} onClick={trackBlockClick} />
       case "contact_form":
-        return <ContactForm {...props} />
+        return <ContactForm {...props} onClick={trackBlockClick} />
       case "faq":
-        return <FaqPreview  style={{
-          ...props.style,
-          backgroundColor: theme?.button_color ?? "#FFFFFF",
-          color: theme?.text_color ?? "#FFFFFF",
-        }} {...props} />
+        return (
+          <FaqPreview
+            style={{
+              ...props.style,
+              backgroundColor: theme?.button_color ?? "#FFFFFF",
+              color: theme?.text_color ?? "#FFFFFF",
+            }}
+            onClick={trackBlockClick}
+            {...props}
+          />
+        )
       case "image_slider":
-        return <ImageSliderPreview {...props} />
+        return <ImageSliderPreview {...props} onClick={trackBlockClick} />
       case "divider":
-        return <DividerPreview {...props} />
+        return <DividerPreview {...props} onClick={trackBlockClick} />
       case "text_block":
-        return <Text {...props} />
+        return <Text {...props} onClick={trackBlockClick} />
       case "socials":
-        return <SocialsPreview {...props} />
+        return <SocialsPreview {...props} onClick={trackBlockClick} />
       case "apple_music":
-        return <AppleMusic {...props} />
+        return <AppleMusic {...props} onClick={trackBlockClick} />
       case "email_collector":
-        return <EmailCollector {...props} />
+        return <EmailCollector {...props} onClick={trackBlockClick} />
       case "zid":
-        return <Product {...props} />
+        return <Product {...props} onClick={trackBlockClick} />
       case "product":
-        return <Product {...props} />
+        return <Product {...props} onClick={trackBlockClick} />
       case "salla":
-        return <Product {...props} />
+        return <Product {...props} onClick={trackBlockClick} />
       default:
         return (
           <Default
             {...props}
+            onClick={trackBlockClick}
             style={{
               ...props.style,
               backgroundColor: theme?.button_color ?? "#FFFFFF",

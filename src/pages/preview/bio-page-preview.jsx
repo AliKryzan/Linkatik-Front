@@ -92,7 +92,6 @@ const Preview = ({ isStandAlonePage = false }) => {
     queryKey: ["bio-page-preview", path],
     queryFn: () => GetPagePreview(path),
   })
-  console.log("appearanceData -----------------------------------------")
   const {
     data: appearanceData,
     status: statusAppearance,
@@ -104,9 +103,30 @@ const Preview = ({ isStandAlonePage = false }) => {
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
   })
-
+  console.log("appearanceData -----------------------------------------")
   console.log(data, appearanceData)
+
   const requestSentRef = useRef(false)
+
+  // Check for redirect blocks and redirect if found
+  useEffect(() => {
+    if (status === "success" && data?.data?.blocks) {
+      const redirectBlock = data.data.blocks.find(
+        (block) => block.type === "link" && block.redirect && block.redirect.is_enable === true
+      )
+      
+      if (redirectBlock) {
+        // Check if the redirect has expired
+        const expiredAt = redirectBlock.redirect.expired_at
+        const isExpired = expiredAt ? new Date(expiredAt) < new Date() : false
+        
+        if (!isExpired && redirectBlock.url && isStandAlonePage) {
+          console.log("Redirecting to:", redirectBlock.url)
+          window.location.href = redirectBlock.url
+        }
+      }
+    }
+  }, [data, status])
 
   useEffect(() => {
     const trackPageVisit = async () => {
@@ -282,18 +302,14 @@ const Preview = ({ isStandAlonePage = false }) => {
           </div>
           <div className="ms-2.5">
             <Stack gap={"xl"} w={"100%"}>
-              {data?.data?.blocks?.map((block, index) => {
-                return (
-                  <>
-                    <BlockPreviewWrapper
-                      theme={selectedTheme?.settings?.bio_link}
-                      pageId={data.data.id}
-                      key={index}
-                      block={block}
-                    />
-                  </>
-                )
-              })}
+              {data?.data?.blocks?.map((block, index) => (
+                <BlockPreviewWrapper
+                  theme={selectedTheme?.settings?.bio_link}
+                  pageId={data.data.id}
+                  key={index}
+                  block={block}
+                />
+              ))}
               {data.data.settings?.hide_logo ? null : (
                 <Group justify="center" mt={"lg"}>
                   <img src={logo} alt="linkatik" />
