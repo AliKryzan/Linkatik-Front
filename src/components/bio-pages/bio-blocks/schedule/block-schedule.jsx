@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Button, Group, Stack, Text } from "@mantine/core"
 import moment from "moment" // Import moment
 import { Controller, useForm } from "react-hook-form"
+import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
@@ -54,6 +55,17 @@ const BlockSchedule = ({ block }) => {
         },
       })
       console.log("🚀 ~ onSubmit ~ response:", response)
+      
+      // Format dates for toast message
+      const startFormatted = moment(data.start_date).format('MMM DD, YYYY [at] h:mm A')
+      const endFormatted = moment(data.end_date).format('MMM DD, YYYY [at] h:mm A')
+      
+      // Show success toast with schedule information
+      toast.success(t("bioBlocks.tabs.schedule.successMessage", {
+        defaultValue: `Block will be displayed from ${startFormatted} to ${endFormatted}`
+      }),{
+        position:"top-center"
+      })
     } catch (error) {
       console.log("🚀 ~ onSubmit ~ error:", error)
       setError("root", { message: error.response?.data?.message || error.response?.message || error.message })
