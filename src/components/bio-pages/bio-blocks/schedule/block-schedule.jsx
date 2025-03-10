@@ -62,7 +62,9 @@ const BlockSchedule = ({ block }) => {
       
       // Show success toast with schedule information
       toast.success(t("bioBlocks.tabs.schedule.successMessage", {
-        defaultValue: `Block will be displayed from ${startFormatted} to ${endFormatted}`
+        defaultValue: `Block will be displayed from ${startFormatted} to ${endFormatted}`,
+        startFormatted,
+        endFormatted,
       }),{
         position:"top-center"
       })

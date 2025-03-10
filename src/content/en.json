@@ -665,6 +665,7 @@
         "label": "Link schedule",
         "title": "Scheduling",
         "description": "Choose when the link is displayed on your page",
+        "successMessage": "Link will be displayed from {{startFormatted}} to {{endFormatted}}",
         "form": {
           "start_date": "Date added",
           "end_date": "Delete date",

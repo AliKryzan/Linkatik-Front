@@ -664,6 +664,7 @@
         "label": "جدولة اللينك",
         "title": "الجدولة",
         "description": "اختر متى يتم عرض اللينك في صفحتك",
+        "successMessage": "سيتم عرض اللينك من {{startFormatted}} إلى {{endFormatted}}",
         "form": {
           "start_date": "تاريخ البداية",
           "end_date": "تاريخ الحذف",
