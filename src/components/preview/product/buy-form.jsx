@@ -35,7 +35,7 @@ const BuyForm = ({ product }) => {
   const onSubmit = form.handleSubmit(async (data) => {
     try {
       const redirect_url = new URL(window.location.href)
-      redirect_url.searchParams.set("success", "true")
+      redirect_url
 
       const response = await PostPlaceOrder({
         redirect_url,
