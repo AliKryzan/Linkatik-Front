@@ -22,7 +22,7 @@ const Plan = ({ plan, type }) => {
               <Text ta={"center"} fz="xl" fw={700}>
                 {plan.monthly_price === 0 ? "Free" : `${plan[type]}`}
               </Text>
-              <img src="/riyal.svg" alt="riyal" className="w-11 object-contain" />
+              <img src="/riyal.svg" alt="riyal" className="w-7 object-contain" />
             </div>
             <Text fz={"sm"} ta={"center"}>
               {plan.annual_price === 0 ? t("plans.billed.free") : t("plans.billed." + type)}
