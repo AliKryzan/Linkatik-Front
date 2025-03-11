@@ -1,34 +1,6 @@
 // Additional animated themes
 export const themes = [
   {
-    id: 3,
-    name: "Custom",
-    image: "",
-    settings: {
-      bio_link: {
-        text_color: "#ffffff",
-        border_color: "#000000",
-        border_style: "solid",
-        border_width: "0",
-        border_radius: "straight",
-        background_color: "#000000",
-        border_shadow_blur: "20",
-        border_shadow_color: "#000000",
-        border_shadow_spread: "0",
-        border_shadow_offset_x: "0",
-        border_shadow_offset_y: "0",
-      },
-      bio_page: {
-        font: "arial",
-        font_size: "16",
-        background: null,
-        background_type: "preset",
-        background_color_one: null,
-        background_color_two: null,
-      },
-    },
-  },
-  {
     id: 16,
     name: "theme with hard shadow button",
     image: "https://back-dev-project.linkatik.com/storage/548/rotate-group.svg",
@@ -43,6 +15,7 @@ export const themes = [
         html: "<div class='background'></div>",
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 18,
@@ -59,6 +32,7 @@ export const themes = [
         html: "<div class='background'></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 19,
@@ -75,6 +49,7 @@ export const themes = [
         html: "<div class='background'><div class='neon-circle circle1'></div><div class='neon-circle circle2'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 20,
@@ -91,6 +66,7 @@ export const themes = [
         html: "<div class='background'><div class='wave wave1'></div><div class='wave wave2'></div><div class='wave wave3'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 21,
@@ -107,6 +83,7 @@ export const themes = [
         html: "<div class='background'><div class='particle p1'></div><div class='particle p2'></div><div class='particle p3'></div><div class='line l1'></div><div class='line l2'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 22,
@@ -123,6 +100,7 @@ export const themes = [
         html: "<div class='background'><div class='aurora a1'></div><div class='aurora a2'></div><div class='aurora a3'></div></div>",
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 23,
@@ -139,6 +117,7 @@ export const themes = [
         html: "<div class='parallax-bg'><div class='mountain-layer sky'></div><div class='mountain-layer mountains-back'></div><div class='mountain-layer mountains-mid'></div><div class='mountain-layer mountains-front'></div><div class='overlay'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 24,
@@ -155,6 +134,7 @@ export const themes = [
         html: "<div class='slideshow-container'><div class='slide slide1'></div><div class='slide slide2'></div><div class='slide slide3'></div><div class='overlay'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 25,
@@ -171,6 +151,7 @@ export const themes = [
         html: "<div class='sky-container'><div class='sun'></div><div class='cloud cloud1'></div><div class='cloud cloud2'></div><div class='cloud cloud3'></div><div class='cloud cloud4'></div><div class='birds'></div></div>",
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 26,
@@ -187,6 +168,7 @@ export const themes = [
         html: "<div class='forest-container'><div class='forest-bg'></div><div class='mist'></div><div class='mist-layer mist1'></div><div class='mist-layer mist2'></div><div class='mist-layer mist3'></div><div class='overlay'></div><div class='firefly f1'></div><div class='firefly f2'></div><div class='firefly f3'></div><div class='firefly f4'></div><div class='firefly f5'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 27,
@@ -203,6 +185,7 @@ export const themes = [
         html: "<div class='ocean-container'><div class='sun'></div><div class='seagull'></div><div class='ocean-bg'></div><div class='wave wave1'></div><div class='wave wave2'></div><div class='boat'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 28,
@@ -219,6 +202,7 @@ export const themes = [
         html: "<div class='city-container'><div class='stars'></div><div class='moon'></div><div class='city-bg'></div><div class='car'><div class='headlight'></div><div class='taillight'></div><div class='window'></div></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 29,
@@ -235,6 +219,7 @@ export const themes = [
         html: "<div class='desert-container'><div class='desert-bg'></div><div class='sun'></div><div class='dune dune1'></div><div class='dune dune2'></div><div class='mirage'></div><div class='tumbleweed'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 31,
@@ -251,6 +236,7 @@ export const themes = [
         html: "<div class='liquid-container'><div class='liquid-bg'></div><div class='bubble b1'></div><div class='bubble b2'></div><div class='bubble b3'></div><div class='bubble b4'></div><div class='light-streak ls1'></div><div class='light-streak ls2'></div></div>",
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 32,
@@ -267,6 +253,7 @@ export const themes = [
         html: "<div class='particles-container'><div class='glow g1'></div><div class='glow g2'></div><div class='particle p1'></div><div class='particle p2'></div><div class='particle p3'></div><div class='particle p4'></div><div class='particle p5'></div><div class='particle p6'></div><div class='particle p7'></div><div class='particle p8'></div><div class='particle p9'></div><div class='connection c1'></div><div class='connection c2'></div><div class='connection c3'></div><div class='connection c4'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 33,
@@ -283,6 +270,7 @@ export const themes = [
         html: "<div class='matrix-container'><div class='rain-column col1'>10010110<br>01101001<br>10110010<br>01001101<br>10100101</div><div class='rain-column col2'>01101001<br>10110010<br>01001101<br>10100101<br>01011010</div><div class='rain-column col3'>10110010<br>01001101<br>10100101<br>01011010<br>10010110</div><div class='rain-column col4'>01001101<br>10100101<br>01011010<br>10010110<br>01101001</div><div class='rain-column col5'>10100101<br>01011010<br>10010110<br>01101001<br>10110010</div><div class='rain-column col6'>01011010<br>10010110<br>01101001<br>10110010<br>01001101</div><div class='rain-column col7'>10010110<br>01101001<br>10110010<br>01001101<br>10100101</div><div class='rain-column col8'>01101001<br>10110010<br>01001101<br>10100101<br>01011010</div><div class='rain-column col9'>10110010<br>01001101<br>10100101<br>01011010<br>10010110</div><div class='rain-column col10'>01001101<br>10100101<br>01011010<br>10010110<br>01101001</div><div class='overlay'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 34,
@@ -299,6 +287,7 @@ export const themes = [
         html: "<div class='autumn-container'><div class='leaf leaf1'></div><div class='leaf leaf2'></div><div class='leaf leaf3'></div><div class='leaf leaf4'></div><div class='leaf leaf5'></div><div class='tree'></div><div class='ground'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 35,
@@ -315,6 +304,7 @@ export const themes = [
         html: "<div class='neon-container'><div class='neon-grid'></div><div class='horizon'></div><div class='sun'></div><div class='neon-line line1'></div><div class='neon-line line2'></div><div class='neon-line line3'></div><div class='neon-line line4'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
 
   // Beautiful non-animated themes with static backgrounds
@@ -333,6 +323,7 @@ export const themes = [
         html: "<div class='sunset-container'><div class='sunset-bg'></div><div class='overlay'></div><div class='silhouette'></div></div>",
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 37,
@@ -349,6 +340,7 @@ export const themes = [
         html: "<div class='minimal-container'><div class='bloom bloom1'></div><div class='bloom bloom2'></div></div>",
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 38,
@@ -365,6 +357,7 @@ export const themes = [
         html: "<div class='forest-container'><div class='forest-bg'></div><div class='overlay'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 39,
@@ -381,6 +374,7 @@ export const themes = [
         html: "<div class='marble-container'><div class='marble-bg'></div><div class='vignette'></div></div>",
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 40,
@@ -397,6 +391,7 @@ export const themes = [
         html: "<div class='desert-calm-container'><div class='desert-bg'></div><div class='overlay'></div></div>",
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 41,
@@ -413,6 +408,7 @@ export const themes = [
         html: "<div class='abstract-container'><div class='abstract-bg'></div><div class='color-overlay'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 42,
@@ -429,6 +425,7 @@ export const themes = [
         html: "<div class='monochrome-container'><div class='monochrome-bg'></div><div class='overlay'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 43,
@@ -445,6 +442,7 @@ export const themes = [
         html: "<div class='ocean-calm-container'><div class='ocean-bg'></div><div class='blue-overlay'></div></div>",
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 44,
@@ -461,6 +459,7 @@ export const themes = [
         html: "<div class='mountain-vista-container'><div class='mountain-bg'></div><div class='overlay'></div></div>",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 45,
@@ -514,6 +513,7 @@ export const themes = [
           </div>`,
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 46,
@@ -556,6 +556,7 @@ export const themes = [
           </div>`,
       },
     },
+    logo: "/logo-dark.svg",
   },
 
   // New static background themes
@@ -590,6 +591,7 @@ export const themes = [
           </div>`,
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 48,
@@ -611,6 +613,7 @@ export const themes = [
         html: `<div class="pastel-container"></div>`,
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 49,
@@ -642,6 +645,7 @@ export const themes = [
           </div>`,
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 50,
@@ -667,6 +671,7 @@ export const themes = [
         font_size: "18",
       },
     },
+    logo: "/logo-dark.svg",
   },
   {
     id: 51,
@@ -690,6 +695,7 @@ export const themes = [
         font_size: "16",
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 52,
@@ -712,6 +718,7 @@ export const themes = [
         font_size: "18",
       },
     },
+    logo: "/logo-light.svg",
   },
   {
     id: 53,
@@ -735,5 +742,6 @@ export const themes = [
         font_size: "16",
       },
     },
+    logo: "/logo-dark.svg",
   },
 ]

@@ -112,14 +112,14 @@ const Preview = ({ isStandAlonePage = false }) => {
   useEffect(() => {
     if (status === "success" && data?.data?.blocks) {
       const redirectBlock = data.data.blocks.find(
-        (block) => block.type === "link" && block.redirect && block.redirect.is_enable === true
+        (block) => block.type === "link" && block.redirect && block.redirect.is_enable === true,
       )
-      
+
       if (redirectBlock) {
         // Check if the redirect has expired
         const expiredAt = redirectBlock.redirect.expired_at
         const isExpired = expiredAt ? new Date(expiredAt) < new Date() : false
-        
+
         if (!isExpired && redirectBlock.url && isStandAlonePage) {
           console.log("Redirecting to:", redirectBlock.url)
           window.location.href = redirectBlock.url
@@ -311,8 +311,8 @@ const Preview = ({ isStandAlonePage = false }) => {
                 />
               ))}
               {data.data.settings?.hide_logo ? null : (
-                <Group justify="center" mt={"lg"}>
-                  <img src={logo} alt="linkatik" />
+                <Group justify="center" mt={"lg"} mb={3}>
+                  <img src={selectedTheme?.settings?.logo || logo} alt="linkatik" />
                 </Group>
               )}
             </Stack>
