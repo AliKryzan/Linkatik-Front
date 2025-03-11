@@ -34,10 +34,11 @@ const ProductPreview = () => {
           </Text>
           <Group justify="center">
             <Button>{t("products.general.buyProduct")}</Button>
-            <Button component="p" variant="light">
+            <Button component="p" variant="light" leftSection={<img src="/riyal.svg" alt="riyal" className="w-5 object-contain" />}>
               {product.pricing_type === "free"
                 ? t("products.general.free")
-                : `${product.price || product.max_price || "00"} ${product.currency}`}
+              : `${product.price || product.max_price || "00"} `} 
+                {/* ${product.currency} */}
             </Button>
           </Group>
 
