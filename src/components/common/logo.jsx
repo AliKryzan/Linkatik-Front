@@ -1,10 +1,17 @@
-import { logo } from "@/assets/index.js"
+import { useMantineColorScheme } from "@mantine/core"
+
 import { Link } from "@/lib/i18n/navigation.jsx"
 
 const Logo = (props) => {
+  const { colorScheme } = useMantineColorScheme()
   return (
     <Link to="/">
-      <img src={logo} alt="linkatik" className={"logo"} {...props} />
+      <img
+        src={colorScheme === "light" ? "/logo-light.svg" : "/logo-dark.svg"}
+        alt="linkatik"
+        className={"logo"}
+        {...props}
+      />
     </Link>
   )
 }
