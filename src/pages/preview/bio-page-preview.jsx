@@ -312,7 +312,7 @@ const Preview = ({ isStandAlonePage = false }) => {
               ))}
               {data.data.settings?.hide_logo ? null : (
                 <Group justify="center" mt={"lg"} mb={3}>
-                  <img src={selectedTheme?.settings?.logo || logo} alt="linkatik" />
+                  <img src={selectedTheme?.logo || logo} alt="linkatik" />
                 </Group>
               )}
             </Stack>
