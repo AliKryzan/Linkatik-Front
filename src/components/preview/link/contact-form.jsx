@@ -7,13 +7,13 @@ import { getData } from "country-list"
 
 import { cn } from "@/lib/utils"
 
-const ContactForm = ({ block, className }) => {
+const ContactForm = ({ block, className,style }) => {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState(null)
   
   // Get country data from the country-list package
-  const countryData = getData()
-  const countries = Object.entries(countryData).map(([code, name]) => ({
+  const countryData = getData();
+  const countries = countryData.map(({code,name}) => ({
     value: code,
     label: name
   }))
@@ -79,6 +79,7 @@ const ContactForm = ({ block, className }) => {
   return (
     <Stack
       gap="xl"
+      style={style}
       component={"form"}
       className={cn("link-preview contact-form", className)}
       onSubmit={onSubmit}>

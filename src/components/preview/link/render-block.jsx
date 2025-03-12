@@ -181,7 +181,11 @@ const RenderBlock = (props) => {
         return (
           <>
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <ContactForm {...props} onClick={trackBlockClick} />
+            <ContactForm {...props} onClick={trackBlockClick}     style={{
+                ...props.style,
+                backgroundColor: theme?.button_color ?? "#FFFFFF",
+                color: theme?.text_color ?? "#FFFFFF",
+              }} />
           </>
         )
       case "faq":

@@ -18,11 +18,13 @@ const Plan = ({ plan, type }) => {
           <Title order={3}>{t(`plans.names.${plan.name.toLowerCase()}`)}</Title>
           <Text>{t(`plans.plansDescription.${plan.name.toLowerCase()}`)}</Text>
           <div>
-            <div className="flex items-center gap-2 justify-center">
+            <div className="flex items-center justify-center gap-2">
               <Text ta={"center"} fz="xl" fw={700}>
-                {plan.monthly_price === 0 ? "Free" : `${plan[type]}`}
+                {plan.monthly_price === 0 ? t("general.Free") : `${plan[type]}`}
               </Text>
-              <img src="/riyal.svg" alt="riyal" className="w-5 object-contain" />
+              {plan.monthly_price !== 0 && (
+                <img src="/riyal.svg" alt="riyal" className="w-5 object-contain" />
+              )}
             </div>
             <Text fz={"sm"} ta={"center"}>
               {plan.annual_price === 0 ? t("plans.billed.free") : t("plans.billed." + type)}
