@@ -489,6 +489,7 @@
   },
   "subscribe": {
     "form": {
+      "successMessage": "You have successfully subscribed!",
       "button": "Subscribe",
       "errors": {
         "invalidEmail": "Email is not valid",

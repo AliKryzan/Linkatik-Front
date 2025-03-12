@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button, Stack, Text, TextInput } from "@mantine/core"
 import { Controller, useForm } from "react-hook-form"
+import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 
 import { PostSubscribe } from "@/services/utils"
@@ -20,6 +21,7 @@ const SubscribeForm = ({ title, bio_page_id, close }) => {
     console.log("🚀 ~ onSubmit ~ data:", data)
     try {
       await PostSubscribe({ ...data, bio_page_id })
+      toast.success(t("subscribe.form.successMessage"))
       close?.()
     } catch (error) {
       form.setError("root", {

@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils"
 import { Group, Stack, Text } from "@mantine/core"
 import Countdown from "react-countdown"
 import { useTranslation } from "react-i18next"

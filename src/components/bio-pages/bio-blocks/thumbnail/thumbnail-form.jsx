@@ -1,12 +1,11 @@
 import { useState } from "react"
+import { imagePlaceholder } from "@/assets"
+import { PutUpdateBlock } from "@/services/utils"
+import { UploadFile } from "@/services/utils/upload"
 import { Button, FileButton, Group, Image, LoadingOverlay, Stack, Text } from "@mantine/core"
 import { useQueryClient } from "@tanstack/react-query"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
-
-import { imagePlaceholder } from "@/assets"
-import { PutUpdateBlock } from "@/services/utils"
-import { UploadFile } from "@/services/utils/upload"
 
 const ThumbnailForm = ({ block }) => {
   const { id, path } = useParams()
@@ -21,11 +20,17 @@ const ThumbnailForm = ({ block }) => {
     try {
       setError("")
       setIsLoading(true)
-      const uploadResponse = await UploadFile({ file, collection_name: "image" })
+      const uploadResponse = await UploadFile({ file, collection_name: "image" });
+      console.log(  {
+        ...block,
+        type: block.type,
+        image: uploadResponse.file_url,
+      });
       const response = await PutUpdateBlock({
         pageId: id,
         blockId: block.id,
         data: {
+          ...block,
           type: block.type,
           image: uploadResponse.file_url,
         },

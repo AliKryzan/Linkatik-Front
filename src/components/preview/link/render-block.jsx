@@ -1,6 +1,7 @@
 import { BlocksWithLinkBehavior } from "@/config/bio-blocks"
 import { AuthLinkatikApi } from "@/services"
 import { useQueryClient } from "@tanstack/react-query"
+import { useParams } from "react-router-dom"
 
 import AppleMusic from "./apple-music"
 import AudioPreview from "./audio"
@@ -21,7 +22,6 @@ import SocialsPreview from "./socials"
 import Text from "./text"
 import TwitchPreview from "./twitch"
 import VideoPreview from "./video"
-import { useParams } from "react-router-dom"
 
 const RenderBlock = (props) => {
   // Get priority settings from the block
@@ -31,31 +31,31 @@ const RenderBlock = (props) => {
   const priorityType = block.priority?.type
   const animationType = block.priority?.animation
   const queryClient = useQueryClient()
-  
+
   // Check if the block has scheduling enabled and if it should be displayed based on current time
   const hasSchedule = block.schedule?.is_enable
   const startDate = hasSchedule ? new Date(block.schedule.start_date) : null
   const endDate = hasSchedule ? new Date(block.schedule.end_date) : null
   const currentDate = new Date()
-  
+
   // If scheduling is enabled but current time is outside the schedule window, don't render the block
   if (hasSchedule && (currentDate < startDate || currentDate > endDate)) {
-    console.log("Block not displayed due to scheduling", { 
-      blockId: block.id, 
-      currentDate, 
-      startDate, 
-      endDate 
+    console.log("Block not displayed due to scheduling", {
+      blockId: block.id,
+      currentDate,
+      startDate,
+      endDate,
     })
     return null
   }
-  
+
   // Track block clicks
   const trackBlockClick = () => {
     try {
       if (block && block.id) {
         AuthLinkatikApi.post("/bio-block-clicks", { bio_block_id: block.id }).catch((error) =>
           console.error("Error tracking block click:", error),
-        );
+        )
         queryClient.invalidateQueries({ queryKey: ["bio-page", id, path] })
       }
     } catch (error) {
@@ -93,12 +93,12 @@ const RenderBlock = (props) => {
   console.log("type ==========>", type)
   console.log("priority settings ==========>", { hasPriority, priorityType, animationType, animationClass })
   if (hasSchedule) {
-    console.log("schedule settings ==========>", { 
-      hasSchedule, 
-      startDate: startDate.toISOString(), 
-      endDate: endDate.toISOString(), 
+    console.log("schedule settings ==========>", {
+      hasSchedule,
+      startDate: startDate.toISOString(),
+      endDate: endDate.toISOString(),
       currentDate: currentDate.toISOString(),
-      isActive: currentDate >= startDate && currentDate <= endDate
+      isActive: currentDate >= startDate && currentDate <= endDate,
     })
   }
 
@@ -159,7 +159,7 @@ const RenderBlock = (props) => {
         return (
           <>
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <VideoPreview
+          <VideoPreview
               {...props}
               onClick={trackBlockClick}
               style={{
@@ -238,7 +238,15 @@ const RenderBlock = (props) => {
         return (
           <>
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <EmailCollector {...props} onClick={trackBlockClick} />
+            <EmailCollector
+              {...props}
+              onClick={trackBlockClick}
+              style={{
+                ...props.style,
+                backgroundColor: theme?.button_color ?? "#FFFFFF",
+                color: theme?.text_color ?? "#FFFFFF",
+              }}
+            />
           </>
         )
       case "zid":

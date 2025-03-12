@@ -8,7 +8,7 @@ import { GetPageAppearance } from "@/services/utils"
 import SubscribeForm from "../../common/subscribe-form"
 import { Buttons } from "./buttons"
 
-const EmailCollector = ({ block,className }) => {
+const EmailCollector = ({ block,className,style }) => {
   const { path } = useParams()
   const { data } = useQuery({
     queryKey: ["bio-page-theme-preview", path],
@@ -17,7 +17,6 @@ const EmailCollector = ({ block,className }) => {
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
   })
-
   const theme = data?.appearance?.bio_link
 
   const Button = Buttons[theme.type ?? "filled"]
@@ -27,16 +26,13 @@ const EmailCollector = ({ block,className }) => {
   return (
     <div
     className={className}
-      style={{
-        "--button-color": buttonColor,
-        "--text-color": textColor,
-      }}>
+      style={style}>
       <Button
         onClick={open}
         className="link-preview default"
         {...(block.url ? { href: block.url, rel: "noopener noreferrer" } : { component: "button" })}>
         <div className="button-inner">
-          <Box w={32}>
+          <Box w={32} className="me-1">
             <Image
               radius={"50%"}
               src={block.image}
@@ -57,7 +53,7 @@ const EmailCollector = ({ block,className }) => {
           }}
           component={"div"}
           radius={"xl"}>
-          <SubscribeForm title={block.title} />
+          <SubscribeForm bio_page_id={data?.id} title={block.title} />
         </Modal.Content>
       </Modal.Root>
     </div>

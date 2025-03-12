@@ -1,7 +1,9 @@
+import { getLocalstorageUser } from "@/utils/get-localstorage-user"
+
+import { queryClient } from "@/lib/react-query/react-query-provider"
+
 import { AuthLinkatikApi, LinkatikApi } from ".."
 import { INTEGRATIONS, PER_PAGE_DEFAULT } from "../../config"
-import { queryClient } from "@/lib/react-query/react-query-provider"
-import { getLocalstorageUser } from "@/utils/get-localstorage-user"
 
 /**
  * Get user data from the server
@@ -195,26 +197,21 @@ export const DeletePaymentGateWay = async (id) => {
   return response
 }
 
-
-export const PostCreateBioPage = async (data,bioImage,image_type) => {
-
-  console.log("image_type------>",image_type)
+export const PostCreateBioPage = async (data, bioImage, image_type) => {
+  console.log("image_type------>", image_type)
 
   try {
     const response = await AuthLinkatikApi.post("/user/bio-pages", {
-      ...data,  
-      [image_type === 'custom' ? "image" : "image_avatar"]: bioImage
+      ...data,
+      [image_type === "custom" ? "image" : "image_avatar"]: bioImage,
+    })
 
-    });
-
-    return response;
+    return response
   } catch (error) {
-    console.error("Error in PostCreateBioPage:", error);
-    throw error; 
+    console.error("Error in PostCreateBioPage:", error)
+    throw error
   }
-};
-
-
+}
 
 // export const PostCreateBioPage = async (data, bioImage) => {
 //   try {
@@ -225,7 +222,7 @@ export const PostCreateBioPage = async (data,bioImage,image_type) => {
 //       formData.append(key, data[key]);
 //     });
 //     if (bioImage) {
-//       formData.append("image", bioImage); 
+//       formData.append("image", bioImage);
 //     }
 
 //     const response = await AuthLinkatikApi.post("/user/bio-pages", formData, {
@@ -240,8 +237,6 @@ export const PostCreateBioPage = async (data,bioImage,image_type) => {
 //     throw error;
 //   }
 // };
-
-
 
 export const DeleteBioPage = async ({ id }) => {
   const response = await AuthLinkatikApi.delete(`/user/bio-pages/${id}`)
@@ -278,7 +273,7 @@ export const PutUpdateBlock = async ({ pageId, blockId, data, abortSignal }) => 
     const response = await GetLinkDetections({ url: data.url })
     if (response.type !== data.type) throw new Error("الرابط غير متوافق مع نوع البلوك")
   }
-  if ("url" in data && !data.url) throw new Error("لا يمكن ترك الرابط فارغا")
+  if ("url" in data && !data.url && data.type !== "video") throw new Error("لا يمكن ترك الرابط فارغا")
   const response = await AuthLinkatikApi.put(
     `/user/bio-page/${pageId}/bio-blocks/${blockId}`,
     {

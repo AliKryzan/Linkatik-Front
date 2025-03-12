@@ -40,6 +40,7 @@
     "@types/node": "^22.13.4",
     "axios": "^1.7.7",
     "chroma-js": "^3.1.2",
+    "country-list": "^2.3.0",
     "dayjs": "^1.11.13",
     "embla-carousel-react": "^8.3.1",
     "i18next": "^23.16.3",
