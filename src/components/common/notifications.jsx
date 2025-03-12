@@ -1,17 +1,17 @@
-import { ActionIcon, Badge, Group, Menu, ScrollArea, Stack, Text } from "@mantine/core"
+import { ActionIcon, Badge, Group, Menu, ScrollArea, Stack, Text, useMantineColorScheme } from "@mantine/core"
 import { Bell } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
 const Notifications = () => {
   // Mock data for demonstration
   const notifications = []
-
+  const { colorScheme } = useMantineColorScheme()
   const unreadCount = notifications.filter((n) => !n.read).length
   const { t } = useTranslation()
   return (
     <Menu width={320} position="bottom-end">
       <Menu.Target>
-        <ActionIcon variant="white" radius="xl" color="gray" pos="relative">
+        <ActionIcon variant="white" radius="xl" color={colorScheme ==="light"?"gray": "dark"} pos="relative">
           <Bell size="1.3rem" />
           {unreadCount > 0 && (
             <Badge
@@ -31,7 +31,7 @@ const Notifications = () => {
       </Menu.Target>
 
       <Menu.Dropdown p={0}>
-        <Group justify="space-between" p="xs" bg="gray.0">
+        <Group justify="space-between" p="xs" bg={colorScheme ==="light"?"gray.0": "gray.9"}>
           <Text fw={500}>{t("Notifications")}</Text>
           {unreadCount > 0 && (
             <Badge size="xs" variant="light">

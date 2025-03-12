@@ -68,6 +68,7 @@ const BioBock = ({ name, icon, blocked }) => {
 }
 const Blocks = ({ searchValue }) => {
   const { t } = useTranslation()
+  const { colorScheme } = useMantineColorScheme()
   const [value] = useLocalStorage({
     key: LOCALSTORAGE_KEY,
     defaultValue: {},
@@ -92,6 +93,24 @@ const Blocks = ({ searchValue }) => {
   }
 
   blocksToRender = blocksToRender.filter((element) => element[1].length > 0)
+
+  // If no blocks match the search criteria, display a "not found" message
+  if (searchValue && blocksToRender.length === 0) {
+    return (
+      <Stack align="center" justify="center" spacing="lg" py="xl">
+        <Search size={48} strokeWidth={1} color={colorScheme === "dark" ? "#5c5f66" : "#adb5bd"} />
+        <Text fw={600} size="lg" ta="center">
+          {t("bioBlocks.general.noResultsTitle", "No results found")}
+        </Text>
+        <Text size="sm" c="gray" ta="center" maw={400}>
+          {t(
+            "bioBlocks.general.noResultsDescription",
+            `We couldn't find any blocks matching "${searchValue}". Try a different search term.`
+          )}
+        </Text>
+      </Stack>
+    )
+  }
 
   return (
     <Stack p="sm" gap={"lg"}>
