@@ -24,7 +24,7 @@ const ProductPricing = () => {
             <NumberInput
               min="0"
               label={t("products.addProduct.price")}
-              leftSection={<DollarSign size={18} strokeWidth={1.5} />}
+              leftSection={ <img src="/riyal.svg" alt="riyal" className="w-4 object-contain" />}
               error={
                 formState.errors.price?.message &&
                 t(`products.addProduct.errors.${formState.errors.price?.message}`)
@@ -66,7 +66,7 @@ const ProductPricing = () => {
               <NumberInput
                 min="0"
                 label={t("products.addProduct.sales_price")}
-                leftSection={<DollarSign size={18} strokeWidth={1.5} />}
+                leftSection={ <img src="/riyal.svg" alt="riyal" className="w-4 object-contain" />}
                 error={
                   formState.errors.sales_price?.message &&
                   t(`products.addProduct.errors.${formState.errors.sales_price?.message}`)
@@ -83,7 +83,7 @@ const ProductPricing = () => {
               <NumberInput
                 min="0"
                 label={t("products.addProduct.max_price")}
-                leftSection={<DollarSign size={18} strokeWidth={1.5} />}
+                leftSection={ <img src="/riyal.svg" alt="riyal" className="w-4 object-contain" />}
                 error={
                   formState.errors.max_price?.message &&
                   t(`products.addProduct.errors.${formState.errors.max_price?.message}`)
