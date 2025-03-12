@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils"
+
 const ImagePreview = ({ block, className,onClick }) => {
   return (
     <div onClick={onClick} className={cn("link-preview image", className)}>
