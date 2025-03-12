@@ -113,7 +113,7 @@ const RenderBlock = (props) => {
             color: theme?.text_color ?? "#FFFFFF",
           }}
         />
-        {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+        {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
         {block.lock_options && (
           <LockModals
             isOpen={lockModalOpen}
@@ -155,7 +155,7 @@ const RenderBlock = (props) => {
                 color: theme?.text_color ?? "#FFFFFF",
               }}
             />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -171,7 +171,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <TwitchPreview {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -187,7 +187,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <HeaderPreview {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -203,7 +203,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <FilePreview {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -219,7 +219,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <AudioPreview {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -235,7 +235,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <ImagePreview {...props} onClick={handleBlockClick} />
-            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -259,7 +259,7 @@ const RenderBlock = (props) => {
                 color: theme?.text_color ?? "#FFFFFF",
               }}
             />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -274,8 +274,12 @@ const RenderBlock = (props) => {
       case "countdown":
         return (
           <>
-            <CountDown {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <CountDown  style={{
+                ...props.style,
+                backgroundColor: theme?.button_color ?? "#FFFFFF",
+                color: theme?.text_color ?? "#FFFFFF",
+              }} {...props} onClick={handleBlockClick} />
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -295,7 +299,7 @@ const RenderBlock = (props) => {
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
               }} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -319,7 +323,7 @@ const RenderBlock = (props) => {
               onClick={handleBlockClick}
               {...props}
             />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -335,7 +339,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <ImageSliderPreview {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -351,7 +355,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <DividerPreview {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -367,7 +371,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <Text {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -383,7 +387,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <SocialsPreview {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -399,7 +403,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <AppleMusic {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -423,7 +427,7 @@ const RenderBlock = (props) => {
                 color: theme?.text_color ?? "#FFFFFF",
               }}
             />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -439,7 +443,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <Product {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -455,7 +459,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <Product {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}
@@ -471,7 +475,7 @@ const RenderBlock = (props) => {
         return (
           <>
             <Product {...props} onClick={handleBlockClick} />
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
                 isOpen={lockModalOpen}

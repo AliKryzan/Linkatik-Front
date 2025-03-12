@@ -57,22 +57,6 @@ const CountDown = ({ form }) => {
             />
           )}
         />
-
-        <Controller
-          control={control}
-          name={"settings.theme"}
-          render={({ field }) => (
-            <CustomSelect
-              label={t("bioBlocks.createBlock.custom.countdown.form.theme")}
-              error={
-                settingsErrors?.theme?.message &&
-                t(`bioBlocks.createBlock.custom.countdown.form.errors.${settingsErrors?.theme?.message}`)
-              }
-              data={["light", "dark"]}
-              {...field}
-            />
-          )}
-        />
       </Group>
     </Stack>
   )

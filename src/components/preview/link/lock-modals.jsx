@@ -121,7 +121,7 @@ const LockModals = ({ isOpen, onClose, lockOptions, blockId, onVerified }) => {
         onClose()
       }
     } else {
-      birthdayForm.setError("year", { message: "You must be at least " + requiredAge + " years old" })
+      birthdayForm.setError("year", { message: t("lockModals.birthday.errors.Invalid year" )})
     }
   })
 

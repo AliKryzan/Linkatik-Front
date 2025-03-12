@@ -170,7 +170,8 @@
       "label": "Birth Year",
       "submit": "Verify",
       "errors": {
-        "You must be at least": "You must be at least {0} years old"
+        "You must be at least": "You must be at least {0} years old",
+        "Invalid year": "Age verification failed. You're age does not match the required age"
       }
     },
     "sensitive": {
