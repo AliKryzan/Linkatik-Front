@@ -13,7 +13,15 @@ const CountDown = ({ block, className, style }) => {
 
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
-      return <Text>{t("bioBlocks.tabs.redirect.form.countdown")}</Text>
+      return (
+        <Text
+          className="text-center"
+          style={{
+            color: style?.color,
+          }}>
+          {t("bioBlocks.tabs.redirect.form.countdown")}
+        </Text>
+      )
     } else {
       // Render a countdown in horizontal inline format
       return (
@@ -37,7 +45,13 @@ const CountDown = ({ block, className, style }) => {
   return (
     <div className={cn("countdown-preview-block", className)}>
       <Countdown date={new Date(block?.settings?.end_date)} renderer={renderer} oPadDays={2} zeroPadTime={2}>
-        <Text>{t("bioBlocks.tabs.redirect.form.countdown")}</Text>
+        <Text
+          className="text-center"
+          style={{
+            color: style?.color,
+          }}>
+          {t("bioBlocks.tabs.redirect.form.countdown")}
+        </Text>
       </Countdown>
     </div>
   )

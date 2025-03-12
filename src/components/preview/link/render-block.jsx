@@ -170,7 +170,11 @@ const RenderBlock = (props) => {
       case "twitch":
         return (
           <>
-            <TwitchPreview {...props} onClick={handleBlockClick} />
+            <TwitchPreview {...props} style={{
+                ...props.style,
+                backgroundColor: theme?.button_color ?? "#FFFFFF",
+                color: theme?.text_color ?? "#FFFFFF",
+              }} onClick={handleBlockClick} />
             {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
@@ -186,7 +190,11 @@ const RenderBlock = (props) => {
       case "header":
         return (
           <>
-            <HeaderPreview {...props} onClick={handleBlockClick} />
+            <HeaderPreview {...props} style={{
+                ...props.style,
+                backgroundColor: theme?.button_color ?? "#FFFFFF",
+                color: theme?.text_color ?? "#FFFFFF",
+              }} onClick={handleBlockClick} />
             {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
@@ -202,7 +210,11 @@ const RenderBlock = (props) => {
       case "file":
         return (
           <>
-            <FilePreview {...props} onClick={handleBlockClick} />
+            <FilePreview {...props} style={{
+                ...props.style,
+                backgroundColor: theme?.button_color ?? "#FFFFFF",
+                color: theme?.text_color ?? "#FFFFFF",
+              }} onClick={handleBlockClick} />
             {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
@@ -218,7 +230,11 @@ const RenderBlock = (props) => {
       case "audio":
         return (
           <>
-            <AudioPreview {...props} onClick={handleBlockClick} />
+            <AudioPreview {...props} style={{
+                ...props.style,
+                backgroundColor: theme?.button_color ?? "#FFFFFF",
+                color: theme?.text_color ?? "#FFFFFF",
+              }} onClick={handleBlockClick} />
             {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
