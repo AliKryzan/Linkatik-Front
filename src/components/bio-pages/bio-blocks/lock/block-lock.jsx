@@ -1,14 +1,14 @@
 import { useState } from "react"
+import { PutUpdateBlock } from "@/services/utils"
+import { BioBlockLockSchema } from "@/validation/bio-block"
 import { DevTool } from "@hookform/devtools"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Accordion, Alert, Button, Checkbox, Group, PinInput, Stack, Text, TextInput } from "@mantine/core"
 import { CircleAlert } from "lucide-react"
 import { Controller, useForm } from "react-hook-form"
+import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
-
-import { PutUpdateBlock } from "@/services/utils"
-import { BioBlockLockSchema } from "@/validation/bio-block"
 
 const BlockLock = ({ block }) => {
   const { id } = useParams()
@@ -17,7 +17,7 @@ const BlockLock = ({ block }) => {
     resolver: zodResolver(BioBlockLockSchema),
     defaultValues: {
       birthday_year: block.lock_options?.birthday_year
-        ? new Date().getFullYear() - block.lock_options?.birthday_year
+        ? String(new Date().getFullYear() - block.lock_options?.birthday_year)
         : "",
       show_with_code: block.lock_options?.show_with_code || false,
       code_confirmation: block.lock_options?.code_confirmation
@@ -42,6 +42,29 @@ const BlockLock = ({ block }) => {
           },
           image: block.image, // Preserve the existing image
         },
+      })
+
+      // Create a message describing which lock options were selected
+      const enabledOptions = []
+      if (data.show_with_subscribe) enabledOptions.push(t("bioBlocks.tabs.lock.form.show_with_subscribe"))
+      if (data.show_with_code) enabledOptions.push(t("bioBlocks.tabs.lock.form.show_with_code"))
+      if (data.show_with_birthday) enabledOptions.push(t("bioBlocks.tabs.lock.form.show_with_birthday"))
+      if (data.show_with_sensitive_content)
+        enabledOptions.push(t("bioBlocks.tabs.lock.form.show_with_sensitive_content"))
+
+      // Display success toast with selected options
+      const successMessage =
+        enabledOptions.length > 0
+          ? t("bioBlocks.tabs.lock.successMessage", {
+              defaultValue: `Lock settings saved with: ${enabledOptions.join(", ")}`,
+              options: enabledOptions.join(", "),
+            })
+          : t("bioBlocks.tabs.lock.successMessageEmpty", {
+              defaultValue: "Lock settings saved successfully",
+            })
+
+      toast.success(successMessage, {
+        position: "top-center",
       })
     } catch (error) {
       console.log("🚀 ~ onSubmit ~ error:", error)
@@ -105,21 +128,24 @@ const BlockLock = ({ block }) => {
                   type="number"
                   min={1}
                   onKeyDown={(e) => {
-                    if (e.key === '-' || e.key === 'e' || e.key === '.') {
-                      e.preventDefault();
+                    if (e.key === "-" || e.key === "e" || e.key === ".") {
+                      e.preventDefault()
                     }
                   }}
                   onInput={(e) => {
                     if (e.target.value < 1) {
-                      e.target.value = 1;
+                      e.target.value = 1
                     }
                   }}
-                  label={t("bioBlocks.tabs.lock.form.birthday_year_label")}
+                  label={t("bioBlocks.tabs.lock.form.birthday_year_label", {
+                    defaultValue: formState.errors.birthday_year?.message,
+                  })}
                   error={
                     formState.errors.birthday_year?.message &&
                     t(`bioBlocks.tabs.lock.form.errors.${formState.errors.birthday_year?.message}`)
                   }
                   {...field}
+                  onChange={(e) => form.setValue("birthday_year", String(e.target.value))}
                 />
               )}
             />
@@ -141,7 +167,7 @@ const BlockLock = ({ block }) => {
       component: null,
     },
   ]
-
+  console.log(form.formState.errors)
   return (
     <Stack p={"lg"} component={"form"} onSubmit={onSubmit} noValidate>
       <div>

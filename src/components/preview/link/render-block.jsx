@@ -15,6 +15,7 @@ import FilePreview from "./file"
 import HeaderPreview from "./header"
 import ImagePreview from "./image"
 import ImageSliderPreview from "./image-slider"
+import LockIndicator from "./lock-indicator"
 import Product from "./product"
 import SocialsPreview from "./socials"
 import Text from "./text"
@@ -72,16 +73,19 @@ const RenderBlock = (props) => {
   // Wrap the component with the animation class and theme styles
   const renderWithAnimation = (Component) => {
     return (
-      <Component
-        {...props}
-        onClick={trackBlockClick}
-        className={`${props.className || ""} ${animationClass}`}
-        style={{
-          ...props.style,
-          backgroundColor: theme?.button_color ?? "#FFFFFF",
-          color: theme?.text_color ?? "#FFFFFF",
-        }}
-      />
+      <>
+        {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+        <Component
+          {...props}
+          onClick={trackBlockClick}
+          className={`${props.className || ""} ${animationClass}`}
+          style={{
+            ...props.style,
+            backgroundColor: theme?.button_color ?? "#FFFFFF",
+            color: theme?.text_color ?? "#FFFFFF",
+          }}
+        />
+      </>
     )
   }
   // console.log("BlocksWithLinkBehavior ========>",props)
@@ -103,83 +107,175 @@ const RenderBlock = (props) => {
     switch (type) {
       case "link_behavior":
         return (
-          <CustomLinkBehavior
-            {...props}
-            onClick={trackBlockClick}
-            style={{
-              ...props.style,
-              backgroundColor: theme?.button_color ?? "#FFFFFF",
-              color: theme?.text_color ?? "#FFFFFF",
-            }}
-          />
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <CustomLinkBehavior
+              {...props}
+              onClick={trackBlockClick}
+              style={{
+                ...props.style,
+                backgroundColor: theme?.button_color ?? "#FFFFFF",
+                color: theme?.text_color ?? "#FFFFFF",
+              }}
+            />
+          </>
         )
       case "twitch":
-        return <TwitchPreview {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <TwitchPreview {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "header":
-        return <HeaderPreview {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <HeaderPreview {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "file":
-        return <FilePreview {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <FilePreview {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "audio":
-        return <AudioPreview {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <AudioPreview {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "image":
-        return <ImagePreview {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <ImagePreview {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "video":
         return (
-          <VideoPreview
-            {...props}
-            onClick={trackBlockClick}
-            style={{
-              ...props.style,
-              backgroundColor: theme?.button_color ?? "#FFFFFF",
-              color: theme?.text_color ?? "#FFFFFF",
-            }}
-          />
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <VideoPreview
+              {...props}
+              onClick={trackBlockClick}
+              style={{
+                ...props.style,
+                backgroundColor: theme?.button_color ?? "#FFFFFF",
+                color: theme?.text_color ?? "#FFFFFF",
+              }}
+            />
+          </>
         )
       case "countdown":
-        return <CountDown {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <CountDown {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "contact_form":
-        return <ContactForm {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <ContactForm {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "faq":
         return (
-          <FaqPreview
-            style={{
-              ...props.style,
-              backgroundColor: theme?.button_color ?? "#FFFFFF",
-              color: theme?.text_color ?? "#FFFFFF",
-            }}
-            onClick={trackBlockClick}
-            {...props}
-          />
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <FaqPreview
+              style={{
+                ...props.style,
+                backgroundColor: theme?.button_color ?? "#FFFFFF",
+                color: theme?.text_color ?? "#FFFFFF",
+              }}
+              onClick={trackBlockClick}
+              {...props}
+            />
+          </>
         )
       case "image_slider":
-        return <ImageSliderPreview {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <ImageSliderPreview {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "divider":
-        return <DividerPreview {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <DividerPreview {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "text_block":
-        return <Text {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <Text {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "socials":
-        return <SocialsPreview {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <SocialsPreview {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "apple_music":
-        return <AppleMusic {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <AppleMusic {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "email_collector":
-        return <EmailCollector {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <EmailCollector {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "zid":
-        return <Product {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <Product {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "product":
-        return <Product {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <Product {...props} onClick={trackBlockClick} />
+          </>
+        )
       case "salla":
-        return <Product {...props} onClick={trackBlockClick} />
+        return (
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <Product {...props} onClick={trackBlockClick} />
+          </>
+        )
       default:
         return (
-          <Default
-            {...props}
-            onClick={trackBlockClick}
-            style={{
-              ...props.style,
-              backgroundColor: theme?.button_color ?? "#FFFFFF",
-              color: theme?.text_color ?? "#FFFFFF",
-            }}
-          />
+          <>
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            <Default
+              {...props}
+              onClick={trackBlockClick}
+              style={{
+                ...props.style,
+                backgroundColor: theme?.button_color ?? "#FFFFFF",
+                color: theme?.text_color ?? "#FFFFFF",
+              }}
+            />
+          </>
         )
     }
   }
