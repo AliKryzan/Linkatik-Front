@@ -14,6 +14,7 @@ import CreateLinkButton from "@/components/bio-pages/create-link-button"
 import Error from "@/components/common/error"
 import InfiniteScrollContainer from "@/components/common/infinte-scroll-container"
 import Loader from "@/components/common/loader"
+import { ActiveBlockProvider } from "@/contexts/active-block-context"
 
 const BioPage = () => {
   const { id, path } = useParams()
@@ -98,17 +99,19 @@ const BioPage = () => {
       }}>
       <Stack className="bio-page" gap={"xl"}>
         <CreateLinkButton />
-        <DndContext
-          modifiers={[restrictToVerticalAxis]}
-          sensors={sensors}
-          collisionDetection={closestCenter}
-          onDragEnd={handleDragEnd}>
-          <SortableContext strategy={verticalListSortingStrategy} items={blocks}>
-            {blocks.map((block) => (
-              <BioBlock key={block.id + block.type} block={block} />
-            ))}
-          </SortableContext>
-        </DndContext>
+        <ActiveBlockProvider>
+          <DndContext
+            modifiers={[restrictToVerticalAxis]}
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}>
+            <SortableContext strategy={verticalListSortingStrategy} items={blocks}>
+              {blocks.map((block) => (
+                <BioBlock key={block.id + block.type} block={block} />
+              ))}
+            </SortableContext>
+          </DndContext>
+        </ActiveBlockProvider>
         {isFetchingNextPage ? <Loader /> : null}
       </Stack>
     </InfiniteScrollContainer>

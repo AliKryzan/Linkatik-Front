@@ -3,6 +3,7 @@ import { useSortable } from "@dnd-kit/sortable"
 import { Box, Group, Stack } from "@mantine/core"
 import { GripVertical } from "lucide-react"
 
+import { useActiveBlock } from "@/contexts/active-block-context"
 import ActivationSwitch from "./activation-switch"
 import BioBlockTabs from "./block-tabs"
 import TitleInput from "./title-input"
@@ -13,11 +14,18 @@ const BioBlock = ({ block }) => {
     id: block.id,
   })
 
+  const { activeBlockId, isBlockActive } = useActiveBlock()
+  const isActive = isBlockActive(block.id)
+  const shouldBlur = activeBlockId !== null && !isActive
+
   const style = {
     transform: `translateY(${transform?.y || 0}px)`,
     transition,
     position: "relative",
-    zIndex: isDragging ? 10 : 1,
+    zIndex: isDragging ? 10 : isActive ? 5 : 1,
+    filter: shouldBlur ? "blur(2px)" : "none",
+    opacity: shouldBlur ? 0.7 : 1,
+    transition: "filter 0.3s ease, opacity 0.3s ease",
   }
 
   return (

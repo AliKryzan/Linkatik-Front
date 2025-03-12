@@ -1,8 +1,9 @@
-import { memo, useState } from "react"
+import { memo, useState, useEffect } from "react"
 import { ActionIcon, Flex, Group, Space, Tabs, Text, useDirection, useMantineTheme } from "@mantine/core"
 import { AlignEndHorizontal, Calendar, CornerDownRight, Image, Lock, Settings, Star, X } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
+import { useActiveBlock } from "@/contexts/active-block-context"
 import AutoHeight from "../../common/auto-height"
 import { BioBlockTabLoader } from "./bio-block-tab-loader"
 import DeleteBioBlockButton from "./delete-block-button"
@@ -49,8 +50,17 @@ const BioBlockTabs = ({ block }) => {
   const theme = useMantineTheme()
   const { dir } = useDirection()
   const [activeTab, setActiveTab] = useState("");
-  console.log('block hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
-  console.log(block);
+  const { setActiveBlockId } = useActiveBlock();
+  
+  // Update the active block ID when a tab is opened or closed
+  useEffect(() => {
+    if (activeTab) {
+      setActiveBlockId(block.id);
+    } else if (!activeTab) {
+      setActiveBlockId(null);
+    }
+  }, [activeTab, block.id, setActiveBlockId]);
+  
   return (
     <div>
       <Tabs
