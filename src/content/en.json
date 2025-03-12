@@ -155,6 +155,41 @@
       "passwordMismatch": "Passwords do not match"
     }
   },
+  "lockModals": {
+    "code": {
+      "title": "Enter Passcode",
+      "label": "Enter the passcode to access this content",
+      "submit": "Submit",
+      "errors": {
+        "Invalid code": "Invalid code"
+      }
+    },
+    "birthday": {
+      "title": "Age Verification",
+      "description": "This content is age-restricted. Please enter your birth year to continue.",
+      "label": "Birth Year",
+      "submit": "Verify",
+      "errors": {
+        "You must be at least": "You must be at least {0} years old"
+      }
+    },
+    "sensitive": {
+      "title": "Content Warning",
+      "description": "This content may be sensitive for some users. Are you sure you want to continue?",
+      "cancel": "Cancel",
+      "confirm": "Continue"
+    },
+    "subscribe": {
+      "title": "Subscribe to Continue",
+      "description": "Please subscribe with your email to access this content.",
+      "label": "Email",
+      "consent": "I agree to receive emails from this creator",
+      "submit": "Subscribe",
+      "errors": {
+        "Please enter a valid email": "Please enter a valid email"
+      }
+    }
+  },
   "plans": {
     "title": "Find the right plan for you",
     "description": "You can change the plan later",
