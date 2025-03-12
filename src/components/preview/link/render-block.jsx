@@ -1,6 +1,7 @@
 import { BlocksWithLinkBehavior } from "@/config/bio-blocks"
 import { AuthLinkatikApi } from "@/services"
 import { useQueryClient } from "@tanstack/react-query"
+import { useState } from "react"
 import { useParams } from "react-router-dom"
 
 import AppleMusic from "./apple-music"
@@ -17,6 +18,7 @@ import HeaderPreview from "./header"
 import ImagePreview from "./image"
 import ImageSliderPreview from "./image-slider"
 import LockIndicator from "./lock-indicator"
+import LockModals from "./lock-modals"
 import Product from "./product"
 import SocialsPreview from "./socials"
 import Text from "./text"
@@ -31,6 +33,10 @@ const RenderBlock = (props) => {
   const priorityType = block.priority?.type
   const animationType = block.priority?.animation
   const queryClient = useQueryClient()
+  
+  // State for lock modal
+  const [lockModalOpen, setLockModalOpen] = useState(false)
+  const [isVerified, setIsVerified] = useState(false)
 
   // Check if the block has scheduling enabled and if it should be displayed based on current time
   const hasSchedule = block.schedule?.is_enable
@@ -62,6 +68,29 @@ const RenderBlock = (props) => {
       console.error("Error in trackBlockClick:", error)
     }
   }
+  
+  // Handle block click with lock check
+  const handleBlockClick = (e) => {
+    if (block.lock_options && !isVerified) {
+      e.preventDefault()
+      e.stopPropagation()
+      setLockModalOpen(true)
+      return
+    }
+    
+    // If no lock or already verified, proceed with normal click
+    trackBlockClick()
+    if (props.onClick) props.onClick(e)
+  }
+  
+  // Handle verification success
+  const handleVerified = () => {
+    setIsVerified(true)
+    // Allow a small delay before auto-clicking the block
+    setTimeout(() => {
+      trackBlockClick()
+    }, 500)
+  }
 
   // Determine animation class based on priority settings
   let animationClass = ""
@@ -74,10 +103,9 @@ const RenderBlock = (props) => {
   const renderWithAnimation = (Component) => {
     return (
       <>
-        {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
         <Component
           {...props}
-          onClick={trackBlockClick}
+          onClick={handleBlockClick}
           className={`${props.className || ""} ${animationClass}`}
           style={{
             ...props.style,
@@ -85,6 +113,16 @@ const RenderBlock = (props) => {
             color: theme?.text_color ?? "#FFFFFF",
           }}
         />
+        {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+        {block.lock_options && (
+          <LockModals
+            isOpen={lockModalOpen}
+            onClose={() => setLockModalOpen(false)}
+            lockOptions={block.lock_options}
+            blockId={block.id}
+            onVerified={handleVerified}
+          />
+        )}
       </>
     )
   }
@@ -108,185 +146,365 @@ const RenderBlock = (props) => {
       case "link_behavior":
         return (
           <>
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
             <CustomLinkBehavior
               {...props}
-              onClick={trackBlockClick}
+              onClick={handleBlockClick}
               style={{
                 ...props.style,
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
               }}
             />
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "twitch":
         return (
           <>
+            <TwitchPreview {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <TwitchPreview {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "header":
         return (
           <>
+            <HeaderPreview {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <HeaderPreview {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "file":
         return (
           <>
+            <FilePreview {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <FilePreview {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "audio":
         return (
           <>
+            <AudioPreview {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <AudioPreview {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "image":
         return (
           <>
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <ImagePreview {...props} onClick={trackBlockClick} />
+            <ImagePreview {...props} onClick={handleBlockClick} />
+            {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "video":
         return (
           <>
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-          <VideoPreview
+            <VideoPreview
               {...props}
-              onClick={trackBlockClick}
+              onClick={handleBlockClick}
               style={{
                 ...props.style,
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
               }}
             />
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "countdown":
         return (
           <>
+            <CountDown {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <CountDown {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "contact_form":
         return (
           <>
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <ContactForm {...props} onClick={trackBlockClick}     style={{
+            <ContactForm {...props} onClick={handleBlockClick}     style={{
                 ...props.style,
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
               }} />
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "faq":
         return (
           <>
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
             <FaqPreview
               style={{
                 ...props.style,
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
               }}
-              onClick={trackBlockClick}
+              onClick={handleBlockClick}
               {...props}
             />
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "image_slider":
         return (
           <>
+            <ImageSliderPreview {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <ImageSliderPreview {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "divider":
         return (
           <>
+            <DividerPreview {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <DividerPreview {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "text_block":
         return (
           <>
+            <Text {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <Text {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "socials":
         return (
           <>
+            <SocialsPreview {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <SocialsPreview {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "apple_music":
         return (
           <>
+            <AppleMusic {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <AppleMusic {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "email_collector":
         return (
           <>
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
             <EmailCollector
               {...props}
-              onClick={trackBlockClick}
+              onClick={handleBlockClick}
               style={{
                 ...props.style,
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
               }}
             />
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "zid":
         return (
           <>
+            <Product {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <Product {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "product":
         return (
           <>
+            <Product {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <Product {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       case "salla":
         return (
           <>
+            <Product {...props} onClick={handleBlockClick} />
             {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
-            <Product {...props} onClick={trackBlockClick} />
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
       default:
         return (
           <>
-            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
             <Default
               {...props}
-              onClick={trackBlockClick}
+              onClick={handleBlockClick}
               style={{
                 ...props.style,
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
               }}
             />
+            {block.lock_options && <LockIndicator lockOptions={block.lock_options} />}
+            {block.lock_options && (
+              <LockModals
+                isOpen={lockModalOpen}
+                onClose={() => setLockModalOpen(false)}
+                lockOptions={block.lock_options}
+                blockId={block.id}
+                onVerified={handleVerified}
+              />
+            )}
           </>
         )
     }
