@@ -34,6 +34,7 @@ const DefaultForm = () => {
                 // Update the field value with the modified URL
                 field.onChange(url);
               }
+              // Ensure we're passing the URL without any additional processing that might affect encoded characters
               checkURL(url);
             }}
           />
