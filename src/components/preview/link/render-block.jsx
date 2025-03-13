@@ -1,7 +1,7 @@
+import { useState } from "react"
 import { BlocksWithLinkBehavior } from "@/config/bio-blocks"
 import { AuthLinkatikApi } from "@/services"
 import { useQueryClient } from "@tanstack/react-query"
-import { useState } from "react"
 import { useParams } from "react-router-dom"
 
 import AppleMusic from "./apple-music"
@@ -28,12 +28,12 @@ import VideoPreview from "./video"
 const RenderBlock = (props) => {
   // Get priority settings from the block
   const { id, path } = useParams()
-  const { block, theme } = props
+  const { block, theme, isPreviewPage } = props
   const hasPriority = block.priority?.is_enable
   const priorityType = block.priority?.type
   const animationType = block.priority?.animation
   const queryClient = useQueryClient()
-  
+
   // State for lock modal
   const [lockModalOpen, setLockModalOpen] = useState(false)
   const [isVerified, setIsVerified] = useState(false)
@@ -68,7 +68,7 @@ const RenderBlock = (props) => {
       console.error("Error in trackBlockClick:", error)
     }
   }
-  
+
   // Handle block click with lock check
   const handleBlockClick = (e) => {
     if (block.lock_options && !isVerified) {
@@ -77,12 +77,14 @@ const RenderBlock = (props) => {
       setLockModalOpen(true)
       return
     }
-    
+
     // If no lock or already verified, proceed with normal click
-    trackBlockClick()
+    if (!isPreviewPage) {
+      trackBlockClick()
+    }
     if (props.onClick) props.onClick(e)
   }
-  
+
   // Handle verification success
   const handleVerified = () => {
     setIsVerified(true)
@@ -170,11 +172,15 @@ const RenderBlock = (props) => {
       case "twitch":
         return (
           <>
-            <TwitchPreview {...props} style={{
+            <TwitchPreview
+              {...props}
+              style={{
                 ...props.style,
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
-              }} onClick={handleBlockClick} />
+              }}
+              onClick={handleBlockClick}
+            />
             {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
@@ -190,11 +196,15 @@ const RenderBlock = (props) => {
       case "header":
         return (
           <>
-            <HeaderPreview {...props} style={{
+            <HeaderPreview
+              {...props}
+              style={{
                 ...props.style,
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
-              }} onClick={handleBlockClick} />
+              }}
+              onClick={handleBlockClick}
+            />
             {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
@@ -210,11 +220,15 @@ const RenderBlock = (props) => {
       case "file":
         return (
           <>
-            <FilePreview {...props} style={{
+            <FilePreview
+              {...props}
+              style={{
                 ...props.style,
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
-              }} onClick={handleBlockClick} />
+              }}
+              onClick={handleBlockClick}
+            />
             {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
@@ -230,11 +244,15 @@ const RenderBlock = (props) => {
       case "audio":
         return (
           <>
-            <AudioPreview {...props} style={{
+            <AudioPreview
+              {...props}
+              style={{
                 ...props.style,
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
-              }} onClick={handleBlockClick} />
+              }}
+              onClick={handleBlockClick}
+            />
             {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
@@ -290,11 +308,15 @@ const RenderBlock = (props) => {
       case "countdown":
         return (
           <>
-            <CountDown  style={{
+            <CountDown
+              style={{
                 ...props.style,
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
-              }} {...props} onClick={handleBlockClick} />
+              }}
+              {...props}
+              onClick={handleBlockClick}
+            />
             {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals
@@ -310,11 +332,15 @@ const RenderBlock = (props) => {
       case "contact_form":
         return (
           <>
-            <ContactForm {...props} onClick={handleBlockClick}     style={{
+            <ContactForm
+              {...props}
+              onClick={handleBlockClick}
+              style={{
                 ...props.style,
                 backgroundColor: theme?.button_color ?? "#FFFFFF",
                 color: theme?.text_color ?? "#FFFFFF",
-              }} />
+              }}
+            />
             {/* {block.lock_options && <LockIndicator lockOptions={block.lock_options} />} */}
             {block.lock_options && (
               <LockModals

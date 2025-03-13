@@ -306,6 +306,7 @@ const Preview = ({ isStandAlonePage = false }) => {
                 <BlockPreviewWrapper
                   theme={selectedTheme?.settings?.bio_link}
                   pageId={data.data.id}
+                  isPreviewPage={!isStandAlonePage}
                   key={index}
                   block={block}
                 />
